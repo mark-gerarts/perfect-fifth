@@ -4,6 +4,10 @@ import * as p5 from 'p5';
 
 export const createSketch = (sketch) => {
   let p5Sketch = (p) => {
+
+    // For testing, delete me later.
+    console.log(p);
+
     let state;
 
     p.setup = () => {
@@ -22,6 +26,10 @@ export const createSketch = (sketch) => {
     };
   }
 
-  // @todo: add node
-  new p5(p5Sketch);
+  let node = null;
+  if (sketch.node.tag === 0 || sketch.node.tag === 1) {
+    node = sketch.node.fields[0];
+  }
+
+  new p5(p5Sketch, node);
 };

@@ -7,8 +7,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="P5.fs" />
+    <Compile Include="Util.fs" />
     <Compile Include="Color.fs" />
+    <Compile Include="Environment.fs" />
     <Compile Include="Rendering.fs" />
+    <Compile Include="Shape.fs" />
+    <Compile Include="Structure.fs" />
+    <Compile Include="Time.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fable.Browser.Dom" Version="2.2.0" />

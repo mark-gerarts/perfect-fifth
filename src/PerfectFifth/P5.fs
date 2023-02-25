@@ -20,10 +20,9 @@ module Core =
 
     type EventHandler<'a> = P5 -> Event -> 'a -> 'a
 
-    // @todo: element
     type Node =
         | Selector of string
-        | Element of string
+        | Element of string // @todo: element instead of string
         | None
 
     // Inspired by Quil's fun-mode and Gloss.
@@ -35,6 +34,18 @@ module Core =
           eventHandler: EventHandler<'a>
           node: Node }
 
+    /// Disables the draw function from being called continuously. This should
+    /// belong in P5.Structure, but because we need this in `display`, we would
+    /// run into dependency issues.
+    [<Emit("$0.noLoop()")>]
+    let noLoop (p5: P5) : Unit = jsNative
+
+    /// Returns the time in milliseconds since the start of the sketch. This
+    /// should belong in P5.Time, but because we need this in `animate`, we
+    /// would run into dependency issues.
+    [<Emit("$0.millis()")>]
+    let millis (p5: P5) : int = jsNative
+
     let defaultSketch initial =
         { initial = initial
           setup = (fun _ -> ())
@@ -43,16 +54,48 @@ module Core =
           eventHandler = (fun _ _ -> id)
           node = None }
 
-    // TODO: display / animate / simulate / play
     [<ImportMember("./sketch.js")>]
     let createSketch (sketch: Sketch<'a>) = jsNative
 
     let noSetup (_: P5) = ()
 
+    /// Create a static sketch.
     let display (setup: Setup) (draw: P5 -> Unit) =
-        let statefulDraw (p5: P5) _ = draw p5
+        let setupWithLoopDisabled (p5: P5) =
+            setup p5
+            noLoop p5
+
+        let drawDropState (p5: P5) _ = draw p5
+
+        createSketch
+            { defaultSketch () with
+                setup = setupWithLoopDisabled
+                draw = drawDropState }
+
+    /// Create a simple animation sketch, which draws something based on the
+    /// time elapsed.
+    let animate (setup: Setup) (draw: P5 -> int -> Unit) =
+        let drawWithTimeElapsed (p5: P5) _ = draw p5 (millis p5)
 
         createSketch
             { defaultSketch () with
                 setup = setup
-                draw = statefulDraw }
+                draw = drawWithTimeElapsed }
+
+    /// Create a simulation sketch. It starts with an initial state, which gets
+    /// updated every step.
+    let simulate (initial: 'a) (setup: Setup) (update: Update<'a>) (draw: Draw<'a>) =
+        createSketch
+            { defaultSketch initial with
+                setup = setup
+                update = update
+                draw = draw }
+
+    /// Create a sketch with all functionality: handling state and events.
+    let play (initial: 'a) (setup: Setup) (update: Update<'a>) (draw: Draw<'a>) (eventHandler: EventHandler<'a>) =
+        createSketch
+            { defaultSketch initial with
+                setup = setup
+                update = update
+                draw = draw
+                eventHandler = eventHandler }
