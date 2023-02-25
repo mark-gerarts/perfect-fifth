@@ -4,6 +4,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Structure\Coordinates.fs" />
+    <Compile Include="Structure\WidthAndHeight.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>

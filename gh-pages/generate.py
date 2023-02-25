@@ -5,8 +5,11 @@ structure = {
     "Structure": [
         {
             "name": "Coordinates",
-            "file": "Structure/Coordinates",
-            "p5js_link": "https://p5js.org/examples/structure-coordinates.html"
+            "file": "Structure/Coordinates"
+        },
+        {
+            "name": "Width and Height",
+            "file": "Structure/WidthAndHeight"
         }
     ]
 }
@@ -22,9 +25,9 @@ sh.copyfile(f"{basedir}/index.html", f"{basedir}/output/index.html")
 sh.copyfile(f"{basedir}/examples.html", f"{basedir}/output/examples.html")
 
 def to_filename(section, entry):
-    entry_name = entry["name"]
+    entry_name = entry["name"].replace(" ", "-")
 
-    return f"examples-{section}-{entry_name}.html".lower()
+    return f"{section}-{entry_name}.html".lower()
 
 def replace_in_file(path, search, replace):
     file_in = open(path, "rt")
@@ -52,7 +55,9 @@ for section, entries in structure.items():
 
         replace_in_file(dst, "$file", entry["file"])
         replace_in_file(dst, "$escapedFile", entry["file"].replace("/", "%2F"))
-        replace_in_file(dst, "$p5jsLink", entry["p5js_link"])
+
+        p5js_link = f"https://p5js.org/examples/{filename}"
+        replace_in_file(dst, "$p5jsLink", p5js_link)
 
 example_list = "<ul>"
 # Create listing of pages for examples.

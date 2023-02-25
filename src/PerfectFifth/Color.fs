@@ -24,7 +24,12 @@ module Color =
 
     let background (p5: P5) (color: Color) : Unit = emitColorFunction p5 "background" color
 
+    let fill (p5: P5) (color: Color) : Unit = emitColorFunction p5 "fill" color
+
     [<Emit("$0.noFill()")>]
     let noFill (p5: P5) : Unit = jsNative
 
     let stroke (p5: P5) (color: Color) : Unit = emitColorFunction p5 "stroke" color
+
+    [<Emit("$0.noStroke()")>]
+    let noStroke (p5: P5) : Unit = jsNative
