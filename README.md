@@ -44,5 +44,4 @@ As said above, this is very much a work in progress.
 - Extract this to a proper library & publish
   - E.g. find a solution for `sketch.js` (probably publish it as an npm package)
 - Documentation & docblocks
-- Add license (MIT)
 - For simplicity's sake, should add a global mode variant as well
