@@ -9,3 +9,7 @@ module Rendering =
 
     [<Emit("$0.createCanvas($1, $2)")>]
     let createCanvas (p5: P5) (width: int) (height: int) : Unit = jsNative
+
+    // TODO: noRedraw
+    [<Emit("$0.resizeCanvas($1, $2)")>]
+    let resizeCanvas (p5: P5) (width: int) (height: int) : Unit = jsNative

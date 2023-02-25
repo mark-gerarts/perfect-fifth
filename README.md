@@ -45,3 +45,8 @@ As said above, this is very much a work in progress.
   - E.g. find a solution for `sketch.js` (probably publish it as an npm package)
 - Documentation & docblocks
 - For simplicity's sake, should add a global mode variant as well
+
+## Credits
+
+Inspired by [Haskell's Gloss](http://gloss.ouroborus.net/) And [Clojure's
+Quil](https://github.com/quil/quil).

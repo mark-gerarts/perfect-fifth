@@ -21,8 +21,8 @@ module Core =
     type EventHandler<'a> = P5 -> Event -> 'a -> 'a
 
     type Node =
-        | Selector of string
-        | Element of string // @todo: element instead of string
+        | Selector of string // @todo: doesn't work yet.
+        | Element of Browser.Types.Element
         | None
 
     // Inspired by Quil's fun-mode and Gloss.
@@ -60,7 +60,7 @@ module Core =
     let noSetup (_: P5) = ()
 
     /// Create a static sketch.
-    let display (setup: Setup) (draw: P5 -> Unit) =
+    let display (node: Node) (setup: Setup) (draw: P5 -> Unit) =
         let setupWithLoopDisabled (p5: P5) =
             setup p5
             noLoop p5
@@ -70,32 +70,43 @@ module Core =
         createSketch
             { defaultSketch () with
                 setup = setupWithLoopDisabled
-                draw = drawDropState }
+                draw = drawDropState
+                node = node }
 
     /// Create a simple animation sketch, which draws something based on the
     /// time elapsed.
-    let animate (setup: Setup) (draw: P5 -> int -> Unit) =
+    let animate (node: Node) (setup: Setup) (draw: P5 -> int -> Unit) =
         let drawWithTimeElapsed (p5: P5) _ = draw p5 (millis p5)
 
         createSketch
             { defaultSketch () with
                 setup = setup
-                draw = drawWithTimeElapsed }
+                draw = drawWithTimeElapsed
+                node = node }
 
     /// Create a simulation sketch. It starts with an initial state, which gets
     /// updated every step.
-    let simulate (initial: 'a) (setup: Setup) (update: Update<'a>) (draw: Draw<'a>) =
-        createSketch
-            { defaultSketch initial with
-                setup = setup
-                update = update
-                draw = draw }
-
-    /// Create a sketch with all functionality: handling state and events.
-    let play (initial: 'a) (setup: Setup) (update: Update<'a>) (draw: Draw<'a>) (eventHandler: EventHandler<'a>) =
+    let simulate (node: Node) (initial: 'a) (setup: Setup) (update: Update<'a>) (draw: Draw<'a>) =
         createSketch
             { defaultSketch initial with
                 setup = setup
                 update = update
                 draw = draw
-                eventHandler = eventHandler }
+                node = node }
+
+    /// Create a sketch with all functionality: handling state and events.
+    let play
+        (node: Node)
+        (initial: 'a)
+        (setup: Setup)
+        (update: Update<'a>)
+        (draw: Draw<'a>)
+        (eventHandler: EventHandler<'a>)
+        =
+        createSketch
+            { initial = initial
+              setup = setup
+              update = update
+              draw = draw
+              eventHandler = eventHandler
+              node = node }
