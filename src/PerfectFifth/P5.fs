@@ -13,7 +13,7 @@ module Core =
     type Node =
         | Selector of string // @todo: doesn't work yet.
         | Element of Browser.Types.Element
-        | None
+        | None // @todo: does this clash with Option?
 
     // Inspired by Quil's fun-mode and Gloss.
     type Sketch<'a> =
