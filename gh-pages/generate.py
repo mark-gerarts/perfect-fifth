@@ -9,6 +9,7 @@ structure = {
         {"name": "No Loop", "file": "Structure/NoLoop"},
         {"name": "Loop", "file": "Structure/Loop"},
         {"name": "Redraw", "file": "Structure/Redraw"},
+        {"name": "Functions", "file": "Structure/Functions"},
     ],
     "Form": [
         {"name": "Points and Lines", "file": "Form/PointsAndLines"},

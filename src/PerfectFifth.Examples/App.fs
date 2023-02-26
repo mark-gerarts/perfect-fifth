@@ -14,5 +14,6 @@ let runSketch name =
     | "Structure/NoLoop" -> Structure.NoLoop.run node
     | "Structure/Loop" -> Structure.Loop.run node
     | "Structure/Redraw" -> Structure.Redraw.run node
+    | "Structure/Functions" -> Structure.Functions.run node
     | "Form/PointsAndLines" -> Form.PointsAndLines.run node
     | _ -> failwith <| "No sketch with name " + name + " exists"

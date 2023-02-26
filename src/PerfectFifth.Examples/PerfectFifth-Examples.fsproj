@@ -9,6 +9,7 @@
     <Compile Include="Structure\NoLoop.fs" />
     <Compile Include="Structure\Loop.fs" />
     <Compile Include="Structure\Redraw.fs" />
+    <Compile Include="Structure\Functions.fs" />
     <Compile Include="Form\PointsAndLines.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>

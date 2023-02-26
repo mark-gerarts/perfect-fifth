@@ -29,3 +29,11 @@ module Shape =
 
     [<Emit("$0.rect($1, $2, $3, $4)")>]
     let rect (p5: P5) (x: float) (y: float) (w: float) (h: float) : Unit = jsNative
+
+    // TODO: detail
+    [<Emit("$0.ellipse($1, $2, $3, $4)")>]
+    let ellipse (p5: P5) (x: float) (y: float) (w: float) (h: float) : Unit = jsNative
+
+    // TODO: detail
+    [<Emit("$0.circle($1, $2, $3)")>]
+    let circle (p5: P5) (x: float) (y: float) (d: float) : Unit = jsNative
