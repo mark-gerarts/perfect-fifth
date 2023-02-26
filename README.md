@@ -1,5 +1,7 @@
 # Perfect Fifth
 
+[Homepage (with examples!)](https://mark-gerarts.github.io/perfect-fifth/)
+
 Perfect Fifth is a Processing-like creative coding environment for F#. It is a
 thin wrapper around [p5js](https://p5js.org), with some extra functional sugar
 on top.
@@ -17,7 +19,7 @@ dotnet restore src/PerfectFifth.Examples
 ```
 
 ```bash
-npm i p5
+npm i
 ```
 
 Start a local server with hot reload:
@@ -29,7 +31,7 @@ npm start
 Change the script in `public/index.html` to the example you want to run, e.g.
 
 ```javascript
-PerfectFifth.runSketch("structure/coordinates")
+PerfectFifth.runSketch("Structure/Coordinates")
 ```
 
 As said above, this is very much a work in progress.
@@ -131,15 +133,14 @@ With `simulate` you can create a simulation that is able to update its state
 every frame. The state can be any data type. For example, a simple counter can
 use a single integer, while a complex simulation might use a big record type.
 
-You provide an initial state, which can then be updated every frame using the
-`update` function.
+You provide an initial state in the setup function, which can then be updated
+every step using the `update` function.
 
 ```fsharp
 // Definition:
 let simulate
     (node: Node) // Element to render the canvas.
-    (initial: 'a) // Initial state. Can be anything.
-    (setup: P5 -> Unit) // Setup function that gets called once, before the sketch starts.
+    (setup: P5 -> 'a) // Setup function that gets called once, before the sketch starts. Returns the initial state.
     (update: P5 -> 'a -> 'a) // A function to step the state one iteration.
     (draw: P5 -> 'a -> Unit) // A function to draw something based on the current state.
     : Unit = ...
@@ -149,19 +150,13 @@ TODO: add an example.
 
 ### Play
 
-With `simulate` you can create a simulation that is able to update its state
-every frame. The state can be any data type. For example, a simple counter can
-use a single integer, while a complex simulation might use a big record type.
-
-You provide an initial state, which can then be updated every frame using the
-`update` function.
+Much the same as `simulate`, but `play` is able to handle input as well.
 
 ```fsharp
 // Definition:
 let play
     (node: Node) // Element to render the canvas.
-    (initial: 'a) // Initial state. Can be anything.
-    (setup: P5 -> Unit) // Setup function that gets called once, before the sketch starts.
+    (setup: P5 -> 'a) // Setup function that gets called once, before the sketch starts. Returns the initial state.
     (update: P5 -> 'a -> 'a) // A function to step the state one iteration.
     (draw: P5 -> 'a -> Unit) // A function to draw something based on the current state.
     (eventHandler: P5 -> Event -> 'a -> 'a) // A function to update the state based on input events.
@@ -177,9 +172,9 @@ TODO: explain why p5 needs to be passed to everything.
 ## Todo
 
 - Implement all of p5js
-- Extract this to a proper library & publish
-  - E.g. find a solution for `sketch.js` (probably publish it as an npm package)
-- Documentation & docblocks
+- Documentation & docblocks + check if these can be extracted/published
+  somewhere
+- Publish the package when sufficiently featured
 - For simplicity's sake, could add a global mode variant as well
 - Test suite could possibly be something like playwright on the examples repo
 - Minify bundle.js output in examples project
@@ -187,6 +182,7 @@ TODO: explain why p5 needs to be passed to everything.
 
 ## Credits
 
-Inspired by [Haskell's Gloss](http://gloss.ouroborus.net/) And [Clojure's
-Quil](https://github.com/quil/quil). Made possible with
+Inspired by [Haskell's Gloss](http://gloss.ouroborus.net/), [Clojure's
+Quil](https://github.com/quil/quil), and [aolney's Fable P5
+Demo](https://github.com/aolney/fable-p5-demo). Made possible with
 [Fable](https://fable.io/).

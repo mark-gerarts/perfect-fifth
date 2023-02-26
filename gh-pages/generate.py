@@ -7,8 +7,12 @@ structure = {
         {"name": "Width and Height", "file": "Structure/WidthAndHeight"},
         {"name": "Setup and Draw", "file": "Structure/SetupAndDraw"},
         {"name": "No Loop", "file": "Structure/NoLoop"},
+        {"name": "Loop", "file": "Structure/Loop"},
+        {"name": "Redraw", "file": "Structure/Redraw"},
     ],
-    "Form": [{"name": "Points and Lines", "file": "Form/PointsAndLines"}],
+    "Form": [
+        {"name": "Points and Lines", "file": "Form/PointsAndLines"},
+    ],
 }
 
 basedir = os.path.dirname(os.path.realpath(__file__))

@@ -14,6 +14,9 @@ let setup p5 =
     resizeCanvas p5 720 400
     stroke p5 (Grayscale 255)
 
+    // The intial state.
+    0
+
 let update p5 state =
     match state - 1 with
     | y when y < 0 -> height p5
@@ -26,7 +29,6 @@ let draw p5 state =
 let run node =
     simulate
         node // Target canvas wrapper
-        100 // Initial state
         setup // Function called once at startup
         update // Function that updates state every fraem
         draw // Function that draws something based on the state

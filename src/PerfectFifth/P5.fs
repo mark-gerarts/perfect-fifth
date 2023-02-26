@@ -2,23 +2,42 @@ namespace P5
 
 module Core =
 
+    open System
     open Fable.Core
+    open Browser.Dom
 
-    type P5 =
-        class
-        end
+    /// The methods on this class are for internal use only. You pass an
+    /// instance to all functions, but never call a method on it.
+    [<ImportAll("p5")>]
+    type P5(sketch: Func<obj, Unit>, ?node: Browser.Types.Element) =
+        member _.setup
+            with get (): obj = jsNative
+            and set (_: obj): Unit = jsNative
 
-    type Event = MouseMoved
+        member _.draw
+            with get (): obj = jsNative
+            and set (_: obj): Unit = jsNative
+
+        member _.mouseMoved
+            with get (): obj = jsNative
+            and set (_: obj): Unit = jsNative
+
+        member _.mousePressed
+            with get (): obj = jsNative
+            and set (_: obj): Unit = jsNative
+
+    type Event =
+        // @todo: legit event classes instead of dummy objects.
+        | MouseMoved of obj
+        | MousePressed of obj
 
     type Node =
-        | Selector of string // @todo: doesn't work yet.
+        | Selector of string
         | Element of Browser.Types.Element
-        | None // @todo: does this clash with Option?
+        | None
 
-    // Inspired by Quil's fun-mode and Gloss.
     type Sketch<'a> =
-        { initial: 'a
-          setup: P5 -> Unit
+        { setup: P5 -> 'a
           update: P5 -> 'a -> 'a
           draw: P5 -> 'a -> Unit
           eventHandler: P5 -> Event -> 'a -> 'a
@@ -36,54 +55,77 @@ module Core =
     [<Emit("$0.millis()")>]
     let millis (p5: P5) : int = jsNative
 
-    let defaultSketch initial =
-        { initial = initial
-          setup = (fun _ -> ())
+    let defaultSketch setup =
+        { setup = setup
           update = (fun _ -> id)
           draw = (fun _ _ -> ())
           eventHandler = (fun _ _ -> id)
           node = None }
 
-    [<ImportMember("./sketch.js")>]
-    let createSketch (sketch: Sketch<'a>) : Unit = jsNative
+    let createSketch (sketch: Sketch<'a>) : Unit =
+        let nodeElement =
+            match sketch.node with
+            | Selector selector -> document.querySelector (selector)
+            | Element element -> element
+            | None -> null
+
+        let p5Sketch =
+            // Inspired by https://github.com/aolney/fable-p5-demo
+            new Func<obj, unit>(fun boxedP5 ->
+                let mutable state = Unchecked.defaultof<'a>
+                let p5 = unbox<P5> boxedP5
+
+                p5.setup <- fun () -> state <- sketch.setup p5
+
+                p5.draw <-
+                    fun () ->
+                        state <- sketch.update p5 state
+                        sketch.draw p5 state
+
+                p5.mouseMoved <- fun ev -> state <- sketch.eventHandler p5 (MouseMoved ev) state
+
+                p5.mousePressed <- fun ev -> state <- sketch.eventHandler p5 (MousePressed ev) state
+
+                ())
+
+        new P5(p5Sketch, nodeElement) |> ignore
+
+        ()
 
     let noSetup (_: P5) = ()
 
     /// Create a static sketch.
     let display (node: Node) (draw: P5 -> Unit) : Unit =
-        let setupWithLoopDisabled (p5: P5) = noLoop p5
+        let setupWithLoopDisabled (p5: P5) =
+            noLoop p5
+            ()
 
         let drawDropState (p5: P5) _ = draw p5
 
         createSketch
-            { defaultSketch () with
-                setup = setupWithLoopDisabled
+            { defaultSketch setupWithLoopDisabled with
                 draw = drawDropState
                 node = node }
 
     /// Create a simple animation sketch, which draws something based on the
     /// time elapsed.
     let animate (node: Node) (setup: P5 -> Unit) (draw: P5 -> int -> Unit) : Unit =
+        let setupWithoutState p5 =
+            setup p5
+            ()
+
         let drawWithTimeElapsed (p5: P5) _ = draw p5 (millis p5)
 
         createSketch
-            { defaultSketch () with
-                setup = setup
+            { defaultSketch setupWithoutState with
                 draw = drawWithTimeElapsed
                 node = node }
 
     /// Create a simulation sketch. It starts with an initial state, which gets
     /// updated every step.
-    let simulate
-        (node: Node)
-        (initial: 'a)
-        (setup: P5 -> Unit)
-        (update: P5 -> 'a -> 'a)
-        (draw: P5 -> 'a -> Unit)
-        : Unit =
+    let simulate (node: Node) (setup: P5 -> 'a) (update: P5 -> 'a -> 'a) (draw: P5 -> 'a -> Unit) : Unit =
         createSketch
-            { defaultSketch initial with
-                setup = setup
+            { defaultSketch setup with
                 update = update
                 draw = draw
                 node = node }
@@ -91,15 +133,13 @@ module Core =
     /// Create a sketch with all functionality: handling state and events.
     let play
         (node: Node)
-        (initial: 'a)
-        (setup: P5 -> Unit)
+        (setup: P5 -> 'a)
         (update: P5 -> 'a -> 'a)
         (draw: P5 -> 'a -> Unit)
         (eventHandler: P5 -> Event -> 'a -> 'a)
         : Unit =
         createSketch
-            { initial = initial
-              setup = setup
+            { setup = setup
               update = update
               draw = draw
               eventHandler = eventHandler
