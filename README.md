@@ -169,6 +169,8 @@ TODO: add an example.
 
 TODO: explain why p5 needs to be passed to everything.
 
+TODO: explain function naming scheme (e.g. point -> point2D, color, etc).
+
 ## Todo
 
 - Implement all of p5js
@@ -185,4 +187,4 @@ TODO: explain why p5 needs to be passed to everything.
 Inspired by [Haskell's Gloss](http://gloss.ouroborus.net/), [Clojure's
 Quil](https://github.com/quil/quil), and [aolney's Fable P5
 Demo](https://github.com/aolney/fable-p5-demo). Made possible with
-[Fable](https://fable.io/).
+[Fable](https://fable.io/) and [p5js](https://p5js.org).
