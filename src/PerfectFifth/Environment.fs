@@ -10,3 +10,9 @@ module Environment =
 
     [<Emit("$0.height")>]
     let height (p5: P5) : int = jsNative
+
+    [<Emit("$0.frameRate($1)")>]
+    let framerate (p5: P5) (fps: int) : Unit = jsNative
+
+    [<Emit("$0.getTargetFrameRate($1)")>]
+    let getTargetFrameRate (p5: P5) : int = jsNative

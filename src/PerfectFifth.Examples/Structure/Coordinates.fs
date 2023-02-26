@@ -6,9 +6,9 @@ open P5.Environment
 open P5.Shape
 open P5.Rendering
 
-let setup (p5: P5) = resizeCanvas p5 720 400
-
 let draw (p5: P5) =
+    resizeCanvas p5 720 400
+
     let width = width p5 |> float
     let height = height p5 |> float
 
@@ -24,4 +24,4 @@ let draw (p5: P5) =
     stroke p5 (RGB(255, 153, 0))
     rect p5 (width * 0.25) (height * 0.1) (width * 0.5) (height * 0.8)
 
-let run node : Unit = display node setup draw
+let run node = display node draw

@@ -10,16 +10,6 @@ module Core =
 
     type Event = MouseMoved
 
-    type Initial<'a> = 'a
-
-    type Setup = P5 -> Unit
-
-    type Update<'a> = P5 -> 'a -> 'a
-
-    type Draw<'a> = P5 -> 'a -> Unit
-
-    type EventHandler<'a> = P5 -> Event -> 'a -> 'a
-
     type Node =
         | Selector of string // @todo: doesn't work yet.
         | Element of Browser.Types.Element
@@ -27,11 +17,11 @@ module Core =
 
     // Inspired by Quil's fun-mode and Gloss.
     type Sketch<'a> =
-        { initial: Initial<'a>
-          setup: Setup
-          update: Update<'a>
-          draw: Draw<'a>
-          eventHandler: EventHandler<'a>
+        { initial: 'a
+          setup: P5 -> Unit
+          update: P5 -> 'a -> 'a
+          draw: P5 -> 'a -> Unit
+          eventHandler: P5 -> Event -> 'a -> 'a
           node: Node }
 
     /// Disables the draw function from being called continuously. This should
@@ -55,15 +45,13 @@ module Core =
           node = None }
 
     [<ImportMember("./sketch.js")>]
-    let createSketch (sketch: Sketch<'a>) = jsNative
+    let createSketch (sketch: Sketch<'a>) : Unit = jsNative
 
     let noSetup (_: P5) = ()
 
     /// Create a static sketch.
-    let display (node: Node) (setup: Setup) (draw: P5 -> Unit) =
-        let setupWithLoopDisabled (p5: P5) =
-            setup p5
-            noLoop p5
+    let display (node: Node) (draw: P5 -> Unit) : Unit =
+        let setupWithLoopDisabled (p5: P5) = noLoop p5
 
         let drawDropState (p5: P5) _ = draw p5
 
@@ -75,7 +63,7 @@ module Core =
 
     /// Create a simple animation sketch, which draws something based on the
     /// time elapsed.
-    let animate (node: Node) (setup: Setup) (draw: P5 -> int -> Unit) =
+    let animate (node: Node) (setup: P5 -> Unit) (draw: P5 -> int -> Unit) : Unit =
         let drawWithTimeElapsed (p5: P5) _ = draw p5 (millis p5)
 
         createSketch
@@ -86,7 +74,13 @@ module Core =
 
     /// Create a simulation sketch. It starts with an initial state, which gets
     /// updated every step.
-    let simulate (node: Node) (initial: 'a) (setup: Setup) (update: Update<'a>) (draw: Draw<'a>) =
+    let simulate
+        (node: Node)
+        (initial: 'a)
+        (setup: P5 -> Unit)
+        (update: P5 -> 'a -> 'a)
+        (draw: P5 -> 'a -> Unit)
+        : Unit =
         createSketch
             { defaultSketch initial with
                 setup = setup
@@ -98,11 +92,11 @@ module Core =
     let play
         (node: Node)
         (initial: 'a)
-        (setup: Setup)
-        (update: Update<'a>)
-        (draw: Draw<'a>)
-        (eventHandler: EventHandler<'a>)
-        =
+        (setup: P5 -> Unit)
+        (update: P5 -> 'a -> 'a)
+        (draw: P5 -> 'a -> Unit)
+        (eventHandler: P5 -> Event -> 'a -> 'a)
+        : Unit =
         createSketch
             { initial = initial
               setup = setup

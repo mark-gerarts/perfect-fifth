@@ -45,6 +45,9 @@ As said above, this is very much a work in progress.
   - E.g. find a solution for `sketch.js` (probably publish it as an npm package)
 - Documentation & docblocks
 - For simplicity's sake, should add a global mode variant as well
+- Test suite could possibly be something like playwright on the examples repo
+- Minify bundle.js output
+- Potentially add examples from the reference as well
 
 ## Credits
 

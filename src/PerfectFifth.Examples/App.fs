@@ -10,4 +10,7 @@ let runSketch name =
     match name with
     | "Structure/Coordinates" -> Structure.Coordinates.run node
     | "Structure/WidthAndHeight" -> Structure.WidthAndHeight.run node
+    | "Structure/SetupAndDraw" -> Structure.SetupAndDraw.run node
+    | "Structure/NoLoop" -> Structure.NoLoop.run node
+    | "Form/PointsAndLines" -> Form.PointsAndLines.run node
     | _ -> failwith <| "No sketch with name " + name + " exists"

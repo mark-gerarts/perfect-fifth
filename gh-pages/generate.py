@@ -3,15 +3,12 @@ import os
 
 structure = {
     "Structure": [
-        {
-            "name": "Coordinates",
-            "file": "Structure/Coordinates"
-        },
-        {
-            "name": "Width and Height",
-            "file": "Structure/WidthAndHeight"
-        }
-    ]
+        {"name": "Coordinates", "file": "Structure/Coordinates"},
+        {"name": "Width and Height", "file": "Structure/WidthAndHeight"},
+        {"name": "Setup and Draw", "file": "Structure/SetupAndDraw"},
+        {"name": "No Loop", "file": "Structure/NoLoop"},
+    ],
+    "Form": [{"name": "Points and Lines", "file": "Form/PointsAndLines"}],
 }
 
 basedir = os.path.dirname(os.path.realpath(__file__))
@@ -24,10 +21,12 @@ os.mkdir(f"{basedir}/output")
 sh.copyfile(f"{basedir}/index.html", f"{basedir}/output/index.html")
 sh.copyfile(f"{basedir}/examples.html", f"{basedir}/output/examples.html")
 
+
 def to_filename(section, entry):
     entry_name = entry["name"].replace(" ", "-")
 
     return f"{section}-{entry_name}.html".lower()
+
 
 def replace_in_file(path, search, replace):
     file_in = open(path, "rt")
@@ -59,14 +58,14 @@ for section, entries in structure.items():
         p5js_link = f"https://p5js.org/examples/{filename}"
         replace_in_file(dst, "$p5jsLink", p5js_link)
 
-example_list = "<ul>"
 # Create listing of pages for examples.
+example_list = "<ul>"
 for section, entries in structure.items():
     example_list += f"<li>{section}<ul>"
     for entry in entries:
         entry_name = entry["name"]
         link = to_filename(section, entry)
-        example_list += f"<li><a href=\"{link}\">{entry_name}</a></li>"
+        example_list += f'<li><a href="{link}">{entry_name}</a></li>'
     example_list += "</ul></li>"
 example_list += "</ul>"
 

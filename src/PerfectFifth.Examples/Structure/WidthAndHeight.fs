@@ -6,9 +6,9 @@ open P5.Rendering
 open P5.Environment
 open P5.Shape
 
-let setup p5 = resizeCanvas p5 720 400
-
 let draw p5 =
+    resizeCanvas p5 720 400
+
     let height = height p5
     let width = width p5
 
@@ -21,4 +21,4 @@ let draw p5 =
         fill p5 (Grayscale 255)
         rect p5 i 0 10 height
 
-let run node : Unit = display node setup draw
+let run node = display node draw

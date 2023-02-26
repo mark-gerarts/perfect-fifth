@@ -5,6 +5,9 @@
   <ItemGroup>
     <Compile Include="Structure\Coordinates.fs" />
     <Compile Include="Structure\WidthAndHeight.fs" />
+    <Compile Include="Structure\SetupAndDraw.fs" />
+    <Compile Include="Structure\NoLoop.fs" />
+    <Compile Include="Form\PointsAndLines.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>

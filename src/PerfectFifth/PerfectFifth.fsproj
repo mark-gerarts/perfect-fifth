@@ -14,6 +14,7 @@
     <Compile Include="Shape.fs" />
     <Compile Include="Structure.fs" />
     <Compile Include="Time.fs" />
+    <Compile Include="Transform.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fable.Browser.Dom" Version="2.2.0" />
