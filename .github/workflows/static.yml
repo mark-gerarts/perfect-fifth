@@ -36,6 +36,7 @@ jobs:
           npm i
           npm run build
           cp public/bundle.js gh-pages/output
+          cp public/fable.ico gh-pages/output
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:

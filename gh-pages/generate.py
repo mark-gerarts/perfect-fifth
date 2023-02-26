@@ -63,14 +63,15 @@ for section, entries in structure.items():
         replace_in_file(dst, "$p5jsLink", p5js_link)
 
 # Create listing of pages for examples.
-example_list = "<ul>"
+example_list = ""
 for section, entries in structure.items():
-    example_list += f"<li>{section}<ul>"
+    example_list += f"<h3>{section}</h3>"
+    example_list += "<ul>"
     for entry in entries:
         entry_name = entry["name"]
         link = to_filename(section, entry)
         example_list += f'<li><a href="{link}">{entry_name}</a></li>'
-    example_list += "</ul></li>"
-example_list += "</ul>"
+    example_list += "</ul>"
+example_list += ""
 
 replace_in_file(f"{basedir}/output/examples.html", "$exampleList", example_list)
