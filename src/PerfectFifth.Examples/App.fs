@@ -18,4 +18,5 @@ let runSketch name =
     | "Structure/Recursion" -> Structure.Recursion.run node
     | "Structure/CreateGraphics" -> Structure.CreateGraphics.run node
     | "Form/PointsAndLines" -> Form.PointsAndLines.run node
+    | "Form/ShapePrimitives" -> Form.ShapePrimitives.run node
     | _ -> failwith <| "No sketch with name " + name + " exists"

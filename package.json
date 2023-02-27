@@ -3,7 +3,8 @@
   "scripts": {
     "postinstall": "dotnet tool restore",
     "start": "dotnet fable watch src/PerfectFifth.Examples --run webpack-dev-server",
-    "build": "dotnet fable src/PerfectFifth.Examples && webpack"
+    "build": "dotnet fable src/PerfectFifth.Examples && webpack",
+    "build-prod": "dotnet fable src/PerfectFifth.Examples && webpack --mode production"
   },
   "devDependencies": {
     "webpack": "^5.75.0",

@@ -13,6 +13,7 @@
     <Compile Include="Structure\Recursion.fs" />
     <Compile Include="Structure\CreateGraphics.fs" />
     <Compile Include="Form\PointsAndLines.fs" />
+    <Compile Include="Form\ShapePrimitives.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>
