@@ -10,6 +10,8 @@ structure = {
         {"name": "Loop", "file": "Structure/Loop"},
         {"name": "Redraw", "file": "Structure/Redraw"},
         {"name": "Functions", "file": "Structure/Functions"},
+        {"name": "Recursion", "file": "Structure/Recursion"},
+        {"name": "Create Graphics", "file": "Structure/CreateGraphics"},
     ],
     "Form": [
         {"name": "Points and Lines", "file": "Form/PointsAndLines"},

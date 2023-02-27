@@ -11,6 +11,7 @@ module Color =
         | RGB of r: int * g: int * b: int
         | RGBA of r: int * g: int * b: int * a: int
         | Grayscale of intensity: int
+        | GrayscaleA of intensity: int * alpha: int
         | Name of string
         | Values of int seq
 
@@ -19,6 +20,7 @@ module Color =
         | RGB(r, g, b) -> emit3 p5 method r g b
         | RGBA(r, g, b, a) -> emit4 p5 method r g b a
         | Grayscale intensity -> emit1 p5 method intensity
+        | GrayscaleA(intensity, alpha) -> emit2 p5 method intensity alpha
         | Name name -> emit1 p5 method name
         | Values values -> emit1 p5 method values
 

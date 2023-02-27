@@ -10,6 +10,8 @@
     <Compile Include="Structure\Loop.fs" />
     <Compile Include="Structure\Redraw.fs" />
     <Compile Include="Structure\Functions.fs" />
+    <Compile Include="Structure\Recursion.fs" />
+    <Compile Include="Structure\CreateGraphics.fs" />
     <Compile Include="Form\PointsAndLines.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>

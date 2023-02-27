@@ -10,6 +10,8 @@
     <Compile Include="Util.fs" />
     <Compile Include="Color.fs" />
     <Compile Include="Environment.fs" />
+    <Compile Include="Events.fs" />
+    <Compile Include="Image.fs" />
     <Compile Include="Rendering.fs" />
     <Compile Include="Shape.fs" />
     <Compile Include="Structure.fs" />

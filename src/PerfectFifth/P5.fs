@@ -62,6 +62,10 @@ module Core =
           eventHandler = (fun _ _ -> id)
           node = None }
 
+
+    [<Global>]
+    let console: JS.Console = jsNative
+
     let createSketch (sketch: Sketch<'a>) : Unit =
         let nodeElement =
             match sketch.node with
@@ -74,6 +78,9 @@ module Core =
             new Func<obj, unit>(fun boxedP5 ->
                 let mutable state = Unchecked.defaultof<'a>
                 let p5 = unbox<P5> boxedP5
+
+                // For testing purposes, delete this later.
+                console.log p5
 
                 p5.setup <- fun () -> state <- sketch.setup p5
 
