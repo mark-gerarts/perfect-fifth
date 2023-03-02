@@ -19,4 +19,5 @@ let runSketch name =
     | "Structure/CreateGraphics" -> Structure.CreateGraphics.run node
     | "Form/PointsAndLines" -> Form.PointsAndLines.run node
     | "Form/ShapePrimitives" -> Form.ShapePrimitives.run node
+    | "Form/PieChart" -> Form.PieChart.run node
     | _ -> failwith <| "No sketch with name " + name + " exists"

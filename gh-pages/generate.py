@@ -16,6 +16,7 @@ structure = {
     "Form": [
         {"name": "Points and Lines", "file": "Form/PointsAndLines"},
         {"name": "Shape Primitives", "file": "Form/ShapePrimitives"},
+        {"name": "Pie Chart", "file": "Form/PieChart"},
     ],
 }
 
