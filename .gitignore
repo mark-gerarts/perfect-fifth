@@ -294,3 +294,4 @@ __pycache__/
 *.xsd.cs
 
 gh-pages/output
+gh-pages/venv
