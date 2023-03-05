@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
+set -xe
+
 npm run build
-python3 gh-pages/generate.py
+gh-pages/venv/bin/python gh-pages/generate.py
 cp public/bundle.js gh-pages/output
 cp public/fable.ico gh-pages/output
-python3 -m http.server -d gh-pages/output
+gh-pages/venv/bin/python -m http.server -d gh-pages/output
