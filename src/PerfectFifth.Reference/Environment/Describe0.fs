@@ -13,6 +13,9 @@ let draw p5 =
     ellipse p5 67 67 20 20
     ellipse p5 83 67 20 20
     triangle p5 91 73 75 95 59 73
-    describe p5 "white circle with black outline in mid of gray canvas"
+
+    // Use describeWithDisplay to pass a display mode as well:
+    // describeWithDisplay p5 "Some text" Fallback
+    describe p5 "pink square with red heart in the bottom right corner"
 
 let run node = display node draw

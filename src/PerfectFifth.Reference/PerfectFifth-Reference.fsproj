@@ -5,6 +5,7 @@
   <ItemGroup>
     <Compile Include="Environment\Describe0.fs" />
     <Compile Include="Environment\Describe1.fs" />
+    <Compile Include="Environment\DescribeElement.fs" />
     <Compile Include="Shape\Circle.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>

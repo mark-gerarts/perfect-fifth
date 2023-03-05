@@ -20,6 +20,8 @@ reference:
     describe():
       - Environment/Describe0
       - Environment/Describe1
+    describeElement():
+      - Environment/DescribeElement
   Shape:
     circle():
       - Shape/Circle
