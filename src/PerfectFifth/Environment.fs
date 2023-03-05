@@ -16,3 +16,7 @@ module Environment =
 
     [<Emit("$0.getTargetFrameRate($1)")>]
     let getTargetFrameRate (p5: P5) : int = jsNative
+
+    /// TODO: display (label/fallback)
+    [<Emit("$0.describe($1)")>]
+    let describe (p5: P5) (text: string) : Unit = jsNative

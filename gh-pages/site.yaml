@@ -14,3 +14,12 @@ examples:
     Form/PointsAndLines: Points and Lines
     Form/ShapePrimitives: Shape Primitives
     Form/PieChart: Pie Chart
+
+reference:
+  Environment:
+    describe():
+      - Environment/Describe0
+      - Environment/Describe1
+  Shape:
+    circle():
+      - Shape/Circle
