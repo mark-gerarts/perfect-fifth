@@ -28,6 +28,10 @@ reference:
     gridOutput():
       - Environment/GridOutput0
       - Environment/GridOutput1
+    print():
+      - Environment/Print
+    framwCount:
+      - Environment/FrameCount
   Shape:
     circle():
       - Shape/Circle

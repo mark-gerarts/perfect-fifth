@@ -2,7 +2,8 @@
 // For a more comprehensive configuration check:
 // https://github.com/fable-compiler/webpack-config-template
 
-var path = require("path");
+const path = require("path");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
     mode: "development",
@@ -20,5 +21,13 @@ module.exports = {
         },
         port: 8080,
     },
-    module: {}
+    module: {},
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                test: /\.js$/i,
+            })
+        ],
+    }
 }

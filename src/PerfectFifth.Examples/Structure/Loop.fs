@@ -10,7 +10,7 @@ open P5.Structure
 let setup p5 =
     resizeCanvas p5 720 400
     stroke p5 (Grayscale 255)
-    framerate p5 30
+    setFrameRate p5 30
     noLoop p5
 
     0
