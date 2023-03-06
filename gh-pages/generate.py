@@ -1,6 +1,7 @@
 import shutil as sh
 import os
 import yaml
+import re
 
 basedir = os.path.dirname(os.path.realpath(__file__))
 
@@ -24,7 +25,7 @@ def example_to_filename(section, entry_name):
 
 
 def reference_to_filename(name):
-    name = name.replace("()", "")
+    name = re.sub("\\(\\).*", "", name)
 
     return f"reference-{name}.html".lower()
 
@@ -102,7 +103,7 @@ for section, entries in site_structure["reference"].items():
 
         replace_in_file(dst, "$examples", "".join(examples))
 
-        p5js_name = name.replace("()", "")
+        p5js_name = re.sub("\\(\\).*", "", name)
         p5js_link = f"https://p5js.org/reference/#/p5/{p5js_name}"
         replace_in_file(dst, "$p5jsLink", p5js_link)
 

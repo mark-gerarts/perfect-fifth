@@ -17,21 +17,21 @@ examples:
 
 reference:
   Environment:
-    describe():
+    describe(), describeWithDisplay():
       - Environment/Describe0
       - Environment/Describe1
-    describeElement():
+    describeElement(), describeElementWithDisplay():
       - Environment/DescribeElement
-    textOutput():
+    textOutput(), textOutputWithDisplay():
       - Environment/TextOutput0
       - Environment/TextOutput1
-    gridOutput():
+    gridOutput(), gridOutputWithDisplay():
       - Environment/GridOutput0
       - Environment/GridOutput1
     print():
       - Environment/Print
-    framwCount:
-      - Environment/FrameCount
+    frameCount:
+        - Environment/FrameCount
   Shape:
     circle():
       - Shape/Circle
