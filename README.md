@@ -6,35 +6,28 @@ Perfect Fifth is a Processing-like creative coding environment for F#. It is a
 thin wrapper around [p5js](https://p5js.org), with some extra functional sugar
 on top.
 
-⚠️ This is a work in progress. It can't currently be used as a library, and it
-is still missing most functionality and all documentation.
+⚠️ This is a work in progress. A lot of the p5js functions are not implemented
+yet. To check the current progress, take a look at the [reference
+page](https://mark-gerarts.github.io/perfect-fifth/reference.html)
 
 ## Installation
 
-⚠️ Installation as a library is not yet possible. These instructions are for
-getting the examples project up & running.
+If you have not done so yet, set up a Fable project. More info can be found on
+the [Fable site](https://fable.io/docs/2-steps/your-first-fable-project.html).
+
+Add the NuGet package:
 
 ```bash
-dotnet restore src/PerfectFifth.Examples
+dotnet add package PerfectFifth --prerelease
 ```
+
+Make sure p5js is installed as a dependency:
 
 ```bash
-npm i
+npm i --save p5@^1.6.0
 ```
 
-Start a local server with hot reload:
-
-```bash
-npm start
-```
-
-Change the script in `public/index.html` to the example you want to run, e.g.
-
-```javascript
-PerfectFifth.runSketch("Structure/Coordinates")
-```
-
-As said above, this is very much a work in progress.
+That's it! Take a look at the [usage](#usage) for the next steps.
 
 ## Examples
 
