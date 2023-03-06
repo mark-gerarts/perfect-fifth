@@ -22,6 +22,12 @@ reference:
       - Environment/Describe1
     describeElement():
       - Environment/DescribeElement
+    textOutput():
+      - Environment/TextOutput0
+      - Environment/TextOutput1
+    gridOutput():
+      - Environment/GridOutput0
+      - Environment/GridOutput1
   Shape:
     circle():
       - Shape/Circle

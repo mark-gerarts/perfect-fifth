@@ -43,3 +43,21 @@ module Environment =
 
     let describeElementWithDisplay (p5: P5) (name: string) (text: string) (display: DescribeDisplay) =
         describeElement_ p5 name text (rawDescribeDisplay display)
+
+    [<Emit("$0.textOutput($1)")>]
+    let private textOutput_ (p5: P5) (display: string) : Unit = jsNative
+
+    [<Emit("$0.textOutput()")>]
+    let textOutput (p5: P5) : Unit = jsNative
+
+    let textOutputWithDisplay (p5: P5) (display: DescribeDisplay) =
+        textOutput_ p5 (rawDescribeDisplay display)
+
+    [<Emit("$0.gridOutput($1)")>]
+    let private gridOutput_ (p5: P5) (display: string) : Unit = jsNative
+
+    [<Emit("$0.gridOutput()")>]
+    let gridOutput (p5: P5) : Unit = jsNative
+
+    let gridOutputWithDisplay (p5: P5) (display: DescribeDisplay) =
+        gridOutput_ p5 (rawDescribeDisplay display)

@@ -6,6 +6,10 @@
     <Compile Include="Environment\Describe0.fs" />
     <Compile Include="Environment\Describe1.fs" />
     <Compile Include="Environment\DescribeElement.fs" />
+    <Compile Include="Environment\TextOutput0.fs" />
+    <Compile Include="Environment\TextOutput1.fs" />
+    <Compile Include="Environment\GridOutput0.fs" />
+    <Compile Include="Environment\GridOutput1.fs" />
     <Compile Include="Shape\Circle.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
