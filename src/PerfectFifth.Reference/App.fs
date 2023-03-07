@@ -17,5 +17,6 @@ let runSketch name canvasSelector =
     | "Environment/GridOutput1" -> Environment.GridOutput1.run node
     | "Environment/Print" -> Environment.Print.run node
     | "Environment/FrameCount" -> Environment.FrameCount.run node
+    | "Environment/DeltaTime" -> Environment.DeltaTime.run node
     | "Shape/Circle" -> Shape.Circle.run node
     | _ -> failwith <| "No sketch with name " + name + " exists"

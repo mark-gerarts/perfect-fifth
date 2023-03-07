@@ -8,7 +8,7 @@ on top.
 
 ⚠️ This is a work in progress. A lot of the p5js functions are not implemented
 yet. To check the current progress, take a look at the [reference
-page](https://mark-gerarts.github.io/perfect-fifth/reference.html)
+page](https://mark-gerarts.github.io/perfect-fifth/reference.html).
 
 ## Installation
 

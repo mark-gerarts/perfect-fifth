@@ -32,6 +32,8 @@ reference:
       - Environment/Print
     frameCount:
         - Environment/FrameCount
+    deltaTime:
+        - Environment/DeltaTime
   Shape:
     circle():
       - Shape/Circle
