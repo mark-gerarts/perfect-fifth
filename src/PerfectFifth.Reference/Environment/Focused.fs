@@ -5,8 +5,6 @@ open P5.Color
 open P5.Shape
 open P5.Environment
 
-let setup _ = ()
-
 let draw p5 _ =
     background p5 (Grayscale 200)
     noStroke p5
@@ -19,4 +17,4 @@ let draw p5 _ =
             line p5 0 0 100 100
             line p5 100 0 0 100
 
-let run node = animate node setup draw
+let run node = animate node noSetup draw

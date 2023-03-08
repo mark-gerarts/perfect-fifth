@@ -36,6 +36,8 @@ reference:
       - Environment/DeltaTime
     focused:
       - Environment/Focused
+    # width: @todo: find example using width
+    # height: idem
   Shape:
     circle():
       - Shape/Circle

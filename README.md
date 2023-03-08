@@ -169,11 +169,7 @@ TODO: explain function naming scheme (e.g. point -> point2D, color, etc).
 - Implement all of p5js
 - Documentation & docblocks + check if these can be extracted/published
   somewhere
-- Publish the package when sufficiently featured
-- For simplicity's sake, could add a global mode variant as well
 - Test suite could possibly be something like playwright on the examples repo
-- Minify bundle.js output in examples project
-- Potentially add examples from the reference as well
 
 ## Credits
 

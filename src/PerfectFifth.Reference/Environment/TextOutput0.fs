@@ -5,8 +5,6 @@ open P5.Shape
 open P5.Environment
 open P5.Color
 
-let setup _ = ()
-
 let draw p5 _ =
     // Use textOutputWithDisplay to pass a display mode as well:
     // textOutputWithDisplay p5 Fallback
@@ -17,4 +15,4 @@ let draw p5 _ =
     fill p5 (RGB(0, 0, 255))
     square p5 50 50 50
 
-let run node = animate node setup draw
+let run node = animate node noSetup draw
