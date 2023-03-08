@@ -14,7 +14,7 @@ let draw p5 =
     let width = width p5 |> float
 
     background p5 (Grayscale 0)
-    line2D p5 0 y width y
+    line p5 0 y width y
 
 // Instead of using `noLoop`, you can use the `display` function to create your
 // sketch. This already uses `noLoop` behind to scenes to draw to the canvas a

@@ -68,6 +68,8 @@ module Shape =
     [<Emit("$0.point($1, $2)")>]
     let point2D (p5: P5) (x: float) (y: float) : Unit = jsNative
 
+    let point = point2D
+
     [<Emit("$0.point($1, $2)")>]
     let point3D (p5: P5) (x: float) (y: float) (z: float) : Unit = jsNative
 
@@ -76,6 +78,8 @@ module Shape =
 
     [<Emit("$0.line($1, $2, $3, $4, $5, $6)")>]
     let line3D (p5: P5) (x1: float) (y1: float) (z1: float) (x2: float) (y2: float) (z2: float) : Unit = jsNative
+
+    let line = line2D
 
     [<Emit("$0.rect($1, $2, $3, $4)")>]
     let rect (p5: P5) (x: float) (y: float) (w: float) (h: float) : Unit = jsNative

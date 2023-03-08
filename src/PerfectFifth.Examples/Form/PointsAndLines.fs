@@ -21,18 +21,18 @@ let draw p5 =
 
     // Draw gray box
     stroke p5 (Grayscale 153)
-    line2D p5 p3 p3 p2 p3
-    line2D p5 p2 p3 p2 p2
-    line2D p5 p2 p2 p3 p2
-    line2D p5 p3 p2 p3 p3
+    line p5 p3 p3 p2 p3
+    line p5 p2 p3 p2 p2
+    line p5 p2 p2 p3 p2
+    line p5 p3 p2 p3 p3
 
     // Draw white points
     stroke p5 (Grayscale 255)
-    point2D p5 p1 p1
-    point2D p5 p1 p3
-    point2D p5 p2 p4
-    point2D p5 p3 p1
-    point2D p5 p4 p2
-    point2D p5 p4 p4
+    point p5 p1 p1
+    point p5 p1 p3
+    point p5 p2 p4
+    point p5 p3 p1
+    point p5 p4 p2
+    point p5 p4 p4
 
 let run node = display node draw

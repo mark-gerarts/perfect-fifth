@@ -13,6 +13,7 @@
     <Compile Include="Environment\Print.fs" />
     <Compile Include="Environment\FrameCount.fs" />
     <Compile Include="Environment\DeltaTime.fs" />
+    <Compile Include="Environment\Focused.fs" />
     <Compile Include="Shape\Circle.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>

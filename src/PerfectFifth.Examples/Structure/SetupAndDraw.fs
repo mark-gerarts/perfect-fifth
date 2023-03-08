@@ -24,7 +24,7 @@ let update p5 state =
 
 let draw p5 state =
     background p5 (Grayscale 0)
-    line2D p5 0 (state |> float) (width p5) (state |> float)
+    line p5 0 (state |> float) (width p5) (state |> float)
 
 let run node =
     simulate

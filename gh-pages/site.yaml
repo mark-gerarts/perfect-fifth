@@ -31,9 +31,11 @@ reference:
     print():
       - Environment/Print
     frameCount:
-        - Environment/FrameCount
+      - Environment/FrameCount
     deltaTime:
-        - Environment/DeltaTime
+      - Environment/DeltaTime
+    focused:
+      - Environment/Focused
   Shape:
     circle():
       - Shape/Circle

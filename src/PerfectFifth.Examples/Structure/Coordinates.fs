@@ -16,10 +16,10 @@ let draw (p5: P5) =
     noFill p5
 
     stroke p5 (Grayscale 255)
-    point2D p5 (width * 0.5) (height * 0.25)
+    point p5 (width * 0.5) (height * 0.25)
 
     stroke p5 (RGB(0, 153, 255))
-    line2D p5 0 (height * 0.33) width (height * 0.33)
+    line p5 0 (height * 0.33) width (height * 0.33)
 
     stroke p5 (RGB(255, 153, 0))
     rect p5 (width * 0.25) (height * 0.1) (width * 0.5) (height * 0.8)

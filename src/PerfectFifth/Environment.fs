@@ -74,4 +74,8 @@ module Environment =
     let frameCount (p5: P5) : int = jsNative
 
     [<Emit("$0.deltaTime")>]
-    let deltaTime (p5: P5): int = jsNative
+    let deltaTime (p5: P5) : int = jsNative
+
+
+    [<Emit("$0.focused")>]
+    let focused (p5: P5) : bool = jsNative
