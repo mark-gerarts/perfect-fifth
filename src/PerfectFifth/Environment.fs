@@ -113,3 +113,18 @@ module Environment =
     let private cursorXY_ (p5: P5) (cursor: string) (x: int) (y: int) : Unit = jsNative
 
     let cursorXY (p5: P5) (cursor: Cursor) (x: int) (y: int) : Unit = cursorXY_ p5 (rawCursor cursor) x y
+
+    [<Emit("$0.noCursor()")>]
+    let noCursor (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.displayWidth")>]
+    let displayWidth (p5: P5) : int = jsNative
+
+    [<Emit("$0.displayHeight")>]
+    let displayHeight (p5: P5) : int = jsNative
+
+    [<Emit("$0.windowWidth")>]
+    let windowWidth (p5: P5) : int = jsNative
+
+    [<Emit("$0.windowHeight")>]
+    let windowHeight (p5: P5) : int = jsNative

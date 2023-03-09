@@ -41,7 +41,19 @@ reference:
     frameRate(), getFrameRate(), setFrameRate():
       - Environment/FrameRate
     getTargetFrameRate():
-      - Environmnet/GetTargetFrameRate
+      - Environment/GetTargetFrameRate
+    noCursor():
+      - Environment/NoCursor
+    displayWidth:
+      - Environment/DisplayWidth
+    displayHeight:
+      - Environment/DisplayHeight
+    windowWidth:
+      - Environment/WindowWidth
+    windowHeight:
+      - Environment/WindowHeight
+    windowResized():
+      - Environment/WindowResized
     # width: @todo: find example using width
     # height: idem
   Shape:

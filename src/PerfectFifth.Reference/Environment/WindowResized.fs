@@ -1,15 +1,24 @@
 module P5Reference.Environment.WindowResized
 
 open P5.Core
-open P5.Typography
 open P5.Color
 open P5.Environment
+open P5.Rendering
 
-let draw p5 t =
-    let width = width p5
-    let x = (t / 100) % width
+let setup p5 =
+    resizeCanvas p5 (windowWidth p5) (windowHeight p5)
+    ()
 
-    background p5 (Grayscale 200)
-    text p5 "TODO" x 20
+let draw p5 () = background p5 (RGB(0, 100, 200))
 
-let run node = animate node noSetup draw
+let update p5 = id
+
+let eventHandler p5 ev state =
+    match ev with
+    | WindowResized _ ->
+        resizeCanvas p5 (windowWidth p5) (windowHeight p5)
+        state
+    | _ -> state
+
+let run node =
+    play node setup update draw eventHandler
