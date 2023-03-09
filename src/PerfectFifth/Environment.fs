@@ -79,3 +79,37 @@ module Environment =
 
     [<Emit("$0.focused")>]
     let focused (p5: P5) : bool = jsNative
+
+    type Cursor =
+        | Arrow
+        | Cross
+        | Hand
+        | Move
+        | Text
+        | Wait
+        | Custom of string
+
+    let private rawCursor cursor =
+        match cursor with
+        | Arrow -> "default"
+        | Cross -> "crosshair"
+        | Hand -> "pointer"
+        | Move -> "move"
+        | Text -> "text"
+        | Wait -> "wait"
+        | Custom s -> s
+
+    [<Emit("$0.cursor($1)")>]
+    let private cursor_ (p5: P5) (cursor: string) : Unit = jsNative
+
+    let cursor (p5: P5) (cursor: Cursor) : Unit = cursor_ p5 (rawCursor cursor)
+
+    [<Emit("$0.cursor($1, $2)")>]
+    let private cursorX_ (p5: P5) (cursor: string) (x: int) : Unit = jsNative
+
+    let cursorX (p5: P5) (cursor: Cursor) (x: int) : Unit = cursorX_ p5 (rawCursor cursor) x
+
+    [<Emit("$0.cursor($1, $2, $3)")>]
+    let private cursorXY_ (p5: P5) (cursor: string) (x: int) (y: int) : Unit = jsNative
+
+    let cursorXY (p5: P5) (cursor: Cursor) (x: int) (y: int) : Unit = cursorXY_ p5 (rawCursor cursor) x y

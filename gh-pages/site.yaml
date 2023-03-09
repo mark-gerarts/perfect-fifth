@@ -36,6 +36,8 @@ reference:
       - Environment/DeltaTime
     focused:
       - Environment/Focused
+    cursor(), cursorX(), cursorXY():
+      - Environment/Cursor
     # width: @todo: find example using width
     # height: idem
   Shape:
