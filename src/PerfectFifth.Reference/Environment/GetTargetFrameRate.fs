@@ -6,10 +6,10 @@ open P5.Color
 open P5.Environment
 
 let draw p5 t =
-    let width = width p5
-    let x = (t / 100) % width
+    let centerX = (width p5 |> float) / 2.0
+    let centerY = (height p5 |> float) / 2.0
 
-    background p5 (Grayscale 200)
-    text p5 "TODO" x 20
+    setFrameRate p5 20
+    text p5 (getTargetFrameRate p5 |> string) centerX centerY
 
 let run node = animate node noSetup draw

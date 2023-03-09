@@ -38,6 +38,10 @@ reference:
       - Environment/Focused
     cursor(), cursorX(), cursorXY():
       - Environment/Cursor
+    frameRate(), getFrameRate(), setFrameRate():
+      - Environment/FrameRate
+    getTargetFrameRate():
+      - Environmnet/GetTargetFrameRate
     # width: @todo: find example using width
     # height: idem
   Shape:
