@@ -128,3 +128,34 @@ module Environment =
 
     [<Emit("$0.windowHeight")>]
     let windowHeight (p5: P5) : int = jsNative
+
+    [<Emit("$0.fullscreen()")>]
+    let fullscreen (p5: P5) : bool = jsNative
+
+    let getFullscreen = fullscreen
+
+    [<Emit("$0.fullscreen($1)")>]
+    let setFullscreen (p5: P5) (value: bool) : Unit = jsNative
+
+    [<Emit("$0.pixelDensity()")>]
+    let pixelDensity (p5) : float = jsNative
+
+    let getPixelDensity = pixelDensity
+
+    [<Emit("$0.pixelDensity($1)")>]
+    let setPixelDensity (p5) (value: float) : unit = jsNative
+
+    [<Emit("$0.displayDensity()")>]
+    let displayDensity (p5) : float = jsNative
+
+    let getDisplayDensity = displayDensity
+
+    [<Emit("$0.getURL()")>]
+    let getURL (p5: P5) : string = jsNative
+
+    [<Emit("$0.getURLPath()")>]
+    let getURLPath (p5: P5) : string[] = jsNative
+
+
+    [<Emit("$0.getURLParams()")>]
+    let getURLParams (p5: P5) : obj = jsNative

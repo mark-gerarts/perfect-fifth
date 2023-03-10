@@ -2,14 +2,14 @@ module P5Reference.Environment.GetUrlPath
 
 open P5.Core
 open P5.Typography
-open P5.Color
 open P5.Environment
 
-let draw p5 t =
-    let width = width p5
-    let x = (t / 100) % width
+let draw p5 =
+    let urlPath = getURLPath p5
 
-    background p5 (Grayscale 200)
-    text p5 "TODO" x 20
+    urlPath
+    |> List.ofArray
+    |> List.indexed
+    |> List.iter (fun (i, part) -> text p5 part 10 ((float i) * 20.0 + 20.0))
 
-let run node = animate node noSetup draw
+let run node = display node draw

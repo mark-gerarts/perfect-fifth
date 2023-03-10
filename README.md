@@ -141,6 +141,30 @@ let simulate
 
 TODO: add an example.
 
+The event handler is triggered for **every** event. Keep this in mind when
+implementing the event handler function: try to keep the event handler itself
+light, and only execute code when matching a specific event(s).
+
+For example, don't do this:
+
+```fsharp
+let eventHandler p5 event state =
+    let newState = someHeavyFunction state
+
+    match event with
+    | MousePressed ev -> newState
+    | _ -> state
+```
+
+But rather do this:
+
+```fsharp
+let eventHandler p5 event state =
+    match event with
+    | MousePressed ev -> someHeavyFunction state
+    | _ -> state
+```
+
 ### Play
 
 Much the same as `simulate`, but `play` is able to handle input as well.

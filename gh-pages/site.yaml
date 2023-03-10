@@ -47,15 +47,30 @@ reference:
     displayWidth:
       - Environment/DisplayWidth
     displayHeight:
-      - Environment/DisplayHeight
+      - Environment/DisplayWidth
     windowWidth:
       - Environment/WindowWidth
     windowHeight:
-      - Environment/WindowHeight
+      - Environment/WindowWidth
     windowResized():
       - Environment/WindowResized
-    # width: @todo: find example using width
-    # height: idem
+    width:
+      - Environment/DisplayDensity
+    height:
+      - Environment/DisplayDensity
+    fullscreen(), getFullscreen(), setFullscreen():
+      - Environment/Fullscreen
+    pixelDensity(), getPixelDensity(), setPixelDensity():
+      - Environment/PixelDensity0
+      - Environment/PixelDensity1
+    displayDensity(), getDisplayDensity():
+      - Environment/DisplayDensity
+    getURL():
+      - Environment/GetUrl
+    getURLPath():
+      - Environment/GetUrlPath
+    getURLParams():
+      - Environment/GetUrlParams
   Shape:
     circle():
       - Shape/Circle

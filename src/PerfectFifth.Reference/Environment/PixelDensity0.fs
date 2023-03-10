@@ -1,15 +1,14 @@
 module P5Reference.Environment.PixelDensity0
 
 open P5.Core
-open P5.Typography
-open P5.Color
+open P5.Shape
 open P5.Environment
 
-let draw p5 t =
-    let width = width p5
-    let x = (t / 100) % width
+let draw p5 =
+    let width = width p5 |> float
+    let height = height p5 |> float
 
-    background p5 (Grayscale 200)
-    text p5 "TODO" x 20
+    setPixelDensity p5 1
+    circle p5 (width / 2.0) (height / 2.0) 50
 
-let run node = animate node noSetup draw
+let run node = display node draw
