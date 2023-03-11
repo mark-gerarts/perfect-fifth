@@ -1,15 +1,19 @@
 module P5Reference.Color.Blue
 
 open P5.Core
-open P5.Typography
 open P5.Color
 open P5.Environment
+open P5.Shape
 
-let draw p5 t =
-    let width = width p5
-    let x = (t / 100) % width
+let draw p5 =
+    let c = color p5 (RGB(175, 100, 220))
+    fill p5 (P5Color c)
 
-    background p5 (Grayscale 200)
-    text p5 "TODO" x 20
+    rect p5 15 20 35 60
 
-let run node = animate node noSetup draw
+    let blueValue = blue p5 (P5Color c)
+    fill p5 (RGB(0, 0, int blueValue))
+    rect p5 50 20 35 60
+    describe p5 "Left half of canvas light purple and right half a royal blue."
+
+let run node = display node draw

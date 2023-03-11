@@ -72,6 +72,10 @@ reference:
     getURLParams():
       - Environment/GetUrlParams
   Color:
+    alpha():
+      - Color/Alpha
+    blue():
+      - Color/Blue
     p5.Color/toString(), p5.Color/toStringf():
       - Color/P5ColorToString0
       - Color/P5ColorToString1

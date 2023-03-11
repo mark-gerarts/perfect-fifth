@@ -30,7 +30,7 @@ module Color =
         | Values of int seq
         | P5Color of P5Color
 
-    let private emitColorFunction (p5: P5) (method: string) (color: Color) : Unit =
+    let private emitColorFunction (p5: P5) (method: string) (color: Color) : 'a =
         match color with
         | RGB(r, g, b) -> emit3 p5 method r g b
         | RGBA(r, g, b, a) -> emit4 p5 method r g b a
@@ -40,36 +40,7 @@ module Color =
         | Values values -> emit1 p5 method values
         | P5Color color -> emit1 p5 method color
 
-    [<Emit("$0.color($1, $2, $3)")>]
-    let private colorRGB (p5: P5) (r: int) (g: int) (b: int) : P5Color = jsNative
-
-    [<Emit("$0.color($1, $2, $3, $4)")>]
-    let private colorRGBA (p5: P5) (r: int) (g: int) (b: int) (alpha: int) : P5Color = jsNative
-
-    [<Emit("$0.color($1)")>]
-    let private colorGrayscale (p5: P5) (intensity: int) : P5Color = jsNative
-
-    [<Emit("$0.color($1, $2)")>]
-    let private colorGrayscaleA (p5: P5) (intensity: int) (alpha: int) : P5Color = jsNative
-
-    [<Emit("$0.color($1)")>]
-    let private colorName (p5: P5) (name: string) : P5Color = jsNative
-
-    [<Emit("$0.color($1)")>]
-    let private colorValues (p5: P5) (values: int seq) : P5Color = jsNative
-
-    [<Emit("$0.color($1)")>]
-    let private colorP5Color (p5: P5) (color: P5Color) : P5Color = jsNative
-
-    let color (p5: P5) (color: Color) : P5Color =
-        match color with
-        | RGB(r, g, b) -> colorRGB p5 r g b
-        | RGBA(r, g, b, a) -> colorRGBA p5 r g b a
-        | Grayscale intensity -> colorGrayscale p5 intensity
-        | GrayscaleA(intensity, alpha) -> colorGrayscaleA p5 intensity alpha
-        | Name name -> colorName p5 name
-        | Values values -> colorValues p5 values
-        | P5Color color -> colorP5Color p5 color
+    let color (p5: P5) (color: Color) : P5Color = emitColorFunction p5 "color" color
 
     let background (p5: P5) (color: Color) : Unit = emitColorFunction p5 "background" color
 
@@ -86,3 +57,7 @@ module Color =
     /// TODO: clearWebgl
     [<Emit("$0.clear()")>]
     let clear (p5: P5) : Unit = jsNative
+
+    let alpha (p5: P5) (color: Color) : float = emitColorFunction p5 "alpha" color
+
+    let blue (p5: P5) (color: Color) : float = emitColorFunction p5 "blue" color
