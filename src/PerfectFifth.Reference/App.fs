@@ -94,6 +94,12 @@ let runSketch name canvasSelector =
     | "Color/NoFill1" -> Color.NoFill1.run node
     | "Color/NoStroke0" -> Color.NoStroke0.run node
     | "Color/NoStroke1" -> Color.NoStroke1.run node
+    | "Color/P5ColorToString0" -> Color.P5ColorToString0.run node
+    | "Color/P5ColorToString1" -> Color.P5ColorToString1.run node
+    | "Color/P5ColorSetRed" -> Color.P5ColorSetRed.run node
+    | "Color/P5ColorSetGreen" -> Color.P5ColorSetGreen.run node
+    | "Color/P5ColorSetBlue" -> Color.P5ColorSetBlue.run node
+    | "Color/P5ColorSetAlpha" -> Color.P5ColorSetAlpha.run node
     | "Color/Red" -> Color.Red.run node
     | "Color/Saturation" -> Color.Saturation.run node
     | "Color/Stroke0" -> Color.Stroke0.run node

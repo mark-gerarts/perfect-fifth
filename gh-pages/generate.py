@@ -26,6 +26,7 @@ def example_to_filename(section, entry_name):
 
 def reference_to_filename(name):
     name = re.sub("\\(\\).*", "", name)
+    name = name.replace("/", "-")
 
     return f"reference-{name}.html".lower()
 
@@ -104,7 +105,10 @@ for section, entries in site_structure["reference"].items():
         replace_in_file(dst, "$examples", "".join(examples))
 
         p5js_name = re.sub("\\(\\).*", "", name)
-        p5js_link = f"https://p5js.org/reference/#/p5/{p5js_name}"
+        if not p5js_name.startswith("p5"):
+            p5js_name = "p5/" + p5js_name
+
+        p5js_link = f"https://p5js.org/reference/#/{p5js_name}"
         replace_in_file(dst, "$p5jsLink", p5js_link)
 
 

@@ -78,6 +78,12 @@
     <Compile Include="Color\NoFill1.fs" />
     <Compile Include="Color\NoStroke0.fs" />
     <Compile Include="Color\NoStroke1.fs" />
+    <Compile Include="Color\P5ColorToString0.fs" />
+    <Compile Include="Color\P5ColorToString1.fs" />
+    <Compile Include="Color\P5ColorSetRed.fs" />
+    <Compile Include="Color\P5ColorSetGreen.fs" />
+    <Compile Include="Color\P5ColorSetBlue.fs" />
+    <Compile Include="Color\P5ColorSetAlpha.fs" />
     <Compile Include="Color\Red.fs" />
     <Compile Include="Color\Saturation.fs" />
     <Compile Include="Color\Stroke0.fs" />

@@ -71,6 +71,18 @@ reference:
       - Environment/GetUrlPath
     getURLParams():
       - Environment/GetUrlParams
+  Color:
+    p5.Color/toString(), p5.Color/toStringf():
+      - Color/P5ColorToString0
+      - Color/P5ColorToString1
+    p5.Color/setRed():
+      - Color/P5ColorSetRed
+    p5.Color/setGreen():
+      - Color/P5ColorSetGreen
+    p5.Color/setBlue():
+      - Color/P5ColorSetBlue
+    p5.Color/setAlpha():
+      - Color/P5ColorSetAlpha
   Shape:
     circle():
       - Shape/Circle
