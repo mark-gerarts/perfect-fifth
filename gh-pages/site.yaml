@@ -76,6 +76,18 @@ reference:
       - Color/Alpha
     blue():
       - Color/Blue
+    brightness():
+      - Color/Brightness0
+      - Color/Brightness1
+    color():
+      - Color/Color0
+      - Color/Color1
+      - Color/Color2
+      - Color/Color3
+      - Color/Color4
+      - Color/Color5
+      - Color/Color6
+      - Color/Color7
     p5.Color/toString(), p5.Color/toStringf():
       - Color/P5ColorToString0
       - Color/P5ColorToString1

@@ -11,10 +11,30 @@
 
 <body>
   <div class="canvas-wrapper"></div>
+  <p id="message" style="display:none;">
+    This shows a specific reference sketch based on the URL. Try for example <a
+      href="#Environment/Cursor">#Environment/Cursor</a>.
+  </p>
 
   <script src="bundle.js"></script>
   <script>
-    PerfectFifth.runReference("Color/Blue", ".canvas-wrapper")
+    const onHashChange = () => {
+      const hash = window.location.hash;
+      const message = document.querySelector('#message');
+
+      document.querySelector('.canvas-wrapper').innerHTML = '';
+
+      if (hash) {
+        message.style.display = "none";
+        PerfectFifth.runReference(hash.substr(1), ".canvas-wrapper");
+      }
+      else {
+        message.style.display = "block";
+      }
+    };
+
+    window.addEventListener('hashchange', onHashChange);
+    onHashChange();
   </script>
 </body>
 

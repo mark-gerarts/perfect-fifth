@@ -1,15 +1,16 @@
 module P5Reference.Color.Color2
 
 open P5.Core
-open P5.Typography
 open P5.Color
 open P5.Environment
+open P5.Shape
 
-let draw p5 t =
-    let width = width p5
-    let x = (t / 100) % width
+let draw p5 =
+    // You can use named SVG & CSS colors
+    let c = color p5 (Name "magenta")
+    fill p5 (P5Color c)
+    noStroke p5
+    square p5 20 20 60
+    describe p5 "Bright fuchsia rect in middle of canvas, 60 pixel width and height."
 
-    background p5 (Grayscale 200)
-    text p5 "TODO" x 20
-
-let run node = animate node noSetup draw
+let run node = display node draw

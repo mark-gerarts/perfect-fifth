@@ -61,3 +61,28 @@ module Color =
     let alpha (p5: P5) (color: Color) : float = emitColorFunction p5 "alpha" color
 
     let blue (p5: P5) (color: Color) : float = emitColorFunction p5 "blue" color
+
+    let brightness (p5: P5) (color: Color) : float = emitColorFunction p5 "brightness" color
+
+    type ColorMode =
+        | ModeRGB
+        | ModeHSL
+        | ModeHSB
+
+    let private rawColorMode (colorMode: ColorMode) =
+        match colorMode with
+        | ModeRGB -> "rgb"
+        | ModeHSL -> "hsl"
+        | ModeHSB -> "hsb"
+
+    [<Emit("$0.colorMode($1)")>]
+    let private colorMode_ (p5: P5) (colorMode: string) : Unit = jsNative
+
+    /// TODO: colorMode with specific max values (and alpha)
+    let colorMode (p5: P5) (colorMode: ColorMode) : Unit = colorMode_ p5 (rawColorMode colorMode)
+
+    [<Emit("$0.colorMode($1, $2)")>]
+    let private colorModeMaxAll_ (p5: P5) (colorMode: string) (max: float) : Unit = jsNative
+
+    let colorModeMaxAll (p5: P5) (colorMode: ColorMode) (max: float) : Unit =
+        colorModeMaxAll_ p5 (rawColorMode colorMode) max

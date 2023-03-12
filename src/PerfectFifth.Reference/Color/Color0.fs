@@ -1,15 +1,15 @@
 module P5Reference.Color.Color0
 
 open P5.Core
-open P5.Typography
 open P5.Color
 open P5.Environment
+open P5.Shape
 
-let draw p5 t =
-    let width = width p5
-    let x = (t / 100) % width
+let draw p5 =
+    let c = color p5 (RGB(255, 204, 0))
+    fill p5 (P5Color c)
+    noStroke p5
+    rect p5 30 20 55 55
+    describe p5 "Yellow rect in middle right of canvas, with 55 pixel width and height."
 
-    background p5 (Grayscale 200)
-    text p5 "TODO" x 20
-
-let run node = animate node noSetup draw
+let run node = display node draw
