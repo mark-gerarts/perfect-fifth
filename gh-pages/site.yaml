@@ -88,6 +88,10 @@ reference:
       - Color/Color5
       - Color/Color6
       - Color/Color7
+    green():
+      - Color/Green
+    hue():
+      - Color/Hue
     p5.Color/toString(), p5.Color/toStringf():
       - Color/P5ColorToString0
       - Color/P5ColorToString1

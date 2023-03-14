@@ -62,6 +62,10 @@ module Color =
 
     let blue (p5: P5) (color: Color) : float = emitColorFunction p5 "blue" color
 
+    let green (p5: P5) (color: Color) : float = emitColorFunction p5 "green" color
+
+    let hue (p5: P5) (color: Color) : float = emitColorFunction p5 "hue" color
+
     let brightness (p5: P5) (color: Color) : float = emitColorFunction p5 "brightness" color
 
     type ColorMode =
