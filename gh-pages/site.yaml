@@ -92,6 +92,14 @@ reference:
       - Color/Green
     hue():
       - Color/Hue
+    lerpColor():
+      - Color/LerpColor
+    lightness():
+      - Color/Lightness
+    red():
+      - Color/Red
+    saturation():
+      - Color/Saturation
     p5.Color/toString(), p5.Color/toStringf():
       - Color/P5ColorToString0
       - Color/P5ColorToString1

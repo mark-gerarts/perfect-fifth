@@ -73,6 +73,7 @@
     <Compile Include="Color\Green.fs" />
     <Compile Include="Color\Hue.fs" />
     <Compile Include="Color\Lightness.fs" />
+    <Compile Include="Color\LerpColor.fs" />
     <Compile Include="Color\NoErase.fs" />
     <Compile Include="Color\NoFill0.fs" />
     <Compile Include="Color\NoFill1.fs" />

@@ -89,6 +89,7 @@ let runSketch name canvasSelector =
     | "Color/Green" -> Color.Green.run node
     | "Color/Hue" -> Color.Hue.run node
     | "Color/Lightness" -> Color.Lightness.run node
+    | "Color/LerpColor" -> Color.LerpColor.run node
     | "Color/NoErase" -> Color.NoErase.run node
     | "Color/NoFill0" -> Color.NoFill0.run node
     | "Color/NoFill1" -> Color.NoFill1.run node

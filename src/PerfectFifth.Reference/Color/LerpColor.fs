@@ -1,15 +1,27 @@
 module P5Reference.Color.LerpColor
 
 open P5.Core
-open P5.Typography
 open P5.Color
 open P5.Environment
+open P5.Shape
 
-let draw p5 t =
-    let width = width p5
-    let x = (t / 100) % width
+let draw p5 =
+    colorMode p5 ModeRGB
+    stroke p5 (Grayscale 255)
+    background p5 (Grayscale 51)
+    let src = color p5 (RGB(218, 165, 32))
+    let dst = color p5 (RGB(72, 61, 139))
+    colorMode p5 ModeRGB
+    let interA = lerpColor p5 src dst 0.33
+    let interB = lerpColor p5 src dst 0.66
+    fill p5 (P5Color src)
+    rect p5 10 20 20 60
+    fill p5 (P5Color interA)
+    rect p5 30 20 20 60
+    fill p5 (P5Color interB)
+    rect p5 50 20 20 60
+    fill p5 (P5Color dst)
+    rect p5 70 20 20 60
+    describe p5 "4 rects one tan, brown, brownish purple, purple, with white outlines & 20×60"
 
-    background p5 (Grayscale 200)
-    text p5 "TODO" x 20
-
-let run node = animate node noSetup draw
+let run node = display node draw

@@ -64,6 +64,8 @@ module Color =
 
     let green (p5: P5) (color: Color) : float = emitColorFunction p5 "green" color
 
+    let red (p5: P5) (color: Color) : float = emitColorFunction p5 "red" color
+
     let hue (p5: P5) (color: Color) : float = emitColorFunction p5 "hue" color
 
     let brightness (p5: P5) (color: Color) : float = emitColorFunction p5 "brightness" color
@@ -90,3 +92,10 @@ module Color =
 
     let colorModeMaxAll (p5: P5) (colorMode: ColorMode) (max: float) : Unit =
         colorModeMaxAll_ p5 (rawColorMode colorMode) max
+
+    [<Emit("$0.lerpColor($1, $2, $3)")>]
+    let lerpColor (p5: P5) (color1: P5Color) (color2: P5Color) (amount: float) = jsNative
+
+    let lightness (p5: P5) (color: Color) : float = emitColorFunction p5 "lightness" color
+
+    let saturation (p5: P5) (color: Color) : float = emitColorFunction p5 "saturation" color
