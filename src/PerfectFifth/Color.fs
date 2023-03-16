@@ -54,9 +54,11 @@ module Color =
     [<Emit("$0.noStroke()")>]
     let noStroke (p5: P5) : Unit = jsNative
 
-    /// TODO: clearWebgl
     [<Emit("$0.clear()")>]
     let clear (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.clear($1, $2, $3, $4)")>]
+    let clearWebgl (p5: P5) (r: float) (g: float) (b: float) (a: float) : Unit = jsNative
 
     let alpha (p5: P5) (color: Color) : float = emitColorFunction p5 "alpha" color
 

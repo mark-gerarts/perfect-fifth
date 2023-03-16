@@ -1,15 +1,26 @@
 module P5Reference.Color.Clear
 
 open P5.Core
-open P5.Typography
 open P5.Color
 open P5.Environment
+open P5.Shape
+open P5.Events
 
-let draw p5 t =
-    let width = width p5
-    let x = (t / 100) % width
+let update _ = id
 
-    background p5 (Grayscale 200)
-    text p5 "TODO" x 20
+let draw p5 _ =
+    circle p5 (mouseX p5) (mouseY p5) 20
+    describe p5 "small white ellipses are continually drawn at mouse’s x and y coordinates."
 
-let run node = animate node noSetup draw
+let eventHandler p5 event state =
+    match event with
+    | MousePressed _ ->
+        clear p5
+        background p5 (Grayscale 128)
+        describe p5 "canvas is cleared, small white ellipse is drawn at mouse X and mouse Y"
+    | _ -> ()
+
+    state
+
+let run node =
+    play node noSetup update draw eventHandler

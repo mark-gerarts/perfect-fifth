@@ -1,15 +1,13 @@
 module P5Reference.Color.Background2
 
 open P5.Core
-open P5.Typography
 open P5.Color
 open P5.Environment
 
-let draw p5 t =
-    let width = width p5
-    let x = (t / 100) % width
+let draw p5 =
+    // H, S & B integer values
+    colorMode p5 ModeHSB
+    background p5 (RGB(255, 204, 100))
+    describe p5 "canvas with royal blue background"
 
-    background p5 (Grayscale 200)
-    text p5 "TODO" x 20
-
-let run node = animate node noSetup draw
+let run node = display node draw
