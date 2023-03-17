@@ -17,7 +17,7 @@ let pieChart p5 diameter data =
     let height = height p5 |> float
 
     for (i, dataPoint) in (List.indexed data) do
-        map p5 i 0 (List.length data) 0 255 |> int |> Grayscale |> fill p5
+        map p5 i 0 (List.length data) 0 255 |> Grayscale |> fill p5
         arc p5 (width / 2.0) (height / 2.0) diameter diameter lastAngle (lastAngle + radians p5 dataPoint)
         lastAngle <- lastAngle + radians p5 dataPoint
 

@@ -7,10 +7,10 @@ open P5.Environment
 open P5.Shape
 
 let drawTarget p5 xloc yloc size num =
-    let grayvalues = 255 / num
+    let grayvalues = 255.0 / num
     let steps = size / num
 
-    for i in { 0 .. num - 1 } do
+    for i in { 0.0 .. num - 1.0 } do
         let d = size - i * steps |> float
         fill p5 (Grayscale(i * grayvalues))
         circle p5 xloc yloc d

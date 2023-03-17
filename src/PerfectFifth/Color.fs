@@ -22,12 +22,12 @@ module Color =
         member _.toStringf(format: string) : string = jsNative
 
     type Color =
-        | RGB of r: int * g: int * b: int
-        | RGBA of r: int * g: int * b: int * a: float
-        | Grayscale of intensity: int
-        | GrayscaleA of intensity: int * alpha: int
+        | RGB of r: float * g: float * b: float
+        | RGBA of r: float * g: float * b: float * a: float
+        | Grayscale of intensity: float
+        | GrayscaleA of intensity: float * alpha: float
         | Name of string
-        | Values of int seq
+        | Values of float seq
         | P5Color of P5Color
 
     let private emitColorFunction (p5: P5) (method: string) (color: Color) : 'a =
