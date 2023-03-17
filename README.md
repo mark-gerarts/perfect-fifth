@@ -195,6 +195,21 @@ TODO: explain function naming scheme (e.g. point -> point2D, color, etc).
   somewhere
 - Test suite could possibly be something like playwright on the examples repo
 
+## Tests
+
+A basic test suite exists that simply checks every reference check to see if an
+error is thrown. To use it, make sure the example site is running at port 8000:
+
+```bash
+$ ./build-and-serve-site
+```
+
+Then run:
+
+```bash
+$ npm run test:e2e
+```
+
 ## Credits
 
 Inspired by [Haskell's Gloss](http://gloss.ouroborus.net/), [Clojure's

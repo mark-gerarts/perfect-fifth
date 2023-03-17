@@ -4,9 +4,11 @@
     "postinstall": "dotnet tool restore",
     "start": "dotnet fable watch src/PerfectFifth.Site --run webpack-dev-server",
     "build": "dotnet fable src/PerfectFifth.Site && webpack",
-    "build-prod": "dotnet fable src/PerfectFifth.Site && webpack --mode production"
+    "build-prod": "dotnet fable src/PerfectFifth.Site && webpack --mode production",
+    "test:e2e": "playwright test"
   },
   "devDependencies": {
+    "@playwright/test": "^1.31.2",
     "terser-webpack-plugin": "^5.3.6",
     "webpack": "^5.75.0",
     "webpack-cli": "^4.10.0",
