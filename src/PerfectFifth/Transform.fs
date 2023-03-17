@@ -9,6 +9,12 @@ module Transform =
     [<Emit("$0.rotate($1)")>]
     let rotate (p5: P5) (angle: float) : Unit = jsNative
 
+    [<Emit("$0.rotateX($1)")>]
+    let rotateX (p5: P5) (angle: float) : Unit = jsNative
+
+    [<Emit("$0.rotateY($1)")>]
+    let rotateY (p5: P5) (angle: float) : Unit = jsNative
+
     // TODO: z
     // TODO: vector alternative
     [<Emit("$0.translate($1, $2)")>]

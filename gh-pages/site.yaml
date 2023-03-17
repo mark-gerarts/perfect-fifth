@@ -119,6 +119,21 @@ reference:
       - Color/ColorMode1
       - Color/ColorMode2
       - Color/ColorMode3
+    fill():
+      - Color/Fill0
+      - Color/Fill1
+      - Color/Fill2
+      - Color/Fill3
+      - Color/Fill4
+      - Color/Fill5
+      - Color/Fill6
+      - Color/Fill7
+      - Color/Fill8
+      - Color/Fill9
+      - Color/Fill10
+    noFill():
+      - Color/NoFill0
+      - Color/NoFill1
     p5.Color/toString(), p5.Color/toStringf():
       - Color/P5ColorToString0
       - Color/P5ColorToString1

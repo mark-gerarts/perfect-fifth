@@ -191,3 +191,7 @@ module Shape =
 
     [<Emit("$0.strokeWeight($1)")>]
     let strokeWeight (p5: P5) (weight: float) : Unit = jsNative
+
+    /// TODO: all other variants
+    [<Emit("$0.box($1, $2, $3)")>]
+    let box (p5: P5) (width: float) (height: float) (depth: float) : Unit = jsNative
