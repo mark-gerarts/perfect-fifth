@@ -188,3 +188,6 @@ module Shape =
         (detailY: int)
         : Unit =
         jsNative
+
+    [<Emit("$0.strokeWeight($1)")>]
+    let strokeWeight (p5: P5) (weight: float) : Unit = jsNative

@@ -1,15 +1,19 @@
 module P5Reference.Color.ColorMode0
 
 open P5.Core
-open P5.Typography
 open P5.Color
 open P5.Environment
+open P5.Shape
 
-let draw p5 t =
-    let width = width p5
-    let x = (t / 100) % width
+let draw p5 =
+    noStroke p5
+    colorModeMaxAll p5 ModeRGB 100
 
-    background p5 (Grayscale 200)
-    text p5 "TODO" x 20
+    for i in seq { 0..99 } do
+        for j in seq { 0..99 } do
+            stroke p5 (RGB(i, j, 0))
+            point p5 i j
 
-let run node = animate node noSetup draw
+    describe p5 "Green to red gradient from bottom left to top right with shading from top left"
+
+let run node = display node draw

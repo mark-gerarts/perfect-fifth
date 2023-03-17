@@ -84,8 +84,8 @@ module Typography =
         { horizontal = horizontal
           vertical = vertical }
 
-
-
-    // TODO: width/height
     [<Emit("$0.text($1, $2, $3)")>]
     let text (p5: P5) (str: string) (x: float) (y: float) : Unit = jsNative
+
+    [<Emit("$0.text($1, $2, $3, $4, $5)")>]
+    let textBounded (p5: P5) (str: string) (x: float) (y: float) (x1: float) (y2: float) : Unit = jsNative

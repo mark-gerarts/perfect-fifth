@@ -23,7 +23,7 @@ module Color =
 
     type Color =
         | RGB of r: int * g: int * b: int
-        | RGBA of r: int * g: int * b: int * a: int
+        | RGBA of r: int * g: int * b: int * a: float
         | Grayscale of intensity: int
         | GrayscaleA of intensity: int * alpha: int
         | Name of string
@@ -94,6 +94,34 @@ module Color =
 
     let colorModeMaxAll (p5: P5) (colorMode: ColorMode) (max: float) : Unit =
         colorModeMaxAll_ p5 (rawColorMode colorMode) max
+
+    [<Emit("$0.colorMode($1, $2, $3, $4)")>]
+    let private colorModeMax_ (p5: P5) (colorMode: string) (max1: float) (max2: float) (max3: float) : Unit = jsNative
+
+    let colorModeMax (p5: P5) (colorMode: ColorMode) (max1: float) (max2: float) (max3: float) : Unit =
+        colorModeMax_ p5 (rawColorMode colorMode) max1 max2 max3
+
+
+    [<Emit("$0.colorMode($1, $2, $3, $4, $5)")>]
+    let private colorModeMaxAlpha_
+        (p5: P5)
+        (colorMode: string)
+        (max1: float)
+        (max2: float)
+        (max3: float)
+        (alpha: float)
+        : Unit =
+        jsNative
+
+    let colorModeMaxAlpha
+        (p5: P5)
+        (colorMode: ColorMode)
+        (max1: float)
+        (max2: float)
+        (max3: float)
+        (alpha: float)
+        : Unit =
+        colorModeMaxAlpha_ p5 (rawColorMode colorMode) max1 max2 max3 alpha
 
     [<Emit("$0.lerpColor($1, $2, $3)")>]
     let lerpColor (p5: P5) (color1: P5Color) (color2: P5Color) (amount: float) = jsNative

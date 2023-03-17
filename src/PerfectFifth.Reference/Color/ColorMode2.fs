@@ -5,11 +5,12 @@ open P5.Typography
 open P5.Color
 open P5.Environment
 
-let draw p5 t =
-    let width = width p5
-    let x = (t / 100) % width
+let draw p5 =
+    colorModeMaxAll p5 ModeRGB 255
+    let c = color p5 (RGB(127, 255, 0))
+    colorModeMaxAll p5 ModeRGB 1
+    let myColor = red p5 (P5Color c)
+    textBounded p5 (string myColor) 10 10 80 80
+    describe p5 "value of color red 0.4980... written on canvas"
 
-    background p5 (Grayscale 200)
-    text p5 "TODO" x 20
-
-let run node = animate node noSetup draw
+let run node = display node draw

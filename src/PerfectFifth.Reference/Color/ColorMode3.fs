@@ -1,15 +1,18 @@
 module P5Reference.Color.ColorMode3
 
 open P5.Core
-open P5.Typography
 open P5.Color
 open P5.Environment
+open P5.Shape
 
-let draw p5 t =
-    let width = width p5
-    let x = (t / 100) % width
+let draw p5 =
+    noFill p5
+    colorModeMaxAlpha p5 ModeRGB 255 255 255 1
+    background p5 (Grayscale 255)
+    strokeWeight p5 4
+    stroke p5 (RGBA(255, 0, 10, 0.3))
+    circle p5 40 40 50
+    circle p5 50 50 40
+    describe p5 "two translucent pink ellipse outlines at middle left and at center"
 
-    background p5 (Grayscale 200)
-    text p5 "TODO" x 20
-
-let run node = animate node noSetup draw
+let run node = display node draw

@@ -114,6 +114,11 @@ reference:
       - Color/Background10
     clear(), clearWebgl():
       - Color/Clear
+    colorMode(), colorModeMaxAll(), colorModeMax(), colorModeMaxAlpha():
+      - Color/ColorMode0
+      - Color/ColorMode1
+      - Color/ColorMode2
+      - Color/ColorMode3
     p5.Color/toString(), p5.Color/toStringf():
       - Color/P5ColorToString0
       - Color/P5ColorToString1
