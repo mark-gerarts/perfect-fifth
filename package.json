@@ -4,7 +4,7 @@
     "postinstall": "dotnet tool restore",
     "start": "dotnet fable watch src/PerfectFifth.Site --run webpack-dev-server",
     "build": "dotnet fable src/PerfectFifth.Site && webpack",
-    "build-prod": "dotnet fable src/PerfectFifth.Site && webpack --mode production",
+    "build:prod": "dotnet fable src/PerfectFifth.Site && webpack --mode production",
     "test:e2e": "playwright test"
   },
   "devDependencies": {

@@ -114,5 +114,49 @@ let runSketch name canvasSelector =
     | "Color/Stroke8" -> Color.Stroke8.run node
     | "Color/Stroke9" -> Color.Stroke9.run node
     | "Color/Stroke10" -> Color.Stroke10.run node
+    | "Shape/Arc0" -> Shape.Arc0.run node
+    | "Shape/Arc1" -> Shape.Arc1.run node
+    | "Shape/Arc2" -> Shape.Arc2.run node
+    | "Shape/Arc3" -> Shape.Arc3.run node
+    | "Shape/Arc4" -> Shape.Arc4.run node
+    | "Shape/Ellipse" -> Shape.Ellipse.run node
     | "Shape/Circle" -> Shape.Circle.run node
+    | "Shape/Line0" -> Shape.Line0.run node
+    | "Shape/Line1" -> Shape.Line1.run node
+    | "Shape/Point0" -> Shape.Point0.run node
+    | "Shape/Point1" -> Shape.Point1.run node
+    | "Shape/Point2" -> Shape.Point2.run node
+    | "Shape/Quad" -> Shape.Quad.run node
+    | "Shape/Rect0" -> Shape.Rect0.run node
+    | "Shape/Rect1" -> Shape.Rect1.run node
+    | "Shape/Rect2" -> Shape.Rect2.run node
+    | "Shape/Square0" -> Shape.Square0.run node
+    | "Shape/Square1" -> Shape.Square1.run node
+    | "Shape/Square2" -> Shape.Square2.run node
+    | "Shape/Triangle" -> Shape.Triangle.run node
+    | "Shape/EllipseMode0" -> Shape.EllipseMode0.run node
+    | "Shape/EllipseMode1" -> Shape.EllipseMode1.run node
+    | "Shape/NoSmooth" -> Shape.NoSmooth.run node
+    | "Shape/RectMode0" -> Shape.RectMode0.run node
+    | "Shape/RectMode1" -> Shape.RectMode1.run node
+    | "Shape/Smooth" -> Shape.Smooth.run node
+    | "Shape/StrokeCap" -> Shape.StrokeCap.run node
+    | "Shape/StrokeJoin0" -> Shape.StrokeJoin0.run node
+    | "Shape/StrokeJoin1" -> Shape.StrokeJoin1.run node
+    | "Shape/StrokeJoin2" -> Shape.StrokeJoin2.run node
+    | "Shape/StrokeWeight0" -> Shape.StrokeWeight0.run node
+    | "Shape/StrokeWeight1" -> Shape.StrokeWeight1.run node
+    | "Shape/Bezier0" -> Shape.Bezier0.run node
+    | "Shape/Bezier1" -> Shape.Bezier1.run node
+    | "Shape/BezierDetail" -> Shape.BezierDetail.run node
+    | "Shape/BezierPoint" -> Shape.BezierPoint.run node
+    | "Shape/BezierTangent0" -> Shape.BezierTangent0.run node
+    | "Shape/BezierTangent1" -> Shape.BezierTangent1.run node
+    | "Shape/Curve0" -> Shape.Curve0.run node
+    | "Shape/Curve1" -> Shape.Curve1.run node
+    | "Shape/Curve2" -> Shape.Curve2.run node
+    | "Shape/CurveDetail" -> Shape.CurveDetail.run node
+    | "Shape/CurveTightness" -> Shape.CurveTightness.run node
+    | "Shape/CurvePoint" -> Shape.CurvePoint.run node
+    | "Shape/CurveTangent" -> Shape.CurveTangent.run node
     | _ -> failwith <| "No sketch with name " + name + " exists"

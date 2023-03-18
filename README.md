@@ -141,6 +141,23 @@ let simulate
 
 TODO: add an example.
 
+### Play
+
+Much the same as `simulate`, but `play` is able to handle input as well.
+
+```fsharp
+// Definition:
+let play
+    (node: Node) // Element to render the canvas.
+    (setup: P5 -> 'a) // Setup function that gets called once, before the sketch starts. Returns the initial state.
+    (update: P5 -> 'a -> 'a) // A function to step the state one iteration.
+    (draw: P5 -> 'a -> Unit) // A function to draw something based on the current state.
+    (eventHandler: P5 -> Event -> 'a -> 'a) // A function to update the state based on input events.
+    : Unit = ...
+```
+
+TODO: add an example.
+
 The event handler is triggered for **every** event. Keep this in mind when
 implementing the event handler function: try to keep the event handler itself
 light, and only execute code when matching a specific event(s).
@@ -165,35 +182,11 @@ let eventHandler p5 event state =
     | _ -> state
 ```
 
-### Play
-
-Much the same as `simulate`, but `play` is able to handle input as well.
-
-```fsharp
-// Definition:
-let play
-    (node: Node) // Element to render the canvas.
-    (setup: P5 -> 'a) // Setup function that gets called once, before the sketch starts. Returns the initial state.
-    (update: P5 -> 'a -> 'a) // A function to step the state one iteration.
-    (draw: P5 -> 'a -> Unit) // A function to draw something based on the current state.
-    (eventHandler: P5 -> Event -> 'a -> 'a) // A function to update the state based on input events.
-    : Unit = ...
-```
-
-TODO: add an example.
-
 ## Remarks
 
 TODO: explain why p5 needs to be passed to everything.
 
 TODO: explain function naming scheme (e.g. point -> point2D, color, etc).
-
-## Todo
-
-- Implement all of p5js
-- Documentation & docblocks + check if these can be extracted/published
-  somewhere
-- Test suite could possibly be something like playwright on the examples repo
 
 ## Tests
 
@@ -201,7 +194,7 @@ A basic test suite exists that simply checks every reference check to see if an
 error is thrown. To use it, make sure the example site is running at port 8000:
 
 ```bash
-$ ./build-and-serve-site
+$ ./scripts/build-and-serve-site
 ```
 
 Then run:

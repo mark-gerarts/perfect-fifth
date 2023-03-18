@@ -15,7 +15,5 @@ module DOM =
         [<Emit("$0.style($1, $2)")>]
         member _.style (property: string) (value: string) : Unit = jsNative
 
-        member _.toString() : string = jsNative
-
     [<Emit("$0.createP($1)")>]
     let createP (p5: P5) (innerHTML: string) : P5Element = jsNative

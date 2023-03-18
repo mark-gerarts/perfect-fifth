@@ -35,7 +35,7 @@ jobs:
           python3 -m pip install pyyaml
           python3 gh-pages/generate.py
           npm i
-          npm run build-prod
+          npm run build:prod
           cp public/bundle.js gh-pages/output
           cp public/fable.ico gh-pages/output
       - name: Upload artifact
