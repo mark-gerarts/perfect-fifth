@@ -98,6 +98,7 @@
     <Compile Include="Color\Stroke8.fs" />
     <Compile Include="Color\Stroke9.fs" />
     <Compile Include="Color\Stroke10.fs" />
+    <Compile Include="Shape\Arc0.fs" />
     <Compile Include="Shape\Circle.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>

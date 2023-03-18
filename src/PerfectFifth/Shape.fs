@@ -16,7 +16,7 @@ module Shape =
         | Pie -> "pie"
         | Open -> "open"
 
-    [<Emit("0.smooth()")>]
+    [<Emit("$0.smooth()")>]
     let smooth (p5: P5) : Unit = jsNative
 
     [<Emit("$0.noSmooth()")>]
@@ -195,3 +195,11 @@ module Shape =
     /// TODO: all other variants
     [<Emit("$0.box($1, $2, $3)")>]
     let box (p5: P5) (width: float) (height: float) (depth: float) : Unit = jsNative
+
+    /// TODO: all other variants
+    [<Emit("$0.sphere($1)")>]
+    let sphere (p5: P5) (radius: float) : Unit = jsNative
+
+    /// TODO: all other variants
+    [<Emit("$0.torus($1, $2)")>]
+    let torus (p5: P5) (radius: float) (tubeRadius: float) : Unit = jsNative

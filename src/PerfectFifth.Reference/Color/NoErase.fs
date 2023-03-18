@@ -1,15 +1,22 @@
 module P5Reference.Color.NoErase
 
 open P5.Core
-open P5.Typography
 open P5.Color
 open P5.Environment
+open P5.Shape
 
-let draw p5 t =
-    let width = width p5
-    let x = (t / 100) % width
+let draw p5 =
+    background p5 (RGB(235, 145, 15))
+    noStroke p5
+    fill p5 (RGB(30, 45, 220))
+    rect p5 30 10 10 80
+    erase p5
+    circle p5 50 50 60
+    noErase p5
+    rect p5 70 10 10 80
 
-    background p5 (Grayscale 200)
-    text p5 "TODO" x 20
+    describe
+        p5
+        "Orange background, with two tall blue rectangles. A centered ellipse erased the first blue rect but not the second."
 
-let run node = animate node noSetup draw
+let run node = display node draw

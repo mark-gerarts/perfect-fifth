@@ -134,6 +134,27 @@ reference:
     noFill():
       - Color/NoFill0
       - Color/NoFill1
+    noStroke():
+      - Color/NoStroke0
+      - Color/NoStroke1
+    stroke():
+      - Color/Stroke0
+      - Color/Stroke1
+      - Color/Stroke2
+      - Color/Stroke3
+      - Color/Stroke4
+      - Color/Stroke5
+      - Color/Stroke6
+      - Color/Stroke7
+      - Color/Stroke8
+      - Color/Stroke9
+      - Color/Stroke10
+    erase():
+      - Color/Erase0
+      - Color/Erase1
+      - Color/Erase2
+    noErase():
+      - Color/NoErase
     p5.Color/toString(), p5.Color/toStringf():
       - Color/P5ColorToString0
       - Color/P5ColorToString1

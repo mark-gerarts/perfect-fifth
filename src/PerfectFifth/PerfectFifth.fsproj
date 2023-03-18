@@ -12,6 +12,7 @@
     <Compile Include="P5.fs" />
     <Compile Include="Util.fs" />
     <Compile Include="Color.fs" />
+    <Compile Include="DOM.fs" />
     <Compile Include="Environment.fs" />
     <Compile Include="Events.fs" />
     <Compile Include="Image.fs" />

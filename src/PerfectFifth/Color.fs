@@ -6,16 +6,20 @@ module Color =
     open P5.Core
     open P5.Util
 
-    [<Import("Color", from = "p5")>]
     type P5Color =
+        [<Emit("$0.setRed($1)")>]
         member _.setRed(r: float) = jsNative
 
+        [<Emit("$0.setGreen($1)")>]
         member _.setGreen(g: float) = jsNative
 
+        [<Emit("$0.setBlue($1)")>]
         member _.setBlue(b: float) = jsNative
 
+        [<Emit("$0.setAlpha($1)")>]
         member _.setAlpha(a: float) = jsNative
 
+        [<Emit("$0.toString()")>]
         member _.toString() : string = jsNative
 
         [<Emit("$0.toString($1)")>]
@@ -129,3 +133,15 @@ module Color =
     let lightness (p5: P5) (color: Color) : float = emitColorFunction p5 "lightness" color
 
     let saturation (p5: P5) (color: Color) : float = emitColorFunction p5 "saturation" color
+
+    [<Emit("$0.erase()")>]
+    let erase (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.erase($1)")>]
+    let eraseWithFill (p5: P5) (strengthFill: float) : Unit = jsNative
+
+    [<Emit("$0.erase($1, $2)")>]
+    let eraseWithFillAndStroke (p5: P5) (strengthFill: float) (strengthStroke: float) : Unit = jsNative
+
+    [<Emit("$0.noErase()")>]
+    let noErase (p5: P5) : Unit = jsNative
