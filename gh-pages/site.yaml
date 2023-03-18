@@ -167,5 +167,13 @@ reference:
     p5.Color/setAlpha():
       - Color/P5ColorSetAlpha
   Shape:
+    arc(), arcWithMode(), archWithDetail():
+      - Shape/Arc0
+      - Shape/Arc1
+      - Shape/Arc2
+      - Shape/Arc3
+      - Shape/Arc4
+    ellipse():
+      - Shape/Ellipse
     circle():
       - Shape/Circle

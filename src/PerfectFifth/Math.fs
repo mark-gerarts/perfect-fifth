@@ -9,7 +9,9 @@ module Math =
 
     let twoPi = 6.283185307179586
 
-    let halfPi = pi / 2.0
+    let halfPi = 1.5707963267948966
+
+    let quarterPi = 0.7853981633974483
 
     [<Emit("$0.map($1, $2, $3, $4, $5)")>]
     let map (p5: P5) (value: float) (start1: float) (stop1: float) (start2: float) (stop2: float) : float = jsNative

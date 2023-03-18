@@ -39,7 +39,7 @@ module Shape =
         : Unit =
         jsNative
 
-    let arcMode
+    let arcWithMode
         (p5: P5)
         (x: float)
         (y: float)
@@ -51,7 +51,7 @@ module Shape =
         : Unit =
         arc_ p5 x y w h start stop (rawArcMode mode) 25
 
-    let arcDetail
+    let arcWithDetail
         (p5: P5)
         (x: float)
         (y: float)
