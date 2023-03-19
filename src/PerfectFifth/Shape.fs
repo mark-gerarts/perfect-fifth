@@ -4,6 +4,7 @@ module Shape =
 
     open Fable.Core
     open P5.Core
+    open Math
 
     type ArcMode =
         | Chord
@@ -72,6 +73,9 @@ module Shape =
 
     [<Emit("$0.point($1, $2)")>]
     let point3D (p5: P5) (x: float) (y: float) (z: float) : Unit = jsNative
+
+    [<Emit("$0.point($1)")>]
+    let pointFromVector (p5: P5) (vector: P5Vector) : Unit = jsNative
 
     [<Emit("$0.line($1, $2, $3, $4)")>]
     let line2D (p5: P5) (x1: float) (y1: float) (x2: float) (y2: float) : Unit = jsNative

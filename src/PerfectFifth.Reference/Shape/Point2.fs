@@ -1,14 +1,17 @@
 module P5Reference.Shape.Point2
 
 open P5.Core
-open P5.Color
 open P5.Environment
 open P5.Shape
+open P5.Math
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
-    describe p5 "White rect at center with dark charcoal grey outline."
+    let a = createVector p5 10 10
+    pointFromVector p5 a
+    let b = createVector p5 10 20
+    pointFromVector p5 b
+    pointFromVector p5 <| createVector p5 20 10
+    pointFromVector p5 <| createVector p5 20 20
+    describe p5 "four points create vertices of 10x10 pixel square on top-left of canvas"
 
 let run node = display node draw

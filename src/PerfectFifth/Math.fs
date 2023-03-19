@@ -22,3 +22,13 @@ module Math =
 
     [<Emit("$0.radians($1)")>]
     let radians (p5: P5) (degrees: float) : float = jsNative
+
+    type P5Vector =
+        [<Emit("$0.toString()")>]
+        member _.toString() = jsNative
+
+    /// TODO: 3D / only x
+    [<Emit("$0.createVector($1, $2)")>]
+    let createVector (p5: P5) (x: float) (y: float) : P5Vector = jsNative
+
+    let createVector2D = createVector

@@ -177,3 +177,10 @@ reference:
       - Shape/Ellipse
     circle():
       - Shape/Circle
+    line(), line2D(), line3D():
+      - Shape/Line0
+      - Shape/Line1
+    point(), point2D(), point3D(), pointFromVector():
+      - Shape/Point0
+      - Shape/Point1
+      - Shape/Point2

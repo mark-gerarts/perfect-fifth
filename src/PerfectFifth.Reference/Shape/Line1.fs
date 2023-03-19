@@ -6,9 +6,11 @@ open P5.Environment
 open P5.Shape
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
-    describe p5 "White rect at center with dark charcoal grey outline."
+    line p5 30 20 85 20
+    stroke p5 (Grayscale 126)
+    line p5 85 20 85 75
+    stroke p5 (Grayscale 255)
+    line p5 85 75 30 75
+    describe p5 "3 lines of various stroke colors. Form top, bottom and right sides of a square"
 
 let run node = display node draw

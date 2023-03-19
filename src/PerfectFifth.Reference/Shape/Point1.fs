@@ -6,9 +6,12 @@ open P5.Environment
 open P5.Shape
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
-    describe p5 "White rect at center with dark charcoal grey outline."
+    point p5 30 20
+    point p5 85 20
+    stroke p5 (Name "purple")
+    strokeWeight p5 10
+    point p5 85 75
+    point p5 30 75
+    describe p5 "2 points and 2 large purple points in middle-right of canvas"
 
 let run node = display node draw
