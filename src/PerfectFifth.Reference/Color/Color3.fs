@@ -2,7 +2,6 @@ module P5Reference.Color.Color3
 
 open P5.Core
 open P5.Color
-open P5.Environment
 open P5.Shape
 
 let draw p5 =
@@ -13,6 +12,5 @@ let draw p5 =
     rect p5 0 10 45 80
     fill p5 (Name "#00ff00")
     rect p5 55 10 45 80
-    describe p5 "Two bright green rects on opposite sides of the canvas, both 45×80."
 
 let run node = display node draw

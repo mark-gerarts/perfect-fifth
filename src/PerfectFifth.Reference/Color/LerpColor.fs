@@ -2,7 +2,6 @@ module P5Reference.Color.LerpColor
 
 open P5.Core
 open P5.Color
-open P5.Environment
 open P5.Shape
 
 let draw p5 =
@@ -22,6 +21,5 @@ let draw p5 =
     rect p5 50 20 20 60
     fill p5 (P5Color dst)
     rect p5 70 20 20 60
-    describe p5 "4 rects one tan, brown, brownish purple, purple, with white outlines & 20×60"
 
 let run node = display node draw

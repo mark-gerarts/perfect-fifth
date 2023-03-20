@@ -2,7 +2,6 @@ module P5Reference.Color.Erase0
 
 open P5.Core
 open P5.Color
-open P5.Environment
 open P5.Shape
 
 let draw p5 =
@@ -12,6 +11,5 @@ let draw p5 =
     erase p5
     circle p5 25 30 30
     noErase p5
-    describe p5 "60×60 centered pink rect, purple background. Elliptical area in top-left of rect is erased white."
 
 let run node = display node draw

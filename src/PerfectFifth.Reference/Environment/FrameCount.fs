@@ -17,5 +17,4 @@ let draw p5 _ =
     background p5 (Grayscale 200)
     text p5 (frameCount p5 |> string) (width / 2.0) (height / 2.0)
 
-
 let run node = animate node setup draw

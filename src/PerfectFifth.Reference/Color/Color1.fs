@@ -2,7 +2,6 @@ module P5Reference.Color.Color1
 
 open P5.Core
 open P5.Color
-open P5.Environment
 open P5.Shape
 
 let draw p5 =
@@ -15,6 +14,5 @@ let draw p5 =
     // Also, there is no need for a P5Color object for most color functions.
     fill p5 (Grayscale 65)
     circle p5 75 75 80
-    describe p5 "Yellow ellipse in top left of canvas, black ellipse in bottom right, both 80×80."
 
 let run node = display node draw

@@ -18,6 +18,4 @@ let draw p5 _ =
     | x, y when x > 50 && y > 50 -> cursor p5 (Custom "https://avatars0.githubusercontent.com/u/1617169?s=16")
     | _ -> cursor p5 (Custom "grab")
 
-
-
 let run node = animate node noSetup draw

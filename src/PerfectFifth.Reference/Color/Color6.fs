@@ -2,7 +2,6 @@ module P5Reference.Color.Color6
 
 open P5.Core
 open P5.Color
-open P5.Environment
 open P5.Shape
 
 let draw p5 =
@@ -14,6 +13,5 @@ let draw p5 =
 
     fill p5 (Name "hsba(160, 100%, 50%, 0.5)")
     rect p5 55 10 45 80
-    describe p5 "Dark green rect on left and lighter green rect on right of canvas, both 45×80."
 
 let run node = display node draw

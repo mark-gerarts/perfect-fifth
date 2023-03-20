@@ -14,6 +14,5 @@ let draw p5 =
     print p5 (string redValue)
     fill p5 (RGB(redValue, 0, 0))
     rect p5 50 20 35 60
-    describe p5 "yellow rect on left and red rect on right, both with black outlines and 35×60."
 
 let run node = display node draw

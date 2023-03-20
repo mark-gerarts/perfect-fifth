@@ -18,6 +18,5 @@ let draw p5 t =
     fill p5 (P5Color squareColor)
 
     rect p5 13 13 (width - 26.0) (height - 26.0)
-    describe p5 "canvas with gradually changing opacity on a gray background"
 
 let run node = animate node noSetup draw

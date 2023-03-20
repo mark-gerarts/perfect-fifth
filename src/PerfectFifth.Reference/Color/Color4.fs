@@ -2,7 +2,6 @@ module P5Reference.Color.Color4
 
 open P5.Core
 open P5.Color
-open P5.Environment
 open P5.Shape
 
 let draw p5 =
@@ -21,7 +20,5 @@ let draw p5 =
 
     fill p5 (Name "rgba(0%, 0%, 100%, 1)")
     square p5 55 55 35
-
-    describe p5 "Four blue rects in each corner of the canvas, each are 35×35."
 
 let run node = display node draw

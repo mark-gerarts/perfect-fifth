@@ -3,7 +3,6 @@ module P5Reference.Color.Erase2
 open P5.Core
 open P5.Typography
 open P5.Color
-open P5.Environment
 open P5.Rendering
 open P5.Shape
 open P5.DOM
@@ -29,9 +28,5 @@ let draw p5 t =
     translateZ p5 0 0 40
     torus p5 15 5
     noErase p5
-
-    describe
-        p5
-        "60×60 centered teal sphere, yellow background. Torus rotating around sphere erases to reveal black text underneath."
 
 let run node = animate node setup draw

@@ -24,7 +24,6 @@ let update p5 state =
     else
         { state with x = newX }
 
-
 let draw p5 state =
     background p5 (Grayscale 200)
 

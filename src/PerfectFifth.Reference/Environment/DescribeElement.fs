@@ -6,7 +6,7 @@ open P5.Environment
 open P5.Color
 
 let draw p5 =
-    describe p5 "Heart and yellow circle over pink background"
+
     noStroke p5
     background p5 (Name "pink")
 
