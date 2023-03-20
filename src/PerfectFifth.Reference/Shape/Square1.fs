@@ -6,9 +6,8 @@ open P5.Environment
 open P5.Shape
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
-    describe p5 "White rect at center with dark charcoal grey outline."
+    // Draw a square with rounded corners, each having a radius of 20.
+    roundedSquare p5 30 20 55 20 20 20 20
+    describe p5 "white square with black outline and round edges in mid-right of canvas"
 
 let run node = display node draw

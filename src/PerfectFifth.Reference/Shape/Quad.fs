@@ -6,9 +6,7 @@ open P5.Environment
 open P5.Shape
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
-    describe p5 "White rect at center with dark charcoal grey outline."
+    quad p5 38 31 86 20 69 63 30 76
+    describe p5 "irregular white quadrilateral with black outline"
 
 let run node = display node draw

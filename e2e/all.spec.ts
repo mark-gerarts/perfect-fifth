@@ -1,14 +1,10 @@
-import { test, expect, chromium } from '@playwright/test';
+import { test, chromium } from '@playwright/test';
 
-
-test('reference sketches should not have errors', async ({ page }) => {
-    const browser = await chromium.launch();
-    await page.goto('http://localhost:8000/reference.html');
-
+const checkLinksOnPage = async (browser, page) => {
     const hrefs = await page.evaluate(() => {
         return Array.from(document.links)
             .map(item => item.href)
-            .filter(href => href.match(/reference-.*\.html/));
+            .filter(href => href.match(/.*-.*\.html/));
     });
 
     const batchSize = 10;
@@ -29,4 +25,16 @@ test('reference sketches should not have errors', async ({ page }) => {
             await referencePage.waitForTimeout(1000);
         }));
     }
+}
+
+test('reference sketches should not have errors', async ({ page }) => {
+    const browser = await chromium.launch();
+    await page.goto('http://localhost:8000/reference.html');
+    await checkLinksOnPage(browser, page);
+});
+
+test('example sketches should not have errors', async ({ page }) => {
+    const browser = await chromium.launch();
+    await page.goto('http://localhost:8000/examples.html');
+    await checkLinksOnPage(browser, page);
 });

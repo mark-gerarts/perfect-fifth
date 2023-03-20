@@ -184,3 +184,15 @@ reference:
       - Shape/Point0
       - Shape/Point1
       - Shape/Point2
+    quad(), quad3D(), quadWithDetail(), quad3DWithDetail():
+      - Shape/Quad
+    rect(), roundedRect(), rectWithDetail():
+      - Shape/Rect0
+      - Shape/Rect1
+      - Shape/Rect2
+    square(), roundedSquare():
+      - Shape/Square0
+      - Shape/Square1
+      - Shape/Square2
+    triangle():
+      - Shape/Triangle

@@ -89,7 +89,8 @@ module Shape =
     let rect (p5: P5) (x: float) (y: float) (w: float) (h: float) : Unit = jsNative
 
     [<Emit("$0.rect($1, $2, $3, $4, $5, $6)")>]
-    let rectDetail (p5: P5) (x: float) (y: float) (w: float) (h: float) (detailX: int) (detailY: int) : Unit = jsNative
+    let rectWithDetail (p5: P5) (x: float) (y: float) (w: float) (h: float) (detailX: int) (detailY: int) : Unit =
+        jsNative
 
     [<Emit("$0.rect($1, $2, $3, $4, $5, $6, $7, $8)")>]
     let roundedRect
@@ -138,9 +139,8 @@ module Shape =
         : Unit =
         jsNative
 
-    // quadDetail
     [<Emit("$0.quad($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)")>]
-    let quadDetail
+    let quadWithDetail
         (p5: P5)
         (x1: float)
         (y1: float)
@@ -156,7 +156,7 @@ module Shape =
         jsNative
 
     [<Emit("$0.quad($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)")>]
-    let quadZ
+    let quad3D
         (p5: P5)
         (x1: float)
         (y1: float)
@@ -174,7 +174,7 @@ module Shape =
         jsNative
 
     [<Emit("$0.quad($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)")>]
-    let quadZDetail
+    let quad3DWithDetail
         (p5: P5)
         (x1: float)
         (y1: float)
