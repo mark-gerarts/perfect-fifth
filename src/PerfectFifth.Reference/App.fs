@@ -7,17 +7,7 @@ open P5Reference
 let runSketch name canvasSelector =
     let node = Element <| document.querySelector (canvasSelector)
 
-    (*
-        Command to generate App.fs code based on what is in the fsproj file:
-
-          cat src/PerfectFifth.Reference/PerfectFifth-Reference.fsproj \
-            | grep -oP "Compile Include=\"\K[^\.]+" \
-            | grep -v "^App$" \
-            | sed 's/\([a-zA-Z]*\).\([a-zA-Z0-9]*\)/| "\1\/\2" -> \1.\2.run node/' \
-            | xclip -selection clipboard
-
-        This is useful when preparing example sketches in bulk.
-    *)
+    // See scripts/generate-reference-sketches.sh
     match name with
     | "Environment/Describe0" -> Environment.Describe0.run node
     | "Environment/Describe1" -> Environment.Describe1.run node
@@ -139,7 +129,6 @@ let runSketch name canvasSelector =
     | "Shape/NoSmooth" -> Shape.NoSmooth.run node
     | "Shape/RectMode0" -> Shape.RectMode0.run node
     | "Shape/RectMode1" -> Shape.RectMode1.run node
-    | "Shape/Smooth" -> Shape.Smooth.run node
     | "Shape/StrokeCap" -> Shape.StrokeCap.run node
     | "Shape/StrokeJoin0" -> Shape.StrokeJoin0.run node
     | "Shape/StrokeJoin1" -> Shape.StrokeJoin1.run node

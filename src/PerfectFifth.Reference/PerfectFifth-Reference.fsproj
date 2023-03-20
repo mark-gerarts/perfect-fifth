@@ -123,7 +123,6 @@
     <Compile Include="Shape\NoSmooth.fs" />
     <Compile Include="Shape\RectMode0.fs" />
     <Compile Include="Shape\RectMode1.fs" />
-    <Compile Include="Shape\Smooth.fs" />
     <Compile Include="Shape\StrokeCap.fs" />
     <Compile Include="Shape\StrokeJoin0.fs" />
     <Compile Include="Shape\StrokeJoin1.fs" />

@@ -196,3 +196,13 @@ reference:
       - Shape/Square2
     triangle():
       - Shape/Triangle
+    ellipseMode():
+      - Shape/EllipseMode0
+      - Shape/EllipseMode1
+    noSmooth():
+      - Shape/NoSmooth
+    rectMode():
+      - Shape/RectMode0
+      - Shape/RectMode1
+    smooth():
+      - Shape/NoSmooth

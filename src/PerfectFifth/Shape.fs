@@ -207,3 +207,26 @@ module Shape =
     /// TODO: all other variants
     [<Emit("$0.torus($1, $2)")>]
     let torus (p5: P5) (radius: float) (tubeRadius: float) : Unit = jsNative
+
+    type DrawMode =
+        | Center
+        | Radius
+        | Corner
+        | Corners
+
+    let private rawDrawMode (mode: DrawMode) : string =
+        match mode with
+        | Center -> "center"
+        | Radius -> "radius"
+        | Corner -> "corner"
+        | Corners -> "corners"
+
+    [<Emit("$0.ellipseMode($1)")>]
+    let private ellipseMode_ (p5: P5) (mode: string) : Unit = jsNative
+
+    let ellipseMode (p5: P5) (mode: DrawMode) : Unit = ellipseMode_ p5 (rawDrawMode mode)
+
+    [<Emit("$0.rectMode($1)")>]
+    let private rectMode_ (p5: P5) (mode: string) : Unit = jsNative
+
+    let rectMode (p5: P5) (mode: DrawMode) : Unit = rectMode_ p5 (rawDrawMode mode)
