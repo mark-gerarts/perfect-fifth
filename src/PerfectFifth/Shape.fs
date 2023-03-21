@@ -274,3 +274,44 @@ module Shape =
     /// TODO: 3D/uv
     [<Emit("$0.vertex($1, $2)")>]
     let vertex (p5: P5) (x: float) (y: float) : Unit = jsNative
+
+    [<Emit("$0.bezier($1, $2, $3, $4, $5, $6, $7, $8)")>]
+    let bezier
+        (p5: P5)
+        (x1: float)
+        (y1: float)
+        (x2: float)
+        (y2: float)
+        (x3: float)
+        (y3: float)
+        (x4: float)
+        (y4: float)
+        : Unit =
+        jsNative
+
+    [<Emit("$0.bezier($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)")>]
+    let bezier3D
+        (p5: P5)
+        (x1: float)
+        (y1: float)
+        (z1: float)
+        (x2: float)
+        (y2: float)
+        (z2: float)
+        (x3: float)
+        (y3: float)
+        (z3: float)
+        (x4: float)
+        (y4: float)
+        (z4: float)
+        : Unit =
+        jsNative
+
+    [<Emit("$0.bezierDetail($1)")>]
+    let bezierDetail (p5: P5) (detail: float) : Unit = jsNative
+
+    [<Emit("$0.bezierPoint($1, $2, $3, $4, $5)")>]
+    let bezierPoint (p5: P5) (a: float) (b: float) (c: float) (d: float) (t: float) : float = jsNative
+
+    [<Emit("$0.bezierTangent($1, $2, $3, $4, $5)")>]
+    let bezierTangent (p5: P5) (a: float) (b: float) (c: float) (d: float) (t: float) : float = jsNative

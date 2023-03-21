@@ -215,3 +215,13 @@ reference:
     strokeWeight():
       - Shape/StrokeWeight0
       - Shape/StrokeWeight1
+    bezier(), bezier3D():
+      - Shape/Bezier0
+      - Shape/Bezier1
+    bezierDetail():
+      - Shape/BezierDetail
+    bezierPoint():
+      - Shape/BezierPoint
+    bezierTangent():
+      - Shape/BezierTangent0
+      - Shape/BezierTangent1
