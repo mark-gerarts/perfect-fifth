@@ -3,7 +3,7 @@
     <Description>F# Fable bindings for p5js</Description>
     <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
     <PackageTags>fable;fable-library;fable-javascript</PackageTags>
-    <Version>0.1.0-alpha</Version>
+    <Version>0.1.1-alpha</Version>
     <Authors>Mark Gerarts</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/mark-gerarts/perfect-fifth</PackageProjectUrl>
