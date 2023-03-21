@@ -193,9 +193,6 @@ module Shape =
         : Unit =
         jsNative
 
-    [<Emit("$0.strokeWeight($1)")>]
-    let strokeWeight (p5: P5) (weight: float) : Unit = jsNative
-
     /// TODO: all other variants
     [<Emit("$0.box($1, $2, $3)")>]
     let box (p5: P5) (width: float) (height: float) (depth: float) : Unit = jsNative
@@ -230,3 +227,50 @@ module Shape =
     let private rectMode_ (p5: P5) (mode: string) : Unit = jsNative
 
     let rectMode (p5: P5) (mode: DrawMode) : Unit = rectMode_ p5 (rawDrawMode mode)
+
+    type Cap =
+        | CapRound
+        | CapSquare
+        | CapProject
+
+    let private rawCap (cap: Cap) : string =
+        match cap with
+        | CapRound -> "round"
+        | CapSquare -> "butt"
+        | CapProject -> "square"
+
+    [<Emit("$0.strokeCap($1)")>]
+    let private strokeCap_ (p5: P5) (cap: string) : Unit = jsNative
+
+    let strokeCap (p5: P5) (cap: Cap) : Unit = strokeCap_ p5 (rawCap cap)
+
+    type Join =
+        | JoinMiter
+        | JoinBevel
+        | JoinRound
+
+    let private rawJoin (join: Join) : string =
+        match join with
+        | JoinMiter -> "miter"
+        | JoinBevel -> "bevel"
+        | JoinRound -> "round"
+
+    [<Emit("$0.strokeJoin($1)")>]
+    let private strokeJoin_ (p5: P5) (join: string) : Unit = jsNative
+
+    let strokeJoin (p5: P5) (join: Join) : Unit = strokeJoin_ p5 (rawJoin join)
+
+    [<Emit("$0.strokeWeight($1)")>]
+    let strokeWeight (p5: P5) (weight: float) : Unit = jsNative
+
+    /// TODO: mode
+    [<Emit("$0.beginShape()")>]
+    let beginShape (p5: P5) : Unit = jsNative
+
+    /// TODO: mode
+    [<Emit("$0.endShape()")>]
+    let endShape (p5: P5) : Unit = jsNative
+
+    /// TODO: 3D/uv
+    [<Emit("$0.vertex($1, $2)")>]
+    let vertex (p5: P5) (x: float) (y: float) : Unit = jsNative

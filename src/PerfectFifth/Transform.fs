@@ -22,3 +22,7 @@ module Transform =
     // TODO: vector alternative
     [<Emit("$0.translate($1, $2, $3)")>]
     let translateZ (p5: P5) (x: float) (y: float) (z: float) : Unit = jsNative
+
+    /// TODO: y, z, scales
+    [<Emit("$0.scale($1)")>]
+    let scale (p5: P5) (s: float) : Unit = jsNative

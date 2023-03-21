@@ -206,3 +206,12 @@ reference:
       - Shape/RectMode1
     smooth():
       - Shape/NoSmooth
+    strokeCap():
+      - Shape/StrokeCap
+    strokeJoin():
+      - Shape/StrokeJoin0
+      - Shape/StrokeJoin1
+      - Shape/StrokeJoin2
+    strokeWeight():
+      - Shape/StrokeWeight0
+      - Shape/StrokeWeight1
