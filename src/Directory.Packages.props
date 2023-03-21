@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Fable.Browser.Dom" Version="2.14.0" />
+    <PackageVersion Include="Fable.Core" Version="4.0.0-theta-007" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(ContinuousIntegrationBuild)'=='true' ">
+      <PackageVersion Include="PerfectFifth" Version="$(Version)"/>
+  </ItemGroup>
+</Project>

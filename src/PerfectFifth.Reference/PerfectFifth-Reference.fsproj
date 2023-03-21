@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Environment\Describe0.fs" />
@@ -189,8 +189,8 @@
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Fable.Browser.Dom" Version="2.2.0" />
-    <PackageReference Include="Fable.Core" Version="3.2.3" />
+    <PackageReference Include="Fable.Browser.Dom" />
+    <PackageReference Include="Fable.Core" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PerfectFifth\PerfectFifth.fsproj" />
