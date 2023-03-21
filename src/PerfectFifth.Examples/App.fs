@@ -1,4 +1,4 @@
-module P5Examples
+module P5Examples.App
 
 open Browser.Dom
 open P5Examples

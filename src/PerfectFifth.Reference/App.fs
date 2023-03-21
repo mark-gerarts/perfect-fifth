@@ -1,4 +1,4 @@
-module P5Reference
+module P5Reference.App
 
 open Browser.Dom
 open P5.Core
