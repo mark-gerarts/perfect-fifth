@@ -263,10 +263,6 @@ module Shape =
     [<Emit("$0.strokeWeight($1)")>]
     let strokeWeight (p5: P5) (weight: float) : Unit = jsNative
 
-    /// TODO: mode
-    [<Emit("$0.beginShape()")>]
-    let beginShape (p5: P5) : Unit = jsNative
-
     /// TODO: uv
     [<Emit("$0.vertex($1, $2)")>]
     let vertex (p5: P5) (x: float) (y: float) : Unit = jsNative
@@ -389,6 +385,45 @@ module Shape =
 
     [<Emit("$0.endContour()")>]
     let endContour (p5: P5) : Unit = jsNative
+
+    type ShapeMode =
+        | Points
+        | Lines
+        | Triangles
+        | TriangleFan
+        | TriangleStrip
+        | Quads
+        | QuadStrip
+        | Tess
+
+    type private RawShapeMode =
+        | RawInt of int
+        | RawString of string
+
+    let private rawShapeMode mode =
+        match mode with
+        | Points -> RawInt 0
+        | Lines -> RawInt 1
+        | Triangles -> RawInt 4
+        | TriangleFan -> RawInt 6
+        | TriangleStrip -> RawInt 5
+        | Quads -> RawString "quads"
+        | QuadStrip -> RawString "quad_strip"
+        | Tess -> RawString "tess"
+
+    [<Emit("$0.beginShape()")>]
+    let beginShape (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.beginShape($1)")>]
+    let private beginShapeWithModeInt_ (p5: P5) (mode: int) : Unit = jsNative
+
+    [<Emit("$0.beginShape($1)")>]
+    let private beginShapeWithModeString_ (p5: P5) (mode: string) : Unit = jsNative
+
+    let beginShapeWithMode (p5: P5) (mode: ShapeMode) : Unit =
+        match rawShapeMode mode with
+        | RawInt i -> beginShapeWithModeInt_ p5 i
+        | RawString s -> beginShapeWithModeString_ p5 s
 
     [<Emit("$0.endShape()")>]
     let endShape (p5: P5) : Unit = jsNative

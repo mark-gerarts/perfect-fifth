@@ -2,13 +2,21 @@ module P5Reference.Shape.EndShape
 
 open P5.Core
 open P5.Color
-open P5.Environment
 open P5.Shape
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
-    describe p5 "White rect at center with dark charcoal grey outline."
+    noFill p5
+
+    beginShape p5
+    vertex p5 20 20
+    vertex p5 45 20
+    vertex p5 45 80
+    endShapeAndClose p5
+
+    beginShape p5
+    vertex p5 50 20
+    vertex p5 75 20
+    vertex p5 75 80
+    endShape p5
 
 let run node = display node draw

@@ -247,3 +247,15 @@ reference:
       - Shape/BezierVertex2
     curveVertex(), curveVertex3D():
       - Shape/CurveVertex
+    beginShape(), beginShapeWithMode():
+      - Shape/BeginShape0
+      - Shape/BeginShape1
+      - Shape/BeginShape2
+      - Shape/BeginShape3
+      - Shape/BeginShape4
+      - Shape/BeginShape5
+      - Shape/BeginShape6
+      - Shape/BeginShape7
+      - Shape/BeginShape8
+      - Shape/BeginShape9
+      - Shape/BeginShape10
