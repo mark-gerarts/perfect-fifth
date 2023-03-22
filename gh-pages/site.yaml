@@ -225,3 +225,15 @@ reference:
     bezierTangent():
       - Shape/BezierTangent0
       - Shape/BezierTangent1
+    curve(), curve3D():
+      - Shape/Curve0
+      - Shape/Curve1
+      - Shape/Curve2
+    curveDetail():
+      - Shape/CurveDetail
+    curveTightness():
+      - Shape/CurveTightness
+    curvePoint():
+      - Shape/CurvePoint
+    curveTangent():
+      - Shape/CurveTangent
