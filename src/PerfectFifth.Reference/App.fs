@@ -149,7 +149,6 @@ let runSketch name canvasSelector =
     | "Shape/CurvePoint" -> Shape.CurvePoint.run node
     | "Shape/CurveTangent" -> Shape.CurveTangent.run node
     | "Shape/BeginContour" -> Shape.BeginContour.run node
-    | "Shape/EndContour" -> Shape.EndContour.run node
     | "Shape/BeginShape0" -> Shape.BeginShape0.run node
     | "Shape/BeginShape1" -> Shape.BeginShape1.run node
     | "Shape/BeginShape2" -> Shape.BeginShape2.run node

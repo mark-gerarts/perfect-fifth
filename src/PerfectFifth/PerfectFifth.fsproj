@@ -20,6 +20,7 @@
     <Compile Include="Rendering.fs" />
     <Compile Include="Shape.fs" />
     <Compile Include="Structure.fs" />
+    <Compile Include="ThreeD.fs" />
     <Compile Include="Time.fs" />
     <Compile Include="Transform.fs" />
     <Compile Include="Typography.fs" />

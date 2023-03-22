@@ -30,3 +30,8 @@ module Rendering =
     /// TODO: renderer
     [<Emit("$0.createGraphics($1, $2)")>]
     let createGraphics (p5: P5) (width: int) (height: int) : P5 = jsNative
+
+    /// TODO: is using obj fine here, since the value can be basically anything?
+    /// TODO: what about different value types?
+    [<Emit("$0.setAttributes($1, $2)")>]
+    let setAttributes (p5) (key: string) (value: obj) : Unit = jsNative

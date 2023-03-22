@@ -143,7 +143,6 @@
     <Compile Include="Shape\CurvePoint.fs" />
     <Compile Include="Shape\CurveTangent.fs" />
     <Compile Include="Shape\BeginContour.fs" />
-    <Compile Include="Shape\EndContour.fs" />
     <Compile Include="Shape\BeginShape0.fs" />
     <Compile Include="Shape\BeginShape1.fs" />
     <Compile Include="Shape\BeginShape2.fs" />

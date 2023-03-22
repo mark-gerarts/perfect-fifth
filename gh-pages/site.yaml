@@ -237,3 +237,13 @@ reference:
       - Shape/CurvePoint
     curveTangent():
       - Shape/CurveTangent
+    beginContour():
+      - Shape/BeginContour
+    endContour():
+      - Shape/BeginContour
+    bezierVertex(), bezierVertex3D():
+      - Shape/BezierVertex0
+      - Shape/BezierVertex1
+      - Shape/BezierVertex2
+    curveVertex(), curveVertex3D():
+      - Shape/CurveVertex

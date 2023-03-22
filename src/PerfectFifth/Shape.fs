@@ -267,17 +267,36 @@ module Shape =
     [<Emit("$0.beginShape()")>]
     let beginShape (p5: P5) : Unit = jsNative
 
-    /// TODO: mode
-    [<Emit("$0.endShape()")>]
-    let endShape (p5: P5) : Unit = jsNative
-
-    /// TODO: 3D/uv
+    /// TODO: uv
     [<Emit("$0.vertex($1, $2)")>]
     let vertex (p5: P5) (x: float) (y: float) : Unit = jsNative
 
-    /// TODO: 3D
+    [<Emit("$0.vertex($1, $2, $3)")>]
+    let vertex3D (p5: P5) (x: float) (y: float) (z: float) : Unit = jsNative
+
+    [<Emit("$0.bezierVertex($1, $2, $3, $4, $5, $6)")>]
+    let bezierVertex (p5: P5) (x2: float) (y2: float) (x3: float) (y3: float) (x4: float) (y4: float) : Unit = jsNative
+
+    [<Emit("$0.bezierVertex($1, $2, $3, $4, $5, $6, $7, $8, $9)")>]
+    let bezierVertex3D
+        (p5: P5)
+        (x2: float)
+        (y2: float)
+        (z2: float)
+        (x3: float)
+        (y3: float)
+        (z3: float)
+        (x4: float)
+        (y4: float)
+        (z4: float)
+        : Unit =
+        jsNative
+
     [<Emit("$0.curveVertex($1, $2)")>]
     let curveVertex (p5: P5) (x: float) (y: float) : Unit = jsNative
+
+    [<Emit("$0.curveVertex($1, $2, $3)")>]
+    let curveVertex3D (p5: P5) (x: float) (y: float) (z: float) : Unit = jsNative
 
     [<Emit("$0.bezier($1, $2, $3, $4, $5, $6, $7, $8)")>]
     let bezier
@@ -370,3 +389,9 @@ module Shape =
 
     [<Emit("$0.endContour()")>]
     let endContour (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.endShape()")>]
+    let endShape (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.endShape('close')")>]
+    let endShapeAndClose (p5: P5) : Unit = jsNative
