@@ -148,4 +148,49 @@ let runSketch name canvasSelector =
     | "Shape/CurveTightness" -> Shape.CurveTightness.run node
     | "Shape/CurvePoint" -> Shape.CurvePoint.run node
     | "Shape/CurveTangent" -> Shape.CurveTangent.run node
+    | "Shape/BeginContour" -> Shape.BeginContour.run node
+    | "Shape/EndContour" -> Shape.EndContour.run node
+    | "Shape/BeginShape0" -> Shape.BeginShape0.run node
+    | "Shape/BeginShape1" -> Shape.BeginShape1.run node
+    | "Shape/BeginShape2" -> Shape.BeginShape2.run node
+    | "Shape/BeginShape3" -> Shape.BeginShape3.run node
+    | "Shape/BeginShape4" -> Shape.BeginShape4.run node
+    | "Shape/BeginShape5" -> Shape.BeginShape5.run node
+    | "Shape/BeginShape6" -> Shape.BeginShape6.run node
+    | "Shape/BeginShape7" -> Shape.BeginShape7.run node
+    | "Shape/BeginShape8" -> Shape.BeginShape8.run node
+    | "Shape/BeginShape9" -> Shape.BeginShape9.run node
+    | "Shape/BeginShape10" -> Shape.BeginShape10.run node
+    | "Shape/BezierVertex0" -> Shape.BezierVertex0.run node
+    | "Shape/BezierVertex1" -> Shape.BezierVertex1.run node
+    | "Shape/BezierVertex2" -> Shape.BezierVertex2.run node
+    | "Shape/CurveVertex" -> Shape.CurveVertex.run node
+    | "Shape/EndShape" -> Shape.EndShape.run node
+    | "Shape/QuadraticVertex0" -> Shape.QuadraticVertex0.run node
+    | "Shape/QuadraticVertex1" -> Shape.QuadraticVertex1.run node
+    | "Shape/Vertex0" -> Shape.Vertex0.run node
+    | "Shape/Vertex1" -> Shape.Vertex1.run node
+    | "Shape/Vertex2" -> Shape.Vertex2.run node
+    | "Shape/Vertex3" -> Shape.Vertex3.run node
+    | "Shape/Normal" -> Shape.Normal.run node
+    | "Shape/Plane" -> Shape.Plane.run node
+    | "Shape/Box" -> Shape.Box.run node
+    | "Shape/Sphere0" -> Shape.Sphere0.run node
+    | "Shape/Sphere1" -> Shape.Sphere1.run node
+    | "Shape/Sphere2" -> Shape.Sphere2.run node
+    | "Shape/Cylinder0" -> Shape.Cylinder0.run node
+    | "Shape/Cylinder1" -> Shape.Cylinder1.run node
+    | "Shape/Cylinder2" -> Shape.Cylinder2.run node
+    | "Shape/Cone0" -> Shape.Cone0.run node
+    | "Shape/Cone1" -> Shape.Cone1.run node
+    | "Shape/Cone2" -> Shape.Cone2.run node
+    | "Shape/Ellipsoid0" -> Shape.Ellipsoid0.run node
+    | "Shape/Ellipsoid1" -> Shape.Ellipsoid1.run node
+    | "Shape/Ellipsoid2" -> Shape.Ellipsoid2.run node
+    | "Shape/Torus0" -> Shape.Torus0.run node
+    | "Shape/Torus1" -> Shape.Torus1.run node
+    | "Shape/Torus2" -> Shape.Torus2.run node
+    | "Shape/LoadModel0" -> Shape.LoadModel0.run node
+    | "Shape/LoadModel1" -> Shape.LoadModel0.run node
+    | "Shape/Model" -> Shape.Model.run node
     | _ -> failwith <| "No sketch with name " + name + " exists"
