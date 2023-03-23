@@ -115,6 +115,8 @@ module Core =
 
     let noSetup (_: P5) = ()
 
+    let noUpdate (_: P5) = id
+
     /// Create a static sketch.
     let display (node: Node) (draw: P5 -> Unit) : Unit =
         let setupWithLoopDisabled (p5: P5) =

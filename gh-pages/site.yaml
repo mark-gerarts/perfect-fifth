@@ -270,3 +270,11 @@ reference:
       - Shape/Vertex4
     normal():
       - Shape/Normal
+    plane():
+      - Shape/Plane
+    box(), cube(), boxWithDetail():
+      - Shape/Box
+    sphere(), sphereWithDetail():
+      - Shape/Sphere0
+      - Shape/Sphere1
+      - Shape/Sphere2

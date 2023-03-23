@@ -193,13 +193,30 @@ module Shape =
         : Unit =
         jsNative
 
-    /// TODO: all other variants
+    [<Emit("$0.plane($1, $2)")>]
+    let plane (p5: P5) (width: float) (height: float) : Unit = jsNative
+
+    [<Emit("$0.plane($1, $2, $3, $4)")>]
+    let planeWithDetail (p5: P5) (width: float) (height: float) (detailX: float) (detailY: float) : Unit = jsNative
+
+    [<Emit("$0.plane()")>]
+    let planeWithDefaults (p5: P5) : Unit = jsNative
+
     [<Emit("$0.box($1, $2, $3)")>]
     let box (p5: P5) (width: float) (height: float) (depth: float) : Unit = jsNative
 
-    /// TODO: all other variants
+    [<Emit("$0.box($1)")>]
+    let cube (p5: P5) (width: float) : Unit = jsNative
+
+    [<Emit("$0.box($1, $2, $3, $4, $5)")>]
+    let boxWithDetail (p5: P5) (width: float) (height: float) (depth: float) (detailX: float) (detailY: float) : Unit =
+        jsNative
+
     [<Emit("$0.sphere($1)")>]
     let sphere (p5: P5) (radius: float) : Unit = jsNative
+
+    [<Emit("$0.sphere($1, $2, $3)")>]
+    let sphereWithDetail (p5: P5) (radius: float) (detailX: float) (detailY: float) : Unit = jsNative
 
     /// TODO: all other variants
     [<Emit("$0.torus($1, $2)")>]

@@ -20,9 +20,11 @@ module Rendering =
     [<Emit("$0.createCanvas($1, $2, $3)")>]
     let private createCanvasWithMode_ (p5: P5) (width: int) (height: int) (mode: string) : Unit = jsNative
 
-    /// TODO: might be useful to add a createWebGLCanvas?
     let createCanvasWithMode (p5: P5) (width: int) (height: int) (mode: RenderMode) : Unit =
         createCanvasWithMode_ p5 width height (rawRenderMode mode)
+
+    let createWebGLCanvas (p5: P5) (width: int) (height: int) : Unit =
+        createCanvasWithMode p5 width height WebGL
 
     /// TODO: noRedraw
     [<Emit("$0.resizeCanvas($1, $2)")>]
