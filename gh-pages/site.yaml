@@ -259,3 +259,14 @@ reference:
       - Shape/BeginShape8
       - Shape/BeginShape9
       - Shape/BeginShape10
+    quadraticVertex(), quadraticVertex3D():
+      - Shape/QuadraticVertex0
+      - Shape/QuadraticVertex1
+    vertex(), vertex3D():
+      - Shape/Vertex0
+      - Shape/Vertex1
+      - Shape/Vertex2
+      - Shape/Vertex3
+      - Shape/Vertex4
+    normal():
+      - Shape/Normal

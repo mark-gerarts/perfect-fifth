@@ -165,6 +165,7 @@
     <Compile Include="Shape\Vertex1.fs" />
     <Compile Include="Shape\Vertex2.fs" />
     <Compile Include="Shape\Vertex3.fs" />
+    <Compile Include="Shape\Vertex4.fs" />
     <Compile Include="Shape\Normal.fs" />
     <Compile Include="Shape\Plane.fs" />
     <Compile Include="Shape\Box.fs" />

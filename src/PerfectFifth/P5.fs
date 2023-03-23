@@ -26,6 +26,10 @@ module Core =
             with get (): obj = jsNative
             and set (_: obj): Unit = jsNative
 
+        member _.mouseClicked
+            with get (): obj = jsNative
+            and set (_: obj): Unit = jsNative
+
         member _.windowResized
             with get (): obj = jsNative
             and set (_: obj): Unit = jsNative
@@ -34,6 +38,7 @@ module Core =
         // @todo: legit event classes instead of dummy objects.
         | MouseMoved of obj
         | MousePressed of obj
+        | MouseClicked of obj
         | WindowResized of obj
 
     type Node =
@@ -97,6 +102,8 @@ module Core =
                 p5.mouseMoved <- fun ev -> state <- sketch.eventHandler p5 (MouseMoved ev) state
 
                 p5.mousePressed <- fun ev -> state <- sketch.eventHandler p5 (MousePressed ev) state
+
+                p5.mouseClicked <- fun ev -> state <- sketch.eventHandler p5 (MouseClicked ev) state
 
                 p5.windowResized <- fun ev -> state <- sketch.eventHandler p5 (WindowResized ev) state
 

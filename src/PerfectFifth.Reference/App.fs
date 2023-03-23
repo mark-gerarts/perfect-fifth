@@ -171,6 +171,7 @@ let runSketch name canvasSelector =
     | "Shape/Vertex1" -> Shape.Vertex1.run node
     | "Shape/Vertex2" -> Shape.Vertex2.run node
     | "Shape/Vertex3" -> Shape.Vertex3.run node
+    | "Shape/Vertex4" -> Shape.Vertex4.run node
     | "Shape/Normal" -> Shape.Normal.run node
     | "Shape/Plane" -> Shape.Plane.run node
     | "Shape/Box" -> Shape.Box.run node
