@@ -218,6 +218,73 @@ module Shape =
     [<Emit("$0.sphere($1, $2, $3)")>]
     let sphereWithDetail (p5: P5) (radius: float) (detailX: float) (detailY: float) : Unit = jsNative
 
+    [<Emit("$0.cylinder($1, $2)")>]
+    let cylinder (p5: P5) (radius: float) (height: float) : Unit = jsNative
+
+    [<Emit("$0.cylinder()")>]
+    let cylinderWithDefaults (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.cylinder($1, $2, $3, $4)")>]
+    let cylinderWithDetail (p5: P5) (radius: float) (height: float) (detailX: float) (detailY: float) : Unit = jsNative
+
+    [<Emit("$0.cylinder($1, $2, $3, $4, $5, $6)")>]
+    let cylinderWithDetailAndCap
+        (p5: P5)
+        (radius: float)
+        (height: float)
+        (detailX: float)
+        (detailY: float)
+        (bottomCap: bool)
+        (topCap: bool)
+        : Unit =
+        jsNative
+
+    [<Emit("$0.cone($1, $2)")>]
+    let cone (p5: P5) (radius: float) (height: float) : Unit = jsNative
+
+    [<Emit("$0.cone()")>]
+    let coneWithDefaults (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.cone($1, $2, $3, $4)")>]
+    let coneWithDetail (p5: P5) (radius: float) (height: float) (detailX: float) (detailY: float) : Unit = jsNative
+
+    [<Emit("$0.cone($1, $2, $3, $4, $5)")>]
+    let coneWithDetailAndCap
+        (p5: P5)
+        (radius: float)
+        (height: float)
+        (detailX: float)
+        (detailY: float)
+        (cap: bool)
+        : Unit =
+        jsNative
+
+    [<Emit("$0.ellipsoid($1, $2, $3)")>]
+    let ellipsoid (p5: P5) (radiusX: float) (radiusY: float) (radiusZ: float) : Unit = jsNative
+
+    [<Emit("$0.ellipsoid()")>]
+    let ellipsoidWithDefaults (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.ellipsoid($1, $2, $3, $4, $5)")>]
+    let ellipsoidWithDetail
+        (p5: P5)
+        (radiusX: float)
+        (radiusY: float)
+        (radiusZ: float)
+        (detailX: float)
+        (detailY: float)
+        : Unit =
+        jsNative
+
+    [<Emit("$0.torus($1, $2)")>]
+    let torus (p5: P5) (radius: float) (tubeRadius: float) : Unit = jsNative
+
+    [<Emit("$0.torus()")>]
+    let torusWithDefaults (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.torus($1, $2, $3, $4)")>]
+    let torusWithDetail (p5: P5) (radius: float) (tubeRadius: float) (detailX: float) (detailY: float) : Unit = jsNative
+
     /// TODO: all other variants
     [<Emit("$0.torus($1, $2)")>]
     let torus (p5: P5) (radius: float) (tubeRadius: float) : Unit = jsNative

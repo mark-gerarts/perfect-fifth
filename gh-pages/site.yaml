@@ -278,3 +278,15 @@ reference:
       - Shape/Sphere0
       - Shape/Sphere1
       - Shape/Sphere2
+    cylinder(), cylinderWithDefaults(), cylinderWithDetail(), cylinderWithDetailAndCap():
+      - Shape/Cylinder0
+      - Shape/Cylinder1
+      - Shape/Cylinder2
+    cone(), coneWithDefaults(), coneWithDetail(), coneWithDetailAndCap():
+      - Shape/Cone0
+      - Shape/Cone1
+      - Shape/Cone2
+    ellipsoid(), ellipsoidWithDefaults(), ellipsoidWithDetail():
+      - Shape/Ellipsoid0
+      - Shape/Ellipsoid1
+      - Shape/Ellipsoid2
