@@ -295,3 +295,4 @@ __pycache__/
 
 gh-pages/output
 gh-pages/venv
+!public/assets/*.obj
