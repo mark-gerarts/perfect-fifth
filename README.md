@@ -67,7 +67,7 @@ type Node =
     | Element of Browser.Types.Element
     // Nothing. Create the canvas yourself in `draw` using `createCanvas`, or
     // let P5 handle it.
-    | None
+    | NoNode
 ```
 
 The second argument is the draw function that will be called a single time. It
@@ -101,7 +101,7 @@ display (Selector ".canvas-wrapper") draw
 display (Element (document.querySelector ".canvas-wrapper")) draw
 
 // Or
-display None draw
+display NoNode draw
 ```
 
 ### Animate

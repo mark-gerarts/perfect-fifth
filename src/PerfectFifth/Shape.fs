@@ -526,3 +526,46 @@ module Shape =
 
     [<Emit("$0.normal($1)")>]
     let normalFromVector (p5: P5) (v: P5Vector) : Unit = jsNative
+
+    type P5Geometry =
+        [<Emit("$0.computeFaces()")>]
+        member _.computeFaces() : Unit = jsNative
+
+        [<Emit("$0.computeNormals()")>]
+        member _.computeNormals() : Unit = jsNative
+
+        [<Emit("$0.averageNormals()")>]
+        member _.averageNormals() : Unit = jsNative
+
+        [<Emit("$0.averagePoleNormals()")>]
+        member _.averagePoleNormals() : Unit = jsNative
+
+        [<Emit("$0.normalize()")>]
+        member _.normalize() : Unit = jsNative
+
+    [<Emit("$0.loadModel($1, $2)")>]
+    let loadModel (p5: P5) (path: string) (normalize: bool) : P5Geometry = jsNative
+
+    [<Emit("$0.loadModel($1, $2, $3, $4)")>]
+    let loadModelWithCallbacks
+        (p5: P5)
+        (path: string)
+        (normalize: bool)
+        (onSuccess: P5Geometry -> Unit)
+        (onError: obj -> Unit)
+        : P5Geometry =
+        jsNative
+
+    [<Emit("$0.loadModel($1, $2, $3, $4, $5)")>]
+    let loadModelWithCallbacksAndFileType
+        (p5: P5)
+        (path: string)
+        (normalize: bool)
+        (onSuccess: P5Geometry -> Unit)
+        (onError: obj -> Unit)
+        (fileType: string)
+        : P5Geometry =
+        jsNative
+
+    [<Emit("$0.model($1)")>]
+    let model (p5: P5) (model: P5Geometry) : Unit = jsNative

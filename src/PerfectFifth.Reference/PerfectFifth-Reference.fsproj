@@ -184,8 +184,7 @@
     <Compile Include="Shape\Torus0.fs" />
     <Compile Include="Shape\Torus1.fs" />
     <Compile Include="Shape\Torus2.fs" />
-    <Compile Include="Shape\LoadModel0.fs" />
-    <Compile Include="Shape\LoadModel1.fs" />
+    <Compile Include="Shape\LoadModel.fs" />
     <Compile Include="Shape\Model.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>

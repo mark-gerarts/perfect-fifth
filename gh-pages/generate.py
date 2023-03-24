@@ -2,6 +2,7 @@ import shutil as sh
 import os
 import yaml
 import re
+from distutils.dir_util import copy_tree
 
 basedir = os.path.dirname(os.path.realpath(__file__))
 
@@ -12,10 +13,12 @@ if os.path.exists(f"{basedir}/output"):
     sh.rmtree(f"{basedir}/output")
 
 os.mkdir(f"{basedir}/output")
+os.mkdir(f"{basedir}/output/assets")
 
 sh.copyfile(f"{basedir}/index.html", f"{basedir}/output/index.html")
 sh.copyfile(f"{basedir}/examples.html", f"{basedir}/output/examples.html")
 sh.copyfile(f"{basedir}/reference.html", f"{basedir}/output/reference.html")
+copy_tree(f"{basedir}/../public/assets", f"{basedir}/output/assets")
 
 
 def example_to_filename(section, entry_name):
@@ -92,6 +95,7 @@ for section, entries in site_structure["reference"].items():
 
         sh.copyfile(src, dst)
 
+        sketches = sketches or []
         examples = []
         for index, sketch in enumerate(sketches):
             example = reference_example_template

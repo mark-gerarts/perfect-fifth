@@ -190,7 +190,6 @@ let runSketch name canvasSelector =
     | "Shape/Torus0" -> Shape.Torus0.run node
     | "Shape/Torus1" -> Shape.Torus1.run node
     | "Shape/Torus2" -> Shape.Torus2.run node
-    | "Shape/LoadModel0" -> Shape.LoadModel0.run node
-    | "Shape/LoadModel1" -> Shape.LoadModel0.run node
+    | "Shape/LoadModel" -> Shape.LoadModel.run node
     | "Shape/Model" -> Shape.Model.run node
     | _ -> failwith <| "No sketch with name " + name + " exists"

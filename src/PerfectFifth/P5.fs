@@ -10,6 +10,10 @@ module Core =
     /// instance to all functions, but never call a method on it.
     [<ImportAll("p5")>]
     type P5(sketch: Func<obj, Unit>, ?node: Browser.Types.Element) =
+        member _.preload
+            with get (): obj = jsNative
+            and set (_: obj): Unit = jsNative
+
         member _.setup
             with get (): obj = jsNative
             and set (_: obj): Unit = jsNative
@@ -44,10 +48,14 @@ module Core =
     type Node =
         | Selector of string
         | Element of Browser.Types.Element
-        | None
+        | NoNode
 
     type Sketch<'a> =
-        { setup: P5 -> 'a
+        // For now, preloading *has* to make use of some mutable state, We have
+        // to think of some elegant alternative of handling the result of
+        // preloading .
+        { preload: (P5 -> Unit) option
+          setup: P5 -> 'a
           update: P5 -> 'a -> 'a
           draw: P5 -> 'a -> Unit
           eventHandler: P5 -> Event -> 'a -> 'a
@@ -65,13 +73,15 @@ module Core =
     [<Emit("$0.millis()")>]
     let millis (p5: P5) : int = jsNative
 
+    /// TODO: perhaps we should create some display/animate/etc alternatives
+    /// with preload versions.
     let defaultSketch setup =
-        { setup = setup
+        { preload = None
+          setup = setup
           update = (fun _ -> id)
           draw = (fun _ _ -> ())
           eventHandler = (fun _ _ -> id)
-          node = None }
-
+          node = NoNode }
 
     [<Global>]
     let console: JS.Console = jsNative
@@ -81,7 +91,7 @@ module Core =
             match sketch.node with
             | Selector selector -> document.querySelector (selector)
             | Element element -> element
-            | None -> null
+            | NoNode -> null
 
         let p5Sketch =
             // Inspired by https://github.com/aolney/fable-p5-demo
@@ -91,6 +101,10 @@ module Core =
 
                 // For testing purposes, delete this later.
                 console.log p5
+
+                match sketch.preload with
+                | Some preload -> p5.preload <- fun () -> preload p5
+                | None -> ()
 
                 p5.setup <- fun () -> state <- sketch.setup p5
 
@@ -162,7 +176,8 @@ module Core =
         (eventHandler: P5 -> Event -> 'a -> 'a)
         : Unit =
         createSketch
-            { setup = setup
+            { preload = None
+              setup = setup
               update = update
               draw = draw
               eventHandler = eventHandler

@@ -290,3 +290,13 @@ reference:
       - Shape/Ellipsoid0
       - Shape/Ellipsoid1
       - Shape/Ellipsoid2
+    loadModel(), loadModelWithCallbacks(), loadModelWithCallbacksAndFileType():
+      - Shape/Model
+      - Shape/LoadModel
+    model():
+      - Shape/Model
+    p5.Geometry/computeFaces(): ~
+    p5.Geometry/computeNormals(): ~
+    p5.Geometry/averageNormals(): ~
+    p5.Geometry/averagePoleNormals(): ~
+    p5.Geometry/normalize(): ~
