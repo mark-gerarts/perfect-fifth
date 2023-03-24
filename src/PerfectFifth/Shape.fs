@@ -285,10 +285,6 @@ module Shape =
     [<Emit("$0.torus($1, $2, $3, $4)")>]
     let torusWithDetail (p5: P5) (radius: float) (tubeRadius: float) (detailX: float) (detailY: float) : Unit = jsNative
 
-    /// TODO: all other variants
-    [<Emit("$0.torus($1, $2)")>]
-    let torus (p5: P5) (radius: float) (tubeRadius: float) : Unit = jsNative
-
     type DrawMode =
         | Center
         | Radius
