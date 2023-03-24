@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>F# Fable bindings for p5js</Description>
-    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
     <PackageTags>fable;fable-library;fable-javascript</PackageTags>
     <Version>0.1.1-alpha</Version>
     <Authors>Mark Gerarts</Authors>
@@ -26,8 +25,8 @@
     <Compile Include="Typography.fs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Fable.Browser.Dom" Version="2.2.0" />
-    <PackageReference Include="Fable.Core" Version="3.2.3" />
+    <PackageReference Include="Fable.Browser.Dom" />
+    <PackageReference Include="Fable.Core"  />
   </ItemGroup>
   <ItemGroup>
     <Content Include="*.fsproj; **\*.fs; **\*.fsi" PackagePath="fable\" />
