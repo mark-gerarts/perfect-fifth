@@ -5,6 +5,9 @@ module Structure =
     open Fable.Core
     open P5.Core
 
+    [<Emit("$0.remove()")>]
+    let remove (p5: P5) : Unit = jsNative
+
     [<Emit("$0.loop()")>]
     let loop (p5: P5) : Unit = jsNative
 

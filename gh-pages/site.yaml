@@ -303,3 +303,9 @@ reference:
   Structure:
     preload():
       - Structure/Preload
+    setup():
+      - Structure/Setup
+    draw():
+      - Structure/Draw
+    remove():
+      - Structure/Remove

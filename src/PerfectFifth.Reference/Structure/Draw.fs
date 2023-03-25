@@ -5,9 +5,18 @@ open P5.Color
 open P5.Environment
 open P5.Shape
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let setup p5 =
+    setFrameRate p5 30
+    0
 
-let run node = display node draw
+let update p5 yPos =
+    match yPos - 1 with
+    | yPos when yPos < 0 -> height p5
+    | yPos -> yPos
+
+let draw p5 yPos =
+    let width = width p5 |> float
+    background p5 (Grayscale 204)
+    line p5 0 (float yPos) width (float yPos)
+
+let run node = simulate node setup update draw
