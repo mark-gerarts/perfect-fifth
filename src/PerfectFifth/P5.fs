@@ -56,15 +56,15 @@ module Core =
         | Element of Browser.Types.Element
         | NoNode
 
-    type Sketch<'a> =
-        // For now, preloading *has* to make use of some mutable state, We have
-        // to think of some elegant alternative of handling the result of
-        // preloading .
-        { preload: (P5 -> Unit) option
-          setup: P5 -> 'a
-          update: P5 -> 'a -> 'a
-          draw: P5 -> 'a -> Unit
-          eventHandler: P5 -> Event -> 'a -> 'a
+    type Init<'preloadState, 'state> =
+        | Setup of setup: (P5 -> 'state)
+        | PreloadAndSetup of preload: (P5 -> 'preloadState) * setup: (P5 -> 'preloadState -> 'state)
+
+    type Sketch<'preloadState, 'state> =
+        { init: Init<'preloadState, 'state>
+          update: P5 -> 'state -> 'state
+          draw: P5 -> 'state -> Unit
+          eventHandler: P5 -> Event -> 'state -> 'state
           node: Node }
 
     /// Disables the draw function from being called continuously. This should
@@ -79,11 +79,15 @@ module Core =
     [<Emit("$0.millis()")>]
     let millis (p5: P5) : int = jsNative
 
-    /// TODO: perhaps we should create some display/animate/etc alternatives
-    /// with preload versions.
     let defaultSketch setup =
-        { preload = None
-          setup = setup
+        { init = Setup setup
+          update = (fun _ -> id)
+          draw = (fun _ _ -> ())
+          eventHandler = (fun _ _ -> id)
+          node = NoNode }
+
+    let defaultPreloadSketch preload setup =
+        { init = PreloadAndSetup(preload, setup)
           update = (fun _ -> id)
           draw = (fun _ _ -> ())
           eventHandler = (fun _ _ -> id)
@@ -92,7 +96,7 @@ module Core =
     [<Global>]
     let console: JS.Console = jsNative
 
-    let createSketch (sketch: Sketch<'a>) : Unit =
+    let createSketch (sketch: Sketch<'preloadState, 'state>) : Unit =
         let nodeElement =
             match sketch.node with
             | Selector selector -> document.querySelector (selector)
@@ -102,17 +106,18 @@ module Core =
         let p5Sketch =
             // Inspired by https://github.com/aolney/fable-p5-demo
             new Func<obj, unit>(fun boxedP5 ->
-                let mutable state = Unchecked.defaultof<'a>
+                let mutable state = Unchecked.defaultof<'state>
                 let p5 = unbox<P5> boxedP5
 
                 // For testing purposes, delete this later.
                 console.log p5
 
-                match sketch.preload with
-                | Some preload -> p5.preload <- fun () -> preload p5
-                | None -> ()
-
-                p5.setup <- fun () -> state <- sketch.setup p5
+                match sketch.init with
+                | PreloadAndSetup(preload, setup) ->
+                    let mutable preloadState = Unchecked.defaultof<'preloadState>
+                    p5.preload <- fun () -> preloadState <- preload p5
+                    p5.setup <- fun () -> state <- setup p5 preloadState
+                | Setup setup -> p5.setup <- fun () -> state <- setup p5
 
                 p5.draw <-
                     fun () ->
@@ -150,6 +155,16 @@ module Core =
                 draw = drawDropState
                 node = node }
 
+    let displayWithPreload (node: Node) (preload: P5 -> 'a) (draw: P5 -> 'a -> Unit) : Unit =
+        let setupWithLoopDisabled (p5: P5) preloadState =
+            noLoop p5
+            preloadState
+
+        createSketch
+            { defaultPreloadSketch preload setupWithLoopDisabled with
+                draw = draw
+                node = node }
+
     /// Create a simple animation sketch, which draws something based on the
     /// time elapsed.
     let animate (node: Node) (setup: P5 -> Unit) (draw: P5 -> int -> Unit) : Unit =
@@ -173,6 +188,19 @@ module Core =
                 draw = draw
                 node = node }
 
+    let simulateWithPreload
+        (node: Node)
+        (preload: P5 -> 'a)
+        (setup: P5 -> 'a -> 'b)
+        (update: P5 -> 'b -> 'b)
+        (draw: P5 -> 'b -> Unit)
+        : Unit =
+        createSketch
+            { defaultPreloadSketch preload setup with
+                update = update
+                draw = draw
+                node = node }
+
     /// Create a sketch with all functionality: handling state and events.
     let play
         (node: Node)
@@ -182,8 +210,22 @@ module Core =
         (eventHandler: P5 -> Event -> 'a -> 'a)
         : Unit =
         createSketch
-            { preload = None
-              setup = setup
+            { init = Setup setup
+              update = update
+              draw = draw
+              eventHandler = eventHandler
+              node = node }
+
+    let playWithPreload
+        (node: Node)
+        (preload: P5 -> 'a)
+        (setup: P5 -> 'a -> 'b)
+        (update: P5 -> 'b -> 'b)
+        (draw: P5 -> 'b -> Unit)
+        (eventHandler: P5 -> Event -> 'b -> 'b)
+        : Unit =
+        createSketch
+            { init = PreloadAndSetup(preload, setup)
               update = update
               draw = draw
               eventHandler = eventHandler

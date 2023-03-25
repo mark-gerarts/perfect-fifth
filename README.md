@@ -182,6 +182,10 @@ let eventHandler p5 event state =
     | _ -> state
 ```
 
+## Preloading
+
+TODO: explain preload alternatives.
+
 ## Remarks
 
 TODO: explain why p5 needs to be passed to everything.
