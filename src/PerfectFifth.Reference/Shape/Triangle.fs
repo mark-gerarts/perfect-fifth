@@ -1,13 +1,8 @@
 module P5Reference.Shape.Triangle
 
 open P5.Core
-open P5.Color
-open P5.Environment
 open P5.Shape
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let draw p5 = triangle p5 30 75 58 20 86 75
 
 let run node = display node draw

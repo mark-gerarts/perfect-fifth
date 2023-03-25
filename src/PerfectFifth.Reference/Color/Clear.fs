@@ -2,12 +2,22 @@ module P5Reference.Color.Clear
 
 open P5.Core
 open P5.Color
-open P5.Environment
+open P5.Events
 open P5.Shape
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let update _ = id
 
-let run node = display node draw
+let draw p5 _ = circle p5 (mouseX p5) (mouseY p5) 20
+
+let eventHandler p5 event state =
+    match event with
+    | MousePressed _ ->
+        clear p5
+        background p5 (Grayscale 128)
+
+    | _ -> ()
+
+    state
+
+let run node =
+    play node noSetup update draw eventHandler
