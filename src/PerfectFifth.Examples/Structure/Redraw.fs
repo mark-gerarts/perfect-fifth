@@ -24,14 +24,9 @@ let draw p5 state =
     background p5 (Grayscale 0)
     line p5 0 y (width p5) y
 
-let eventHandler p5 event state =
-    match event with
-    | MousePressed _ ->
-        // Beware, even though redraw implicitly calls update as well, the state
-        // returned from this eventHandler is what is important.
-        redraw p5
-        update p5 state
-    | _ -> state
+let onMousePressed p5 _ = redraw p5
+
+let subscriptions = [ OnMousePressed(Effect onMousePressed) ]
 
 let run node =
-    play node setup update draw eventHandler
+    play node setup update draw subscriptions

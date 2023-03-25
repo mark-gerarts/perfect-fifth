@@ -307,5 +307,7 @@ reference:
       - Structure/Setup
     draw():
       - Structure/Draw
+    subscriptions:
+      - Structure/Subscriptions
     remove():
       - Structure/Remove

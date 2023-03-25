@@ -9,15 +9,11 @@ let update _ = id
 
 let draw p5 _ = circle p5 (mouseX p5) (mouseY p5) 20
 
-let eventHandler p5 event state =
-    match event with
-    | MousePressed _ ->
-        clear p5
-        background p5 (Grayscale 128)
+let onMousePressed p5 _ =
+    clear p5
+    background p5 (Grayscale 128)
 
-    | _ -> ()
-
-    state
+let subscriptions = [ OnMousePressed(Effect onMousePressed) ]
 
 let run node =
-    play node noSetup update draw eventHandler
+    play node noSetup update draw subscriptions

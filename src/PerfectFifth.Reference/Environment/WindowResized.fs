@@ -13,12 +13,10 @@ let draw p5 () = background p5 (RGB(0, 100, 200))
 
 let update p5 = id
 
-let eventHandler p5 ev state =
-    match ev with
-    | WindowResized _ ->
-        resizeCanvas p5 (windowWidth p5) (windowHeight p5)
-        state
-    | _ -> state
+let onWindowResized p5 _ =
+    resizeCanvas p5 (windowWidth p5) (windowHeight p5)
+
+let subscriptions = [ OnWindowResized(Effect onWindowResized) ]
 
 let run node =
-    play node setup update draw eventHandler
+    play node setup update draw subscriptions

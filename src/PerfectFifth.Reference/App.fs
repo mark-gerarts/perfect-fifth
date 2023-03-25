@@ -207,6 +207,7 @@ let runSketch name canvasSelector =
     | "Structure/Pop1" -> Structure.Pop1.run node
     | "Structure/Redraw0" -> Structure.Redraw0.run node
     | "Structure/Redraw1" -> Structure.Redraw1.run node
+    | "Structure/Subscriptions" -> Structure.Subscriptions.run node
     | "DOM/P5ElementElt" -> DOM.P5ElementElt.run node
     | "DOM/P5ElementParent" -> DOM.P5ElementParent.run node
     | "DOM/P5ElementId" -> DOM.P5ElementId.run node

@@ -25,12 +25,9 @@ let draw p5 state =
     background p5 (Grayscale 0)
     line p5 0 y (width p5) y
 
-let eventHandler p5 event state =
-    match event with
-    | MousePressed _ -> loop p5
-    | _ -> ()
+let onMousePressed p5 _ = loop p5
 
-    state
+let subscriptions = [ OnMousePressed(Effect onMousePressed) ]
 
 let run node =
-    play node setup update draw eventHandler
+    play node setup update draw subscriptions

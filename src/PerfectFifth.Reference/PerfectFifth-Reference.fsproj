@@ -201,6 +201,7 @@
     <Compile Include="Structure\Pop1.fs" />
     <Compile Include="Structure\Redraw0.fs" />
     <Compile Include="Structure\Redraw1.fs" />
+    <Compile Include="Structure\Subscriptions.fs" />
     <Compile Include="DOM\P5ElementElt.fs" />
     <Compile Include="DOM\P5ElementParent.fs" />
     <Compile Include="DOM\P5ElementId.fs" />

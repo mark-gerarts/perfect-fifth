@@ -4,7 +4,9 @@ module Core =
 
     open System
     open Fable.Core
+    open Fable.Core.JsInterop
     open Browser.Dom
+    open Browser.Types
 
     type IImage =
         interface
@@ -28,28 +30,36 @@ module Core =
             with get (): obj = jsNative
             and set (_: obj): Unit = jsNative
 
-        member _.mouseMoved
-            with get (): obj = jsNative
-            and set (_: obj): Unit = jsNative
+    type EventHandler<'e, 'a> =
+        | Effect of (P5 -> 'e -> Unit)
+        | Update of (P5 -> 'e -> 'a -> 'a)
 
-        member _.mousePressed
-            with get (): obj = jsNative
-            and set (_: obj): Unit = jsNative
+    type Subscription<'a> =
+        | OnMouseMoved of EventHandler<MouseEvent, 'a>
+        | OnMousePressed of EventHandler<MouseEvent, 'a>
+        | OnMouseClicked of EventHandler<MouseEvent, 'a>
+        | OnWindowResized of EventHandler<UIEvent, 'a>
 
-        member _.mouseClicked
-            with get (): obj = jsNative
-            and set (_: obj): Unit = jsNative
+    /// There is no way to do this dynamically, as fas as I am aware.
+    let private getMouseMovedHandler subscription =
+        match subscription with
+        | OnMouseMoved handler -> Some handler
+        | _ -> None
 
-        member _.windowResized
-            with get (): obj = jsNative
-            and set (_: obj): Unit = jsNative
+    let private getMousePressedHandler subscription =
+        match subscription with
+        | OnMousePressed handler -> Some handler
+        | _ -> None
 
-    type Event =
-        // @todo: legit event classes instead of dummy objects.
-        | MouseMoved of obj
-        | MousePressed of obj
-        | MouseClicked of obj
-        | WindowResized of obj
+    let private getMouseClickedHandler subscription =
+        match subscription with
+        | OnMouseClicked handler -> Some handler
+        | _ -> None
+
+    let private getWindowResizedHandler subscription =
+        match subscription with
+        | OnWindowResized handler -> Some handler
+        | _ -> None
 
     type Node =
         | Selector of string
@@ -64,7 +74,7 @@ module Core =
         { init: Init<'preloadState, 'state>
           update: P5 -> 'state -> 'state
           draw: P5 -> 'state -> Unit
-          eventHandler: P5 -> Event -> 'state -> 'state
+          subscriptions: Subscription<'state> list
           node: Node }
 
     /// Disables the draw function from being called continuously. This should
@@ -83,14 +93,14 @@ module Core =
         { init = Setup setup
           update = (fun _ -> id)
           draw = (fun _ _ -> ())
-          eventHandler = (fun _ _ -> id)
+          subscriptions = []
           node = NoNode }
 
     let defaultPreloadSketch preload setup =
         { init = PreloadAndSetup(preload, setup)
           update = (fun _ -> id)
           draw = (fun _ _ -> ())
-          eventHandler = (fun _ _ -> id)
+          subscriptions = []
           node = NoNode }
 
     [<Global>]
@@ -124,19 +134,23 @@ module Core =
                         state <- sketch.update p5 state
                         sketch.draw p5 state
 
-                p5.mouseMoved <- fun ev -> state <- sketch.eventHandler p5 (MouseMoved ev) state
+                let executeHandler ev handler =
+                    match handler with
+                    | (Effect f) -> f p5 ev
+                    | (Update f) -> state <- f p5 ev state
 
-                p5.mousePressed <- fun ev -> state <- sketch.eventHandler p5 (MousePressed ev) state
+                let setEventProperty property handlerFilter =
+                    match List.choose handlerFilter sketch.subscriptions with
+                    | [] -> ()
+                    | handlers -> p5?(property) <- fun ev -> List.iter (executeHandler ev) handlers
 
-                p5.mouseClicked <- fun ev -> state <- sketch.eventHandler p5 (MouseClicked ev) state
-
-                p5.windowResized <- fun ev -> state <- sketch.eventHandler p5 (WindowResized ev) state
-
-                ())
+                // We lose some type safety here, but save a lot of typing.
+                setEventProperty "mouseMoved" getMouseMovedHandler
+                setEventProperty "mousePressed" getMousePressedHandler
+                setEventProperty "mouseClicked" getMouseClickedHandler
+                setEventProperty "windowResized" getWindowResizedHandler)
 
         new P5(p5Sketch, nodeElement) |> ignore
-
-        ()
 
     let noSetup (_: P5) = ()
 
@@ -207,13 +221,13 @@ module Core =
         (setup: P5 -> 'a)
         (update: P5 -> 'a -> 'a)
         (draw: P5 -> 'a -> Unit)
-        (eventHandler: P5 -> Event -> 'a -> 'a)
+        (subscriptions: Subscription<'a> list)
         : Unit =
         createSketch
             { init = Setup setup
               update = update
               draw = draw
-              eventHandler = eventHandler
+              subscriptions = subscriptions
               node = node }
 
     let playWithPreload
@@ -222,11 +236,11 @@ module Core =
         (setup: P5 -> 'a -> 'b)
         (update: P5 -> 'b -> 'b)
         (draw: P5 -> 'b -> Unit)
-        (eventHandler: P5 -> Event -> 'b -> 'b)
+        (subscriptions: Subscription<'b> list)
         : Unit =
         createSketch
             { init = PreloadAndSetup(preload, setup)
               update = update
               draw = draw
-              eventHandler = eventHandler
+              subscriptions = subscriptions
               node = node }

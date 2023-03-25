@@ -40,11 +40,12 @@ let setup p5 =
 
 let update p5 = id
 
-let eventHandler p5 event sides =
-    match event with
-    | MousePressed _ when sides > 6 -> 3
-    | MousePressed _ -> sides + 1
-    | _ -> sides
+let onMousePressed _ _ sides =
+    match sides with
+    | sides when sides > 6 -> 3
+    | _ -> sides + 1
+
+let subscriptions = [ OnMousePressed(Update onMousePressed) ]
 
 let draw p5 sides =
     let frameCount = frameCount p5 |> float
@@ -54,4 +55,4 @@ let draw p5 sides =
     ngon p5 (float sides) 0 0 80
 
 let run node =
-    play node setup update draw eventHandler
+    play node setup update draw subscriptions

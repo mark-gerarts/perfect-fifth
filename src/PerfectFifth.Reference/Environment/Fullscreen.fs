@@ -8,7 +8,7 @@ let update _ = id
 
 let draw _ _ = ()
 
-let handleMousePressed p5 =
+let handleMousePressed p5 _ =
     let x = mouseX p5
     let y = mouseY p5
 
@@ -17,10 +17,7 @@ let handleMousePressed p5 =
             let fs = fullscreen p5
             setFullscreen p5 (not fs)
 
-let eventHandler p5 event _ =
-    match event with
-    | MousePressed _ -> handleMousePressed p5
-    | _ -> ()
+let subscriptions = [ OnMousePressed(Effect handleMousePressed) ]
 
 let run node =
-    play node noSetup update draw eventHandler
+    play node noSetup update draw subscriptions
