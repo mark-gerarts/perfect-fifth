@@ -199,7 +199,6 @@ let runSketch name canvasSelector =
     | "Structure/DisableFriendlyErrors" -> Structure.DisableFriendlyErrors.run node
     | "Structure/NoLoop0" -> Structure.NoLoop0.run node
     | "Structure/NoLoop1" -> Structure.NoLoop1.run node
-    | "Structure/Loop" -> Structure.Loop.run node
     | "Structure/IsLooping" -> Structure.IsLooping.run node
     | "Structure/Push0" -> Structure.Push0.run node
     | "Structure/Push1" -> Structure.Push1.run node

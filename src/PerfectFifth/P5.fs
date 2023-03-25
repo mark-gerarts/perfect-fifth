@@ -18,6 +18,11 @@ module Core =
     type P5(sketch: Func<obj, Unit>, ?node: Browser.Types.Element) =
         interface IImage
 
+        /// TODO: check for a way to test this.
+        member _.disableFriendlyErrors
+            with get (): bool = jsNative
+            and set (_: bool): Unit = jsNative
+
         member _.preload
             with get (): obj = jsNative
             and set (_: obj): Unit = jsNative
@@ -37,6 +42,7 @@ module Core =
     type Subscription<'a> =
         | OnMouseMoved of EventHandler<MouseEvent, 'a>
         | OnMousePressed of EventHandler<MouseEvent, 'a>
+        | OnMouseReleased of EventHandler<MouseEvent, 'a>
         | OnMouseClicked of EventHandler<MouseEvent, 'a>
         | OnWindowResized of EventHandler<UIEvent, 'a>
 
@@ -49,6 +55,11 @@ module Core =
     let private getMousePressedHandler subscription =
         match subscription with
         | OnMousePressed handler -> Some handler
+        | _ -> None
+
+    let private getMouseReleasedHandler subscription =
+        match subscription with
+        | OnMouseReleased handler -> Some handler
         | _ -> None
 
     let private getMouseClickedHandler subscription =
@@ -147,6 +158,7 @@ module Core =
                 // We lose some type safety here, but save a lot of typing.
                 setEventProperty "mouseMoved" getMouseMovedHandler
                 setEventProperty "mousePressed" getMousePressedHandler
+                setEventProperty "mouseReleased" getMouseReleasedHandler
                 setEventProperty "mouseClicked" getMouseClickedHandler
                 setEventProperty "windowResized" getWindowResizedHandler)
 

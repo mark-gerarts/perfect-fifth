@@ -193,7 +193,6 @@
     <Compile Include="Structure\DisableFriendlyErrors.fs" />
     <Compile Include="Structure\NoLoop0.fs" />
     <Compile Include="Structure\NoLoop1.fs" />
-    <Compile Include="Structure\Loop.fs" />
     <Compile Include="Structure\IsLooping.fs" />
     <Compile Include="Structure\Push0.fs" />
     <Compile Include="Structure\Push1.fs" />

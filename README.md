@@ -153,6 +153,7 @@ type EventHandler<'e, 'a> =
     // side effects as well).
     | Update of (P5 -> 'e -> 'a -> 'a)
 
+// A subscription binds an event type to an event handler.
 type Subscription<'a> =
     | OnMouseMoved of EventHandler<MouseEvent, 'a>
     // ... and a lot more. See the reference.
@@ -163,7 +164,7 @@ let play
     (setup: P5 -> 'a) // Setup function that gets called once, before the sketch starts. Returns the initial state.
     (update: P5 -> 'a -> 'a) // A function to step the state one iteration.
     (draw: P5 -> 'a -> Unit) // A function to draw something based on the current state.
-    (subscriptions: Subscription<'a> list)// A function to update the state based on input events.
+    (subscriptions: Subscription<'a> list)// A list of subscriptions.
     : Unit = ...
 ```
 

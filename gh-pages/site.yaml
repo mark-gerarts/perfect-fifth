@@ -311,3 +311,12 @@ reference:
       - Structure/Subscriptions
     remove():
       - Structure/Remove
+    disableFriendlyErrors:
+      - Structure/DisableFriendlyErrors
+    noLoop():
+      - Structure/NoLoop0
+      - Structure/NoLoop1
+    loop():
+      - Structure/NoLoop1
+    isLooping():
+      - Structure/IsLooping
