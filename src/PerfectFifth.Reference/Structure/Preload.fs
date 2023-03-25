@@ -2,10 +2,6 @@ module P5Reference.Structure.Preload
 
 open P5.Core
 open P5.Color
-open P5.Environment
-open P5.Shape
-open P5.Rendering
-open P5.Transform
 open P5.Image
 
 // When creating a preloaded sketch, the preload function returns some preload
@@ -22,7 +18,4 @@ let draw p5 (img: P5Image) =
     imageWithSize p5 img 25 25 50 50
 
 // `simulate` and `play` also have preload alternatives.
-let run node =
-    // Also, until the preload problem is handled, we have to run createSketch
-    // manually.
-    displayWithPreload node preload draw
+let run node = displayWithPreload node preload draw

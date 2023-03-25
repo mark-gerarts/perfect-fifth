@@ -300,3 +300,6 @@ reference:
     p5.Geometry/averageNormals(): ~
     p5.Geometry/averagePoleNormals(): ~
     p5.Geometry/normalize(): ~
+  Structure:
+    preload():
+      - Structure/Preload
