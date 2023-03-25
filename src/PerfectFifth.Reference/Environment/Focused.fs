@@ -2,19 +2,12 @@ module P5Reference.Environment.Focused
 
 open P5.Core
 open P5.Color
-open P5.Shape
 open P5.Environment
+open P5.Shape
 
-let draw p5 _ =
-    background p5 (Grayscale 200)
-    noStroke p5
-    fill p5 (RGB(0, 200, 0))
-    circle p5 25 25 50
+let draw p5 =
+    strokeWeight p5 4
+    stroke p5 (Grayscale 51)
+    square p5 20 20 60
 
-    if not (focused p5) then
-        do
-            stroke p5 (RGB(200, 0, 0))
-            line p5 0 0 100 100
-            line p5 100 0 0 100
-
-let run node = animate node noSetup draw
+let run node = display node draw

@@ -5,18 +5,9 @@ open P5.Color
 open P5.Environment
 open P5.Shape
 
-let draw p5 t =
-    let t' = float t / 1000.0
-    let width = width p5 |> float
-    let height = height p5 |> float
+let draw p5 =
+    strokeWeight p5 4
+    stroke p5 (Grayscale 51)
+    square p5 20 20 60
 
-    clear p5
-    background p5 (Grayscale 200)
-
-    let squareColor = color p5 (RGB(100, 50, 100))
-    squareColor.setAlpha (128.0 + 128.0 * sin t')
-    fill p5 (P5Color squareColor)
-
-    rect p5 13 13 (width - 26.0) (height - 26.0)
-
-let run node = animate node noSetup draw
+let run node = display node draw

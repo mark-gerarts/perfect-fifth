@@ -1,15 +1,13 @@
 module P5Reference.Environment.NoCursor
 
 open P5.Core
-open P5.Shape
 open P5.Color
 open P5.Environment
-open P5.Events
+open P5.Shape
 
-let setup p5 = noCursor p5
+let draw p5 =
+    strokeWeight p5 4
+    stroke p5 (Grayscale 51)
+    square p5 20 20 60
 
-let draw p5 _ =
-    background p5 (Grayscale 200)
-    circle p5 (mouseX p5) (mouseY p5) 10
-
-let run node = animate node setup draw
+let run node = display node draw

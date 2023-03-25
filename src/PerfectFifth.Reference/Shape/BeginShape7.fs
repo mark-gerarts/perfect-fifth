@@ -6,13 +6,8 @@ open P5.Environment
 open P5.Shape
 
 let draw p5 =
-    beginShapeWithMode p5 TriangleFan
-    vertex p5 57.5 50
-    vertex p5 57.5 15
-    vertex p5 92 50
-    vertex p5 57.5 85
-    vertex p5 22 50
-    vertex p5 57.5 15
-    endShape p5
+    strokeWeight p5 4
+    stroke p5 (Grayscale 51)
+    square p5 20 20 60
 
 let run node = display node draw
