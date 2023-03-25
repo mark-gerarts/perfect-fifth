@@ -5,6 +5,8 @@ module Rendering =
     open Fable.Core
     open P5.Core
 
+    type P5Graphics = class end
+
     type RenderMode =
         | P2D
         | WebGL

@@ -6,10 +6,16 @@ module Core =
     open Fable.Core
     open Browser.Dom
 
+    type IImage =
+        interface
+        end
+
     /// The methods on this class are for internal use only. You pass an
     /// instance to all functions, but never call a method on it.
     [<ImportAll("p5")>]
     type P5(sketch: Func<obj, Unit>, ?node: Browser.Types.Element) =
+        interface IImage
+
         member _.preload
             with get (): obj = jsNative
             and set (_: obj): Unit = jsNative

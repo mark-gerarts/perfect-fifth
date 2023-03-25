@@ -553,7 +553,7 @@ module Shape =
         (normalize: bool)
         (onSuccess: P5Geometry -> Unit)
         (onError: obj -> Unit)
-        : P5Geometry =
+        : Unit =
         jsNative
 
     [<Emit("$0.loadModel($1, $2, $3, $4, $5)")>]
@@ -564,7 +564,7 @@ module Shape =
         (onSuccess: P5Geometry -> Unit)
         (onError: obj -> Unit)
         (fileType: string)
-        : P5Geometry =
+        : Unit =
         jsNative
 
     [<Emit("$0.model($1)")>]
