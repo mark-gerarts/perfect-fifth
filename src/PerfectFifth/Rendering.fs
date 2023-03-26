@@ -5,8 +5,6 @@ module Rendering =
     open Fable.Core
     open P5.Core
 
-    type P5Graphics = class end
-
     type RenderMode =
         | P2D
         | WebGL
@@ -17,16 +15,25 @@ module Rendering =
         | WebGL -> "webgl"
 
     [<Emit("$0.createCanvas($1, $2)")>]
-    let createCanvas (p5: P5) (width: int) (height: int) : Unit = jsNative
+    let createCanvasAndReturn (p5: P5) (width: int) (height: int) : P5 = jsNative
 
     [<Emit("$0.createCanvas($1, $2, $3)")>]
-    let private createCanvasWithMode_ (p5: P5) (width: int) (height: int) (mode: string) : Unit = jsNative
+    let private createCanvasWithModeAndReturn_ (p5: P5) (width: int) (height: int) (mode: string) : P5 = jsNative
+
+    let createCanvasWithModeAndReturn (p5: P5) (width: int) (height: int) (mode: RenderMode) : P5 =
+        createCanvasWithModeAndReturn_ p5 width height (rawRenderMode mode)
+
+    let createWebGLCanvasAndReturn (p5: P5) (width: int) (height: int) : P5 =
+        createCanvasWithModeAndReturn p5 width height WebGL
+
+    let createCanvas (p5: P5) (width: int) (height: int) : Unit =
+        createCanvasAndReturn p5 width height |> ignore
 
     let createCanvasWithMode (p5: P5) (width: int) (height: int) (mode: RenderMode) : Unit =
-        createCanvasWithMode_ p5 width height (rawRenderMode mode)
+        createCanvasWithModeAndReturn p5 width height mode |> ignore
 
     let createWebGLCanvas (p5: P5) (width: int) (height: int) : Unit =
-        createCanvasWithMode p5 width height WebGL
+        createWebGLCanvasAndReturn p5 width height |> ignore
 
     /// TODO: noRedraw
     [<Emit("$0.resizeCanvas($1, $2)")>]

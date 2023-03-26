@@ -35,6 +35,12 @@ module Core =
             with get (): obj = jsNative
             and set (_: obj): Unit = jsNative
 
+        [<Emit("$0.reset()")>]
+        member _.reset() : Unit = jsNative
+
+        [<Emit("$0.remove()")>]
+        member _.remove() : Unit = jsNative
+
     type EventHandler<'e, 'a> =
         | Effect of (P5 -> 'e -> Unit)
         | Update of (P5 -> 'e -> 'a -> 'a)

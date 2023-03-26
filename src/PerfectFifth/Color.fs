@@ -8,16 +8,16 @@ module Color =
 
     type P5Color =
         [<Emit("$0.setRed($1)")>]
-        member _.setRed(r: float) = jsNative
+        member _.setRed(r: float) : Unit = jsNative
 
         [<Emit("$0.setGreen($1)")>]
-        member _.setGreen(g: float) = jsNative
+        member _.setGreen(g: float) : Unit = jsNative
 
         [<Emit("$0.setBlue($1)")>]
-        member _.setBlue(b: float) = jsNative
+        member _.setBlue(b: float) : Unit = jsNative
 
         [<Emit("$0.setAlpha($1)")>]
-        member _.setAlpha(a: float) = jsNative
+        member _.setAlpha(a: float) : Unit = jsNative
 
         [<Emit("$0.toString()")>]
         member _.toString() : string = jsNative

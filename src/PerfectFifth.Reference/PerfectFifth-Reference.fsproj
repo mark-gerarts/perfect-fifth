@@ -285,7 +285,8 @@
     <Compile Include="DOM\P5MediaElementClearCues.fs" />
     <Compile Include="DOM\P5File.fs" />
     <Compile Include="Rendering\P5GraphicsReset.fs" />
-    <Compile Include="Rendering\P5GraphicsRemove.fs" />
+    <Compile Include="Rendering\P5GraphicsRemove0.fs" />
+    <Compile Include="Rendering\P5GraphicsRemove1.fs" />
     <Compile Include="Rendering\CreateCanvas.fs" />
     <Compile Include="Rendering\ResizeCanvas.fs" />
     <Compile Include="Rendering\NoCanvas.fs" />

@@ -324,8 +324,8 @@ reference:
       - Structure/Push0
       - Structure/Push1
     pop():
-      - Structure/Pop0
-      - Structure/Pop1
+      - Structure/Push0
+      - Structure/Push1
     redraw():
       - Structure/Redraw0
       - Structure/Redraw1
@@ -334,3 +334,9 @@ reference:
     createSlider(), createSliderWithOptions():
       - DOM/CreateSlider0
       - DOM/CreateSlider1
+  Rendering:
+    p5.Graphics/reset():
+      - Rendering/P5GraphicsReset
+    p5.Graphics/remove():
+      - Rendering/P5GraphicsRemove0
+      - Rendering/P5GraphicsRemove1

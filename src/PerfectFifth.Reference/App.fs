@@ -291,7 +291,8 @@ let runSketch name canvasSelector =
     | "DOM/P5MediaElementClearCues" -> DOM.P5MediaElementClearCues.run node
     | "DOM/P5File" -> DOM.P5File.run node
     | "Rendering/P5GraphicsReset" -> Rendering.P5GraphicsReset.run node
-    | "Rendering/P5GraphicsRemove" -> Rendering.P5GraphicsRemove.run node
+    | "Rendering/P5GraphicsRemove0" -> Rendering.P5GraphicsRemove0.run node
+    | "Rendering/P5GraphicsRemove1" -> Rendering.P5GraphicsRemove1.run node
     | "Rendering/CreateCanvas" -> Rendering.CreateCanvas.run node
     | "Rendering/ResizeCanvas" -> Rendering.ResizeCanvas.run node
     | "Rendering/NoCanvas" -> Rendering.NoCanvas.run node
