@@ -26,6 +26,9 @@
   <ItemGroup>
     <PackageReference Include="Fable.Browser.Dom" />
     <PackageReference Include="Fable.Core"  />
+    <PackageReference Include="GitVersion.MsBuild">
+     <PrivateAssets>All</PrivateAssets>
+   </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="*.fsproj; **\*.fs; **\*.fsi" PackagePath="fable\" />
