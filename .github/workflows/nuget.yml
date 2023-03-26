@@ -1,0 +1,69 @@
+name: Package nuget
+on:
+  push:
+    branches: [ "main", "feature/gh-nuget-workflow" ]
+  pull_request:
+    branches: [ "main" ]
+env:
+  RESULT_DIR: result
+jobs:
+  build_test_publish:
+    runs-on: ubuntu-latest
+    environment: nuget
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          global-json-file: global.json
+          source-url: "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Local nuget source
+        run: |
+          mkdir -p result 
+          dotnet nuget add source \
+            --name local \
+            "./$RESULT_DIR"
+          dotnet nuget list source
+      - name: Restore python dependencies
+        run:
+          python3 -m pip install pyyaml
+      - name: Restore dotnet dependencies
+        run: dotnet restore
+      - name: Restore dotnet tools
+        run: dotnet tool restore
+      - name: Restore npm dependencies
+        run:
+          npm i
+      - name: Build package
+        run:
+          dotnet pack -o $RESULT_DIR
+      - name: Run e2e tests
+        run: |
+          npm run build:prod
+          # ./scripts/build-and-serve-site.sh
+          # npm run test:e2e
+      - name: Publish to github
+        run: |
+          dotnet nuget push "result/*.nupkg" \
+            --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" \
+            --no-symbols \
+            --skip-duplicate \
+            --api-key ${GITHUB_TOKEN}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+      - name: Publish to nuget.org
+        run: |
+          dotnet nuget push "result/*.nupkg" \
+            --source "nuget.org" \
+            --skip-duplicate \
+            --api-key ${NUGET_TOKEN} 
+        env:
+          NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
+            
+        
