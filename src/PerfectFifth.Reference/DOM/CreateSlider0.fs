@@ -2,12 +2,18 @@ module P5Reference.DOM.CreateSlider0
 
 open P5.Core
 open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.DOM
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let setup p5 =
+    let slider = createSliderWithOptions p5 0 255 100 1
+    slider.setPositionWithType 10 10 Relative
+    slider.style "width" "80px"
+    slider.style "display" "block"
 
-let run node = display node draw
+    slider
+
+let draw p5 (slider: P5Element<float>) =
+    let value = slider.getValue () |> int
+    background p5 (Grayscale value)
+
+let run node = simulate node setup noUpdate draw

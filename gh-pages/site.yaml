@@ -320,3 +320,17 @@ reference:
       - Structure/NoLoop1
     isLooping():
       - Structure/IsLooping
+    push():
+      - Structure/Push0
+      - Structure/Push1
+    pop():
+      - Structure/Pop0
+      - Structure/Pop1
+    redraw():
+      - Structure/Redraw0
+      - Structure/Redraw1
+  # TODO: implement DOM functions last, since we want to focus on drawing.
+  DOM:
+    createSlider(), createSliderWithOptions():
+      - DOM/CreateSlider0
+      - DOM/CreateSlider1

@@ -23,3 +23,9 @@ module Structure =
     /// Same as redraw, but do it N times. Heed the warning of redraw.
     [<Emit("$0.redraw($1)")>]
     let redrawNTimes (p5: P5) (n: int) : Unit = jsNative
+
+    [<Emit("$0.push()")>]
+    let push (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.pop()")>]
+    let pop (p5: P5) : Unit = jsNative

@@ -124,7 +124,8 @@ TODO: add an example.
 
 With `simulate` you can create a simulation that is able to update its state
 every frame. The state can be any data type. For example, a simple counter can
-use a single integer, while a complex simulation might use a big record type.
+use a single integer, while a complex simulation might use a big record type or
+a class.
 
 You provide an initial state in the setup function, which can then be updated
 every step using the `update` function.
@@ -231,8 +232,7 @@ let subscriptions =
       OnMouseClicked(Effect onMouseClickedEff)
       OnMouseMoved(Effect onMouseMoved) ]
 
-let run node =
-    play node setup update draw subscriptions
+play NoNode setup update draw subscriptions
 ```
 
 ## Preloading

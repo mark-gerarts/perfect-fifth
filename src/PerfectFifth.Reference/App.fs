@@ -202,8 +202,6 @@ let runSketch name canvasSelector =
     | "Structure/IsLooping" -> Structure.IsLooping.run node
     | "Structure/Push0" -> Structure.Push0.run node
     | "Structure/Push1" -> Structure.Push1.run node
-    | "Structure/Pop0" -> Structure.Pop0.run node
-    | "Structure/Pop1" -> Structure.Pop1.run node
     | "Structure/Redraw0" -> Structure.Redraw0.run node
     | "Structure/Redraw1" -> Structure.Redraw1.run node
     | "Structure/Subscriptions" -> Structure.Subscriptions.run node

@@ -196,8 +196,6 @@
     <Compile Include="Structure\IsLooping.fs" />
     <Compile Include="Structure\Push0.fs" />
     <Compile Include="Structure\Push1.fs" />
-    <Compile Include="Structure\Pop0.fs" />
-    <Compile Include="Structure\Pop1.fs" />
     <Compile Include="Structure\Redraw0.fs" />
     <Compile Include="Structure\Redraw1.fs" />
     <Compile Include="Structure\Subscriptions.fs" />

@@ -75,6 +75,10 @@ module DOM =
     [<Emit("$0.createSlider($1, $2)")>]
     let createSlider (p5: P5) (min: float) (max: float) : P5Element<float> = jsNative
 
+    [<Emit("$0.createSlider($1, $2, $3, $4)")>]
+    let createSliderWithOptions (p5: P5) (min: float) (max: float) (value: float) (step: float) : P5Element<float> =
+        jsNative
+
     /// TODO: value
     [<Emit("$0.createButton($1)")>]
     let createButton (p5: P5) (label: string) : P5Element<string> = jsNative
@@ -84,7 +88,3 @@ module DOM =
 
     [<Emit("$0.createCheckbox($1, $2)")>]
     let createCheckboxWithLabelAndValue (p5: P5) (label: string) (value: bool) : P5Element<bool> = jsNative
-
-    [<Emit("$0.createSlider($1, $2, $3, $4)")>]
-    let createSliderWithOptions (p5: P5) (min: float) (max: float) (value: float) (step: float) : P5Element<float> =
-        jsNative

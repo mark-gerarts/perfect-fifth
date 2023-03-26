@@ -27,7 +27,8 @@ let setup p5 =
     let state = new State()
 
     let button = createButton p5 "Colorize if loop()"
-    button.setPosition 0 120
+    button.setPositionWithType 0 120 Relative
+    button.style "display" "block"
     button.mousePressed (fun ev -> changeBG p5 state)
 
     let checkbox = createCheckboxWithLabelAndValue p5 "loop()" true
