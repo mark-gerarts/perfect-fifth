@@ -25,7 +25,7 @@ module DOM =
         | Initial -> "initial"
         | Inherit -> "inherit"
 
-    type P5Element<'T> =
+    type P5Element<'T>() =
         [<Emit("$0.center()")>]
         member _.center() : Unit = jsNative
 
@@ -68,6 +68,9 @@ module DOM =
 
         [<Emit("$0.checked()")>]
         member _.isChecked() : bool = jsNative
+
+        [<Emit("$0.remove()")>]
+        member _.remove() : Unit = jsNative
 
     [<Emit("$0.createP($1)")>]
     let createP (p5: P5) (innerHTML: string) : P5Element<Unit> = jsNative

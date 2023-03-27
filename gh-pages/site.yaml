@@ -340,3 +340,5 @@ reference:
     p5.Graphics/remove():
       - Rendering/P5GraphicsRemove0
       - Rendering/P5GraphicsRemove1
+    createCanvas(), createWebGLCanvas(), createCanvasWithMode(), createCanvasAndReturn():
+      - Rendering/CreateCanvas

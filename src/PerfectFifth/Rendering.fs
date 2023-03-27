@@ -4,10 +4,14 @@ module Rendering =
 
     open Fable.Core
     open P5.Core
+    open P5.DOM
 
     type RenderMode =
         | P2D
         | WebGL
+
+    type P5Renderer() =
+        inherit P5Element<Unit>()
 
     let private rawRenderMode renderMode =
         match renderMode with
