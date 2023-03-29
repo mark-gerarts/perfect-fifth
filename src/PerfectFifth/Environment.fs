@@ -15,7 +15,7 @@ module Environment =
     let setFrameRate (p5: P5) (fps: int) : Unit = jsNative
 
     [<Emit("$0.frameRate()")>]
-    let frameRate (p5: P5) : Unit = jsNative
+    let frameRate (p5: P5) : float = jsNative
 
     let getFrameRate = frameRate
 
