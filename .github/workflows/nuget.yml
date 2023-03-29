@@ -1,15 +1,14 @@
 name: Package nuget
 on:
   push:
-    branches: [ "main", "feature/gh-nuget-workflow" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 env:
   RESULT_DIR: result
 jobs:
-  build_test_publish:
+  build_and_test:
     runs-on: ubuntu-latest
-    environment: nuget
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET
@@ -30,9 +29,6 @@ jobs:
             --name local \
             "./$RESULT_DIR"
           dotnet nuget list source
-      - name: Restore python dependencies
-        run:
-          python3 -m pip install pyyaml
       - name: Restore dotnet dependencies
         run: dotnet restore
       - name: Restore dotnet tools
@@ -43,11 +39,23 @@ jobs:
       - name: Build package
         run:
           dotnet pack -o $RESULT_DIR
-      - name: Run e2e tests
-        run: |
-          npm run build:prod
-          # ./scripts/build-and-serve-site.sh
-          # npm run test:e2e
+      - name: Check that examples are building
+        run: npm run build:prod
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: packages
+          path: ${{ env.RESULT_DIR }}
+  publish_to_github:
+    runs-on: ubuntu-latest
+    needs: [ build_and_test ]
+    environment: nuget
+    steps:
+      - name: Download artifacts  
+        uses: actions/download-artifact@v3
+        with:
+          name: packages
+          path: ${{ env.RESULT_DIR }}
       - name: Publish to github
         run: |
           dotnet nuget push "result/*.nupkg" \
@@ -57,6 +65,17 @@ jobs:
             --api-key ${GITHUB_TOKEN}
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+  publish_to_nuget:
+    runs-on: ubuntu-latest
+    needs: [ build_and_test ]
+    environment: nuget
+    if: github.base_ref == '' # this would be set only on pull_request builds
+    steps:
+      - name: Download artifacts  
+        uses: actions/download-artifact@v3
+        with:
+          name: packages
+          path: ${{ env.RESULT_DIR }}
       - name: Publish to nuget.org
         run: |
           dotnet nuget push "result/*.nupkg" \
