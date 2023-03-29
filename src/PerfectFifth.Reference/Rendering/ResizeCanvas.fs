@@ -4,10 +4,23 @@ open P5.Core
 open P5.Color
 open P5.Environment
 open P5.Shape
+open P5.Rendering
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let getCanvasSize p5 =
+    // Fullscreen as in the original example is a bit much.
+    (windowWidth p5 / 10, windowHeight p5 / 5)
 
-let run node = display node draw
+let setup p5 =
+    let (w, h) = getCanvasSize p5
+    createCanvas p5 w h
+
+let draw p5 _ = background p5 (RGB(0, 100, 200))
+
+let onWindowResized p5 _ =
+    let (w, h) = getCanvasSize p5
+    resizeCanvas p5 w h
+
+let subscriptions = [ OnWindowResized(Effect onWindowResized) ]
+
+let run node =
+    play node setup noUpdate draw subscriptions

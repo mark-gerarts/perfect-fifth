@@ -34,7 +34,7 @@ module Color =
         | Values of float seq
         | P5Color of P5Color
 
-    let private emitColorFunction (p5: P5) (method: string) (color: Color) : 'a =
+    let internal emitColorFunction (p5: P5) (method: string) (color: Color) : 'a =
         match color with
         | RGB(r, g, b) -> emit3 p5 method r g b
         | RGBA(r, g, b, a) -> emit4 p5 method r g b a

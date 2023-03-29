@@ -4,6 +4,8 @@ import yaml
 import re
 from distutils.dir_util import copy_tree
 
+# TODO: move this to FSX.
+# https://learn.microsoft.com/en-us/dotnet/fsharp/tools/fsharp-interactive/
 basedir = os.path.dirname(os.path.realpath(__file__))
 
 with open(f"{basedir}/site.yaml", "r") as stream:

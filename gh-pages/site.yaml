@@ -342,3 +342,18 @@ reference:
       - Rendering/P5GraphicsRemove1
     createCanvas(), createWebGLCanvas(), createCanvasWithMode(), createCanvasAndReturn():
       - Rendering/CreateCanvas
+    resizeCanvas(), resizeCanvasWithoutRedraw():
+      - Rendering/ResizeCanvas
+    noCanvas():
+      - Rendering/NoCanvas
+    createGraphics(), createWebGLGraphics():
+      - Rendering/CreateGraphics
+    blendMode():
+      - Rendering/BlendMode0
+      - Rendering/BlendMode1
+    drawingContext:
+      - Rendering/DrawingContext
+    setAttributes(), setAttribute():
+      - Rendering/SetAttributes0
+      - Rendering/SetAttributes1
+      - Rendering/SetAttributes2
