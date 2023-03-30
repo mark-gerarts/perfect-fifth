@@ -4,10 +4,22 @@ open P5.Core
 open P5.Color
 open P5.Environment
 open P5.Shape
+open P5.Transform
+open P5.Math
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let setup p5 =
+    setFrameRate p5 10
+    rectMode p5 Center
 
-let run node = display node draw
+let draw p5 _ =
+    let step = frameCount p5 % 20 |> float
+    let angle = map p5 step 0 20 0 twoPi
+    let cosA = cos angle
+    let sinA = sin angle
+    background p5 (Grayscale 200)
+    translate p5 50 50
+    // Equivalent to rotate(angle);
+    applyMatrix2x3 p5 cosA sinA -sinA cosA 0 0
+    square p5 0 0 50
+
+let run node = animate node setup draw

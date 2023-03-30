@@ -357,3 +357,14 @@ reference:
       - Rendering/SetAttributes0
       - Rendering/SetAttributes1
       - Rendering/SetAttributes2
+    applyMatrix(), applyMatrix2x3(), applyMatrix4x4():
+      - Transform/ApplyMatrix0
+      - Transform/ApplyMatrix1
+      - Transform/ApplyMatrix2
+      - Transform/ApplyMatrix3
+      - Transform/ApplyMatrix4
+      - Transform/ApplyMatrix5
+    resetMatrix():
+      - Transform/ResetMatrix
+    rotate():
+      - Transform/Rotate
