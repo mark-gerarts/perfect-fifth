@@ -2,12 +2,15 @@ module P5Reference.Events.Key
 
 open P5.Core
 open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.Typography
+open P5.Events
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let setup p5 =
+    fill p5 (RGB(245, 123, 158))
+    setTextSize p5 50
 
-let run node = display node draw
+let draw p5 _ =
+    background p5 (Grayscale 200)
+    text p5 (key p5) 33 65 // Display last key pressed.
+
+let run node = animate node setup draw

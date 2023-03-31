@@ -49,51 +49,71 @@ module Core =
         | OnDeviceTurned of EventHandler<Unit, 'a>
         | OnDeviceMoved of EventHandler<Unit, 'a>
         | OnDeviceShaken of EventHandler<Unit, 'a>
+        | OnKeyPressed of EventHandler<KeyboardEvent, 'a>
         | OnMouseMoved of EventHandler<MouseEvent, 'a>
         | OnMousePressed of EventHandler<MouseEvent, 'a>
         | OnMouseReleased of EventHandler<MouseEvent, 'a>
         | OnMouseClicked of EventHandler<MouseEvent, 'a>
         | OnWindowResized of EventHandler<UIEvent, 'a>
+        | PreventDefault of Subscription<'a>
+
+    type PreventDefault =
+        | DoPreventDefault
+        | DontPreventDefault
 
     /// There is no way to do this dynamically, as fas as I am aware.
     let private getDeviceTurnedHandler subscription =
         match subscription with
-        | OnDeviceTurned handler -> Some handler
+        | OnDeviceTurned handler -> Some(DontPreventDefault, handler)
+        | PreventDefault(OnDeviceTurned handler) -> Some(DoPreventDefault, handler)
         | _ -> None
 
     let private getDeviceMovedHandler subscription =
         match subscription with
-        | OnDeviceMoved handler -> Some handler
+        | OnDeviceMoved handler -> Some(DontPreventDefault, handler)
+        | PreventDefault(OnDeviceMoved handler) -> Some(DoPreventDefault, handler)
         | _ -> None
 
     let private getDeviceShakenHandler subscription =
         match subscription with
-        | OnDeviceShaken handler -> Some handler
+        | OnDeviceShaken handler -> Some(DontPreventDefault, handler)
+        | PreventDefault(OnDeviceShaken handler) -> Some(DoPreventDefault, handler)
+        | _ -> None
+
+    let private getKeyPressedHandler subscription =
+        match subscription with
+        | OnKeyPressed handler -> Some(DontPreventDefault, handler)
+        | PreventDefault(OnKeyPressed handler) -> Some(DoPreventDefault, handler)
         | _ -> None
 
     let private getMouseMovedHandler subscription =
         match subscription with
-        | OnMouseMoved handler -> Some handler
+        | OnMouseMoved handler -> Some(DontPreventDefault, handler)
+        | PreventDefault(OnMouseMoved handler) -> Some(DoPreventDefault, handler)
         | _ -> None
 
     let private getMousePressedHandler subscription =
         match subscription with
-        | OnMousePressed handler -> Some handler
+        | OnMousePressed handler -> Some(DontPreventDefault, handler)
+        | PreventDefault(OnMousePressed handler) -> Some(DoPreventDefault, handler)
         | _ -> None
 
     let private getMouseReleasedHandler subscription =
         match subscription with
-        | OnMouseReleased handler -> Some handler
+        | OnMouseReleased handler -> Some(DontPreventDefault, handler)
+        | PreventDefault(OnMouseReleased handler) -> Some(DoPreventDefault, handler)
         | _ -> None
 
     let private getMouseClickedHandler subscription =
         match subscription with
-        | OnMouseClicked handler -> Some handler
+        | OnMouseClicked handler -> Some(DontPreventDefault, handler)
+        | PreventDefault(OnMouseClicked handler) -> Some(DoPreventDefault, handler)
         | _ -> None
 
     let private getWindowResizedHandler subscription =
         match subscription with
-        | OnWindowResized handler -> Some handler
+        | OnWindowResized handler -> Some(DontPreventDefault, handler)
+        | PreventDefault(OnWindowResized handler) -> Some(DoPreventDefault, handler)
         | _ -> None
 
     type Node =
@@ -177,12 +197,21 @@ module Core =
                 let setEventProperty property handlerFilter =
                     match List.choose handlerFilter sketch.subscriptions with
                     | [] -> ()
-                    | handlers -> p5?(property) <- fun ev -> List.iter (executeHandler ev) handlers
+                    | handlersAndConfig ->
+                        p5?(property) <-
+                            fun ev ->
+                                // Execute the handlers in order.
+                                handlersAndConfig |> List.map snd |> List.iter (executeHandler ev)
+
+                                // If any of them indicate to preventDefault,
+                                // return false
+                                handlersAndConfig |> List.map fst |> List.contains DoPreventDefault |> not
 
                 // We lose some type safety here, but save a lot of typing.
                 setEventProperty "deviceTurned" getDeviceTurnedHandler
                 setEventProperty "deviceMoved" getDeviceMovedHandler
                 setEventProperty "deviceShaken" getDeviceShakenHandler
+                setEventProperty "keyPressed" getKeyPressedHandler
                 setEventProperty "mouseMoved" getMouseMovedHandler
                 setEventProperty "mousePressed" getMousePressedHandler
                 setEventProperty "mouseReleased" getMouseReleasedHandler

@@ -336,6 +336,7 @@
     <Compile Include="Events\KeyCode1.fs" />
     <Compile Include="Events\KeyPressed0.fs" />
     <Compile Include="Events\KeyPressed1.fs" />
+    <Compile Include="Events\KeyPressed2.fs" />
     <Compile Include="Events\KeyReleased.fs" />
     <Compile Include="Events\KeyTyped.fs" />
     <Compile Include="Events\KeyIsDown0.fs" />

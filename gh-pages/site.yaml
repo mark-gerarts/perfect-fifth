@@ -424,3 +424,7 @@ reference:
     deviceTurned():
       - Events/DeviceTurned
       - Events/TurnAxis
+    keyIsPressed:
+      - Events/KeyIsPressed
+    key:
+      - Events/Key

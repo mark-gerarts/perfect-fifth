@@ -342,6 +342,7 @@ let runSketch name canvasSelector =
     | "Events/KeyCode1" -> Events.KeyCode1.run node
     | "Events/KeyPressed0" -> Events.KeyPressed0.run node
     | "Events/KeyPressed1" -> Events.KeyPressed1.run node
+    | "Events/KeyPressed2" -> Events.KeyPressed2.run node
     | "Events/KeyReleased" -> Events.KeyReleased.run node
     | "Events/KeyTyped" -> Events.KeyTyped.run node
     | "Events/KeyIsDown0" -> Events.KeyIsDown0.run node

@@ -76,6 +76,15 @@ module Events =
     [<Emit("$0.setShakeThreshold($1)")>]
     let setShakeThreshold (p5: P5) (value: float) : Unit = jsNative
 
+    [<Emit("$0.keyIsPressed")>]
+    let keyIsPressed (p5: P5) : bool = jsNative
+
+    [<Emit("$0.key")>]
+    let key (p5: P5) : string = jsNative
+
+    [<Emit("$0.keyCode")>]
+    let keyCode (p5: P5) : string = jsNative
+
     [<Emit("$0.mouseX")>]
     let mouseX (p5: P5) : int = jsNative
 

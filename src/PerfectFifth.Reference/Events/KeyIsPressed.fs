@@ -2,12 +2,16 @@ module P5Reference.Events.KeyIsPressed
 
 open P5.Core
 open P5.Color
-open P5.Environment
 open P5.Shape
+open P5.Events
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let draw p5 _ =
+    let fillColor =
+        match keyIsPressed p5 with
+        | true -> (Grayscale 0)
+        | false -> (Grayscale 255)
 
-let run node = display node draw
+    fill p5 fillColor
+    square p5 25 25 50
+
+let run node = animate node noSetup draw
