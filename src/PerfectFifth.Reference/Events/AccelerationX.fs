@@ -4,10 +4,14 @@ open P5.Core
 open P5.Color
 open P5.Environment
 open P5.Shape
+open P5.Events
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let draw p5 t =
+    let width = width p5 |> float
+    let height = height p5 |> float
 
-let run node = display node draw
+    background p5 (GrayscaleA(220, 50))
+    fill p5 (Name "magenta")
+    circle p5 (width / 2.0) (height / 2.0) (accelerationX p5)
+
+let run node = animate node noSetup draw

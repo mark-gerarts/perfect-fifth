@@ -328,8 +328,7 @@
     <Compile Include="Events\SetMoveTreshold.fs" />
     <Compile Include="Events\SetShakeTreshold.fs" />
     <Compile Include="Events\DeviceMoved.fs" />
-    <Compile Include="Events\DeviceTurned0.fs" />
-    <Compile Include="Events\DeviceTurned1.fs" />
+    <Compile Include="Events\DeviceTurned.fs" />
     <Compile Include="Events\DeviceShaken.fs" />
     <Compile Include="Events\KeyIsPressed.fs" />
     <Compile Include="Events\Key.fs" />

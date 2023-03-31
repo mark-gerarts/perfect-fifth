@@ -237,6 +237,8 @@ play NoNode setup update draw subscriptions
 
 ## Preloading
 
+TODO: explain noSetup/noUpdate
+
 TODO: explain preload alternatives.
 
 TODO: Also, explain how to create a raw sketch, without animate/play/...

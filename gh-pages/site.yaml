@@ -385,3 +385,42 @@ reference:
       - Transform/Translate0
       - Transform/Translate1
       - Transform/Translate2
+  # See DOM; implement these later.
+  Data:
+    storeItem(): ~
+  Events:
+    deviceOrientation: ~
+    accelerationX:
+      - Events/AccelerationX
+    accelerationY:
+      - Events/AccelerationY
+    accelerationZ:
+      - Events/AccelerationZ
+    pAccelerationX: ~
+    pAccelerationY: ~
+    pAccelerationZ: ~
+    rotationX:
+      - Events/RotationX
+    rotationY:
+      - Events/RotationY
+    rotationZ:
+      - Events/RotationZ
+    pRotationX:
+      - Events/RotationX
+    pRotationY:
+      - Events/RotationY
+    pRotationZ:
+      - Events/RotationZ
+    turnAxis:
+      - Events/TurnAxis
+    setMoveThreshold():
+      - Events/SetMoveThreshold
+    setShakeThreshold():
+      - Events/SetShakeTreshold
+    deviceMoved():
+      - Events/DeviceMoved
+    deviceShaken():
+      - Events/DeviceShaken
+    deviceTurned():
+      - Events/DeviceTurned
+      - Events/TurnAxis

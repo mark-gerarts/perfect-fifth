@@ -334,8 +334,7 @@ let runSketch name canvasSelector =
     | "Events/SetMoveTreshold" -> Events.SetMoveTreshold.run node
     | "Events/SetShakeTreshold" -> Events.SetShakeTreshold.run node
     | "Events/DeviceMoved" -> Events.DeviceMoved.run node
-    | "Events/DeviceTurned0" -> Events.DeviceTurned0.run node
-    | "Events/DeviceTurned1" -> Events.DeviceTurned1.run node
+    | "Events/DeviceTurned" -> Events.DeviceTurned.run node
     | "Events/DeviceShaken" -> Events.DeviceShaken.run node
     | "Events/KeyIsPressed" -> Events.KeyIsPressed.run node
     | "Events/Key" -> Events.Key.run node

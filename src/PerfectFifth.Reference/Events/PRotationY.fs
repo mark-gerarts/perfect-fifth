@@ -1,13 +1,20 @@
 module P5Reference.Events.PRotationY
 
 open P5.Core
-open P5.Color
+open P5.Events
 open P5.Environment
-open P5.Shape
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let draw p5 _ =
+    let rY = rotationY p5 + 180.0
+    let pRY = pRotationY p5 + 180.0
 
-let run node = display node draw
+    let direction =
+        match rY - pRY with
+        | x when x > 0 && x < 270 -> "clockwise"
+        | x when x < -270 -> "clockwise"
+        | x when x < 0 || x > 270 -> "counter-clockwise"
+        | _ -> "clockwise"
+
+    print p5 direction
+
+let run node = animate node noSetup draw
