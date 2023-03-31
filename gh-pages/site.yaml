@@ -272,7 +272,7 @@ reference:
       - Shape/Normal
     plane():
       - Shape/Plane
-    box(), cube(), boxWithDetail():
+    box(), cube(), boxWithDetail(), boxWithDefaults():
       - Shape/Box
     sphere(), sphereWithDetail():
       - Shape/Sphere0
@@ -368,3 +368,20 @@ reference:
       - Transform/ResetMatrix
     rotate():
       - Transform/Rotate
+    rotateX():
+      - Transform/RotateX
+    rotateY():
+      - Transform/RotateY
+    rotateZ():
+      - Transform/RotateZ
+    scale(), scaleXY(), scaleXYZ(), scale3D(), scaleFromVector(), scaleFromValues():
+      - Transform/Scale0
+      - Transform/Scale1
+    shearX():
+      - Transform/ShearX
+    shearY():
+      - Transform/ShearY
+    translate(), translateZ(), translate3D(), translateFromVector():
+      - Transform/Translate0
+      - Transform/Translate1
+      - Transform/Translate2

@@ -205,6 +205,9 @@ module Shape =
     [<Emit("$0.box($1, $2, $3)")>]
     let box (p5: P5) (width: float) (height: float) (depth: float) : Unit = jsNative
 
+    [<Emit("$0.box()")>]
+    let boxWithDefaults (p5: P5) : Unit = jsNative
+
     [<Emit("$0.box($1)")>]
     let cube (p5: P5) (width: float) : Unit = jsNative
 
