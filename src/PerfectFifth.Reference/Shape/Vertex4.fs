@@ -32,7 +32,7 @@ let ngon p5 n x y d =
 
 let setup p5 =
     createCanvasWithMode p5 100 100 WebGL
-    setAttributes p5 "antialias" true
+    setAttribute p5 "antialias" true
     fill p5 (RGB(237, 34, 93))
     strokeWeight p5 3
 

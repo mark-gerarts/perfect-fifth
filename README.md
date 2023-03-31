@@ -239,6 +239,8 @@ play NoNode setup update draw subscriptions
 
 TODO: explain preload alternatives.
 
+TODO: Also, explain how to create a raw sketch, without animate/play/...
+
 ## Remarks
 
 TODO: explain why p5 needs to be passed to everything.

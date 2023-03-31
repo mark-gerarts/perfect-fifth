@@ -8,7 +8,7 @@ open P5.ThreeD
 
 let setup p5 =
     createCanvasWithMode p5 100 100 WebGL
-    setAttributes p5 "antialias" true
+    setAttribute p5 "antialias" true
 
 let draw p5 _ =
     orbitControl p5
