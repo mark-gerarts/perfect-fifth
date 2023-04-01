@@ -381,13 +381,13 @@ let runSketch name canvasSelector =
     | "Events/RequestPointerLock" -> Events.RequestPointerLock.run node
     | "Events/ExitPointerLock" -> Events.ExitPointerLock.run node
     | "Events/Touches" -> Events.Touches.run node
-    | "Events/ToucheStarted0" -> Events.ToucheStarted0.run node
-    | "Events/ToucheStarted1" -> Events.ToucheStarted1.run node
-    | "Events/ToucheStarted2" -> Events.ToucheStarted2.run node
-    | "Events/ToucheMoved0" -> Events.ToucheMoved0.run node
-    | "Events/ToucheMoved1" -> Events.ToucheMoved1.run node
-    | "Events/ToucheMoved2" -> Events.ToucheMoved2.run node
-    | "Events/ToucheEnded0" -> Events.ToucheEnded0.run node
-    | "Events/ToucheEnded1" -> Events.ToucheEnded1.run node
-    | "Events/ToucheEnded2" -> Events.ToucheEnded2.run node
+    | "Events/TouchStarted0" -> Events.TouchStarted0.run node
+    | "Events/TouchStarted1" -> Events.TouchStarted1.run node
+    | "Events/TouchStarted2" -> Events.TouchStarted2.run node
+    | "Events/TouchMoved0" -> Events.TouchMoved0.run node
+    | "Events/TouchMoved1" -> Events.TouchMoved1.run node
+    | "Events/TouchMoved2" -> Events.TouchMoved2.run node
+    | "Events/TouchEnded0" -> Events.TouchEnded0.run node
+    | "Events/TouchEnded1" -> Events.TouchEnded1.run node
+    | "Events/TouchEnded2" -> Events.TouchEnded2.run node
     | _ -> failwith <| "No sketch with name " + name + " exists"

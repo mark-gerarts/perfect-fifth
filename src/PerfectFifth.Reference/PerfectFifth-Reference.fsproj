@@ -375,15 +375,15 @@
     <Compile Include="Events\RequestPointerLock.fs" />
     <Compile Include="Events\ExitPointerLock.fs" />
     <Compile Include="Events\Touches.fs" />
-    <Compile Include="Events\ToucheStarted0.fs" />
-    <Compile Include="Events\ToucheStarted1.fs" />
-    <Compile Include="Events\ToucheStarted2.fs" />
-    <Compile Include="Events\ToucheMoved0.fs" />
-    <Compile Include="Events\ToucheMoved1.fs" />
-    <Compile Include="Events\ToucheMoved2.fs" />
-    <Compile Include="Events\ToucheEnded0.fs" />
-    <Compile Include="Events\ToucheEnded1.fs" />
-    <Compile Include="Events\ToucheEnded2.fs" />
+    <Compile Include="Events\TouchStarted0.fs" />
+    <Compile Include="Events\TouchStarted1.fs" />
+    <Compile Include="Events\TouchStarted2.fs" />
+    <Compile Include="Events\TouchMoved0.fs" />
+    <Compile Include="Events\TouchMoved1.fs" />
+    <Compile Include="Events\TouchMoved2.fs" />
+    <Compile Include="Events\TouchEnded0.fs" />
+    <Compile Include="Events\TouchEnded1.fs" />
+    <Compile Include="Events\TouchEnded2.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>

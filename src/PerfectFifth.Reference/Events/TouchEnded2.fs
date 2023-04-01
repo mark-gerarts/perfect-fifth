@@ -1,4 +1,4 @@
-module P5Reference.Events.ToucheMoved2
+module P5Reference.Events.TouchEnded2
 
 open P5.Core
 open P5.Color
