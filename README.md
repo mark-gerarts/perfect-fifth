@@ -239,13 +239,12 @@ play NoNode setup update draw subscriptions
 
 In regular JavaScript p5js, you can return `false` from an event handler in
 order to prevent the default event. E.g. returning `false` from `keyPressed`
-would prevent normal keyboard shortcuts from working (F11, Ctrl+R, ...).
-
-In Perfect Fifth, this is achieved by wrapping the subscription with
+would prevent normal keyboard shortcuts from working (F11, Ctrl+R, ...). In
+Perfect Fifth, this is achieved by wrapping the subscription with
 `PreventDefault`.
 
 ```fsharp
-// Or equivalen: (PreventDefault (OnKeyPressed (Effect onKeyPressed)))
+// Or equivalent: (PreventDefault (OnKeyPressed (Effect onKeyPressed)))
 let subscriptions = [ Effect onKeyPressed |> OnKeyPressed |> PreventDefault ]
 ```
 

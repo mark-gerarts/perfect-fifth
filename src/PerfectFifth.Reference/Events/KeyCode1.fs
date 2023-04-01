@@ -2,12 +2,22 @@ module P5Reference.Events.KeyCode1
 
 open P5.Core
 open P5.Color
+open P5.Events
+open P5.Typography
 open P5.Environment
-open P5.Shape
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let draw p5 _ = ()
 
-let run node = display node draw
+let onKeyPressed p5 _ =
+    background p5 (Name "yellow")
+    let key = key p5
+    let keyCode = (keyCode p5).getKeyCode ()
+    let message = sprintf "%s %i" key keyCode
+
+    text p5 message 10 40
+    print p5 message
+
+let subscriptions = [ OnKeyPressed(Effect onKeyPressed) ]
+
+let run node =
+    play node noSetup noUpdate draw subscriptions

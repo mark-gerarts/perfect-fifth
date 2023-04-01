@@ -428,3 +428,17 @@ reference:
       - Events/KeyIsPressed
     key:
       - Events/Key
+    keyCode:
+      - Events/KeyCode0
+      - Events/KeyCode1
+    keyPressed():
+      - Events/KeyPressed0
+      - Events/KeyPressed1
+      - Events/KeyPressed2
+    keyReleased():
+      - Events/KeyReleased
+    keyTyped():
+      - Events/KeyTyped
+    keyIsDown(), keyCodeIsDown():
+      - Events/KeyIsDown0
+      - Events/KeyIsDown1

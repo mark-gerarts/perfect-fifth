@@ -50,6 +50,8 @@ module Core =
         | OnDeviceMoved of EventHandler<Unit, 'a>
         | OnDeviceShaken of EventHandler<Unit, 'a>
         | OnKeyPressed of EventHandler<KeyboardEvent, 'a>
+        | OnKeyReleased of EventHandler<KeyboardEvent, 'a>
+        | OnKeyTyped of EventHandler<KeyboardEvent, 'a>
         | OnMouseMoved of EventHandler<MouseEvent, 'a>
         | OnMousePressed of EventHandler<MouseEvent, 'a>
         | OnMouseReleased of EventHandler<MouseEvent, 'a>
@@ -57,7 +59,7 @@ module Core =
         | OnWindowResized of EventHandler<UIEvent, 'a>
         | PreventDefault of Subscription<'a>
 
-    type PreventDefault =
+    type private PreventDefault =
         | DoPreventDefault
         | DontPreventDefault
 
@@ -84,6 +86,18 @@ module Core =
         match subscription with
         | OnKeyPressed handler -> Some(DontPreventDefault, handler)
         | PreventDefault(OnKeyPressed handler) -> Some(DoPreventDefault, handler)
+        | _ -> None
+
+    let private getKeyReleasedHandler subscription =
+        match subscription with
+        | OnKeyReleased handler -> Some(DontPreventDefault, handler)
+        | PreventDefault(OnKeyReleased handler) -> Some(DoPreventDefault, handler)
+        | _ -> None
+
+    let private getKeyTypedHandler subscription =
+        match subscription with
+        | OnKeyTyped handler -> Some(DontPreventDefault, handler)
+        | PreventDefault(OnKeyTyped handler) -> Some(DoPreventDefault, handler)
         | _ -> None
 
     let private getMouseMovedHandler subscription =
@@ -212,6 +226,8 @@ module Core =
                 setEventProperty "deviceMoved" getDeviceMovedHandler
                 setEventProperty "deviceShaken" getDeviceShakenHandler
                 setEventProperty "keyPressed" getKeyPressedHandler
+                setEventProperty "keyReleased" getKeyReleasedHandler
+                setEventProperty "keyTyped" getKeyTypedHandler
                 setEventProperty "mouseMoved" getMouseMovedHandler
                 setEventProperty "mousePressed" getMousePressedHandler
                 setEventProperty "mouseReleased" getMouseReleasedHandler
