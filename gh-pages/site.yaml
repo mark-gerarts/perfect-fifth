@@ -442,3 +442,19 @@ reference:
     keyIsDown(), keyCodeIsDown():
       - Events/KeyIsDown0
       - Events/KeyIsDown1
+    movedX:
+      - Events/MovedX
+    movedY:
+      - Events/MovedY
+    mouseX:
+      - Events/MouseX
+    mouseY:
+      - Events/MouseY
+    winMouseX:
+      - Events/WinMouseX
+    winMouseY:
+      - Events/WinMouseY
+    pwinMouseX:
+      - Events/PWinMouseX
+    pwinMouseY:
+      - Events/PWinMouseY

@@ -2,12 +2,11 @@ module P5Reference.Events.MouseY
 
 open P5.Core
 open P5.Color
-open P5.Environment
 open P5.Shape
+open P5.Events
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let draw p5 _ =
+    background p5 (RGB(244, 248, 252))
+    line p5 0 (mouseY p5) 100 (mouseY p5)
 
-let run node = display node draw
+let run node = animate node noSetup draw

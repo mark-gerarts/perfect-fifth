@@ -142,8 +142,32 @@ module Events =
 
     let keyCodeIsDown (p5: P5) (key: KeyCode) : bool = keyIsDown p5 (key.getKeyCode ())
 
+    [<Emit("$0.movedX")>]
+    let movedX (p5: P5) : float = jsNative
+
+    [<Emit("$0.movedY")>]
+    let movedY (p5: P5) : float = jsNative
+
     [<Emit("$0.mouseX")>]
-    let mouseX (p5: P5) : int = jsNative
+    let mouseX (p5: P5) : float = jsNative
 
     [<Emit("$0.mouseY")>]
-    let mouseY (p5: P5) : int = jsNative
+    let mouseY (p5: P5) : float = jsNative
+
+    [<Emit("$0.pmouseX")>]
+    let pmouseX (p5: P5) : float = jsNative
+
+    [<Emit("$0.pmouseY")>]
+    let pmouseY (p5: P5) : float = jsNative
+
+    [<Emit("$0.winMouseX")>]
+    let winMouseX (p5: P5) : float = jsNative
+
+    [<Emit("$0.winMouseY")>]
+    let winMouseY (p5: P5) : float = jsNative
+
+    [<Emit("$0.pwinMouseX")>]
+    let pwinMouseX (p5: P5) : float = jsNative
+
+    [<Emit("$0.pwinMouseY")>]
+    let pwinMouseY (p5: P5) : float = jsNative

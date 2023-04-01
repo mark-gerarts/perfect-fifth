@@ -260,6 +260,8 @@ TODO: explain preload alternatives.
 
 TODO: Also, explain how to create a raw sketch, without animate/play/...
 
+TODO: explain `createCanvasAndReturn` return type workarounds.
+
 ## Remarks
 
 TODO: explain why p5 needs to be passed to everything.
