@@ -171,3 +171,23 @@ module Events =
 
     [<Emit("$0.pwinMouseY")>]
     let pwinMouseY (p5: P5) : float = jsNative
+
+    type MouseButton =
+        | MouseLeft
+        | MouseRight
+        | MouseCenter
+
+    let private parseMouseButton (button: string) : MouseButton =
+        match button with
+        | "left" -> MouseLeft
+        | "right" -> MouseRight
+        | "center" -> MouseCenter
+        | _ -> failwith "Unexpected value received from p5js"
+
+    [<Emit("$0.mouseButton")>]
+    let private mouseButton_ (p5: P5) : string = jsNative
+
+    let mouseButton (p5: P5) : MouseButton = mouseButton_ p5 |> parseMouseButton
+
+    [<Emit("$0.mouseIsPressed")>]
+    let mouseIsPressed (p5: P5) : bool = jsNative

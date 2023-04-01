@@ -458,3 +458,9 @@ reference:
       - Events/PWinMouseX
     pwinMouseY:
       - Events/PWinMouseY
+    mouseButton:
+      - Events/MouseButton
+    mouseMoved():
+      - Events/MouseMoved0
+      - Events/MouseMoved1
+      - Events/MouseMoved2

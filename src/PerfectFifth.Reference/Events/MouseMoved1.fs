@@ -1,13 +1,14 @@
 module P5Reference.Events.MouseMoved1
 
 open P5.Core
-open P5.Color
-open P5.Environment
 open P5.Shape
+open P5.Events
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let draw _ _ = ()
 
-let run node = display node draw
+let onMouseMoved p5 _ = circle p5 (mouseX p5) (mouseY p5) 5
+
+let subscriptions = [ OnMouseMoved(Effect onMouseMoved) |> PreventDefault ]
+
+let run node =
+    play node noSetup noUpdate draw subscriptions
