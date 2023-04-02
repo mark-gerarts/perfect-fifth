@@ -159,6 +159,8 @@ type Subscription<'a> =
     | OnMouseMoved of EventHandler<MouseEvent, 'a>
     // ... and a lot more. See the reference.
     | OnWindowResized of EventHandler<UIEvent, 'a>
+    // Recursive case that signals the default event should be prevented.
+    | PreventDefault of Subscription<'a>
 
 let play
     (node: Node) // Element to render the canvas.
@@ -235,11 +237,30 @@ let subscriptions =
 play NoNode setup update draw subscriptions
 ```
 
+In regular JavaScript p5js, you can return `false` from an event handler in
+order to prevent the default event. E.g. returning `false` from `keyPressed`
+would prevent normal keyboard shortcuts from working (F11, Ctrl+R, ...). In
+Perfect Fifth, this is achieved by wrapping the subscription with
+`PreventDefault`.
+
+```fsharp
+// Or equivalent: (PreventDefault (OnKeyPressed (Effect onKeyPressed)))
+let subscriptions = [ Effect onKeyPressed |> OnKeyPressed |> PreventDefault ]
+```
+
+If there are multiple subscriptions registered for the same event, the
+default event will be prevented if at least one of the subscriptions is wrapped
+in `PreventDefault`.
+
 ## Preloading
+
+TODO: explain noSetup/noUpdate
 
 TODO: explain preload alternatives.
 
 TODO: Also, explain how to create a raw sketch, without animate/play/...
+
+TODO: explain `createCanvasAndReturn` return type workarounds.
 
 ## Remarks
 

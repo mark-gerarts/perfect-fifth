@@ -19,6 +19,9 @@ let draw p5 =
     //    let cvRenderer = unbox<P5Renderer> cv
     //    cvRenderer.remove()
     //
+    // Or similarly to get it as a p5.Element:
+    //
+    //    let canvasEl = unbox<P5Element<'Unit>> cv
     createCanvas p5 100 50
     background p5 (Grayscale 153)
     line p5 0 0 (width p5 |> float) (height p5 |> float)

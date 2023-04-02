@@ -53,6 +53,18 @@ module DOM =
         [<Emit("$0.value($1)")>]
         member _.setValue(value: 'T) : Unit = jsNative
 
+        [<Emit("$0.parent()")>]
+        member _.getParent() : P5Element<obj> = jsNative
+
+        [<Emit("$0.parent($1)")>]
+        member _.setParentFromSelector(parent: string) : Unit = jsNative
+
+        [<Emit("$0.parent($1)")>]
+        member _.setParentFromNode(parent: Element) : Unit = jsNative
+
+        [<Emit("$0.parent($1)")>]
+        member _.setParent(parent: P5Element<obj>) : Unit = jsNative
+
         [<Emit("$0.mousePressed($1)")>]
         member _.mousePressed(f: MouseEvent -> Unit) : Unit = jsNative
 
