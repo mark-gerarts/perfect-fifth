@@ -1,8 +1,6 @@
 module P5Reference.Events.MouseMoved2
 
 open P5.Core
-open P5.Shape
-open P5.Events
 
 let draw _ _ = ()
 

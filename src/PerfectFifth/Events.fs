@@ -191,3 +191,14 @@ module Events =
 
     [<Emit("$0.mouseIsPressed")>]
     let mouseIsPressed (p5: P5) : bool = jsNative
+
+    [<Emit("$0.requestPointerLock()")>]
+    let requestPointerLock (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.exitPointerLock()")>]
+    let exitPointerLock (p5: P5) : Unit = jsNative
+
+    type TouchPoint = { x: float; y: float; id: int }
+
+    [<Emit("$0.touches")>]
+    let touches (p5: P5) : TouchPoint array = jsNative

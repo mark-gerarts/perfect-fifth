@@ -10,6 +10,7 @@
   <ItemGroup>
     <Compile Include="P5.fs" />
     <Compile Include="Util.fs" />
+    <Compile Include="Camera.fs" />
     <Compile Include="Color.fs" />
     <Compile Include="DOM.fs" />
     <Compile Include="Environment.fs" />

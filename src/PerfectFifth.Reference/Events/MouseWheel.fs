@@ -4,10 +4,20 @@ open P5.Core
 open P5.Color
 open P5.Environment
 open P5.Shape
+open Browser.Types
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let setup _ = 25.0
 
-let run node = display node draw
+let draw p5 pos =
+    background p5 (RGB(237, 34, 93))
+    fill p5 (Grayscale 0)
+    rect p5 25 pos 50 50
+
+let onMouseWheel p5 (event: WheelEvent) pos =
+    print p5 (string event.deltaY)
+    pos + (event.deltaY / 100.0)
+
+let subscriptions = [ OnMouseWheel(Update onMouseWheel) ]
+
+let run node =
+    play node setup noUpdate draw subscriptions

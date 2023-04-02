@@ -2,12 +2,20 @@ module P5Reference.Events.MouseClicked0
 
 open P5.Core
 open P5.Color
-open P5.Environment
 open P5.Shape
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let setup _ = 0
 
-let run node = display node draw
+let draw p5 value =
+    fill p5 (Grayscale(float value))
+    square p5 25 25 50
+
+let onMouseClicked _ _ value =
+    match value with
+    | 255 -> 0
+    | _ -> 255
+
+let subscriptions = [ OnMouseClicked(Update onMouseClicked) ]
+
+let run node =
+    play node setup noUpdate draw subscriptions

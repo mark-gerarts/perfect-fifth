@@ -331,8 +331,8 @@ let runSketch name canvasSelector =
     | "Events/PRotationY" -> Events.PRotationY.run node
     | "Events/PRotationZ" -> Events.PRotationZ.run node
     | "Events/TurnAxis" -> Events.TurnAxis.run node
-    | "Events/SetMoveTreshold" -> Events.SetMoveTreshold.run node
-    | "Events/SetShakeTreshold" -> Events.SetShakeTreshold.run node
+    | "Events/SetMoveThreshold" -> Events.SetMoveTreshold.run node
+    | "Events/SetShakeThreshold" -> Events.SetShakeTreshold.run node
     | "Events/DeviceMoved" -> Events.DeviceMoved.run node
     | "Events/DeviceTurned" -> Events.DeviceTurned.run node
     | "Events/DeviceShaken" -> Events.DeviceShaken.run node

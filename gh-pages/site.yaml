@@ -416,7 +416,7 @@ reference:
     setMoveThreshold():
       - Events/SetMoveThreshold
     setShakeThreshold():
-      - Events/SetShakeTreshold
+      - Events/SetShakeThreshold
     deviceMoved():
       - Events/DeviceMoved
     deviceShaken():
@@ -460,7 +460,49 @@ reference:
       - Events/PWinMouseY
     mouseButton:
       - Events/MouseButton
+    mouseIsPressed:
+      - Events/MouseIsPressed
     mouseMoved():
       - Events/MouseMoved0
       - Events/MouseMoved1
       - Events/MouseMoved2
+    mouseDragged():
+      - Events/MouseDragged0
+      - Events/MouseDragged1
+      - Events/MouseDragged2
+    mousePressed():
+      - Events/MousePressed0
+      - Events/MousePressed1
+      - Events/MousePressed2
+    mouseReleased():
+      - Events/MouseReleased0
+      - Events/MouseReleased1
+      - Events/MouseReleased2
+    mouseClicked():
+      - Events/MouseClicked0
+      - Events/MouseClicked1
+      - Events/MouseClicked2
+    doubleClicked():
+      - Events/DoubleClicked0
+      - Events/DoubleClicked1
+      - Events/DoubleClicked2
+    mouseWheel():
+      - Events/MouseWheel
+    requestPointerLock():
+      - Events/RequestPointerLock
+    exitPointerLock():
+      - Events/ExitPointerLock
+    touches:
+      - Events/Touches
+    touchStarted():
+      - Events/TouchStarted0
+      - Events/TouchStarted1
+      - Events/TouchStarted2
+    touchMoved():
+      - Events/TouchMoved0
+      - Events/TouchMoved1
+      - Events/TouchMoved2
+    touchEnded():
+      - Events/TouchEnded0
+      - Events/TouchEnded1
+      - Events/TouchEnded2
