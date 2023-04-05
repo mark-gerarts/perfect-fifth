@@ -1,5 +1,5 @@
 assembly-versioning-scheme: MajorMinorPatch
-mode: ContinuousDeployment
+mode: Mainline
 increment: Inherit
 continuous-delivery-fallback-tag: ci
 tag-prefix: '[vV]'
@@ -9,19 +9,17 @@ patch-version-bump-message: '\+semver:\s?(fix|patch)'
 branches: 
   main:
     regex: ^master$|^main$
-    mode: ContinuousDelivery
     tag: ''
-    increment: Minor
+    increment: Patch
     prevent-increment-of-merged-branch-version: true
     track-merge-target: false
     source-branches: [ 'develop', 'release' ]
-    tracks-release-branches: false
-    is-release-branch: false
+    tracks-release-branches: true
+    is-release-branch: true
     is-mainline: true
     pre-release-weight: 55000
   develop:
     regex: ^dev(elop)?(ment)?$
-    mode: ContinuousDeployment
     tag: alpha
     increment: Patch
     prevent-increment-of-merged-branch-version: false
@@ -33,7 +31,6 @@ branches:
     pre-release-weight: 0
   release:
     regex: ^releases?[/-]
-    mode: ContinuousDelivery
     tag: beta
     increment: None
     prevent-increment-of-merged-branch-version: true
@@ -45,7 +42,6 @@ branches:
     pre-release-weight: 30000
   feature:
     regex: ^features?[/-]
-    mode: ContinuousDelivery
     tag: useBranchName
     increment: Inherit
     prevent-increment-of-merged-branch-version: false
@@ -70,7 +66,6 @@ branches:
     pre-release-weight: 30000
   hotfix:
     regex: ^hotfix(es)?[/-]
-    mode: ContinuousDelivery
     tag: beta
     increment: Patch
     prevent-increment-of-merged-branch-version: false
@@ -82,7 +77,6 @@ branches:
     pre-release-weight: 30000
   support:
     regex: ^support[/-]
-    mode: ContinuousDelivery
     tag: ''
     increment: Patch
     prevent-increment-of-merged-branch-version: true
