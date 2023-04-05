@@ -390,7 +390,10 @@
     <PackageReference Include="Fable.Browser.Dom" />
     <PackageReference Include="Fable.Core" />
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(ContinuousIntegrationBuild)'!='true'">
     <ProjectReference Include="..\PerfectFifth\PerfectFifth.fsproj" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(ContinuousIntegrationBuild)'=='true'">
+    <PackageReference Include="PerfectFifth"/>
   </ItemGroup>
 </Project>

@@ -2,6 +2,5 @@
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
         <LangVersion>latest</LangVersion>
-        <Version>0.1.2-alpha</Version>
     </PropertyGroup>
 </Project>

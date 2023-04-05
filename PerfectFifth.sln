@@ -3,13 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PerfectFifth", "PerfectFifth\PerfectFifth.fsproj", "{DE8C3194-CEA1-44E2-9641-BA120A798B20}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PerfectFifth", "src\PerfectFifth\PerfectFifth.fsproj", "{DE8C3194-CEA1-44E2-9641-BA120A798B20}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PerfectFifth-Examples", "PerfectFifth.Examples\PerfectFifth-Examples.fsproj", "{287FE911-DA58-4E2D-8398-72A98E7B55FA}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PerfectFifth-Examples", "src\PerfectFifth.Examples\PerfectFifth-Examples.fsproj", "{287FE911-DA58-4E2D-8398-72A98E7B55FA}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PerfectFifth-Site", "PerfectFifth.Site\PerfectFifth-Site.fsproj", "{99B8FBF8-C027-43B0-B78F-4033FD83FDD7}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PerfectFifth-Site", "src\PerfectFifth.Site\PerfectFifth-Site.fsproj", "{99B8FBF8-C027-43B0-B78F-4033FD83FDD7}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PerfectFifth-Reference", "PerfectFifth.Reference\PerfectFifth-Reference.fsproj", "{284B120D-4BF8-4D71-BA33-AD23F0A2DC88}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PerfectFifth-Reference", "src\PerfectFifth.Reference\PerfectFifth-Reference.fsproj", "{284B120D-4BF8-4D71-BA33-AD23F0A2DC88}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "props", "props", "{ADF039A9-0B6E-4B74-823A-7C5132BF6122}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
