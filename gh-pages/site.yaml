@@ -414,9 +414,9 @@ reference:
     turnAxis:
       - Events/TurnAxis
     setMoveThreshold():
-      - Events/SetMoveThreshold
+      - Events/SetMoveTreshold
     setShakeThreshold():
-      - Events/SetShakeThreshold
+      - Events/SetShakeTreshold
     deviceMoved():
       - Events/DeviceMoved
     deviceShaken():

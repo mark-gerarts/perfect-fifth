@@ -1,11 +1,10 @@
 module P5Reference.App
 
-open Browser.Dom
 open P5.Core
 open P5Reference
 
 let runSketch name canvasSelector =
-    let node = Element <| document.querySelector (canvasSelector)
+    let node = Element <| Browser.Dom.document.querySelector (canvasSelector)
 
     // See scripts/generate-reference-sketches.sh
     match name with
@@ -331,8 +330,8 @@ let runSketch name canvasSelector =
     | "Events/PRotationY" -> Events.PRotationY.run node
     | "Events/PRotationZ" -> Events.PRotationZ.run node
     | "Events/TurnAxis" -> Events.TurnAxis.run node
-    | "Events/SetMoveThreshold" -> Events.SetMoveTreshold.run node
-    | "Events/SetShakeThreshold" -> Events.SetShakeTreshold.run node
+    | "Events/SetMoveTreshold" -> Events.SetMoveTreshold.run node
+    | "Events/SetShakeTreshold" -> Events.SetShakeTreshold.run node
     | "Events/DeviceMoved" -> Events.DeviceMoved.run node
     | "Events/DeviceTurned" -> Events.DeviceTurned.run node
     | "Events/DeviceShaken" -> Events.DeviceShaken.run node
@@ -390,4 +389,68 @@ let runSketch name canvasSelector =
     | "Events/TouchEnded0" -> Events.TouchEnded0.run node
     | "Events/TouchEnded1" -> Events.TouchEnded1.run node
     | "Events/TouchEnded2" -> Events.TouchEnded2.run node
+    | "Image/CreateImage0" -> Image.CreateImage0.run node
+    | "Image/CreateImage1" -> Image.CreateImage1.run node
+    | "Image/CreateImage2" -> Image.CreateImage2.run node
+    | "Image/SaveCanvas0" -> Image.SaveCanvas0.run node
+    | "Image/SaveCanvas1" -> Image.SaveCanvas1.run node
+    | "Image/SaveFrames" -> Image.SaveFrames.run node
+    | "Image/P5ImageWidth" -> Image.P5ImageWidth.run node
+    | "Image/P5ImageHeight" -> Image.P5ImageHeight.run node
+    | "Image/P5ImagePixels" -> Image.P5ImagePixels.run node
+    | "Image/P5ImageLoadPixels" -> Image.P5ImageLoadPixels.run node
+    | "Image/P5ImageUpdatePixels" -> Image.P5ImageUpdatePixels.run node
+    | "Image/P5ImageGet" -> Image.P5ImageGet.run node
+    | "Image/P5ImageSet" -> Image.P5ImageSet.run node
+    | "Image/P5ImageResize" -> Image.P5ImageResize.run node
+    | "Image/P5ImageCopy" -> Image.P5ImageCopy.run node
+    | "Image/P5ImageMask" -> Image.P5ImageMask.run node
+    | "Image/P5ImageFilter" -> Image.P5ImageFilter.run node
+    | "Image/P5ImageBlend0" -> Image.P5ImageBlend0.run node
+    | "Image/P5ImageBlend1" -> Image.P5ImageBlend1.run node
+    | "Image/P5ImageBlend2" -> Image.P5ImageBlend2.run node
+    | "Image/P5ImageSave" -> Image.P5ImageSave.run node
+    | "Image/P5ImageReset" -> Image.P5ImageReset.run node
+    | "Image/P5ImageGetCurrentFrame" -> Image.P5ImageGetCurrentFrame.run node
+    | "Image/P5ImageNumFrames" -> Image.P5ImageNumFrames.run node
+    | "Image/P5ImagePlay" -> Image.P5ImagePlay.run node
+    | "Image/P5ImageDelay" -> Image.P5ImageDelay.run node
+    | "Image/LoadImage0" -> Image.LoadImage0.run node
+    | "Image/LoadImage1" -> Image.LoadImage1.run node
+    | "Image/SaveGif" -> Image.SaveGif.run node
+    | "Image/Image0" -> Image.Image0.run node
+    | "Image/Image1" -> Image.Image1.run node
+    | "Image/Image2" -> Image.Image2.run node
+    | "Image/Image3" -> Image.Image3.run node
+    | "Image/Image4" -> Image.Image4.run node
+    | "Image/Image5" -> Image.Image5.run node
+    | "Image/Tint0" -> Image.Tint0.run node
+    | "Image/Tint1" -> Image.Tint1.run node
+    | "Image/Tint2" -> Image.Tint2.run node
+    | "Image/NoTint" -> Image.NoTint.run node
+    | "Image/ImageMode0" -> Image.ImageMode0.run node
+    | "Image/ImageMode1" -> Image.ImageMode1.run node
+    | "Image/ImageMode2" -> Image.ImageMode2.run node
+    | "IO/LoadJson0" -> IO.LoadJson0.run node
+    | "IO/LoadJson1" -> IO.LoadJson1.run node
+    | "IO/LoadStrings0" -> IO.LoadStrings0.run node
+    | "IO/LoadStrings1" -> IO.LoadStrings1.run node
+    | "IO/LoadTable" -> IO.LoadTable.run node
+    | "IO/LoadXML" -> IO.LoadXML.run node
+    | "IO/LoadBytes" -> IO.LoadBytes.run node
+    | "IO/HttpGet" -> IO.HttpGet.run node
+    | "IO/HttpPost0" -> IO.HttpPost0.run node
+    | "IO/HttpPost1" -> IO.HttpPost1.run node
+    | "IO/HttpDo" -> IO.HttpDo.run node
+    | "IO/CreateWriter" -> IO.CreateWriter.run node
+    | "IO/P5WriterWrite0" -> IO.P5WriterWrite0.run node
+    | "IO/P5WriterWrite1" -> IO.P5WriterWrite1.run node
+    | "IO/P5WriterWrite2" -> IO.P5WriterWrite2.run node
+    | "IO/P5WriterWrite3" -> IO.P5WriterWrite3.run node
+    | "IO/P5WriterPrint0" -> IO.P5WriterPrint0.run node
+    | "IO/P5WriterPrint1" -> IO.P5WriterPrint1.run node
+    | "IO/P5WriterClear0" -> IO.P5WriterClear0.run node
+    | "IO/P5WriterClear1" -> IO.P5WriterClear1.run node
+    | "IO/P5WriterClose0" -> IO.P5WriterClose0.run node
+    | "IO/P5WriterClose1" -> IO.P5WriterClose1.run node
     | _ -> failwith <| "No sketch with name " + name + " exists"
