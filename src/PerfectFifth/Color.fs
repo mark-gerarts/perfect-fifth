@@ -46,6 +46,11 @@ module Color =
 
     let color (p5: P5) (color: Color) : P5Color = emitColorFunction p5 "color" color
 
+    let internal ensureP5Color (p5: P5) (c: Color) : P5Color =
+        match c with
+        | P5Color c -> c
+        | c -> color p5 c
+
     let background (p5: P5) (color: Color) : Unit = emitColorFunction p5 "background" color
 
     let fill (p5: P5) (color: Color) : Unit = emitColorFunction p5 "fill" color
@@ -64,17 +69,23 @@ module Color =
     [<Emit("$0.clear($1, $2, $3, $4)")>]
     let clearWebgl (p5: P5) (r: float) (g: float) (b: float) (a: float) : Unit = jsNative
 
-    let alpha (p5: P5) (color: Color) : float = emitColorFunction p5 "alpha" color
+    let alpha (p5: P5) (color: Color) : float =
+        ensureP5Color p5 color |> P5Color |> emitColorFunction p5 "alpha"
 
-    let blue (p5: P5) (color: Color) : float = emitColorFunction p5 "blue" color
+    let blue (p5: P5) (color: Color) : float =
+        ensureP5Color p5 color |> P5Color |> emitColorFunction p5 "blue"
 
-    let green (p5: P5) (color: Color) : float = emitColorFunction p5 "green" color
+    let green (p5: P5) (color: Color) : float =
+        ensureP5Color p5 color |> P5Color |> emitColorFunction p5 "green"
 
-    let red (p5: P5) (color: Color) : float = emitColorFunction p5 "red" color
+    let red (p5: P5) (color: Color) : float =
+        ensureP5Color p5 color |> P5Color |> emitColorFunction p5 "red"
 
-    let hue (p5: P5) (color: Color) : float = emitColorFunction p5 "hue" color
+    let hue (p5: P5) (color: Color) : float =
+        ensureP5Color p5 color |> P5Color |> emitColorFunction p5 "hue"
 
-    let brightness (p5: P5) (color: Color) : float = emitColorFunction p5 "brightness" color
+    let brightness (p5: P5) (color: Color) : float =
+        ensureP5Color p5 color |> P5Color |> emitColorFunction p5 "brightness"
 
     type ColorMode =
         | ModeRGB

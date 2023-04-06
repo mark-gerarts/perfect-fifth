@@ -506,3 +506,8 @@ reference:
       - Events/TouchEnded0
       - Events/TouchEnded1
       - Events/TouchEnded2
+  Image:
+    createImage():
+      - Image/CreateImage0
+      - Image/CreateImage1
+      - Image/CreateImage2
