@@ -511,3 +511,8 @@ reference:
       - Image/CreateImage0
       - Image/CreateImage1
       - Image/CreateImage2
+    saveCanvas(), saveCanvasAs(), saveSpecificCanvas(), saveSpecificCanvasAs():
+      - Image/SaveCanvas0
+      - Image/SaveCanvas1
+    saveFrames(), saveFramesWithCallback():
+      - Image/SaveFrames

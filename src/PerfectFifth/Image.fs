@@ -5,6 +5,7 @@ module Image =
     open Fable.Core
     open P5.Core
     open Color
+    open DOM
 
     type P5Image =
         interface IImage
@@ -53,3 +54,36 @@ module Image =
 
     [<Emit("$0.createImage($1, $2)")>]
     let createImage (p5: P5) (width: float) (height: float) : P5Image = jsNative
+
+    [<Emit("$0.saveCanvas()")>]
+    let saveCanvas (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.saveCanvas($1, $2)")>]
+    let saveCanvasAs (p5: P5) (filename: string) (extension: string) : Unit = jsNative
+
+    [<Emit("$0.saveCanvas($1)")>]
+    let saveSpecificCanvas (p5: P5) (element: P5Element<'Unit>) : Unit = jsNative
+
+    [<Emit("$0.saveCanvas($1, $2, $3)")>]
+    let saveSpecificCanvasAs (p5: P5) (element: P5Element<'Unit>) (filename: string) (extension: string) : Unit =
+        jsNative
+
+    [<Emit("$0.saveFrames($1, $2, $3, $4)")>]
+    let saveFrames (p5: P5) (filename: string) (extension: string) (duration: float) (framerate: float) : Unit =
+        jsNative
+
+    type FrameObject =
+        { imageData: string
+          filename: string
+          extension: string }
+
+    [<Emit("$0.saveFrames($1, $2, $3, $4, $5)")>]
+    let saveFramesWithCallback
+        (p5: P5)
+        (filename: string)
+        (extension: string)
+        (duration: float)
+        (framerate: float)
+        (callback: FrameObject array -> Unit)
+        : Unit =
+        jsNative
