@@ -100,7 +100,7 @@ reference:
       - Color/Red
     saturation():
       - Color/Saturation
-    background():
+    background(), backgroundImage():
       - Color/Background0
       - Color/Background1
       - Color/Background2
@@ -516,3 +516,18 @@ reference:
       - Image/SaveCanvas1
     saveFrames(), saveFramesWithCallback():
       - Image/SaveFrames
+    p5.Image/width:
+      - Image/P5ImageWidth
+    p5.Image/height:
+      - Image/P5ImageHeight
+    p5.Image/pixels:
+      - Image/CreateImage0
+      - Image/P5ImagePixels
+    p5.Image/loadPixels():
+      - Image/P5ImageLoadPixels
+    p5.Image/updatePixels():
+      - Image/P5ImageLoadPixels
+    p5.Image/get(), p5.Image/getPixel(), p5.Image/getRegion():
+      - Image/P5ImageGet
+    p5.Image/set(), p5.Image/setPixel():
+      - Image/CreateImage1

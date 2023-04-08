@@ -45,6 +45,9 @@ module Image =
     [<Emit("$0.image($1, $2, $3, $4, $5)")>]
     let imageWithSize (p5: P5) (image: IImage) (x: float) (y: float) (width: float) (height: float) : Unit = jsNative
 
+    [<Emit("$0.background($1)")>]
+    let backgroundImage (p5: P5) (image: P5Image) : Unit = jsNative
+
     [<Emit("$0.loadImage($1)")>]
     let loadImage (p5: P5) (path: string) : P5Image = jsNative
 

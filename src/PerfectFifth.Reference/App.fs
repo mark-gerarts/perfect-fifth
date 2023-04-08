@@ -399,9 +399,7 @@ let runSketch name canvasSelector =
     | "Image/P5ImageHeight" -> Image.P5ImageHeight.run node
     | "Image/P5ImagePixels" -> Image.P5ImagePixels.run node
     | "Image/P5ImageLoadPixels" -> Image.P5ImageLoadPixels.run node
-    | "Image/P5ImageUpdatePixels" -> Image.P5ImageUpdatePixels.run node
     | "Image/P5ImageGet" -> Image.P5ImageGet.run node
-    | "Image/P5ImageSet" -> Image.P5ImageSet.run node
     | "Image/P5ImageResize" -> Image.P5ImageResize.run node
     | "Image/P5ImageCopy" -> Image.P5ImageCopy.run node
     | "Image/P5ImageMask" -> Image.P5ImageMask.run node
