@@ -405,7 +405,7 @@
     <Compile Include="Image\P5ImageSave.fs" />
     <Compile Include="Image\P5ImageReset.fs" />
     <Compile Include="Image\P5ImageGetCurrentFrame.fs" />
-    <Compile Include="Image\P5ImageNumFrames.fs" />
+    <Compile Include="Image\P5ImageSetFrame.fs" />
     <Compile Include="Image\P5ImagePlay.fs" />
     <Compile Include="Image\P5ImageDelay.fs" />
     <Compile Include="Image\LoadImage0.fs" />

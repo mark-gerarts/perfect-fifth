@@ -531,3 +531,29 @@ reference:
       - Image/P5ImageGet
     p5.Image/set(), p5.Image/setPixel():
       - Image/CreateImage1
+    p5.Image/resize():
+      - Image/P5ImageResize
+    p5.Image/copy(), p5.Image/copyFrom():
+      - Image/P5ImageCopy
+    p5.Image/mask():
+      - Image/P5ImageMask
+    p5.Image/filter():
+      - Image/P5ImageFilter
+    p5.Image/blend(), p5.Image/blendFrom():
+      - Image/P5ImageBlend0
+      - Image/P5ImageBlend1
+      - Image/P5ImageBlend2
+    p5.Image/reset():
+      - Image/P5ImageReset
+    p5.Image/getCurrentFrame():
+      - Image/P5ImageGetCurrentFrame
+    p5.Image/setFrame():
+      - Image/P5ImageSetFrame
+    p5.Image/numFrames():
+      - Image/P5ImageSetFrame
+    p5.Image/play():
+      - Image/P5ImagePlay
+    p5.Image/pause():
+      - Image/P5ImagePlay
+    p5.Image/delay(), p5.Image/delayAtIndex():
+      - Image/P5ImageDelay

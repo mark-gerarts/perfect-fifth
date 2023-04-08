@@ -1,13 +1,18 @@
 module P5Reference.Image.P5ImageGetCurrentFrame
 
 open P5.Core
-open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.Image
+open P5.Typography
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let preload p5 =
+    loadImage p5 "assets/arnott-wallace-eye-loop-forever.gif"
 
-let run node = display node draw
+let setup _ = id
+
+let draw p5 (gif: P5Image) =
+    let frame = gif.getCurrentFrame ()
+    image p5 gif 0 0
+    text p5 (string frame) 10 90
+
+let run node =
+    simulateWithPreload node preload setup noUpdate draw

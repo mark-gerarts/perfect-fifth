@@ -410,7 +410,7 @@ let runSketch name canvasSelector =
     | "Image/P5ImageSave" -> Image.P5ImageSave.run node
     | "Image/P5ImageReset" -> Image.P5ImageReset.run node
     | "Image/P5ImageGetCurrentFrame" -> Image.P5ImageGetCurrentFrame.run node
-    | "Image/P5ImageNumFrames" -> Image.P5ImageNumFrames.run node
+    | "Image/P5ImageSetFrame" -> Image.P5ImageSetFrame.run node
     | "Image/P5ImagePlay" -> Image.P5ImagePlay.run node
     | "Image/P5ImageDelay" -> Image.P5ImageDelay.run node
     | "Image/LoadImage0" -> Image.LoadImage0.run node
