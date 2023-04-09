@@ -1,13 +1,13 @@
 module P5Reference.Image.Image1
 
 open P5.Core
+open P5.Image
 open P5.Color
-open P5.Environment
-open P5.Shape
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let preload p5 = loadImage p5 "assets/laDefense.png"
 
-let run node = display node draw
+let draw p5 img =
+    background p5 (Grayscale 50)
+    imageWithSize p5 img 10 10 50 50
+
+let run node = displayWithPreload node preload draw

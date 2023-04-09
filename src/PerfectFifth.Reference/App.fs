@@ -421,7 +421,6 @@ let runSketch name canvasSelector =
     | "Image/Image2" -> Image.Image2.run node
     | "Image/Image3" -> Image.Image3.run node
     | "Image/Image4" -> Image.Image4.run node
-    | "Image/Image5" -> Image.Image5.run node
     | "Image/Tint0" -> Image.Tint0.run node
     | "Image/Tint1" -> Image.Tint1.run node
     | "Image/Tint2" -> Image.Tint2.run node

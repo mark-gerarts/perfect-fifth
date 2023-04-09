@@ -557,3 +557,23 @@ reference:
       - Image/P5ImagePlay
     p5.Image/delay(), p5.Image/delayAtIndex():
       - Image/P5ImageDelay
+    loadImage(), loadImageWithCallbacks():
+      - Image/LoadImage0
+      - Image/LoadImage1
+    image(), imageWithSize(), imageWithOptions():
+      - Image/Image0
+      - Image/Image1
+      - Image/LoadImage1
+      - Image/Image2
+      - Image/Image3
+      - Image/Image4
+    tint():
+      - Image/Tint0
+      - Image/Tint1
+      - Image/Tint2
+    noTint():
+      - Image/NoTint
+    imageMode():
+      - Image/ImageMode0
+      - Image/ImageMode1
+      - Image/ImageMode2

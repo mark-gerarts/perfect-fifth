@@ -189,6 +189,97 @@ module Image =
     [<Emit("$0.image($1, $2, $3, $4, $5)")>]
     let imageWithSize (p5: P5) (image: IImage) (x: float) (y: float) (width: float) (height: float) : Unit = jsNative
 
+    type FitType =
+        | Contain
+        | Cover
+
+    let private rawFitType fitType =
+        match fitType with
+        | Contain -> "contain"
+        | Cover -> "cover"
+
+    type ImageAlignX =
+        | ImageAlignXLeft
+        | ImageAlignXCenter
+        | ImageAlignXRight
+
+    let private rawImageAlignX align =
+        match align with
+        | ImageAlignXLeft -> "left"
+        | ImageAlignXCenter -> "center"
+        | ImageAlignXRight -> "right"
+
+    type ImageAlignY =
+        | ImageAlignYTop
+        | ImageAlignYCenter
+        | ImageAlignYBottom
+
+    let private rawImageAlignY align =
+        match align with
+        | ImageAlignYTop -> "top"
+        | ImageAlignYCenter -> "center"
+        | ImageAlignYBottom -> "bottom"
+
+    type ImageOptions =
+        { dx: float
+          dy: float
+          dWidth: float
+          dHeight: float
+          sx: float
+          sy: float
+          sWidth: float option
+          sHeight: float option
+          fit: FitType
+          xAlign: ImageAlignX
+          yAlign: ImageAlignY }
+
+    let imageOptions dx dy dWidth dHeight sx sy =
+        { dx = dx
+          dy = dy
+          dWidth = dWidth
+          dHeight = dHeight
+          sx = sx
+          sy = sy
+          sWidth = None
+          sHeight = None
+          fit = Contain
+          xAlign = ImageAlignXCenter
+          yAlign = ImageAlignYCenter }
+
+    [<Emit("$0.image($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)")>]
+    let private imageWithOptions_
+        (p5: P5)
+        (image: IImage)
+        (dx: float)
+        (dy: float)
+        (dWidth: float)
+        (dHeight: float)
+        (sx: float)
+        (sy: float)
+        (sWidth: obj)
+        (sHeight: obj)
+        (fit: string)
+        (xAlign: string)
+        (yAlign: string)
+        =
+        jsNative
+
+    let imageWithOptions (p5: P5) (image: IImage) (options: ImageOptions) : Unit =
+        imageWithOptions_
+            p5
+            image
+            options.dx
+            options.dy
+            options.dWidth
+            options.dHeight
+            options.sx
+            options.sy
+            (Option.toNullable options.sWidth)
+            (Option.toNullable options.sHeight)
+            (rawFitType options.fit)
+            (rawImageAlignX options.xAlign)
+            (rawImageAlignY options.yAlign)
+
     [<Emit("$0.background($1)")>]
     let backgroundImage (p5: P5) (image: P5Image) : Unit = jsNative
 
@@ -234,3 +325,53 @@ module Image =
         (callback: FrameObject array -> Unit)
         : Unit =
         jsNative
+
+    [<Emit("$0.saveGif($1, $2)")>]
+    let saveGif (p5: P5) (filename: string) (duration: float) : Unit = jsNative
+
+    type DelayUnit =
+        | Seconds
+        | Frames
+
+    [<Emit("$0.saveGif($1, $2, $3)")>]
+    let private saveGifWithDelay_ (p5: P5) (filename: string) (duration: float) (delay: obj) : Unit = jsNative
+
+    let saveGifWithDelay
+        (p5: P5)
+        (filename: string)
+        (duration: float)
+        (delayAmount: float)
+        (delayUnit: DelayUnit)
+        : Unit =
+        let rawUnit =
+            match delayUnit with
+            | Seconds -> "seconds"
+            | Frames -> "frames"
+
+        saveGifWithDelay_
+            p5
+            filename
+            duration
+            {| delay = delayAmount
+               unit = rawUnit |}
+
+    let tint (p5: P5) (color: Color) : Unit = emitColorFunction p5 "tint" color
+
+    [<Emit("$0.noTint()")>]
+    let noTint (p5: P5) : Unit = jsNative
+
+    type ImageMode =
+        | Center
+        | Corner
+        | Corners
+
+    let private rawImageMode (mode: ImageMode) : string =
+        match mode with
+        | Center -> "center"
+        | Corner -> "corner"
+        | Corners -> "corners"
+
+    [<Emit("$0.imageMode($1)")>]
+    let private imageMode_ (p5: P5) (mode: string) = jsNative
+
+    let imageMode (p5: P5) (mode: ImageMode) = imageMode_ p5 (rawImageMode mode)

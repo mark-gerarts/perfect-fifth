@@ -416,7 +416,6 @@
     <Compile Include="Image\Image2.fs" />
     <Compile Include="Image\Image3.fs" />
     <Compile Include="Image\Image4.fs" />
-    <Compile Include="Image\Image5.fs" />
     <Compile Include="Image\Tint0.fs" />
     <Compile Include="Image\Tint1.fs" />
     <Compile Include="Image\Tint2.fs" />

@@ -1,13 +1,25 @@
 module P5Reference.Image.Image3
 
 open P5.Core
+open P5.Image
 open P5.Color
 open P5.Environment
-open P5.Shape
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let preload p5 = loadImage p5 "assets/moonwalk.jpg"
 
-let run node = display node draw
+let draw p5 (img: P5Image) =
+    background p5 (Name "green")
+
+    let width = width p5 |> float
+    let height = height p5 |> float
+
+    let options =
+        { imageOptions 0 0 width height 0 0 with
+            sWidth = Some(float img.width)
+            sHeight = Some(float img.height)
+            fit = Contain
+            xAlign = ImageAlignXLeft }
+
+    imageWithOptions p5 img options
+
+let run node = displayWithPreload node preload draw
