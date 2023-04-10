@@ -47,6 +47,9 @@ module Image =
         [<Emit("$0.set($1, $2, $3)")>]
         member _.setPixel (x: float) (y: float) (c: P5Color) : Unit = jsNative
 
+        [<Emit("$0.set($1, $2, $3)")>]
+        member _.setImage (x: float) (y: float) (img: P5Image) : Unit = jsNative
+
         member self.set (x: float) (y: float) (c: P5Color) = self.setPixel
 
         [<Emit("$0.resize($1, $2)")>]
@@ -375,3 +378,138 @@ module Image =
     let private imageMode_ (p5: P5) (mode: string) = jsNative
 
     let imageMode (p5: P5) (mode: ImageMode) = imageMode_ p5 (rawImageMode mode)
+
+    [<Emit("$0.pixels")>]
+    let pixels (p5: P5) : float array = jsNative
+
+    [<Emit("$0.loadPixels()")>]
+    let loadPixels (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.updatePixels()")>]
+    let updatePixels (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.updatePixels($1, $2, $3, $4)")>]
+    let updatePixelRegion (p5: P5) (x: float) (y: float) (w: float) (h: float) : Unit = jsNative
+
+    [<Emit("$0.blend($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)")>]
+    let private blendFrom_
+        (p5: P5)
+        (srcImage: P5Image)
+        (sx: float)
+        (sy: float)
+        (sw: float)
+        (sh: float)
+        (dx: float)
+        (dy: float)
+        (dw: float)
+        (dh: float)
+        (blendMode: string)
+        : Unit =
+        jsNative
+
+    let blendFrom
+        (p5: P5)
+        (srcImage: P5Image)
+        (sx: float)
+        (sy: float)
+        (sw: float)
+        (sh: float)
+        (dx: float)
+        (dy: float)
+        (dw: float)
+        (dh: float)
+        (blendMode: BlendMode)
+        : Unit =
+        blendFrom_ p5 srcImage sx sy sw sh dx dy dw dh (rawBlendMode blendMode)
+
+    [<Emit("$0.blend($1, $2, $3, $4, $5, $6, $7, $8, $9)")>]
+    let private blend_
+        (p5: P5)
+        (sx: float)
+        (sy: float)
+        (sw: float)
+        (sh: float)
+        (dx: float)
+        (dy: float)
+        (dw: float)
+        (dh: float)
+        (blendMode: string)
+        : Unit =
+        jsNative
+
+    let blend
+        (p5: P5)
+        (sx: float)
+        (sy: float)
+        (sw: float)
+        (sh: float)
+        (dx: float)
+        (dy: float)
+        (dw: float)
+        (dh: float)
+        (blendMode: BlendMode)
+        : Unit =
+        blend_ p5 sx sy sw sh dx dy dw dh (rawBlendMode blendMode)
+
+    [<Emit("$0.copy($1, $2, $3, $4, $5, $6, $7, $8, $9)")>]
+    let copyFrom
+        (p5: P5)
+        (srcImage: P5Image)
+        (sx: float)
+        (sy: float)
+        (sw: float)
+        (sh: float)
+        (dx: float)
+        (dy: float)
+        (dw: float)
+        (dh: float)
+        : Unit =
+        jsNative
+
+    [<Emit("$0.copy($1, $2, $3, $4, $5, $6, $7, $8)")>]
+    let copy
+        (p5: P5)
+        (sx: float)
+        (sy: float)
+        (sw: float)
+        (sh: float)
+        (dx: float)
+        (dy: float)
+        (dw: float)
+        (dh: float)
+        : Unit =
+        jsNative
+
+    [<Emit("$0.filter($1)")>]
+    let private filterNoParam (p5: P5) (filter: string) : Unit = jsNative
+
+    [<Emit("$0.filter($1, $2)")>]
+    let private filterParam (p5: P5) (filter: string) (param: float) : Unit = jsNative
+
+    let filter (p5: P5) (filter: ImageFilter) : Unit =
+        match filter with
+        | Threshold t -> filterParam p5 "threshold" t
+        | Gray -> filterNoParam p5 "gray"
+        | Opaque -> filterNoParam p5 "opaque"
+        | Invert -> filterNoParam p5 "invert"
+        | Posterize p -> filterParam p5 "posterize" p
+        | Blur b -> filterParam p5 "blur" b
+        | Erode -> filterNoParam p5 "erode"
+        | Dilate -> filterNoParam p5 "dilate"
+
+    [<Emit("$0.get()")>]
+    let getImage (p5: P5) = jsNative
+
+    [<Emit("$0.get($1, $2, $3, $4)")>]
+    let getRegion (p5: P5) (x: float) (y: float) (w: float) (h: float) : P5Image = jsNative
+
+    [<Emit("$0.get($1, $2)")>]
+    let getPixel (p5: P5) (x: float) (y: float) : float array = jsNative
+
+    [<Emit("$0.set($1, $2, $3)")>]
+    let private setPixel_ (p5: P5) (x: float) (y: float) (c: P5Color) : Unit = jsNative
+
+    let setPixel (p5: P5) (x: float) (y: float) (c: Color) : Unit = setPixel_ p5 x y (ensureP5Color p5 c)
+
+    [<Emit("$0.set($1, $2, $3)")>]
+    let setImage (p5: P5) (x: float) (y: float) (image: P5Image) : Unit = jsNative

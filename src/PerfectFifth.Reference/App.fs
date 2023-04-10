@@ -428,6 +428,25 @@ let runSketch name canvasSelector =
     | "Image/ImageMode0" -> Image.ImageMode0.run node
     | "Image/ImageMode1" -> Image.ImageMode1.run node
     | "Image/ImageMode2" -> Image.ImageMode2.run node
+    | "Image/Pixels" -> Image.Pixels.run node
+    | "Image/Blend0" -> Image.Blend0.run node
+    | "Image/Blend1" -> Image.Blend1.run node
+    | "Image/Blend2" -> Image.Blend2.run node
+    | "Image/Copy" -> Image.Copy.run node
+    | "Image/Filter0" -> Image.Filter0.run node
+    | "Image/Filter1" -> Image.Filter1.run node
+    | "Image/Filter2" -> Image.Filter2.run node
+    | "Image/Filter3" -> Image.Filter3.run node
+    | "Image/Filter4" -> Image.Filter4.run node
+    | "Image/Filter5" -> Image.Filter5.run node
+    | "Image/Filter6" -> Image.Filter6.run node
+    | "Image/Filter7" -> Image.Filter7.run node
+    | "Image/Get0" -> Image.Get0.run node
+    | "Image/Get1" -> Image.Get1.run node
+    | "Image/LoadPixels" -> Image.LoadPixels.run node
+    | "Image/Set0" -> Image.Set0.run node
+    | "Image/Set1" -> Image.Set1.run node
+    | "Image/Set2" -> Image.Set2.run node
     | "IO/LoadJson0" -> IO.LoadJson0.run node
     | "IO/LoadJson1" -> IO.LoadJson1.run node
     | "IO/LoadStrings0" -> IO.LoadStrings0.run node

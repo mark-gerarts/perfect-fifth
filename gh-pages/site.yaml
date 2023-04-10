@@ -529,7 +529,7 @@ reference:
       - Image/P5ImageLoadPixels
     p5.Image/get(), p5.Image/getPixel(), p5.Image/getRegion():
       - Image/P5ImageGet
-    p5.Image/set(), p5.Image/setPixel():
+    p5.Image/set(), p5.Image/setPixel(), p5.Image/setImage():
       - Image/CreateImage1
     p5.Image/resize():
       - Image/P5ImageResize
@@ -577,3 +577,31 @@ reference:
       - Image/ImageMode0
       - Image/ImageMode1
       - Image/ImageMode2
+    pixels:
+      - Image/Pixels
+    blend(), blendFrom():
+      - Image/Blend0
+      - Image/Blend1
+      - Image/Blend2
+    copy(), copyFrom():
+      - Image/Copy
+    filter():
+      - Image/Filter0
+      - Image/Filter1
+      - Image/Filter2
+      - Image/Filter3
+      - Image/Filter4
+      - Image/Filter5
+      - Image/Filter6
+      - Image/Filter7
+    get(), getImage(), getPixel(), getRegion():
+      - Image/Get0
+      - Image/Get1
+    loadPixels():
+      - Image/LoadPixels
+    updatePixels(), updatePixelRegion():
+      - Image/UpdatePixels
+    set(), setPixel(), setImage():
+      - Image/Set0
+      - Image/Set1
+      - Image/Set2

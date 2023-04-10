@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Fable.Browser.Dom"  />
+    <PackageReference Include="Fable.Core"  />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PerfectFifth.Examples\PerfectFifth-Examples.fsproj" />
+    <ProjectReference Include="..\PerfectFifth.Reference\PerfectFifth-Reference.fsproj" />
+  </ItemGroup>
+</Project>
