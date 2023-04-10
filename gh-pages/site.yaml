@@ -600,7 +600,7 @@ reference:
     loadPixels():
       - Image/LoadPixels
     updatePixels(), updatePixelRegion():
-      - Image/UpdatePixels
+      - Image/LoadPixels
     set(), setPixel(), setImage():
       - Image/Set0
       - Image/Set1
