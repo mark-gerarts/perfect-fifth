@@ -605,3 +605,12 @@ reference:
       - Image/Set0
       - Image/Set1
       - Image/Set2
+  Math:
+    abs():
+      - Math/Abs
+    ceil():
+      - Math/Ceil
+    constrain():
+      - Math/Constrain
+    dist(), dist3D():
+      - Math/Dist

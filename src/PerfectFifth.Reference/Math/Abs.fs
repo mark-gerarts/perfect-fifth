@@ -1,13 +1,13 @@
 module P5Reference.Math.Abs
 
 open P5.Core
-open P5.Color
 open P5.Environment
-open P5.Shape
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+    let x = -3
+    let y = abs x
+
+    print p5 (string x)
+    print p5 (string y)
 
 let run node = display node draw

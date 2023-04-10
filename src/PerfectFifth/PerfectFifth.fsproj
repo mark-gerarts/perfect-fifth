@@ -11,6 +11,7 @@
     <Compile Include="Util.fs" />
     <Compile Include="Camera.fs" />
     <Compile Include="Color.fs" />
+    <Compile Include="Data.fs" />
     <Compile Include="DOM.fs" />
     <Compile Include="Environment.fs" />
     <Compile Include="Events.fs" />

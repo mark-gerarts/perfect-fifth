@@ -51,3 +51,12 @@ module Math =
     let createVector (p5: P5) (x: float) (y: float) : P5Vector = jsNative
 
     let createVector2D = createVector
+
+    [<Emit("$0.constrain($1, $2, $3)")>]
+    let constrain (p5: P5) (n: float) (min: float) (max: float) : float = jsNative
+
+    [<Emit("$0.dist($1, $2, $3, $4)")>]
+    let dist (p5: P5) (x1: float) (y1: float) (x2: float) (y2: float) : float = jsNative
+
+    [<Emit("$0.dist($1, $2, $3, $4, $5, $6)")>]
+    let dist3D (p5: P5) (x1: float) (y1: float) (z1: float) (x2: float) (y2: float) (z2: float) : float = jsNative
