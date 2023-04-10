@@ -14,11 +14,6 @@ module ThreeD =
     [<Emit("$0.normalMaterial()")>]
     let normalMaterial (p5: P5) : Unit = jsNative
 
-    let private ensureP5Color p5 (c: Color) : P5Color =
-        match c with
-        | P5Color c -> c
-        | c -> color p5 c
-
     [<Emit("$0.directionalLight($1, $2, $3, $4)")>]
     let private directionalLight_ (p5: P5) (color: P5Color) (x: float) (y: float) (z: float) : Unit = jsNative
 

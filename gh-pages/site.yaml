@@ -100,7 +100,7 @@ reference:
       - Color/Red
     saturation():
       - Color/Saturation
-    background():
+    background(), backgroundImage():
       - Color/Background0
       - Color/Background1
       - Color/Background2
@@ -414,9 +414,9 @@ reference:
     turnAxis:
       - Events/TurnAxis
     setMoveThreshold():
-      - Events/SetMoveThreshold
+      - Events/SetMoveTreshold
     setShakeThreshold():
-      - Events/SetShakeThreshold
+      - Events/SetShakeTreshold
     deviceMoved():
       - Events/DeviceMoved
     deviceShaken():
@@ -506,3 +506,102 @@ reference:
       - Events/TouchEnded0
       - Events/TouchEnded1
       - Events/TouchEnded2
+  Image:
+    createImage():
+      - Image/CreateImage0
+      - Image/CreateImage1
+      - Image/CreateImage2
+    saveCanvas(), saveCanvasAs(), saveSpecificCanvas(), saveSpecificCanvasAs():
+      - Image/SaveCanvas0
+      - Image/SaveCanvas1
+    saveFrames(), saveFramesWithCallback():
+      - Image/SaveFrames
+    p5.Image/width:
+      - Image/P5ImageWidth
+    p5.Image/height:
+      - Image/P5ImageHeight
+    p5.Image/pixels:
+      - Image/CreateImage0
+      - Image/P5ImagePixels
+    p5.Image/loadPixels():
+      - Image/P5ImageLoadPixels
+    p5.Image/updatePixels():
+      - Image/P5ImageLoadPixels
+    p5.Image/get(), p5.Image/getPixel(), p5.Image/getRegion():
+      - Image/P5ImageGet
+    p5.Image/set(), p5.Image/setPixel(), p5.Image/setImage():
+      - Image/CreateImage1
+    p5.Image/resize():
+      - Image/P5ImageResize
+    p5.Image/copy(), p5.Image/copyFrom():
+      - Image/P5ImageCopy
+    p5.Image/mask():
+      - Image/P5ImageMask
+    p5.Image/filter():
+      - Image/P5ImageFilter
+    p5.Image/blend(), p5.Image/blendFrom():
+      - Image/P5ImageBlend0
+      - Image/P5ImageBlend1
+      - Image/P5ImageBlend2
+    p5.Image/reset():
+      - Image/P5ImageReset
+    p5.Image/getCurrentFrame():
+      - Image/P5ImageGetCurrentFrame
+    p5.Image/setFrame():
+      - Image/P5ImageSetFrame
+    p5.Image/numFrames():
+      - Image/P5ImageSetFrame
+    p5.Image/play():
+      - Image/P5ImagePlay
+    p5.Image/pause():
+      - Image/P5ImagePlay
+    p5.Image/delay(), p5.Image/delayAtIndex():
+      - Image/P5ImageDelay
+    loadImage(), loadImageWithCallbacks():
+      - Image/LoadImage0
+      - Image/LoadImage1
+    image(), imageWithSize(), imageWithOptions():
+      - Image/Image0
+      - Image/Image1
+      - Image/LoadImage1
+      - Image/Image2
+      - Image/Image3
+      - Image/Image4
+    tint():
+      - Image/Tint0
+      - Image/Tint1
+      - Image/Tint2
+    noTint():
+      - Image/NoTint
+    imageMode():
+      - Image/ImageMode0
+      - Image/ImageMode1
+      - Image/ImageMode2
+    pixels:
+      - Image/Pixels
+    blend(), blendFrom():
+      - Image/Blend0
+      - Image/Blend1
+      - Image/Blend2
+    copy(), copyFrom():
+      - Image/Copy
+    filter():
+      - Image/Filter0
+      - Image/Filter1
+      - Image/Filter2
+      - Image/Filter3
+      - Image/Filter4
+      - Image/Filter5
+      - Image/Filter6
+      - Image/Filter7
+    get(), getImage(), getPixel(), getRegion():
+      - Image/Get0
+      - Image/Get1
+    loadPixels():
+      - Image/LoadPixels
+    updatePixels(), updatePixelRegion():
+      - Image/LoadPixels
+    set(), setPixel(), setImage():
+      - Image/Set0
+      - Image/Set1
+      - Image/Set2

@@ -18,7 +18,7 @@ module Math =
     [<Emit("$0.map($1, $2, $3, $4, $5)")>]
     let map (p5: P5) (value: float) (start1: float) (stop1: float) (start2: float) (stop2: float) : float = jsNative
 
-    [<Emit("$0.map($1, $2, $3, $4, $5 true)")>]
+    [<Emit("$0.map($1, $2, $3, $4, $5, true)")>]
     let mapBounded (p5: P5) (value: float) (start1: float) (stop1: float) (start2: float) (stop2: float) : float =
         jsNative
 

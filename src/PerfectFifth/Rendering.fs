@@ -81,7 +81,7 @@ module Rendering =
         | Remove
         | Subtract
 
-    let private rawBlendMode (mode: BlendMode) : string =
+    let internal rawBlendMode (mode: BlendMode) : string =
         match mode with
         | Blend -> "source-over"
         | Darkest -> "darken"
