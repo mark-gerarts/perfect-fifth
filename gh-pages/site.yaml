@@ -614,3 +614,5 @@ reference:
       - Math/Constrain
     dist(), dist3D():
       - Math/Dist
+    exp():
+      - Math/Exp

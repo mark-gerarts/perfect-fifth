@@ -16,3 +16,15 @@ module Data =
 
     [<Emit("$0.nfc($1, $2)")>]
     let nfcMultipleWithPrecision (p5: P5) (nums: float array) (precision: float) : string = jsNative
+
+    [<Emit("$0.nf($1)")>]
+    let nf (p5: P5) (num: float) : string = jsNative
+
+    [<Emit("$0.nf($1, $2, $3)")>]
+    let nfWithPrecision (p5: P5) (num: float) (left: float) (right: float) : string = jsNative
+
+    [<Emit("$0.nf($1)")>]
+    let nfMultiple (p5: P5) (num: float array) : string = jsNative
+
+    [<Emit("$0.nf($1, $2, $3)")>]
+    let nfMultipleWithPrecision (p5: P5) (num: float array) (left: float) (right: float) : string = jsNative
