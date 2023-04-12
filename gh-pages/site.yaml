@@ -616,3 +616,11 @@ reference:
       - Math/Dist
     exp():
       - Math/Exp
+    floor():
+      - Math/Floor
+    lerp():
+      - Math/Lerp
+    log():
+      - Math/Log
+    mag():
+      - Math/Mag

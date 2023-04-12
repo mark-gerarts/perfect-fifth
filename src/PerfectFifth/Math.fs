@@ -60,3 +60,9 @@ module Math =
 
     [<Emit("$0.dist($1, $2, $3, $4, $5, $6)")>]
     let dist3D (p5: P5) (x1: float) (y1: float) (z1: float) (x2: float) (y2: float) (z2: float) : float = jsNative
+
+    [<Emit("$0.lerp($1, $2, $3)")>]
+    let lerp (p5: P5) (start: float) (stop: float) (amt: float) : float = jsNative
+
+    [<Emit("$0.mag($1, $2)")>]
+    let mag (p5: P5) (a: float) (b: float) : float = jsNative
