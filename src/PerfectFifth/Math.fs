@@ -22,6 +22,9 @@ module Math =
     let mapBounded (p5: P5) (value: float) (start1: float) (stop1: float) (start2: float) (stop2: float) : float =
         jsNative
 
+    [<Emit("$0.norm($1, $2, $3)")>]
+    let norm (p5: P5) (value: float) (start: float) (stop: float) : float = jsNative
+
     [<Emit("$0.radians($1)")>]
     let radians (p5: P5) (degrees: float) : float = jsNative
 

@@ -30,7 +30,7 @@ module Typography =
         { horizontal: HorizontalAlign
           vertical: VerticalAlign }
 
-    type TextAlignRaw =
+    type private TextAlignRaw =
         { horizontal: string; vertical: string }
 
     let private rawHorizontalAlign align =

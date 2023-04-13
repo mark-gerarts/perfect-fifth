@@ -624,3 +624,18 @@ reference:
       - Math/Log
     mag():
       - Math/Mag
+    map(), mapBounded():
+      - Math/Map0
+      - Math/Map1
+    max():
+      - Math/Max
+    min():
+      - Math/Min
+    norm():
+      - Math/Norm
+    pow():
+      - Math/Pow
+    round:
+      - Math/Round0
+      - Math/Round1
+      - Math/Round2
