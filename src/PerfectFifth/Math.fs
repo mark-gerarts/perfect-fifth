@@ -28,7 +28,8 @@ module Math =
     [<Emit("$0.radians($1)")>]
     let radians (p5: P5) (degrees: float) : float = jsNative
 
-    type P5Vector =
+    [<Import("Vector", "p5")>]
+    type P5Vector(?x: float, ?y: float, ?z: float) =
         [<ImportDefault("p5")>]
         [<Emit("$0.Vector.fromAngle($1, $2)")>]
         static member fromAngleAndLength (angle: float) (length: float) : P5Vector = jsNative
@@ -49,11 +50,25 @@ module Math =
         [<Emit("$0.add($1, $2)")>]
         member _.addXY (x: float) (y: float) : Unit = jsNative
 
-    /// TODO: 3D / only x
-    [<Emit("$0.createVector($1, $2)")>]
-    let createVector (p5: P5) (x: float) (y: float) : P5Vector = jsNative
+        [<Emit("$0.heading()")>]
+        member _.heading() : float = jsNative
 
-    let createVector2D = createVector
+        [<Emit("$0.mag()")>]
+        member _.mag() : float = jsNative
+
+    let createVector: P5Vector = new P5Vector()
+
+    let createVectorX (x: float) : P5Vector = new P5Vector(x)
+
+    let createVectorXY (x: float) (y: float) : P5Vector = new P5Vector(x, y)
+
+    let createVectorXYZ (x: float) (y: float) (z: float) : P5Vector = new P5Vector(x, y, z)
+
+    let createVector1D = createVectorX
+
+    let createVector2D = createVectorXY
+
+    let createVector3D = createVectorXYZ
 
     [<Emit("$0.constrain($1, $2, $3)")>]
     let constrain (p5: P5) (n: float) (min: float) (max: float) : float = jsNative
@@ -69,3 +84,6 @@ module Math =
 
     [<Emit("$0.mag($1, $2)")>]
     let mag (p5: P5) (a: float) (b: float) : float = jsNative
+
+    [<Emit("$0.fract($1)")>]
+    let fract (p5: P5) (x: float) : float = jsNative

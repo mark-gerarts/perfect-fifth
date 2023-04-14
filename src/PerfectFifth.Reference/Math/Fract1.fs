@@ -1,13 +1,11 @@
 module P5Reference.Math.Fract1
 
 open P5.Core
-open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.Typography
+open P5.Math
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+    text p5 (string 1.4215e-15) 10 25
+    text p5 (fract p5 1.4215e-15 |> string) 10 75
 
 let run node = display node draw

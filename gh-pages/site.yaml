@@ -635,7 +635,16 @@ reference:
       - Math/Norm
     pow():
       - Math/Pow
-    round:
+    round():
       - Math/Round0
       - Math/Round1
       - Math/Round2
+    sq():
+      - Math/Sq
+    sqrt():
+      - Math/Sqrt
+    fract():
+      - Math/Fract0
+      - Math/Fract1
+    createVector(), createVector1D(), createVector2D(), createVector3D():
+      - Match/CreateVector
