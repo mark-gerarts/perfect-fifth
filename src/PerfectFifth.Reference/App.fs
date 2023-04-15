@@ -494,7 +494,8 @@ let runSketch name canvasSelector =
     | "Math/CreateVector" -> Math.CreateVector.run node
     | "Math/P5VectorToString0" -> Math.P5VectorToString0.run node
     | "Math/P5VectorToString1" -> Math.P5VectorToString1.run node
-    | "Math/P5VectorSet" -> Math.P5VectorSet.run node
+    | "Math/P5VectorSet0" -> Math.P5VectorSet0.run node
+    | "Math/P5VectorSet1" -> Math.P5VectorSet1.run node
     | "Math/P5VectorCopy" -> Math.P5VectorCopy.run node
     | "Math/P5VectorAdd0" -> Math.P5VectorAdd0.run node
     | "Math/P5VectorAdd1" -> Math.P5VectorAdd1.run node

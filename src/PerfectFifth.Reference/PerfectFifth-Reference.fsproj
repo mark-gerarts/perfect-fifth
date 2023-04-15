@@ -490,7 +490,8 @@
     <Compile Include="Math\CreateVector.fs" />
     <Compile Include="Math\P5VectorToString0.fs" />
     <Compile Include="Math\P5VectorToString1.fs" />
-    <Compile Include="Math\P5VectorSet.fs" />
+    <Compile Include="Math\P5VectorSet0.fs" />
+    <Compile Include="Math\P5VectorSet1.fs" />
     <Compile Include="Math\P5VectorCopy.fs" />
     <Compile Include="Math\P5VectorAdd0.fs" />
     <Compile Include="Math\P5VectorAdd1.fs" />

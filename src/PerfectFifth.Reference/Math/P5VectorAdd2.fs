@@ -1,13 +1,16 @@
 module P5Reference.Math.P5VectorAdd2
 
 open P5.Core
-open P5.Color
+open P5.Math
 open P5.Environment
-open P5.Shape
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+    // Static method
+    let v1 = P5Vector.create (1, 2, 3)
+    let v2 = P5Vector.create (2, 3, 4)
+
+    let v3 = P5Vector.add (v1, v2)
+    // v3 has components [3, 5, 7]
+    print p5 (string v3)
 
 let run node = display node draw

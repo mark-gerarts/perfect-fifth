@@ -1,12 +1,18 @@
-module P5Reference.Math.P5VectorAdd3
+module P5Reference.Math.P5VectorSet1
 
 open P5.Core
 open P5.Color
 open P5.Shape
+open P5.Rendering
 open P5.Math
-open P5.Transform
 open P5.Structure
-open P5.Events
+open P5.Transform
+open P5.Typography
+
+let setup p5 =
+    createCanvas p5 100 100
+
+    (createVector2D 0 0, createVector2D 50 50)
 
 let drawArrow p5 (baseVec: P5Vector) (vec: P5Vector) col =
     push p5
@@ -21,17 +27,13 @@ let drawArrow p5 (baseVec: P5Vector) (vec: P5Vector) col =
     triangle p5 0 (arrowSize / 2.0) 0 (-arrowSize / 2.0) arrowSize 0
     pop p5
 
-let draw p5 _ =
+let draw p5 (v0: P5Vector, v1: P5Vector) =
     background p5 (Grayscale 240)
 
-    let v0 = P5Vector.create (0, 0)
-    let v1 = P5Vector.create (mouseX p5, mouseY p5)
-    drawArrow p5 v0 v1 (Name "red")
+    drawArrow p5 v0 v1 (Name "Black")
+    v1.set (v1.x + (randomInRange p5 -1 1), v1.y + (randomInRange p5 -1 1))
 
-    let v2 = P5Vector.create (-30, 20)
-    drawArrow p5 v1 v2 (Name "blue")
+    noStroke p5
+    text p5 (sprintf "x: %.0f y: %.0f" v1.x v1.y) 20 90
 
-    let v3 = P5Vector.add (v1, v2)
-    drawArrow p5 v0 v3 (Name "purple")
-
-let run node = animate node noSetup draw
+let run node = simulate node setup noUpdate draw

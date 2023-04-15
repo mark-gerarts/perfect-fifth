@@ -26,8 +26,8 @@ let drawArrow p5 (baseVec: P5Vector) (vec: P5Vector) col =
 let draw p5 _ =
     background p5 (Grayscale 240)
 
-    let v0 = new P5Vector()
-    let v1 = new P5Vector(mouseX p5, mouseY p5)
+    let v0 = P5Vector.create ()
+    let v1 = P5Vector.create (mouseX p5, mouseY p5)
     drawArrow p5 v0 v1 (Name "black")
 
     noStroke p5

@@ -647,4 +647,17 @@ reference:
       - Math/Fract0
       - Math/Fract1
     createVector(), createVector1D(), createVector2D(), createVector3D():
-      - Match/CreateVector
+      - Math/CreateVector
+    p5.Vector/toString():
+      - Math/P5VectorToString0
+      - Math/P5VectorToString1
+    p5.Vector/set(), p5.Vector/setFromValues(), p5.Vector.setFromVector():
+      - Math/P5VectorSet0
+      - Math/P5VectorSet1
+    p5.Vector/copy():
+      - Math/P5VectorCopy
+    p5.Vector/add(), p5.Vector/addValues(), p5.Vector/addVector(), p5.Vector/addTo():
+      - Math/P5VectorAdd0
+      - Math/P5VectorAdd1
+      - Math/P5VectorAdd2
+      - Math/P5VectorAdd3
