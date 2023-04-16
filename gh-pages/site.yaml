@@ -661,3 +661,18 @@ reference:
       - Math/P5VectorAdd1
       - Math/P5VectorAdd2
       - Math/P5VectorAdd3
+    p5.Vector/rem(), p5.Vector/remFromValues(), p5.Vector/remFromVector():
+      - Math/P5VectorRem0
+      - Math/P5VectorRem1
+    p5.Vector/sub(), p5.Vector/subValues(), p5.Vector/subVector(), p5.Vector/subTo():
+      - Math/P5VectorSub0
+      - Math/P5VectorSub1
+      - Math/P5VectorSub2
+      - Math/P5VectorSub3
+      p5.Vector/mult(), p5.Vector/multValues(), p5.Vector/multScalar(), p5.Vector/multVector(), p5.Vector/multTo(), p5.Vector/multScalarTo(), p5.Vector/multValuesTo():
+      - Math/P5VectorMult0
+      - Math/P5VectorMult1
+      - Math/P5VectorMult2
+      - Math/P5VectorMult3
+      - Math/P5VectorMult4
+      - Math/P5VectorMult5

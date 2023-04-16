@@ -1,13 +1,16 @@
 module P5Reference.Math.P5VectorSub2
 
 open P5.Core
-open P5.Color
 open P5.Environment
-open P5.Shape
+open P5.Math
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+    // Static method
+    let v1 = createVector3D 2 3 4
+    let v2 = createVector3D 1 2 3
+
+    let v3 = P5Vector.sub (v1, v2)
+    // v3 has components [1, 1, 1]
+    print p5 (string v3)
 
 let run node = display node draw
