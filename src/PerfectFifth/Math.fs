@@ -75,6 +75,17 @@ module Math =
         [<Emit("$0.mag()")>]
         member _.mag() : float = jsNative
 
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.mag($1)")>]
+        static member mag(v: P5Vector) : float = jsNative
+
+        [<Emit("$0.magSq()")>]
+        member _.magSq() : float = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.magSq($1)")>]
+        static member magSq(v: P5Vector) : float = jsNative
+
         [<Emit("$0.copy()")>]
         member _.copy() : P5Vector = jsNative
 
@@ -122,7 +133,6 @@ module Math =
         [<Emit("$0.Vector.sub($1, $2, $3)")>]
         static member subTo(v1: P5Vector, v2: P5Vector, target: P5Vector) : Unit = jsNative
 
-
         [<Emit("$0.mult($1)")>]
         member _.multScalar(n: float) : Unit = jsNative
 
@@ -168,6 +178,51 @@ module Math =
         static member multValuesTo(v1: P5Vector, values: float array, target: P5Vector) : Unit =
             target.setFromVector (P5Vector.multValues (v1, values))
 
+        [<Emit("$0.div($1)")>]
+        member _.divScalar(n: float) : Unit = jsNative
+
+        [<Emit("$0.div($1, $2, $3)")>]
+        member _.div(x: float, y: float, ?z: float) : Unit = jsNative
+
+        [<Emit("$0.div($1)")>]
+        member private _.divValues_(values: ResizeArray<float>) : Unit = jsNative
+
+        member self.divValues(values: float array) : Unit =
+            values |> ResizeArray |> self.divValues_
+
+        [<Emit("$0.div($1)")>]
+        member _.divVector(v: P5Vector) : Unit = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.div($1, $2)")>]
+        static member div(v1: P5Vector, v2: P5Vector) : P5Vector = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.div($1, $2, $3)")>]
+        static member divTo(v1: P5Vector, v2: P5Vector, target: P5Vector) : Unit = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.div($1, $2)")>]
+        static member divScalar(v1: P5Vector, n: float) : P5Vector = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.div($1, $2, $3)")>]
+        static member divScalarTo(v1: P5Vector, n: float, target: P5Vector) : Unit = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.div($1, $2)")>]
+        static member private divValues_(v1: P5Vector, values: ResizeArray<float>) : P5Vector = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.div($1, $2)")>]
+        static member divValues(v1: P5Vector, values: float array) : P5Vector =
+            P5Vector.divValues_ (v1, ResizeArray values)
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.div($1, $2, $3)")>]
+        static member divValuesTo(v1: P5Vector, values: float array, target: P5Vector) : Unit =
+            target.setFromVector (P5Vector.divValues (v1, values))
+
         [<Emit("$0.rem($1, $2, $3)")>]
         member _.rem(x: float, y: float, z: float) : Unit = jsNative
 
@@ -183,6 +238,23 @@ module Math =
         [<ImportDefault("p5")>]
         [<Emit("$0.Vector.rem($1, $2)")>]
         static member rem(v1: P5Vector, v2: P5Vector) : P5Vector = jsNative
+
+        [<Emit("$0.dot($1, $2, $3)")>]
+        member _.dot(x: float, ?y: float, ?z: float) : float = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.dot($1, $2)")>]
+        static member dot(v1: P5Vector, v2: P5Vector) : float = jsNative
+
+        [<Emit("$0.dot($1)")>]
+        member _.dotVector(v: P5Vector) : float = jsNative
+
+        [<Emit("$0.cross($1)")>]
+        member _.cross(v: P5Vector) : P5Vector = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.cross($1, $2)")>]
+        static member cross(v1: P5Vector, v2: P5Vector) : P5Vector = jsNative
 
     let createVector: P5Vector = P5Vector.create ()
 

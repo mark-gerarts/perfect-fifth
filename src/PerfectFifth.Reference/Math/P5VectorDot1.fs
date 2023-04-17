@@ -1,13 +1,13 @@
 module P5Reference.Math.P5VectorDot1
 
 open P5.Core
-open P5.Color
 open P5.Environment
-open P5.Shape
+open P5.Math
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+    //Static method
+    let v1 = P5Vector.create (1, 2, 3)
+    let v2 = P5Vector.create (3, 2, 1)
+    print p5 (P5Vector.dot (v1, v2) |> string) // Prints "10"
 
 let run node = display node draw

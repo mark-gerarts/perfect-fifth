@@ -676,3 +676,22 @@ reference:
       - Math/P5VectorMult3
       - Math/P5VectorMult4
       - Math/P5VectorMult5
+    p5.Vector/div(), p5.Vector/divValues(), p5.Vector/divScalar(), p5.Vector/divVector(), p5.Vector/divTo(), p5.Vector/divScalarTo(), p5.Vector/divValuesTo():
+      - Math/P5VectorDiv0
+      - Math/P5VectorDiv1
+      - Math/P5VectorDiv2
+      - Math/P5VectorDiv3
+      - Math/P5VectorDiv4
+      - Math/P5VectorDiv5
+    p5.Vector/mag():
+      - Math/P5VectorMag0
+      - Math/P5VectorMag1
+    p5.Vector/magSq():
+      - Math/P5VectorMagSq0
+      - Math/P5VectorMagSq1
+    p5.Vector/dot():
+      - Math/P5VectorDot0
+      - Math/P5VectorDot1
+    p5.Vector/cross():
+      - Math/P5VectorCross0
+      - Math/P5VectorCross1
