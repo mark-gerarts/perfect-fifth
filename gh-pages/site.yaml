@@ -689,9 +689,20 @@ reference:
     p5.Vector/magSq():
       - Math/P5VectorMagSq0
       - Math/P5VectorMagSq1
-    p5.Vector/dot():
+    p5.Vector/dot(), p5.Vector/dotVector():
       - Math/P5VectorDot0
       - Math/P5VectorDot1
     p5.Vector/cross():
       - Math/P5VectorCross0
       - Math/P5VectorCross1
+    p5.Vector/dist():
+      - Math/P5VectorDist0
+      - Math/P5VectorDist1
+      - Math/P5VectorDist2
+    p5.Vector/normalize(), p5.Vector/normalizeTo:
+      - Math/P5VectorNormalize0
+      - Math/P5VectorNormalize1
+      - Math/P5VectorNormalize2
+    p5.Vector/limit():
+      - Math/P5VectorLimit0
+      - Math/P5VectorLimit1

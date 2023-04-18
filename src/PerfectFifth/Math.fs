@@ -256,6 +256,35 @@ module Math =
         [<Emit("$0.Vector.cross($1, $2)")>]
         static member cross(v1: P5Vector, v2: P5Vector) : P5Vector = jsNative
 
+        [<Emit("$0.dist($1)")>]
+        member _.dist(v: P5Vector) : float = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.dist($1, $2)")>]
+        static member dist(v1: P5Vector, v2: P5Vector) : float = jsNative
+
+        [<Emit("$0.normalize()")>]
+        member _.normalize() : Unit = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.normalize($1)")>]
+        static member normalize(v: P5Vector) : P5Vector = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.normalize($1, $2)")>]
+        static member normalizeTo(v: P5Vector, target: P5Vector) : P5Vector = jsNative
+
+        [<Emit("$0.limit($1)")>]
+        member _.limit(max: float) : Unit = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.limit($1, $2)")>]
+        static member limit(v: P5Vector, max: float) : P5Vector = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.limit($1, $2, $3)")>]
+        static member limitTo(v: P5Vector, max: float, target: P5Vector) : P5Vector = jsNative
+
     let createVector: P5Vector = P5Vector.create ()
 
     let createVectorX (x: float) : P5Vector = P5Vector.create (x)
