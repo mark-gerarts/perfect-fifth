@@ -7,6 +7,16 @@ module ThreeD =
     open Color
     open Math
 
+    type P5Camera =
+        [<Emit("$0.pan($1)")>]
+        member _.pan(angle: float) : Unit = jsNative
+
+        [<Emit("$0.tilt($1)")>]
+        member _.tilt(angle: float) : Unit = jsNative
+
+    [<Emit("$0.createCamera()")>]
+    let createCamera (p5: P5) : P5Camera = jsNative
+
     /// TODO: sensitivity
     [<Emit("$0.orbitControl()")>]
     let orbitControl (p5: P5) : Unit = jsNative
