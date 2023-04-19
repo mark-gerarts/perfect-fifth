@@ -535,7 +535,8 @@ let runSketch name canvasSelector =
     | "Math/P5VectorNormalize2" -> Math.P5VectorNormalize2.run node
     | "Math/P5VectorLimit0" -> Math.P5VectorLimit0.run node
     | "Math/P5VectorLimit1" -> Math.P5VectorLimit1.run node
-    | "Math/P5VectorSetMag" -> Math.P5VectorSetMag.run node
+    | "Math/P5VectorSetMag0" -> Math.P5VectorSetMag0.run node
+    | "Math/P5VectorSetMag1" -> Math.P5VectorSetMag1.run node
     | "Math/P5VectorHeading0" -> Math.P5VectorHeading0.run node
     | "Math/P5VectorHeading1" -> Math.P5VectorHeading1.run node
     | "Math/P5VectorSetHeading" -> Math.P5VectorSetHeading.run node

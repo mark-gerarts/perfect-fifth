@@ -706,3 +706,11 @@ reference:
     p5.Vector/limit():
       - Math/P5VectorLimit0
       - Math/P5VectorLimit1
+    p5.Vector/setMag(), p5.Vector/setMagTo():
+      - Math/P5VectorSetMag0
+      - Math/P5VectorSetMag1
+    p5.Vector/heading():
+      - Math/P5VectorHeading0
+      - Math/P5VectorHeading1
+    p5.Vector/setHeading():
+      - Math/P5VectorSetHeading

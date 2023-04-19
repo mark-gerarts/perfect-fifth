@@ -531,7 +531,8 @@
     <Compile Include="Math\P5VectorNormalize2.fs" />
     <Compile Include="Math\P5VectorLimit0.fs" />
     <Compile Include="Math\P5VectorLimit1.fs" />
-    <Compile Include="Math\P5VectorSetMag.fs" />
+    <Compile Include="Math\P5VectorSetMag0.fs" />
+    <Compile Include="Math\P5VectorSetMag1.fs" />
     <Compile Include="Math\P5VectorHeading0.fs" />
     <Compile Include="Math\P5VectorHeading1.fs" />
     <Compile Include="Math\P5VectorSetHeading.fs" />

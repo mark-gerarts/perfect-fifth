@@ -69,9 +69,6 @@ module Math =
         [<Emit("$0.add($1, $2)")>]
         member _.addXY (x: float) (y: float) : Unit = jsNative
 
-        [<Emit("$0.heading()")>]
-        member _.heading() : float = jsNative
-
         [<Emit("$0.mag()")>]
         member _.mag() : float = jsNative
 
@@ -285,6 +282,27 @@ module Math =
         [<Emit("$0.Vector.limit($1, $2, $3)")>]
         static member limitTo(v: P5Vector, max: float, target: P5Vector) : P5Vector = jsNative
 
+        [<Emit("$0.setMag($1)")>]
+        member _.setMag(len: float) : Unit = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.setMag($1, $2)")>]
+        static member setMag(v: P5Vector, len: float) : P5Vector = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.setMag($1, $2, $3)")>]
+        static member setMagTo(v: P5Vector, len: float, target: P5Vector) : Unit = jsNative
+
+        [<Emit("$0.heading()")>]
+        member _.heading() : float = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.heading($1)")>]
+        static member heading(v: P5Vector) : float = jsNative
+
+        [<Emit("$0.setHeading($1)")>]
+        member _.setHeading(angle: float) : Unit = jsNative
+
     let createVector: P5Vector = P5Vector.create ()
 
     let createVectorX (x: float) : P5Vector = P5Vector.create (x)
@@ -319,3 +337,6 @@ module Math =
 
     [<Emit("$0.random($1, $2)")>]
     let randomInRange (p5: P5) (min: float) (max: float) : float = jsNative
+
+    [<Emit("$0.degrees($1)")>]
+    let degrees (p5: P5) (radians: float) : float = jsNative
