@@ -303,6 +303,24 @@ module Math =
         [<Emit("$0.setHeading($1)")>]
         member _.setHeading(angle: float) : Unit = jsNative
 
+        [<Emit("$0.rotate($1)")>]
+        member _.rotate(angle: float) : Unit = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.rotate($1, $2)")>]
+        static member rotate(v: P5Vector, angle: float) : P5Vector = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.rotate($1, $2)")>]
+        static member rotateTo(v: P5Vector, angle: float, target: P5Vector) : Unit = jsNative
+
+        [<Emit("$0.angleBetween($1)")>]
+        member _.angleBetween(v: P5Vector) : float = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.angleBetween($1, $2)")>]
+        static member angleBetween(v1: P5Vector, v2: P5Vector) : Unit = jsNative
+
     let createVector: P5Vector = P5Vector.create ()
 
     let createVectorX (x: float) : P5Vector = P5Vector.create (x)

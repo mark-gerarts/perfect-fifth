@@ -714,3 +714,10 @@ reference:
       - Math/P5VectorHeading1
     p5.Vector/setHeading():
       - Math/P5VectorSetHeading
+    p5.Vector/rotate(), p5.Vector/rotateTo():
+      - Math/P5VectorRotate0
+      - Math/P5VectorRotate1
+      - Math/P5VectorRotate2
+    p5.Vector/angleBetween():
+      - Math/P5VectorAngleBetween0
+      - Math/P5VectorAngleBetween1
