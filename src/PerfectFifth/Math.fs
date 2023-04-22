@@ -421,11 +421,49 @@ module Math =
     [<Emit("$0.fract($1)")>]
     let fract (p5: P5) (x: float) : float = jsNative
 
+    [<Emit("$0.randomSeed($1)")>]
+    let randomSeed (p5: P5) (seed: float) : Unit = jsNative
+
     [<Emit("$0.random($1, $2)")>]
-    let randomInRange (p5: P5) (min: float) (max: float) : float = jsNative
+    let randomBetween (p5: P5) (min: float) (max: float) : float = jsNative
+
+    [<Emit("$0.random($1)")>]
+    let randomMax (p5: P5) (max: float) : float = jsNative
+
+
+    [<Emit("$0.random($1)")>]
+    let private randomChoice_<'T> (p5: P5) (choices: ResizeArray<'T>) : 'T = jsNative
+
+    let randomChoice<'T> (p5: P5) (choices: 'T seq) : 'T = randomChoice_ p5 (ResizeArray choices)
+
+    [<Emit("$0.randomGaussian()")>]
+    let randomGaussian (p5: P5) = jsNative
+
+    [<Emit("$0.randomGaussian($1)")>]
+    let randomGaussianFromMean (p5: P5) (mean: float) = jsNative
+
+    [<Emit("$0.randomGaussian($1, $2)")>]
+    let randomGaussianFromMeanAndSd (p5: P5) (mean: float) (sd: float) = jsNative
 
     [<Emit("$0.degrees($1)")>]
     let degrees (p5: P5) (radians: float) : float = jsNative
 
     [<Emit("$0.radians($1)")>]
     let radians (p5: P5) (degrees: float) : float = jsNative
+
+    [<Emit("$0.noise($1)")>]
+    let noise1D (p5: P5) (x: float) : float = jsNative
+
+    [<Emit("$0.noise($1, $2, $3)")>]
+    let noise2D (p5: P5) (x: float) (y: float) : float = jsNative
+
+    [<Emit("$0.noise($1, $2, $3)")>]
+    let noise3D (p5: P5) (x: float) (y: float) (z: float) : float = jsNative
+
+    let noise = noise1D
+
+    [<Emit("$0.noiseDetail($1, $2)")>]
+    let noiseDetail (p5: P5) (lod: float) (falloff: float) : Unit = jsNative
+
+    [<Emit("$0.noiseSeed($1)")>]
+    let noiseSeed (p5: P5) (seed: float) : Unit = jsNative

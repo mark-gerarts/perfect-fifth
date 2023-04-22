@@ -743,3 +743,19 @@ reference:
       - Math/P5VectorRandom2D1
     p5.Vector/random3D():
       - Math/P5VectorRandom3D
+    noise(), noise2D(), noise3D():
+      - Math/Noise0
+      - Math/Noise1
+    noiseDetail():
+      - Math/NoiseDetail
+    noiseSeed():
+      - Math/NoiseSeed
+    randomSeed():
+      - Math/RandomSeed
+    random(), randomBetween(), randomMax(), randomChoice():
+      - Math/Random0
+      - Math/Random1
+      - Math/Random2
+    randomGaussian(), randomGaussianFromMean(), randomGaussianFromMeanAndSd():
+      - Math/RandomGaussian0
+      - Math/RandomGaussian1

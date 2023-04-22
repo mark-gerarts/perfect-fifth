@@ -31,7 +31,7 @@ let draw p5 (v0: P5Vector, v1: P5Vector) =
     background p5 (Grayscale 240)
 
     drawArrow p5 v0 v1 (Name "Black")
-    v1.set (v1.x + (randomInRange p5 -1 1), v1.y + (randomInRange p5 -1 1))
+    v1.set (v1.x + (randomBetween p5 -1 1), v1.y + (randomBetween p5 -1 1))
 
     noStroke p5
     text p5 (sprintf "x: %.0f y: %.0f" v1.x v1.y) 20 90

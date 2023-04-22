@@ -4,10 +4,15 @@ open P5.Core
 open P5.Color
 open P5.Environment
 open P5.Shape
+open P5.Math
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let setup _ = 0.0
 
-let run node = display node draw
+let update _ xoff = xoff + 0.01
+
+let draw p5 xoff =
+    background p5 (Grayscale 204)
+    let n = (noise p5 xoff) * (width p5 |> float)
+    line p5 n 0 n (height p5 |> float)
+
+let run node = simulate node setup update draw
