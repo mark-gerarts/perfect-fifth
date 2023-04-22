@@ -26,21 +26,34 @@ module Math =
     [<Emit("$0.norm($1, $2, $3)")>]
     let norm (p5: P5) (value: float) (start: float) (stop: float) : float = jsNative
 
-    [<Emit("$0.radians($1)")>]
-    let radians (p5: P5) (degrees: float) : float = jsNative
-
     type P5Vector =
         [<ImportDefault("p5")>]
         [<Emit("new $0.Vector($1, $2, $3)")>]
         static member create(?x: float, ?y: float, ?z: float) : P5Vector = jsNative
 
         [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.fromAngle($1)")>]
+        static member fromAngle(angle: float) : P5Vector = jsNative
+
+        [<ImportDefault("p5")>]
         [<Emit("$0.Vector.fromAngle($1, $2)")>]
         static member fromAngleAndLength (angle: float) (length: float) : P5Vector = jsNative
 
         [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.fromAngle($1, $2)")>]
+        static member fromAngles (theta: float) (phi: float) : P5Vector = jsNative
+
+        [<ImportDefault("p5")>]
         [<Emit("$0.Vector.fromAngles($1, $2, $3)")>]
         static member fromAnglesAndLength (theta: float) (phi: float) (length: float) : P5Vector = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.random2D()")>]
+        static member random2D() : P5Vector = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.random3D()")>]
+        static member random3D() : P5Vector = jsNative
 
         [<Emit("$0.x")>]
         member _.x: float = jsNative
@@ -321,6 +334,61 @@ module Math =
         [<Emit("$0.Vector.angleBetween($1, $2)")>]
         static member angleBetween(v1: P5Vector, v2: P5Vector) : Unit = jsNative
 
+        [<Emit("$0.lerp($1, $2, $3, $4)")>]
+        member _.lerp(x: float, y: float, z: float, amount: float) : Unit = jsNative
+
+        [<Emit("$0.lerp($1, $2, $3, $4)")>]
+        member _.lerpVector(v: P5Vector, amount: float) : Unit = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.lerp($1, $2, $3)")>]
+        static member lerp(v1: P5Vector, v2: P5Vector, amount: float) : P5Vector = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.lerp($1, $2, $3, $4)")>]
+        static member lerpTo(v1: P5Vector, v2: P5Vector, amount: float, target: P5Vector) : Unit = jsNative
+
+        [<Emit("$0.reflect($1)")>]
+        member _.reflect(surfaceNormal: P5Vector) : Unit = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.reflect($1, $2)")>]
+        static member reflect(incidentVector: P5Vector, surfaceNormal: P5Vector) : P5Vector = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.reflect($1, $2, $3)")>]
+        static member reflectTo(incidentVector: P5Vector, surfaceNormal: P5Vector, target: P5Vector) : Unit = jsNative
+
+        [<Emit("$0.array()")>]
+        member _.array() : float array = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.array($1)")>]
+        static member array(v: P5Vector) : float array = jsNative
+
+        [<Emit("$0.equals($1, $2, $3)")>]
+        member _.equals(?x: float, ?y: float, ?z: float) : bool = jsNative
+
+        [<Emit("$0.equals($1)")>]
+        member _.equalsVector(v: P5Vector) : bool = jsNative
+
+        [<Emit("$0.equals($1)")>]
+        member private _.equalsValues_(values: ResizeArray<float>) : bool = jsNative
+
+        member self.equalsValues(values: float array) : bool =
+            values |> ResizeArray |> self.equalsValues_
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.Vector.equals($1, $2)")>]
+        static member equals(v1: P5Vector, v2: P5Vector) : bool = jsNative
+
+        [<ImportDefault("p5")>]
+        [<Emit("$0.equals($1, $2)")>]
+        static member private equalsValues_(v1: ResizeArray<float>, v2: ResizeArray<float>) : bool = jsNative
+
+        static member equalsValues(v1: ResizeArray<float>, v2: ResizeArray<float>) : bool =
+            P5Vector.equalsValues_ (ResizeArray v1, ResizeArray v2)
+
     let createVector: P5Vector = P5Vector.create ()
 
     let createVectorX (x: float) : P5Vector = P5Vector.create (x)
@@ -358,3 +426,6 @@ module Math =
 
     [<Emit("$0.degrees($1)")>]
     let degrees (p5: P5) (radians: float) : float = jsNative
+
+    [<Emit("$0.radians($1)")>]
+    let radians (p5: P5) (degrees: float) : float = jsNative

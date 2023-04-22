@@ -1,4 +1,4 @@
-module P5Reference.Math.P5VectorReflect1
+module P5Reference.Math.P5VectorRandom2D1
 
 open P5.Core
 open P5.Color
@@ -7,6 +7,7 @@ open P5.Math
 open P5.Transform
 open P5.Structure
 open P5.Events
+open P5.Environment
 
 let drawArrow p5 (baseVec: P5Vector) (vec: P5Vector) col =
     push p5
@@ -21,18 +22,14 @@ let drawArrow p5 (baseVec: P5Vector) (vec: P5Vector) col =
     triangle p5 0 (arrowSize / 2.0) 0 (-arrowSize / 2.0) arrowSize 0
     pop p5
 
+let setup p5 = setFrameRate p5 1
+
 let draw p5 _ =
     background p5 (Grayscale 240)
 
-    let v0 = P5Vector.create (0, 0)
-    let v1 = P5Vector.create (mouseX p5, mouseY p5)
-    drawArrow p5 v0 v1 (Name "red")
+    let v0 = P5Vector.create (50, 50)
+    let v1 = P5Vector.random2D ()
+    v1.multScalar (50)
+    drawArrow p5 v0 v1 (Name "black")
 
-    let n = P5Vector.create (0, -30)
-    drawArrow p5 v1 n (Name "blue")
-
-    let r = v1.copy ()
-    r.reflect n
-    drawArrow p5 v1 r (Name "purple")
-
-let run node = animate node noSetup draw
+let run node = animate node setup draw

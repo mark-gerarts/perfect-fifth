@@ -721,3 +721,25 @@ reference:
     p5.Vector/angleBetween():
       - Math/P5VectorAngleBetween0
       - Math/P5VectorAngleBetween1
+    p5.Vector/lerp(), p5.Vector/lerpVector(), p5.Vector/lerpTo():
+      - Math/P5VectorLerp0
+      - Math/P5VectorLerp1
+      - Math/P5VectorLerp2
+    p5.Vector/reflect(), p5.Vector/reflectTo():
+      - Math/P5VectorReflect0
+      - Math/P5VectorReflect1
+    p5.Vector/array():
+      - Math/P5VectorArray0
+      - Math/P5VectorArray1
+    p5.vector/equals(), p5.vector/equalsVector(), p5.vector/equalsValues():
+      - Math/P5VectorEquals0
+      - Math/P5VectorEquals1
+    p5.Vector/fromAngle(), p5.Vector/fromAngleAndLength():
+      - Math/P5VectorFromAngle
+    p5.Vector/fromAngles(), p5.Vector/fromAnglesAndLength():
+      - Math/P5VectorFromAngles
+    p5.Vector/random2D():
+      - Math/P5VectorRandom2D0
+      - Math/P5VectorRandom2D1
+    p5.Vector/random3D():
+      - Math/P5VectorRandom3D

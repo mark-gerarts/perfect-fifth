@@ -552,7 +552,8 @@
     <Compile Include="Math\P5VectorEquals1.fs" />
     <Compile Include="Math\P5VectorFromAngle.fs" />
     <Compile Include="Math\P5VectorFromAngles.fs" />
-    <Compile Include="Math\P5VectorRandom2D.fs" />
+    <Compile Include="Math\P5VectorRandom2D0.fs" />
+    <Compile Include="Math\P5VectorRandom2D1.fs" />
     <Compile Include="Math\P5VectorRandom3D.fs" />
     <Compile Include="Math\Noise0.fs" />
     <Compile Include="Math\Noise1.fs" />

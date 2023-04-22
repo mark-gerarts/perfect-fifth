@@ -1,13 +1,15 @@
 module P5Reference.Math.P5VectorRandom3D
 
 open P5.Core
-open P5.Color
 open P5.Environment
-open P5.Shape
+open P5.Math
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+    let v = P5Vector.random3D ()
+    // May make v's attributes something like:
+    // [0.61554617, -0.51195765, 0.599168] or
+    // [-0.4695841, -0.14366731, -0.8711202] or
+    // [0.6091097, -0.22805278, -0.7595902]
+    print p5 (string v)
 
 let run node = display node draw

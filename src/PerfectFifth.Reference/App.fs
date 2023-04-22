@@ -556,7 +556,8 @@ let runSketch name canvasSelector =
     | "Math/P5VectorEquals1" -> Math.P5VectorEquals1.run node
     | "Math/P5VectorFromAngle" -> Math.P5VectorFromAngle.run node
     | "Math/P5VectorFromAngles" -> Math.P5VectorFromAngles.run node
-    | "Math/P5VectorRandom2D" -> Math.P5VectorRandom2D.run node
+    | "Math/P5VectorRandom2D0" -> Math.P5VectorRandom2D0.run node
+    | "Math/P5VectorRandom2D1" -> Math.P5VectorRandom2D1.run node
     | "Math/P5VectorRandom3D" -> Math.P5VectorRandom3D.run node
     | "Math/Noise0" -> Math.Noise0.run node
     | "Math/Noise1" -> Math.Noise1.run node
