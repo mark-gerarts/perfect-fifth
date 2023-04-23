@@ -5,7 +5,7 @@ open P5.Color
 open P5.Shape
 open P5.Rendering
 open P5.Events
-open P5.Camera
+open P5.ThreeD
 
 let setup p5 =
     createWebGLCanvas p5 100 100

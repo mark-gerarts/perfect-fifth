@@ -118,7 +118,7 @@ let animate
   : Unit = ...
 ```
 
-TODO: add an example.
+TODO: add an example (p5.Vector/fromAngles maybe?).
 
 ### Simulate
 

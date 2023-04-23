@@ -605,3 +605,180 @@ reference:
       - Image/Set0
       - Image/Set1
       - Image/Set2
+  Math:
+    abs():
+      - Math/Abs
+    ceil():
+      - Math/Ceil
+    constrain():
+      - Math/Constrain
+    dist(), dist3D():
+      - Math/Dist
+    exp():
+      - Math/Exp
+    floor():
+      - Math/Floor
+    lerp():
+      - Math/Lerp
+    log():
+      - Math/Log
+    mag():
+      - Math/Mag
+    map(), mapBounded():
+      - Math/Map0
+      - Math/Map1
+    max():
+      - Math/Max
+    min():
+      - Math/Min
+    norm():
+      - Math/Norm
+    pow():
+      - Math/Pow
+    round():
+      - Math/Round0
+      - Math/Round1
+      - Math/Round2
+    sq():
+      - Math/Sq
+    sqrt():
+      - Math/Sqrt
+    fract():
+      - Math/Fract0
+      - Math/Fract1
+    createVector(), createVector1D(), createVector2D(), createVector3D():
+      - Math/CreateVector
+    p5.Vector/toString():
+      - Math/P5VectorToString0
+      - Math/P5VectorToString1
+    p5.Vector/set(), p5.Vector/setFromValues(), p5.Vector.setFromVector():
+      - Math/P5VectorSet0
+      - Math/P5VectorSet1
+    p5.Vector/copy():
+      - Math/P5VectorCopy
+    p5.Vector/add(), p5.Vector/addValues(), p5.Vector/addVector(), p5.Vector/addTo():
+      - Math/P5VectorAdd0
+      - Math/P5VectorAdd1
+      - Math/P5VectorAdd2
+      - Math/P5VectorAdd3
+    p5.Vector/rem(), p5.Vector/remFromValues(), p5.Vector/remFromVector():
+      - Math/P5VectorRem0
+      - Math/P5VectorRem1
+    p5.Vector/sub(), p5.Vector/subValues(), p5.Vector/subVector(), p5.Vector/subTo():
+      - Math/P5VectorSub0
+      - Math/P5VectorSub1
+      - Math/P5VectorSub2
+      - Math/P5VectorSub3
+    p5.Vector/mult(), p5.Vector/multValues(), p5.Vector/multScalar(), p5.Vector/multVector(), p5.Vector/multTo(), p5.Vector/multScalarTo(), p5.Vector/multValuesTo():
+      - Math/P5VectorMult0
+      - Math/P5VectorMult1
+      - Math/P5VectorMult2
+      - Math/P5VectorMult3
+      - Math/P5VectorMult4
+      - Math/P5VectorMult5
+    p5.Vector/div(), p5.Vector/divValues(), p5.Vector/divScalar(), p5.Vector/divVector(), p5.Vector/divTo(), p5.Vector/divScalarTo(), p5.Vector/divValuesTo():
+      - Math/P5VectorDiv0
+      - Math/P5VectorDiv1
+      - Math/P5VectorDiv2
+      - Math/P5VectorDiv3
+      - Math/P5VectorDiv4
+      - Math/P5VectorDiv5
+    p5.Vector/mag():
+      - Math/P5VectorMag0
+      - Math/P5VectorMag1
+    p5.Vector/magSq():
+      - Math/P5VectorMagSq0
+      - Math/P5VectorMagSq1
+    p5.Vector/dot(), p5.Vector/dotVector():
+      - Math/P5VectorDot0
+      - Math/P5VectorDot1
+    p5.Vector/cross():
+      - Math/P5VectorCross0
+      - Math/P5VectorCross1
+    p5.Vector/dist():
+      - Math/P5VectorDist0
+      - Math/P5VectorDist1
+      - Math/P5VectorDist2
+    p5.Vector/normalize(), p5.Vector/normalizeTo:
+      - Math/P5VectorNormalize0
+      - Math/P5VectorNormalize1
+      - Math/P5VectorNormalize2
+    p5.Vector/limit():
+      - Math/P5VectorLimit0
+      - Math/P5VectorLimit1
+    p5.Vector/setMag(), p5.Vector/setMagTo():
+      - Math/P5VectorSetMag0
+      - Math/P5VectorSetMag1
+    p5.Vector/heading():
+      - Math/P5VectorHeading0
+      - Math/P5VectorHeading1
+    p5.Vector/setHeading():
+      - Math/P5VectorSetHeading
+    p5.Vector/rotate(), p5.Vector/rotateTo():
+      - Math/P5VectorRotate0
+      - Math/P5VectorRotate1
+      - Math/P5VectorRotate2
+    p5.Vector/angleBetween():
+      - Math/P5VectorAngleBetween0
+      - Math/P5VectorAngleBetween1
+    p5.Vector/lerp(), p5.Vector/lerpVector(), p5.Vector/lerpTo():
+      - Math/P5VectorLerp0
+      - Math/P5VectorLerp1
+      - Math/P5VectorLerp2
+    p5.Vector/reflect(), p5.Vector/reflectTo():
+      - Math/P5VectorReflect0
+      - Math/P5VectorReflect1
+    p5.Vector/array():
+      - Math/P5VectorArray0
+      - Math/P5VectorArray1
+    p5.vector/equals(), p5.vector/equalsVector(), p5.vector/equalsValues():
+      - Math/P5VectorEquals0
+      - Math/P5VectorEquals1
+    p5.Vector/fromAngle(), p5.Vector/fromAngleAndLength():
+      - Math/P5VectorFromAngle
+    p5.Vector/fromAngles(), p5.Vector/fromAnglesAndLength():
+      - Math/P5VectorFromAngles
+    p5.Vector/random2D():
+      - Math/P5VectorRandom2D0
+      - Math/P5VectorRandom2D1
+    p5.Vector/random3D():
+      - Math/P5VectorRandom3D
+    noise(), noise2D(), noise3D():
+      - Math/Noise0
+      - Math/Noise1
+    noiseDetail():
+      - Math/NoiseDetail
+    noiseSeed():
+      - Math/NoiseSeed
+    randomSeed():
+      - Math/RandomSeed
+    random(), randomBetween(), randomMax(), randomChoice():
+      - Math/Random0
+      - Math/Random1
+      - Math/Random2
+    randomGaussian(), randomGaussianFromMean(), randomGaussianFromMeanAndSd():
+      - Math/RandomGaussian0
+      - Math/RandomGaussian1
+    acos(), Trig.acos():
+      - Math/Acos0
+      - Math/Acos1
+    asin(), Trig.asin():
+      - Math/Asin0
+      - Math/Asin1
+    atan(), Trig.atan():
+      - Math/Atan0
+      - Math/Atan0
+    atan2(), Trig.atan2():
+      - Math/Atan2
+    cos(), Trig.cos():
+      - Math/Cos
+    sin(), Trig.sin():
+      - Math/Sin
+    tan(), Trig.tan():
+      - Math/Tan
+    degrees():
+      - Math/Degrees
+    radians():
+      - Math/Radians
+    angleMode(), setAngleMode(), getAngleMode():
+      - Math/AngleMode
