@@ -782,3 +782,13 @@ reference:
       - Math/Radians
     angleMode(), setAngleMode(), getAngleMode():
       - Math/AngleMode
+  Typography:
+    textAlign(), setTextAlign(), getTextAlign():
+      - Typography/TextAlign0
+      - Typography/TextAlign1
+    textLeading(), setTextLeading(), getTextLeading():
+      - Typography/TextLeading
+    textSize(), setTextSize(), getTextSize():
+      - Typography/TextSize
+    textStyle(), setTextStyle(), getTextStyle():
+      - Typography/TextStyle

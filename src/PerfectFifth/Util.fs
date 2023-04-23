@@ -19,3 +19,9 @@ module Util =
 
     [<Emit("$0[$1]($2, $3, $4, $5)")>]
     let internal emit4 (p5: P5) (method: string) (arg1: 'a) (arg2: 'b) (arg3: 'c) (arg4: 'd) : 'e = jsNative
+
+    let failwithUnexpectedValue method =
+        sprintf
+            "Received invalid value for p5.%s. This is probably caused by a version mismatch between Perfect Fifth and P5"
+            method
+        |> failwith

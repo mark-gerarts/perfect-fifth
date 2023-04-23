@@ -1,13 +1,19 @@
 module P5Reference.Typography.TextLeading
 
 open P5.Core
-open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.Typography
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+    let lines = "L1\nL2\nL3" // "\n" is a "new line" character
+    setTextSize p5 12
+
+    setTextLeading p5 10
+    text p5 lines 10 25
+
+    setTextLeading p5 20
+    text p5 lines 40 25
+
+    setTextLeading p5 30
+    text p5 lines 70 25
 
 let run node = display node draw
