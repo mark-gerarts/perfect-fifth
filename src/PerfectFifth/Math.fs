@@ -430,11 +430,8 @@ module Math =
     [<Emit("$0.random($1)")>]
     let randomMax (p5: P5) (max: float) : float = jsNative
 
-
-    [<Emit("$0.random($1)")>]
-    let private randomChoice_<'T> (p5: P5) (choices: ResizeArray<'T>) : 'T = jsNative
-
-    let randomChoice<'T> (p5: P5) (choices: 'T seq) : 'T = randomChoice_ p5 (ResizeArray choices)
+    let randomChoice<'T> (p5: P5) (choices: 'T seq) : 'T =
+        emitJsExpr (p5, ResizeArray choices) "$0.random($1)"
 
     [<Emit("$0.randomGaussian()")>]
     let randomGaussian (p5: P5) = jsNative
@@ -444,12 +441,6 @@ module Math =
 
     [<Emit("$0.randomGaussian($1, $2)")>]
     let randomGaussianFromMeanAndSd (p5: P5) (mean: float) (sd: float) = jsNative
-
-    [<Emit("$0.degrees($1)")>]
-    let degrees (p5: P5) (radians: float) : float = jsNative
-
-    [<Emit("$0.radians($1)")>]
-    let radians (p5: P5) (degrees: float) : float = jsNative
 
     [<Emit("$0.noise($1)")>]
     let noise1D (p5: P5) (x: float) : float = jsNative
@@ -467,3 +458,57 @@ module Math =
 
     [<Emit("$0.noiseSeed($1)")>]
     let noiseSeed (p5: P5) (seed: float) : Unit = jsNative
+
+    /// All trig functions exist in standard F# as well. We don't want to cause
+    /// a name conflict, so we add them as static members to namespace them.
+    /// The reason to keep both is because the p5 versions behave differently
+    /// based on the current angle mode.
+    type Trig =
+        [<Emit("$0.acos($1)")>]
+        static member acos (p5: P5) (x: float) : float = jsNative
+
+        [<Emit("$0.asin($1)")>]
+        static member asin (p5: P5) (x: float) : float = jsNative
+
+        [<Emit("$0.atan($1)")>]
+        static member atan (p5: P5) (x: float) : float = jsNative
+
+        [<Emit("$0.atan2($1, $2)")>]
+        static member atan2 (p5: P5) (y: float) (x: float) : float = jsNative
+
+        [<Emit("$0.cos($1)")>]
+        static member cos (p5: P5) (x: float) : float = jsNative
+
+        [<Emit("$0.sin($1)")>]
+        static member sin (p5: P5) (x: float) : float = jsNative
+
+        [<Emit("$0.tan($1)")>]
+        static member tan (p5: P5) (x: float) : float = jsNative
+
+    [<Emit("$0.degrees($1)")>]
+    let degrees (p5: P5) (radians: float) : float = jsNative
+
+    [<Emit("$0.radians($1)")>]
+    let radians (p5: P5) (degrees: float) : float = jsNative
+
+    type AngleMode =
+        | Degrees
+        | Radians
+
+    let getAngleMode (p5: P5) : AngleMode =
+        let angleMode = emitJsExpr (p5) "$0.angleMode()"
+        let p5' = unbox<obj> p5
+
+        if p5'?("DEGREES") = angleMode then Degrees else Radians
+
+    let angleMode = getAngleMode
+
+    let setAngleMode (p5: P5) (angleMode: AngleMode) : Unit =
+        let p5' = unbox<obj> p5
+
+        let rawAngleMode =
+            match angleMode with
+            | Degrees -> p5'?("DEGREES")
+            | Radians -> p5'?("RADIANS")
+
+        emitJsExpr (p5, rawAngleMode) "$0.angleMode($1)"

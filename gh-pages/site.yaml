@@ -759,3 +759,26 @@ reference:
     randomGaussian(), randomGaussianFromMean(), randomGaussianFromMeanAndSd():
       - Math/RandomGaussian0
       - Math/RandomGaussian1
+    acos(), Trig.acos():
+      - Math/Acos0
+      - Math/Acos1
+    asin(), Trig.asin():
+      - Math/Asin0
+      - Math/Asin1
+    atan(), Trig.atan():
+      - Math/Atan0
+      - Math/Atan0
+    atan2(), Trig.atan2():
+      - Math/Atan2
+    cos(), Trig.cos():
+      - Math/Cos
+    sin(), Trig.sin():
+      - Math/Sin
+    tan(), Trig.tan():
+      - Math/Tan
+    degrees():
+      - Math/Degrees
+    radians():
+      - Math/Radians
+    angleMode(), setAngleMode(), getAngleMode():
+      - Math/AngleMode
