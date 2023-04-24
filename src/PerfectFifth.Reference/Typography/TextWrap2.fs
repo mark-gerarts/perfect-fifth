@@ -1,13 +1,11 @@
 module P5Reference.Typography.TextWrap2
 
 open P5.Core
-open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.Typography
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+    setTextSize p5 20
+    textWrap p5 Char
+    textBounded p5 "祝你有美好的一天" 0 10 100 100
 
 let run node = display node draw

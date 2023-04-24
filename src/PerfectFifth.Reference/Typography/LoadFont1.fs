@@ -2,12 +2,21 @@ module P5Reference.Typography.LoadFont1
 
 open P5.Core
 open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.Typography
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let drawText p5 font =
+    fill p5 (Name "#ED225D")
+    setTextFontWithSize p5 font 36
+    text p5 "p5*js" 10 50
 
-let run node = display node draw
+let preload p5 =
+    let onSuccess = drawText p5
+    let onError = fun _ -> ()
+    loadFontWithCallbacks p5 "assets/inconsolata.otf" onSuccess onError
+
+let setup _ _ = ()
+
+let draw _ _ = ()
+
+let run node =
+    simulateWithPreload node preload setup noUpdate draw

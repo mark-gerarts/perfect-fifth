@@ -125,3 +125,51 @@ module Typography =
             | BoldItalic -> p5'?("BOLDITALIC")
 
         emitJsExpr (p5', rawStyle) "$0.textStyle($1)"
+
+    [<Emit("$0.textWidth($1)")>]
+    let textWidth (p5: P5) (text: string) : float = jsNative
+
+    [<Emit("$0.textAscent()")>]
+    let textAscent (p5: P5) : float = jsNative
+
+    [<Emit("$0.textDescent()")>]
+    let textDescent (p5: P5) : float = jsNative
+
+    type TextWrap =
+        | Word
+        | Char
+
+    let setTextWrap (p5: P5) (wrap: TextWrap) : Unit =
+        let p5' = unbox<obj> p5
+
+        let rawWrap =
+            match wrap with
+            | Word -> p5'?("WORD")
+            | Char -> p5'?("CHAR")
+
+        emitJsExpr (p5, rawWrap) "$0.textWrap($1)"
+
+    let textWrap = setTextWrap
+
+    type P5Font =
+        class
+        end
+
+    [<Emit("$0.loadFont($1)")>]
+    let loadFont (p5: P5) (path: string) : P5Font = jsNative
+
+    [<Emit("$0.loadFont($1, $2, $3)")>]
+    let loadFontWithCallbacks (p5: P5) (path: string) (onSuccess: P5Font -> Unit) (onError: obj -> Unit) : Unit =
+        jsNative
+
+    [<Emit("$0.textFont($1)")>]
+    let setTextFont (p5: P5) (font: P5Font) : Unit = jsNative
+
+    [<Emit("$0.textFont($1, $2)")>]
+    let setTextFontWithSize (p5: P5) (font: P5Font) (size: float) : Unit = jsNative
+
+    [<Emit("$0.textFont($1)")>]
+    let setTextFontByName (p5: P5) (name: string) : Unit = jsNative
+
+    [<Emit("$0.textFont($1, $2)")>]
+    let setTextFontByNameWithSize (p5: P5) (name: string) (size: float) : Unit = jsNative

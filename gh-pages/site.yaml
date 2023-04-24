@@ -792,3 +792,14 @@ reference:
       - Typography/TextSize
     textStyle(), setTextStyle(), getTextStyle():
       - Typography/TextStyle
+    textWidth():
+      - Typography/TextWidth
+    textAscent():
+      - Typography/TextAscent
+    textDescent():
+      - Typography/TextDescent
+    textWrap(), setTextWrap():
+      - Typography/TextWrap0
+      - Typography/TextWrap1
+      - Typography/TextWrap2
+      - Typography/TextWrap3
