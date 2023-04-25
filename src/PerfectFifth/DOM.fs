@@ -84,6 +84,9 @@ module DOM =
         [<Emit("$0.remove()")>]
         member _.remove() : Unit = jsNative
 
+    [<Emit("$0.createDiv($1)")>]
+    let createDiv (p5: P5) (innerHTML: string) : P5Element<Unit> = jsNative
+
     [<Emit("$0.createP($1)")>]
     let createP (p5: P5) (innerHTML: string) : P5Element<Unit> = jsNative
 

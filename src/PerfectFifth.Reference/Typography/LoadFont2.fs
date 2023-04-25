@@ -4,10 +4,13 @@ open P5.Core
 open P5.Color
 open P5.Environment
 open P5.Shape
+open P5.Typography
+open P5.DOM
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let preload p5 = loadFont p5 "assets/inconsolata.otf"
 
-let run node = display node draw
+let draw p5 font =
+    let myDiv = createDiv p5 "hello there"
+    myDiv.style "font-family" "inconsolate"
+
+let run node = displayWithPreload node preload draw

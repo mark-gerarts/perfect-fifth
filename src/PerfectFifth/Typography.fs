@@ -151,9 +151,68 @@ module Typography =
 
     let textWrap = setTextWrap
 
+    type BoundingBox =
+        { x: float
+          y: float
+          w: float
+          h: float }
+
+    type TextToPointOpts =
+        { sampleFactor: float
+          simplifyTreshold: float }
+
+    type TextPoint = { x: float; y: float; alpha: float }
+
     type P5Font =
-        class
-        end
+        /// I'm not sure what the type should be of the object returned...
+        [<Emit("$0.font")>]
+        member _.font: obj = jsNative
+
+        [<Emit("$0.textBounds($1, $2, $3)")>]
+        member _.textBounds (line: string) (x: float) (y: float) : BoundingBox = jsNative
+
+        [<Emit("$0.textBounds($1, $2, $3, $4)")>]
+        member _.textBoundsWithSize (line: string) (x: float) (y: float) (size: float) : BoundingBox = jsNative
+
+        member self.textBoundsWithSizeAndAlign
+            (line: string)
+            (x: float)
+            (y: float)
+            (size: float)
+            (align: TextAlign)
+            : BoundingBox =
+            let rawHorizontalAlign =
+                match align.horizontal with
+                | Left -> "left"
+                | HorizontalAlign.Center -> "center"
+                | Right -> "right"
+
+            let rawVerticalAlign =
+                match align.vertical with
+                | Top -> "top"
+                | Bottom -> "bottom"
+                | VerticalAlign.Center -> "center"
+                | Baseline -> "alphabetic"
+
+            /// Not sure about this one.
+            let opentypeOpts =
+                {| alignment = rawHorizontalAlign
+                   baseline = rawVerticalAlign |}
+
+            emitJsExpr (self, line, x, y, size, opentypeOpts) "$0.textBounds($1, $2, $3, $4, $5)"
+
+        [<Emit("$0.textToPoints($1, $2, $3, $4)")>]
+        member _.textToPoints (txt: string) (x: float) (y: float) (fontSize: float) : TextPoint array = jsNative
+
+        [<Emit("$0.textToPoints($1, $2, $3, $4, $5)")>]
+        member _.textToPointsWithOptions
+            (txt: string)
+            (x: float)
+            (y: float)
+            (fontSize: float)
+            (options: TextToPointOpts)
+            : TextPoint array =
+            jsNative
 
     [<Emit("$0.loadFont($1)")>]
     let loadFont (p5: P5) (path: string) : P5Font = jsNative
@@ -164,6 +223,8 @@ module Typography =
 
     [<Emit("$0.textFont($1)")>]
     let setTextFont (p5: P5) (font: P5Font) : Unit = jsNative
+
+    let textFont = setTextFont
 
     [<Emit("$0.textFont($1, $2)")>]
     let setTextFontWithSize (p5: P5) (font: P5Font) (size: float) : Unit = jsNative

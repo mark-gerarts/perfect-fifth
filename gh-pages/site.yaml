@@ -803,3 +803,18 @@ reference:
       - Typography/TextWrap1
       - Typography/TextWrap2
       - Typography/TextWrap3
+    loadFont(), loadFontWithCallbacks():
+      - Typography/LoadFont0
+      - Typography/LoadFont1
+      - Typography/LoadFont2
+    text(), textBounded():
+      - Typography/Text0
+      - Typography/Text1
+      - Typography/Text2
+    textFont(), setTextFont(), setTextFontByName(), setTextFontWithSize(), setTextFontByNameWithSize():
+      - Typography/TextFont0
+      - Typography/TextFont1
+    p5.Font/textBounds(), p5.Font/textBoundsWithSize(), p5.Font/textBoundsWithSizeAndAlign():
+      - Typography/P5FontTextBounds
+    p5.Font/textToPoints(), p5.Font/textToPointsWithOptions():
+      - Typography/P5FontTextToPoints
