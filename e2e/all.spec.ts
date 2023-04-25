@@ -7,7 +7,7 @@ const checkLinksOnPage = async (browser, page) => {
             .filter(href => href.match(/.*-.*\.html/));
     });
 
-    const batchSize = 10;
+    const batchSize = 5;
     for (let i = 0; i < hrefs.length; i += batchSize) {
         const batch = hrefs.slice(i, i + batchSize);
 

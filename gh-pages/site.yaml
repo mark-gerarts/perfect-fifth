@@ -782,3 +782,39 @@ reference:
       - Math/Radians
     angleMode(), setAngleMode(), getAngleMode():
       - Math/AngleMode
+  Typography:
+    textAlign(), setTextAlign(), getTextAlign():
+      - Typography/TextAlign0
+      - Typography/TextAlign1
+    textLeading(), setTextLeading(), getTextLeading():
+      - Typography/TextLeading
+    textSize(), setTextSize(), getTextSize():
+      - Typography/TextSize
+    textStyle(), setTextStyle(), getTextStyle():
+      - Typography/TextStyle
+    textWidth():
+      - Typography/TextWidth
+    textAscent():
+      - Typography/TextAscent
+    textDescent():
+      - Typography/TextDescent
+    textWrap(), setTextWrap():
+      - Typography/TextWrap0
+      - Typography/TextWrap1
+      - Typography/TextWrap2
+      - Typography/TextWrap3
+    loadFont(), loadFontWithCallbacks():
+      - Typography/LoadFont0
+      - Typography/LoadFont1
+      - Typography/LoadFont2
+    text(), textBounded():
+      - Typography/Text0
+      - Typography/Text1
+      - Typography/Text2
+    textFont(), setTextFont(), setTextFontByName(), setTextFontWithSize(), setTextFontByNameWithSize():
+      - Typography/TextFont0
+      - Typography/TextFont1
+    p5.Font/textBounds(), p5.Font/textBoundsWithSize(), p5.Font/textBoundsWithSizeAndAlign():
+      - Typography/P5FontTextBounds
+    p5.Font/textToPoints(), p5.Font/textToPointsWithOptions():
+      - Typography/P5FontTextToPoints
