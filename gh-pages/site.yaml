@@ -818,3 +818,14 @@ reference:
       - Typography/P5FontTextBounds
     p5.Font/textToPoints(), p5.Font/textToPointsWithOptions():
       - Typography/P5FontTextToPoints
+  3D:
+    orbitControl(), orbitControlWithSensitivity():
+      - ThreeD/OrbitControl
+    debugMode(), debugModeGrid(), debugModeAxes(), debugModeGridWithOptions(), debugModeAxesWithOptions(), debugModeAll():
+      - ThreeD/DebugMode0
+      - ThreeD/DebugMode1
+      - ThreeD/DebugMode2
+      - ThreeD/DebugMode3
+      - ThreeD/DebugMode4
+    noDebugMode():
+      - ThreeD/DebugMode0

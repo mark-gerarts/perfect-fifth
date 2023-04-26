@@ -610,7 +610,6 @@ let runSketch name canvasSelector =
     | "ThreeD/DebugMode2" -> ThreeD.DebugMode2.run node
     | "ThreeD/DebugMode3" -> ThreeD.DebugMode3.run node
     | "ThreeD/DebugMode4" -> ThreeD.DebugMode4.run node
-    | "ThreeD/NoDebugMode" -> ThreeD.NoDebugMode.run node
     | "ThreeD/AmbientLight0" -> ThreeD.AmbientLight0.run node
     | "ThreeD/AmbientLight1" -> ThreeD.AmbientLight1.run node
     | "ThreeD/SpecularColor" -> ThreeD.SpecularColor.run node
