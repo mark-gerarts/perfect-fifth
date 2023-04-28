@@ -829,3 +829,16 @@ reference:
       - ThreeD/DebugMode4
     noDebugMode():
       - ThreeD/DebugMode0
+    ambientLight():
+      - ThreeD/AmbientLight0
+      - ThreeD/AmbientLight1
+    specularColor():
+      - ThreeD/SpecularColor
+    directionalLight(), directionalLightFromVector():
+      - ThreeD/DirectionalLight
+    pointLight(), pointLightFromVector():
+      - ThreeD/PointLight
+    lights():
+      - ThreeD/Lights
+    lightFalloff():
+      - ThreeD/LightFalloff

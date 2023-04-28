@@ -27,28 +27,42 @@ module ThreeD =
     [<Emit("$0.normalMaterial()")>]
     let normalMaterial (p5: P5) : Unit = jsNative
 
-    [<Emit("$0.directionalLight($1, $2, $3, $4)")>]
-    let private directionalLight_ (p5: P5) (color: P5Color) (x: float) (y: float) (z: float) : Unit = jsNative
+    let ambientLight (p5: P5) = emitColorFunction p5 "ambientLight"
 
-    /// TODO: other variants
+    let specularColor (p5: P5) = emitColorFunction p5 "specularColor"
+
+    [<Emit("$0.lights($1)")>]
+    let lights (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.lightFalloff($1, $2, $3)")>]
+    let lightFalloff (p5: P5) (constant: float) (linear: float) (quadratic: float) : Unit = jsNative
+
+    [<Emit("$0.shininess($1)")>]
+    let shininess (p5: P5) (shininess: float) : Unit = jsNative
+
     let directionalLight (p5: P5) (c: Color) (x: float) (y: float) (z: float) : Unit =
-        directionalLight_ p5 (ensureP5Color p5 c) x y z
+        emitJsExpr (p5, ensureP5Color p5 c, x, y, z) "$0.directionalLight($1, $2, $3, $4)"
 
-    [<Emit("$0.pointLight($1, $2, $3, $4)")>]
-    let private pointLight_ (p5: P5) (color: P5Color) (x: float) (y: float) (z: float) : Unit = jsNative
+    let directionalLightFromVector (p5: P5) (c: Color) (v: P5Vector) : Unit =
+        emitJsExpr (p5, ensureP5Color p5 c, v) "$0.directionalLight($1, $2)"
 
-    /// TODO: other variants
     let pointLight (p5: P5) (c: Color) (x: float) (y: float) (z: float) : Unit =
-        pointLight_ p5 (ensureP5Color p5 c) x y z
-
-    [<Emit("$0.pointLight($1, $2)")>]
-    let private pointLightFromVector_ (p5: P5) (color: P5Color) (v: P5Vector) : Unit = jsNative
+        emitJsExpr (p5, ensureP5Color p5 c, x, y, z) "$0.pointLight($1, $2, $3, $4)"
 
     let pointLightFromVector (p5: P5) (c: Color) (v: P5Vector) : Unit =
-        pointLightFromVector_ p5 (ensureP5Color p5 c) v
+        emitJsExpr (p5, ensureP5Color p5 c, v) "$0.pointLight($1, $2)"
 
     let specularMaterial (p5: P5) (c: Color) =
         emitColorFunction p5 "specularMaterial" c
+
+    let ambientMaterial (p5: P5) = emitColorFunction p5 "ambientMaterial"
+
+    [<Emit("$0.ortho($1, $2, $3, $4, $5, $6)")>]
+    let ortho (p5: P5) (left: float) (right: float) (bottom: float) (top: float) (near: float) (far: float) : Unit =
+        jsNative
+
+    [<Emit("$0.ortho()")>]
+    let orthoWithDefaults (p5: P5) = jsNative
 
     [<Emit("$0.debugMode()")>]
     let debugMode (p5: P5) : Unit = jsNative
