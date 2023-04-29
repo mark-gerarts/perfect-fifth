@@ -842,3 +842,18 @@ reference:
       - ThreeD/Lights
     lightFalloff():
       - ThreeD/LightFalloff
+    spotLight(), spotLightWithOptions():
+      - ThreeD/SpotLight
+    noLights():
+      - ThreeD/NoLights
+    loadShader(), loadShaderWithCallbacks():
+      - ThreeD/LoadShader
+    shader():
+      - ThreeD/Shader
+    resetShader():
+      - TheeD/ResetShader
+    texture():
+      - ThreeD/Texture0
+      - ThreeD/Texture1
+      - ThreeD/Texture2
+      - ThreeD/Texture3

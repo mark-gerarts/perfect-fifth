@@ -52,6 +52,26 @@ module ThreeD =
     let pointLightFromVector (p5: P5) (c: Color) (v: P5Vector) : Unit =
         emitJsExpr (p5, ensureP5Color p5 c, v) "$0.pointLight($1, $2)"
 
+    /// It would be a bit ridiculous to implement all different variations, so
+    /// only color + vector it is.
+    let spotLight (p5: P5) (color: Color) (position: P5Vector) (direction: P5Vector) : Unit =
+        emitJsExpr (p5, ensureP5Color p5 color, position, direction) "$0.spotLight($1, $2, $3)"
+
+    let spotLightWithOptions
+        (p5: P5)
+        (color: Color)
+        (position: P5Vector)
+        (direction: P5Vector)
+        (angle: float)
+        (concentration: float)
+        : Unit =
+        emitJsExpr
+            (p5, ensureP5Color p5 color, position, direction, angle, concentration)
+            "$0.spotLight($1, $2, $3, $4, $5)"
+
+    [<Emit("$0.noLights()")>]
+    let noLights (p5: P5) : Unit = jsNative
+
     let specularMaterial (p5: P5) (c: Color) =
         emitColorFunction p5 "specularMaterial" c
 
@@ -139,3 +159,52 @@ module ThreeD =
         (upZ: float)
         : Unit =
         jsNative
+
+    type P5Shader =
+        member self.setUniform (name: string) (data: obj) : Unit =
+            emitJsExpr (self, name, data) "$0.setUniform($1, $2)"
+
+    [<Emit("$0.loadShader($1, $2)")>]
+    let loadShader (p5: P5) (verFilename: string) (fragFilename: string) : P5Shader = jsNative
+
+    [<Emit("$0.loadShader($1, $2, $3, $4)")>]
+    let loadShaderWithCallbacks
+        (p5: P5)
+        (verFilename: string)
+        (fragFilename: string)
+        (onSuccess: P5Shader -> Unit)
+        (onError: P5Shader -> Unit)
+        : P5Shader =
+        jsNative
+
+    [<Emit("$0.createShader($1, $2)")>]
+    let createShader (p5: P5) (vertSrc: string) (fragSrc: string) : P5Shader = jsNative
+
+    [<Emit("$0.shader($1)")>]
+    let shader (p5: P5) (shader: P5Shader) : Unit = jsNative
+
+    let setShader = shader
+
+    [<Emit("$0.resetShader()")>]
+    let resetShader (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.texture($1)")>]
+    let texture (p5: P5) (texture: IImage) : Unit = jsNative
+
+    let setTexture = texture
+
+    type TextureMode =
+        | Image
+        | Normal
+
+    let textureMode (p5: P5) (mode: TextureMode) : Unit =
+        let p5' = unbox<obj> p5
+
+        let rawMode =
+            match mode with
+            | Image -> p5'?("IMAGE")
+            | Normal -> p5'?("NORMAL")
+
+        emitJsExpr (p5, rawMode) "$0.textureMode($1)"
+
+    let setTextureMode = textureMode

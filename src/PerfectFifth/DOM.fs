@@ -84,6 +84,16 @@ module DOM =
         [<Emit("$0.remove()")>]
         member _.remove() : Unit = jsNative
 
+        [<Emit("$0.hide()")>]
+        member _.hide() : Unit = jsNative
+
+    type P5MediaElement() =
+        inherit P5Element<Unit>()
+        interface IImage
+
+        [<Emit("$0.loop()")>]
+        member _.loop() : Unit = jsNative
+
     [<Emit("$0.createDiv($1)")>]
     let createDiv (p5: P5) (innerHTML: string) : P5Element<Unit> = jsNative
 
@@ -106,3 +116,7 @@ module DOM =
 
     [<Emit("$0.createCheckbox($1, $2)")>]
     let createCheckboxWithLabelAndValue (p5: P5) (label: string) (value: bool) : P5Element<bool> = jsNative
+
+    /// TODO: with callback
+    [<Emit("$0.createVideo($1)")>]
+    let createVideo (p5: P5) (src: string) : P5MediaElement = jsNative
