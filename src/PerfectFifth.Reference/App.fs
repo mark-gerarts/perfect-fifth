@@ -637,7 +637,6 @@ let runSketch name canvasSelector =
     | "ThreeD/EmissiveMaterial" -> ThreeD.EmissiveMaterial.run node
     | "ThreeD/SpecularMaterial" -> ThreeD.SpecularMaterial.run node
     | "ThreeD/Shininess" -> ThreeD.Shininess.run node
-    | "ThreeD/P5ShaderSetUniform" -> ThreeD.P5ShaderSetUniform.run node
     | "ThreeD/Camera0" -> ThreeD.Camera0.run node
     | "ThreeD/Camera1" -> ThreeD.Camera1.run node
     | "ThreeD/Perspective" -> ThreeD.Perspective.run node

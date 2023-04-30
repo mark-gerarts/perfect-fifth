@@ -633,7 +633,6 @@
     <Compile Include="ThreeD\EmissiveMaterial.fs" />
     <Compile Include="ThreeD\SpecularMaterial.fs" />
     <Compile Include="ThreeD\Shininess.fs" />
-    <Compile Include="ThreeD\P5ShaderSetUniform.fs" />
     <Compile Include="ThreeD\Camera0.fs" />
     <Compile Include="ThreeD\Camera1.fs" />
     <Compile Include="ThreeD\Perspective.fs" />

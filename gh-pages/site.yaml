@@ -857,3 +857,22 @@ reference:
       - ThreeD/Texture1
       - ThreeD/Texture2
       - ThreeD/Texture3
+    textureMode(), setTextureMode():
+      - ThreeD/TextureMode0
+      - ThreeD/TextureMode1
+    textureWrap(), textureWrapXY(), setTextureWrap(), setTextureWrapXY():
+      - ThreeD/TextureWrap
+    normalMaterial():
+      - ThreeD/NormalMaterial
+    ambientMaterial():
+      - ThreeD/AmbientMaterial0
+      - ThreeD/AmbientMaterial1
+      - ThreeD/AmbientMaterial2
+    emissiveMaterial():
+      - ThreeD/EmissiveMaterial
+    specularMaterial():
+      - ThreeD/SpecularMaterial
+    shininess():
+      - ThreeD/Shininess
+    p5.Shader/setUniform():
+      - ThreeD/Shader

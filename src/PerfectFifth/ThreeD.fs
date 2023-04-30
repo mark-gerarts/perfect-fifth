@@ -27,6 +27,12 @@ module ThreeD =
     [<Emit("$0.normalMaterial()")>]
     let normalMaterial (p5: P5) : Unit = jsNative
 
+    let specularMaterial (p5: P5) = emitColorFunction p5 "specularMaterial"
+
+    let emissiveMaterial (p5: P5) = emitColorFunction p5 "emissiveMaterial"
+
+    let ambientMaterial (p5: P5) = emitColorFunction p5 "ambientMaterial"
+
     let ambientLight (p5: P5) = emitColorFunction p5 "ambientLight"
 
     let specularColor (p5: P5) = emitColorFunction p5 "specularColor"
@@ -71,11 +77,6 @@ module ThreeD =
 
     [<Emit("$0.noLights()")>]
     let noLights (p5: P5) : Unit = jsNative
-
-    let specularMaterial (p5: P5) (c: Color) =
-        emitColorFunction p5 "specularMaterial" c
-
-    let ambientMaterial (p5: P5) = emitColorFunction p5 "ambientMaterial"
 
     [<Emit("$0.ortho($1, $2, $3, $4, $5, $6)")>]
     let ortho (p5: P5) (left: float) (right: float) (bottom: float) (top: float) (near: float) (far: float) : Unit =
@@ -161,6 +162,16 @@ module ThreeD =
         jsNative
 
     type P5Shader =
+
+        [<Emit("$0.renderer")>]
+        member _.renderer: obj = jsNative
+
+        [<Emit("$0.vertSrc")>]
+        member _.vertSrc: string = jsNative
+
+        [<Emit("$0.fragSrc")>]
+        member _.fragSrc: string = jsNative
+
         member self.setUniform (name: string) (data: obj) : Unit =
             emitJsExpr (self, name, data) "$0.setUniform($1, $2)"
 
@@ -208,3 +219,26 @@ module ThreeD =
         emitJsExpr (p5, rawMode) "$0.textureMode($1)"
 
     let setTextureMode = textureMode
+
+    type TextureWrap =
+        | Clamp
+        | Repeat
+        | Mirror
+
+    let private rawTextureWrap (p5: P5) (wrap: TextureWrap) : string =
+        let p5' = unbox<obj> p5
+
+        match wrap with
+        | Clamp -> p5'?("CLAMP")
+        | Repeat -> p5'?("REPEAT")
+        | Mirror -> p5'?("MIRROR")
+
+    let textureWrap (p5: P5) (wrap: TextureWrap) : Unit =
+        emitJsExpr (p5, rawTextureWrap p5 wrap) "$0.textureWrap($1)"
+
+    let setTextureWrap = textureWrap
+
+    let textureWrapXY (p5: P5) (wrapX: TextureWrap) (wrapY: TextureWrap) : Unit =
+        emitJsExpr (p5, rawTextureWrap p5 wrapX, rawTextureWrap p5 wrapY) "$0.textureWrap($1, $2)"
+
+    let setTextureWrapXY = textureWrapXY
