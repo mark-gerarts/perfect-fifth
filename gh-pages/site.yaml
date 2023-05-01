@@ -851,7 +851,7 @@ reference:
     shader():
       - ThreeD/Shader
     resetShader():
-      - TheeD/ResetShader
+      - ThreeD/ResetShader
     texture():
       - ThreeD/Texture0
       - ThreeD/Texture1
