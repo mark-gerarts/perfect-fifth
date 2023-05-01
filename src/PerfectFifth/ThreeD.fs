@@ -9,14 +9,114 @@ module ThreeD =
     open Math
 
     type P5Camera =
+        [<Emit("$0.eyeX")>]
+        member _.eyeX: float = jsNative
+
+        [<Emit("$0.eyeY")>]
+        member _.eyeY: float = jsNative
+
+        [<Emit("$0.eyeZ")>]
+        member _.eyeZ: float = jsNative
+
+        [<Emit("$0.centerX")>]
+        member _.centerX: float = jsNative
+
+        [<Emit("$0.centerY")>]
+        member _.centerY: float = jsNative
+
+        [<Emit("$0.centerZ")>]
+        member _.centerZ: float = jsNative
+
+        [<Emit("$0.upX")>]
+        member _.upX: float = jsNative
+
+        [<Emit("$0.upY")>]
+        member _.upY: float = jsNative
+
+        [<Emit("$0.upZ")>]
+        member _.upZ: float = jsNative
+
         [<Emit("$0.pan($1)")>]
         member _.pan(angle: float) : Unit = jsNative
 
         [<Emit("$0.tilt($1)")>]
         member _.tilt(angle: float) : Unit = jsNative
 
+        [<Emit("$0.lookAt($1, $2, $3)")>]
+        member _.lookAt (x: float) (y: float) (z: float) : Unit = jsNative
+
+        [<Emit("$0.move($1, $2, $3)")>]
+        member _.move (x: float) (y: float) (z: float) : Unit = jsNative
+
+        [<Emit("$0.setPosition($1, $2, $3)")>]
+        member _.setPosition (x: float) (y: float) (z: float) : Unit = jsNative
+
+        [<Emit("$0.perspective($1, $2, $3, $4)")>]
+        member _.perspective(?fovy: float, ?aspect: float, ?near: float, ?far: float) : Unit = jsNative
+
+        [<Emit("$0.ortho($1, $2, $3, $4, $5, $6)")>]
+        member _.ortho(?left: float, ?right: float, ?bottom: float, ?top: float, ?near: float, ?far: float) : Unit =
+            jsNative
+
+        [<Emit("$0.frustum($1, $2, $3, $4, $5, $6)")>]
+        member _.frustum(?left: float, ?right: float, ?bottom: float, ?top: float, ?near: float, ?far: float) : Unit =
+            jsNative
+
+        [<Emit("$0.camera($1, $2, $3, $4, $5, $6, $7, $8, $9)")>]
+        member _.camera
+            (
+                ?x: float,
+                ?y: float,
+                ?z: float,
+                ?centerX: float,
+                ?centerY: float,
+                ?centerZ: float,
+                ?upX: float,
+                ?upY: float,
+                ?upZ: float
+            ) : Unit =
+            jsNative
+
     [<Emit("$0.createCamera()")>]
     let createCamera (p5: P5) : P5Camera = jsNative
+
+    [<Emit("$0.setCamera($1)")>]
+    let setCamera (p5: P5) (camera: P5Camera) : Unit = jsNative
+
+    [<Emit("$0.camera($1, $2, $3, $4, $5, $6, $7, $8, $9)")>]
+    let camera
+        (p5: P5)
+        (x: float)
+        (y: float)
+        (z: float)
+        (centerX: float)
+        (centerY: float)
+        (centerZ: float)
+        (upX: float)
+        (upY: float)
+        (upZ: float)
+        : Unit =
+        jsNative
+
+    [<Emit("$0.perspective($1, $2, $3, $4)")>]
+    let perspective (p5: P5) (fovy: float) (aspect: float) (near: float) (far: float) : Unit = jsNative
+
+    [<Emit("$0.perspective()")>]
+    let perspectiveWithDefaults (p5: P5) : Unit = jsNative
+
+    [<Emit("$0.ortho($1, $2, $3, $4, $5, $6)")>]
+    let ortho (p5: P5) (left: float) (right: float) (bottom: float) (top: float) (near: float) (far: float) : Unit =
+        jsNative
+
+    [<Emit("$0.ortho()")>]
+    let orthoWithDefaults (p5: P5) = jsNative
+
+    [<Emit("$0.frustum($1, $2, $3, $4, $5, $6)")>]
+    let frustum (p5: P5) (left: float) (right: float) (bottom: float) (top: float) (near: float) (far: float) : Unit =
+        jsNative
+
+    [<Emit("$0.frustum()")>]
+    let frustumWithDefaults (p5: P5) : Unit = jsNative
 
     [<Emit("$0.orbitControl()")>]
     let orbitControl (p5: P5) : Unit = jsNative
@@ -78,13 +178,6 @@ module ThreeD =
     [<Emit("$0.noLights()")>]
     let noLights (p5: P5) : Unit = jsNative
 
-    [<Emit("$0.ortho($1, $2, $3, $4, $5, $6)")>]
-    let ortho (p5: P5) (left: float) (right: float) (bottom: float) (top: float) (near: float) (far: float) : Unit =
-        jsNative
-
-    [<Emit("$0.ortho()")>]
-    let orthoWithDefaults (p5: P5) = jsNative
-
     [<Emit("$0.debugMode()")>]
     let debugMode (p5: P5) : Unit = jsNative
 
@@ -145,21 +238,6 @@ module ThreeD =
 
     [<Emit("$0.noDebugMode($1)")>]
     let noDebugMode (p5: P5) : Unit = jsNative
-
-    [<Emit("$0.camera($1, $2, $3, $4, $5, $6, $7, $8, $9)")>]
-    let camera
-        (p5: P5)
-        (x: float)
-        (y: float)
-        (z: float)
-        (centerX: float)
-        (centerY: float)
-        (centerZ: float)
-        (upX: float)
-        (upY: float)
-        (upZ: float)
-        : Unit =
-        jsNative
 
     type P5Shader =
 

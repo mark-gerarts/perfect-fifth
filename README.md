@@ -6,8 +6,8 @@ Perfect Fifth is a Processing-like creative coding environment for F#. It is a
 thin wrapper around [p5js](https://p5js.org), with some extra functional sugar
 on top.
 
-⚠️ This is a work in progress. A lot of the p5js functions are not implemented
-yet. To check the current progress, take a look at the [reference
+⚠️ This is a work in progress. Some p5js functions are not implemented yet. To
+check the current progress, take a look at the [reference
 page](https://mark-gerarts.github.io/perfect-fifth/reference.html).
 
 ## Installation

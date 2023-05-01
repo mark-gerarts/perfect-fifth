@@ -876,3 +876,35 @@ reference:
       - ThreeD/Shininess
     p5.Shader/setUniform():
       - ThreeD/Shader
+    camera():
+      - ThreeD/Camera0
+      - ThreeD/Camera1
+    perspective(), perspectiveWithDefaults():
+      - ThreeD/Perspective
+    ortho(), orthoWithDefaults():
+      - ThreeD/Ortho
+    frustum(), frustumWithDefaults():
+      - ThreeD/Frustum
+    createCamera():
+      - ThreeD/CreateCamera
+    setCamera():
+      - ThreeD/SetCamera
+    p5.Camera/perspective():
+      - ThreeD/P5CameraPerspective
+    p5.Camera/ortho():
+      - ThreeD/P5CameraOrtho
+    p5.Camera/frustum():
+      - ThreeD/P5CameraFrustum
+    p5.Camera/pan():
+      - ThreeD/P5CameraPan
+    p5.Camera/tilt():
+      - ThreeD/P5CameraTilt
+    p5.Camera/lookAt():
+      - ThreeD/P5CameraLookAt
+    p5.Camera/camera():
+      - ThreeD/P5CameraCamera0
+      - ThreeD/P5CameraCamera1
+    p5.Camera/move():
+      - ThreeD/P5CameraMove
+    p5.Camera/setPosition():
+      - ThreeD/P5CameraSetPosition
