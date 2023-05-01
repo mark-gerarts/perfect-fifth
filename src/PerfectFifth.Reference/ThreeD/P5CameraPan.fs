@@ -4,10 +4,45 @@ open P5.Core
 open P5.Color
 open P5.Environment
 open P5.Shape
+open P5.Rendering
+open P5.ThreeD
+open P5.Transform
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let setup p5 =
+    createWebGLCanvas p5 100 100
+    normalMaterial p5
+    let cam = createCamera p5
+    cam.pan (-0.8)
 
-let run node = display node draw
+    (cam, 0.01)
+
+let update p5 (cam, delta) =
+    let newDelta =
+        match (frameCount p5) % 160 with
+        | 0 -> delta * -1.0
+        | _ -> delta
+
+    (cam, newDelta)
+
+let draw p5 (cam: P5Camera, delta) =
+    background p5 (Grayscale 200)
+    cam.pan (delta)
+
+    let frameCount = frameCount p5 |> float
+    rotateX p5 (frameCount * 0.01)
+    translate3D p5 -100 0 0
+    cube p5 20
+    translate3D p5 35 0 0
+    cube p5 20
+    translate3D p5 35 0 0
+    cube p5 20
+    translate3D p5 35 0 0
+    cube p5 20
+    translate3D p5 35 0 0
+    cube p5 20
+    translate3D p5 35 0 0
+    cube p5 20
+    translate3D p5 35 0 0
+    cube p5 20
+
+let run node = simulate node setup update draw

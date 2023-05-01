@@ -2,12 +2,18 @@ module P5Reference.ThreeD.AmbientLight0
 
 open P5.Core
 open P5.Color
-open P5.Environment
 open P5.Shape
+open P5.Rendering
+open P5.ThreeD
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let setup p5 =
+    createWebGLCanvas p5 100 100
+    noStroke p5
 
-let run node = display node draw
+let draw p5 _ =
+    background p5 (Grayscale 100)
+    ambientLight p5 (Grayscale 0)
+    ambientMaterial p5 (RGB(255, 127, 80)) // coral material
+    sphere p5 40
+
+let run node = animate node setup draw

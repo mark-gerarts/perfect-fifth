@@ -606,7 +606,6 @@
     <Compile Include="ThreeD\DebugMode2.fs" />
     <Compile Include="ThreeD\DebugMode3.fs" />
     <Compile Include="ThreeD\DebugMode4.fs" />
-    <Compile Include="ThreeD\NoDebugMode.fs" />
     <Compile Include="ThreeD\AmbientLight0.fs" />
     <Compile Include="ThreeD\AmbientLight1.fs" />
     <Compile Include="ThreeD\SpecularColor.fs" />
@@ -634,7 +633,6 @@
     <Compile Include="ThreeD\EmissiveMaterial.fs" />
     <Compile Include="ThreeD\SpecularMaterial.fs" />
     <Compile Include="ThreeD\Shininess.fs" />
-    <Compile Include="ThreeD\P5ShaderSetUniform.fs" />
     <Compile Include="ThreeD\Camera0.fs" />
     <Compile Include="ThreeD\Camera1.fs" />
     <Compile Include="ThreeD\Perspective.fs" />

@@ -4,10 +4,30 @@ open P5.Core
 open P5.Color
 open P5.Environment
 open P5.Shape
+open P5.DOM
+open P5.Rendering
+open P5.ThreeD
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let preload p5 =
+    let vid = createVideo p5 "assets/fingers.mov"
+    vid.hide ()
+    vid
 
-let run node = display node draw
+let setup p5 vid =
+    console.log vid
+    createWebGLCanvas p5 100 100
+    vid
+
+let draw p5 (vid: P5MediaElement) =
+    background p5 (Grayscale 0)
+    texture p5 vid
+    square p5 -40 -40 80
+
+let onMousePressed _ _ (vid: P5MediaElement) =
+    vid.loop ()
+    vid
+
+let subscriptions = [ OnMousePressed(Update onMousePressed) ]
+
+let run node =
+    playWithPreload node preload setup noUpdate draw subscriptions

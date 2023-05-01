@@ -818,3 +818,93 @@ reference:
       - Typography/P5FontTextBounds
     p5.Font/textToPoints(), p5.Font/textToPointsWithOptions():
       - Typography/P5FontTextToPoints
+  3D:
+    orbitControl(), orbitControlWithSensitivity():
+      - ThreeD/OrbitControl
+    debugMode(), debugModeGrid(), debugModeAxes(), debugModeGridWithOptions(), debugModeAxesWithOptions(), debugModeAll():
+      - ThreeD/DebugMode0
+      - ThreeD/DebugMode1
+      - ThreeD/DebugMode2
+      - ThreeD/DebugMode3
+      - ThreeD/DebugMode4
+    noDebugMode():
+      - ThreeD/DebugMode0
+    ambientLight():
+      - ThreeD/AmbientLight0
+      - ThreeD/AmbientLight1
+    specularColor():
+      - ThreeD/SpecularColor
+    directionalLight(), directionalLightFromVector():
+      - ThreeD/DirectionalLight
+    pointLight(), pointLightFromVector():
+      - ThreeD/PointLight
+    lights():
+      - ThreeD/Lights
+    lightFalloff():
+      - ThreeD/LightFalloff
+    spotLight(), spotLightWithOptions():
+      - ThreeD/SpotLight
+    noLights():
+      - ThreeD/NoLights
+    loadShader(), loadShaderWithCallbacks():
+      - ThreeD/LoadShader
+    shader():
+      - ThreeD/Shader
+    resetShader():
+      - ThreeD/ResetShader
+    texture():
+      - ThreeD/Texture0
+      - ThreeD/Texture1
+      - ThreeD/Texture2
+      - ThreeD/Texture3
+    textureMode(), setTextureMode():
+      - ThreeD/TextureMode0
+      - ThreeD/TextureMode1
+    textureWrap(), textureWrapXY(), setTextureWrap(), setTextureWrapXY():
+      - ThreeD/TextureWrap
+    normalMaterial():
+      - ThreeD/NormalMaterial
+    ambientMaterial():
+      - ThreeD/AmbientMaterial0
+      - ThreeD/AmbientMaterial1
+      - ThreeD/AmbientMaterial2
+    emissiveMaterial():
+      - ThreeD/EmissiveMaterial
+    specularMaterial():
+      - ThreeD/SpecularMaterial
+    shininess():
+      - ThreeD/Shininess
+    p5.Shader/setUniform():
+      - ThreeD/Shader
+    camera():
+      - ThreeD/Camera0
+      - ThreeD/Camera1
+    perspective(), perspectiveWithDefaults():
+      - ThreeD/Perspective
+    ortho(), orthoWithDefaults():
+      - ThreeD/Ortho
+    frustum(), frustumWithDefaults():
+      - ThreeD/Frustum
+    createCamera():
+      - ThreeD/CreateCamera
+    setCamera():
+      - ThreeD/SetCamera
+    p5.Camera/perspective():
+      - ThreeD/P5CameraPerspective
+    p5.Camera/ortho():
+      - ThreeD/P5CameraOrtho
+    p5.Camera/frustum():
+      - ThreeD/P5CameraFrustum
+    p5.Camera/pan():
+      - ThreeD/P5CameraPan
+    p5.Camera/tilt():
+      - ThreeD/P5CameraTilt
+    p5.Camera/lookAt():
+      - ThreeD/P5CameraLookAt
+    p5.Camera/camera():
+      - ThreeD/P5CameraCamera0
+      - ThreeD/P5CameraCamera1
+    p5.Camera/move():
+      - ThreeD/P5CameraMove
+    p5.Camera/setPosition():
+      - ThreeD/P5CameraSetPosition

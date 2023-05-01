@@ -610,7 +610,6 @@ let runSketch name canvasSelector =
     | "ThreeD/DebugMode2" -> ThreeD.DebugMode2.run node
     | "ThreeD/DebugMode3" -> ThreeD.DebugMode3.run node
     | "ThreeD/DebugMode4" -> ThreeD.DebugMode4.run node
-    | "ThreeD/NoDebugMode" -> ThreeD.NoDebugMode.run node
     | "ThreeD/AmbientLight0" -> ThreeD.AmbientLight0.run node
     | "ThreeD/AmbientLight1" -> ThreeD.AmbientLight1.run node
     | "ThreeD/SpecularColor" -> ThreeD.SpecularColor.run node
@@ -638,7 +637,6 @@ let runSketch name canvasSelector =
     | "ThreeD/EmissiveMaterial" -> ThreeD.EmissiveMaterial.run node
     | "ThreeD/SpecularMaterial" -> ThreeD.SpecularMaterial.run node
     | "ThreeD/Shininess" -> ThreeD.Shininess.run node
-    | "ThreeD/P5ShaderSetUniform" -> ThreeD.P5ShaderSetUniform.run node
     | "ThreeD/Camera0" -> ThreeD.Camera0.run node
     | "ThreeD/Camera1" -> ThreeD.Camera1.run node
     | "ThreeD/Perspective" -> ThreeD.Perspective.run node
