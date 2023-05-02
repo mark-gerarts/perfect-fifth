@@ -185,7 +185,6 @@ module Image =
         [<Emit("$0.delay($1, $2)")>]
         member _.delayAtIndex (ms: float) (index: int) : Unit = jsNative
 
-    /// TODO: image accepts other values as well; also width and height.
     [<Emit("$0.image($1, $2, $3)")>]
     let image (p5: P5) (image: IImage) (x: float) (y: float) : Unit = jsNative
 

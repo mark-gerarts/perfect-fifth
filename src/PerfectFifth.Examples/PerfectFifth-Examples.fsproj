@@ -3,6 +3,8 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Structure\Animate.fs" />
+    <Compile Include="Structure\Simulate.fs" />
     <Compile Include="Structure\Coordinates.fs" />
     <Compile Include="Structure\WidthAndHeight.fs" />
     <Compile Include="Structure\SetupAndDraw.fs" />
