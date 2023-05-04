@@ -14,6 +14,7 @@
     <Compile Include="Structure\Functions.fs" />
     <Compile Include="Structure\Recursion.fs" />
     <Compile Include="Structure\CreateGraphics.fs" />
+    <Compile Include="Simulate\Flocking.fs" />
     <Compile Include="Form\PointsAndLines.fs" />
     <Compile Include="Form\ShapePrimitives.fs" />
     <Compile Include="Form\PieChart.fs" />

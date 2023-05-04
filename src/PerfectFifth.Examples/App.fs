@@ -19,6 +19,7 @@ let runSketch name =
     | "Structure/Functions" -> Structure.Functions.run node
     | "Structure/Recursion" -> Structure.Recursion.run node
     | "Structure/CreateGraphics" -> Structure.CreateGraphics.run node
+    | "Simulate/Flocking" -> Simulate.Flocking.run node
     | "Form/PointsAndLines" -> Form.PointsAndLines.run node
     | "Form/ShapePrimitives" -> Form.ShapePrimitives.run node
     | "Form/PieChart" -> Form.PieChart.run node

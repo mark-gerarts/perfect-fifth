@@ -55,14 +55,17 @@ module Math =
         [<Emit("$0.Vector.random3D()")>]
         static member random3D() : P5Vector = jsNative
 
-        [<Emit("$0.x")>]
-        member _.x: float = jsNative
+        member self.x
+            with get (): float = emitJsExpr (self) "$0.x"
+            and set (x: float) = emitJsExpr (self, x) "$0.x = $1"
 
-        [<Emit("$0.y")>]
-        member _.y: float = jsNative
+        member self.y
+            with get (): float = emitJsExpr (self) "$0.y"
+            and set (y: float) = emitJsExpr (self, y) "$0.y = $1"
 
-        [<Emit("$0.z")>]
-        member _.z: float = jsNative
+        member self.z
+            with get (): float = emitJsExpr (self) "$0.z"
+            and set (z: float) = emitJsExpr (self, z) "$0.z = $1"
 
         [<Emit("$0.set($1, $2, $3)")>]
         member _.set(?x: float, ?y: float, ?z: float) : Unit = jsNative

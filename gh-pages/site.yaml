@@ -10,6 +10,9 @@ examples:
     Structure/Recursion: Recursion
     Structure/CreateGraphics: Create Graphics
 
+  Simulate:
+    Simulate/Flocking: Flocking
+
   Form:
     Form/PointsAndLines: Points and Lines
     Form/ShapePrimitives: Shape Primitives

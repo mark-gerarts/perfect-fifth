@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="fable.ico" />
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-    <link rel="stylesheet" href="assets/style.css" >
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body>
@@ -54,6 +54,19 @@
             ⚠️ The library is still in alpha, meaning some functions are still
             missing.
         </p>
+
+        <div class="canvas-wrapper" style="height: 360px;"></div>
+        <p>
+            <em>
+                This sketch is adapted from the p5js <a href="https://p5js.org/examples/simulate-flocking.html">
+                    Flocking example</a>. Drag your mouse to add more boids.
+            </em>
+        </p>
+
+        <script src="./bundle.js"></script>
+        <script>
+            PerfectFifth.runExample('Simulate/Flocking')
+        </script>
     </main>
 </body>
 
