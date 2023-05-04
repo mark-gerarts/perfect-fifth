@@ -1,0 +1,9 @@
+main {
+    position: relative;
+}
+
+.bg-note {
+    position: absolute;
+    left: -300px;
+    width: 100px;
+}
