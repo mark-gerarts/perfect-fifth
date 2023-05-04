@@ -27,7 +27,6 @@ let update p5 state =
 let draw p5 state =
     background p5 (Grayscale 200)
 
-    // TODO: change this to a color class, like the p5js example.
     let color =
         match state.frameRate with
         | 10 -> RGB(0, 0, 255)

@@ -101,7 +101,6 @@ module Color =
     [<Emit("$0.colorMode($1)")>]
     let private colorMode_ (p5: P5) (colorMode: string) : Unit = jsNative
 
-    /// TODO: colorMode with specific max values (and alpha)
     let colorMode (p5: P5) (colorMode: ColorMode) : Unit = colorMode_ p5 (rawColorMode colorMode)
 
     [<Emit("$0.colorMode($1, $2)")>]

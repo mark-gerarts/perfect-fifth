@@ -39,10 +39,13 @@ site](https://mark-gerarts.github.io/perfect-fifth/examples.html).
 
 You can create a sketch in four different ways, depending on your use case:
 
-- Use `display` to render a single frame, without animation.
-- Use `animate` to create an animation that updates itself based on time.
-- Use `simulate` to create a stateful simulation.
-- Use `play` to create a simulation that also handles input events.
+- [`display`](#display) renders a single frame, without animation.
+- [`animate`](#animate) creates an animation that updates itself based on time.
+- [`simulate`](#simulate) creates a stateful simulation.
+- [`play`](#play) creates a simulation that also handles input events.
+
+These functions are a way to make life easier. If you want to use p5js directly,
+take a look at [this section](#using-p5js-directly).
 
 ### Display
 
@@ -118,7 +121,23 @@ let animate
   : Unit = ...
 ```
 
-TODO: add an example (p5.Vector/fromAngles maybe?).
+```fsharp
+open P5.Core
+open P5.Color
+open P5.Shape
+open P5.Rendering
+
+let setup p5 = createCanvas p5 100 100
+
+let draw p5 t =
+    background p5 (Grayscale 0)
+
+    // Grow between radius 50 and 100 based on time passed.
+    let size = 50 + ((t / 100) % 50)
+    circle p5 50 50 size
+
+animate NoNode setup draw
+```
 
 ### Simulate
 
@@ -140,7 +159,45 @@ let simulate
     : Unit = ...
 ```
 
-TODO: add an example.
+```fsharp
+open P5.Core
+open P5.Color
+open P5.Shape
+open P5.Rendering
+open P5.Math
+
+// The state can be anything. In this case it is a record,
+// but scalars, tuples, classes, etc. work as well.
+type State = { x: float; c: Color }
+
+let setup p5 =
+    createCanvas p5 100 100
+
+    // Setup must return some initial state.
+    { x = 0; c = (Grayscale 0) }
+
+// Update receives the current state and returns the new one.
+let update p5 state =
+    let newX =
+        match state.x + 1.0 with
+        | 100.0 -> 0.0
+        | x -> x
+
+    // Switch colors every 10 steps.
+    let newColor =
+        match newX % 10.0 with
+        | 0.0 -> RGB(randomBetween p5 0 255, randomBetween p5 0 255, randomBetween p5 0 255)
+        | _ -> state.c
+
+    { x = newX; c = newColor }
+
+let draw p5 state =
+    background p5 (Grayscale 0)
+    fill p5 state.c
+    square p5 state.x 50 20
+
+let run node = simulate node setup update draw
+```
 
 ### Play
 
@@ -252,21 +309,93 @@ If there are multiple subscriptions registered for the same event, the
 default event will be prevented if at least one of the subscriptions is wrapped
 in `PreventDefault`.
 
+### Using p5js Directly
+
+Perfect Fifth is built with p5js' [instanced
+mode](https://github.com/processing/p5.js/wiki/Global-and-instance-mode). If you
+want full control, you can create a sketch using this underlying technique
+directly.
+
+```fsharp
+let nodeElement = document.querySelector "some-selector"
+
+let p5Sketch =
+    // Inspired by https://github.com/aolney/fable-p5-demo
+    new Func<obj, unit>(fun boxedP5 ->
+        let p5 = unbox<P5> boxedP5
+
+        p5.setup <-
+            fun () -> resizeCanvas p5 200 200
+
+        p5.draw <-
+            fun () -> rect p5 10 10 10
+    )
+
+new P5(p5Sketch, nodeElement) |> ignore
+```
+
 ## Preloading
 
-TODO: explain noSetup/noUpdate
+If you need [preloading](https://p5js.org/reference/#/p5/preload), you can use
+`drawWithPreload`, `simulateWithPreload`, or `playWithPreload`. The way these
+work is as follows:
 
-TODO: explain preload alternatives.
+- The preload function returns some state
+- This state gets passed to `setup`, which returns some other initial state
+- `update` and `draw` work with this state
 
-TODO: Also, explain how to create a raw sketch, without animate/play/...
+```fsharp
+let simulateWithPreload
+    (node: Node)
+    (preload: P5 -> 'a)
+    (setup: P5 -> 'a -> 'b)
+    (update: P5 -> 'b -> 'b)
+    (draw: P5 -> 'b -> Unit) = ...
+```
 
-TODO: explain `createCanvasAndReturn` return type workarounds.
+For example:
+
+```fsharp
+open P5.Core
+open P5.Color
+open P5.Environment
+open P5.Shape
+open P5.Rendering
+open P5.Transform
+
+let preload p5 =
+    loadModel p5 "assets/octahedron.obj" false
+
+let setup p5 octahedron =
+    createWebGLCanvas p5 100 100
+    (octahedron, 0.0)
+
+let update p5 (octahedron, t) = (octahedron, t + 0.01)
+
+let draw p5 (octahedron, t) =
+    background p5 (Grayscale 200)
+    rotateX p5 t
+    rotateY p5 t
+    model p5 octahedron
+
+simulateWithPreload NoNode preload setup noUpdate draw
+```
 
 ## Remarks
 
-TODO: explain why p5 needs to be passed to everything.
+Some additional remarks, in no particular order.
 
-TODO: explain function naming scheme (e.g. point -> point2D, color, etc).
+- If you don't need a setup/update function, you can use the built-in functions
+  `noSetup` (does no setup and returns Unit) and `noUpdate` (similar to `id`).
+- The library is built using p5js in [instanced
+  mode](https://github.com/processing/p5.js/wiki/Global-and-instance-mode). This
+  is the reason why all functions require a p5 instance as an argument.
+- The function naming scheme tries to mimic p5js as much as possible. However,
+  p5js relies a lot on overloading, which is not possible in F#. Most overloads
+  have different names in Perfect Fifth. E.g. `point(x, y, [z])` in p5js becomes
+  `point2D p5 x y` and `point3D p5 x y z`. Check the
+  [reference](https://mark-gerarts.github.io/perfect-fifth/reference.html) for a
+  full overview.
 
 ## Tests
 

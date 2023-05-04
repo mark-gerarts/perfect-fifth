@@ -65,7 +65,6 @@ module Shape =
         : Unit =
         arc_ p5 x y w h start stop (rawArcMode mode) detail
 
-    /// TODO: point with vector
     [<Emit("$0.point($1, $2)")>]
     let point2D (p5: P5) (x: float) (y: float) : Unit = jsNative
 
