@@ -6,6 +6,8 @@ module DOM =
     open P5.Core
     open Browser.Types
 
+    open Fable.Core.JsInterop
+
     type PositionType =
         | Static
         | Fixed
@@ -25,7 +27,29 @@ module DOM =
         | Initial -> "initial"
         | Inherit -> "inherit"
 
-    type P5Element<'T>() =
+    type Selector<'T> =
+        | Id of string
+        | P5El of P5Element<'T>
+        | HTMLEl of HTMLElement
+
+    and P5Element<'T>() =
+        [<Emit("$0.elt")>]
+        member _.elt: HTMLElement = jsNative
+
+        [<Emit("$0.id()")>]
+        member _.getId() : string = jsNative
+
+        member self.id = self.getId
+
+        [<Emit("$0.id($1)")>]
+        member _.setId(id: string) : Unit = jsNative
+
+        [<Emit("$0.class()")>]
+        member _.getClass() : string = jsNative
+
+        [<Emit("$0.class($1)")>]
+        member _.setClass(clss: string) : Unit = jsNative
+
         [<Emit("$0.center()")>]
         member _.center() : Unit = jsNative
 
@@ -54,7 +78,15 @@ module DOM =
         member _.setValue(value: 'T) : Unit = jsNative
 
         [<Emit("$0.parent()")>]
-        member _.getParent() : P5Element<obj> = jsNative
+        member _.getParent() : P5Element<'U> = jsNative
+
+        member self.getParentBySelector(selector: Selector<'U>) : P5Element<'U> =
+            let jsExpr = "$0.parent($1)"
+
+            match selector with
+            | Id id -> emitJsExpr (self, id) jsExpr
+            | P5El el -> emitJsExpr (self, el) jsExpr
+            | HTMLEl el -> emitJsExpr (self, el) jsExpr
 
         [<Emit("$0.parent($1)")>]
         member _.setParentFromSelector(parent: string) : Unit = jsNative

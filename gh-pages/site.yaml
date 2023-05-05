@@ -332,8 +332,15 @@ reference:
     redraw():
       - Structure/Redraw0
       - Structure/Redraw1
-  # TODO: implement DOM functions last, since we want to focus on drawing.
   DOM:
+    p5.Element/elt:
+      - DOM/P5ElementElt
+    p5.Element/parent(), p5.Element/getParent(), p5.Element/getParentBySelector():
+      - DOM/P5ElementParent
+    p5.Element/id(), p5.Element/getId(), p5.Element/setId():
+      - DOM/P5ElementId
+    p5.Element/class(), p5.Element/getClass(), p5.Element/setClass():
+      - DOM/P5ElementClass
     createSlider(), createSliderWithOptions():
       - DOM/CreateSlider0
       - DOM/CreateSlider1
