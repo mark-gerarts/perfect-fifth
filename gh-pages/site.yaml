@@ -341,6 +341,12 @@ reference:
       - DOM/P5ElementId
     p5.Element/class(), p5.Element/getClass(), p5.Element/setClass():
       - DOM/P5ElementClass
+    p5.Element/mousePressed(), p5.Element/clearMousePressed():
+      - DOM/P5ElementMousePressed
+    p5.Element/doubleClicked(), p5.Element/clearDoubleClicked():
+      - DOM/P5ElementDoubleClicked
+    p5.Element/mouseWheel(), p5.Element/clearMouseWheel():
+      - DOM/P5ElementMouseWheel
     createSlider(), createSliderWithOptions():
       - DOM/CreateSlider0
       - DOM/CreateSlider1
@@ -762,7 +768,7 @@ reference:
       - Math/NoiseSeed
     randomSeed():
       - Math/RandomSeed
-    random(), randomBetween(), randomMax(), randomChoice():
+    random(), randomBetween(), randomInRange(), randomMax(), randomChoice():
       - Math/Random0
       - Math/Random1
       - Math/Random2

@@ -430,6 +430,8 @@ module Math =
     [<Emit("$0.random($1, $2)")>]
     let randomBetween (p5: P5) (min: float) (max: float) : float = jsNative
 
+    let randomInRange = randomBetween
+
     [<Emit("$0.random($1)")>]
     let randomMax (p5: P5) (max: float) : float = jsNative
 

@@ -33,6 +33,9 @@ module DOM =
         | HTMLEl of HTMLElement
 
     and P5Element<'T>() =
+        [<Emit("$0._pInst")>]
+        member private _.p5 = jsNative
+
         [<Emit("$0.elt")>]
         member _.elt: HTMLElement = jsNative
 
@@ -49,6 +52,24 @@ module DOM =
 
         [<Emit("$0.class($1)")>]
         member _.setClass(clss: string) : Unit = jsNative
+
+        member self.mousePressed(fn: P5 -> MouseEvent -> Unit) : Unit =
+            emitJsExpr (self, (fun (e: MouseEvent) -> fn self.p5 e)) "$0.mousePressed($1)"
+
+        [<Emit("$0.mousePressed(false)")>]
+        member _.clearMousePressed() = jsNative
+
+        member self.doubleClicked(fn: P5 -> MouseEvent -> Unit) : Unit =
+            emitJsExpr (self, (fun (e: MouseEvent) -> fn self.p5 e)) "$0.doubleClicked($1)"
+
+        [<Emit("$0.doubleClicked(false)")>]
+        member _.clearDoubleClicked() = jsNative
+
+        member self.mouseWheel(fn: P5 -> WheelEvent -> Unit) : Unit =
+            emitJsExpr (self, (fun (e: WheelEvent) -> fn self.p5 e)) "$0.mouseWheel($1)"
+
+        [<Emit("$0.mouseWheel(false)")>]
+        member _.clearMouseWheel() = jsNative
 
         [<Emit("$0.center()")>]
         member _.center() : Unit = jsNative
@@ -96,12 +117,6 @@ module DOM =
 
         [<Emit("$0.parent($1)")>]
         member _.setParent(parent: P5Element<obj>) : Unit = jsNative
-
-        [<Emit("$0.mousePressed($1)")>]
-        member _.mousePressed(f: MouseEvent -> Unit) : Unit = jsNative
-
-        [<Emit("$0.mousePressed(false)")>]
-        member _.clearMousePressed() : Unit = jsNative
 
         /// TODO: what event is fired here?
         [<Emit("$0.changed($1)")>]
