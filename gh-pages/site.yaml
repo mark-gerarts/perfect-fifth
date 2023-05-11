@@ -347,6 +347,16 @@ reference:
       - DOM/P5ElementDoubleClicked
     p5.Element/mouseWheel(), p5.Element/clearMouseWheel():
       - DOM/P5ElementMouseWheel
+    p5.Element/mouseReleased(), p5.Element/clearMouseReleased():
+      - DOM/P5ElementMouseReleased
+    p5.Element/mouseClicked(), p5.Element/clearMouseClicked():
+      - DOM/P5ElementMouseClicked
+    p5.Element/mouseMoved(), p5.Element/clearMouseMoved():
+      - DOM/P5ElementMouseMoved
+    p5.Element/mouseOver(), p5.Element/clearMouseOver():
+      - DOM/P5ElementMouseOver
+    p5.Element/mouseOut(), p5.Element/clearMouseOut():
+      - DOM/P5ElementMouseOut
     createSlider(), createSliderWithOptions():
       - DOM/CreateSlider0
       - DOM/CreateSlider1

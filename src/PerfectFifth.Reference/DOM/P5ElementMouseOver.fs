@@ -1,13 +1,27 @@
 module P5Reference.DOM.P5ElementMouseOver
 
 open P5.Core
-open P5.Color
 open P5.Environment
 open P5.Shape
+open P5.Rendering
+open P5.DOM
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let mutable d = 10.0
 
-let run node = display node draw
+let changeSize p5 _ =
+    let newD =
+        match d + 10.0 with
+        | d when d > 100.0 -> 0.0
+        | d -> d
+
+    d <- newD
+
+let setup p5 =
+    let cnv = createCanvasAndReturn p5 100 100
+    let cnv' = unbox<P5Element<Unit>> cnv
+    cnv'.mouseOver changeSize
+
+let draw p5 _ =
+    circle p5 (width p5 / 2 |> float) (height p5 / 2 |> float) d
+
+let run node = animate node setup draw

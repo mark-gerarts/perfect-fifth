@@ -71,6 +71,36 @@ module DOM =
         [<Emit("$0.mouseWheel(false)")>]
         member _.clearMouseWheel() = jsNative
 
+        member self.mouseReleased(fn: P5 -> MouseEvent -> Unit) : Unit =
+            emitJsExpr (self, (fun (e: MouseEvent) -> fn self.p5 e)) "$0.mouseReleased($1)"
+
+        [<Emit("$0.mouseReleased(false)")>]
+        member _.clearMouseReleased() = jsNative
+
+        member self.mouseClicked(fn: P5 -> MouseEvent -> Unit) : Unit =
+            emitJsExpr (self, (fun (e: MouseEvent) -> fn self.p5 e)) "$0.mouseClicked($1)"
+
+        [<Emit("$0.mouseClicked(false)")>]
+        member _.clearMouseClicked() = jsNative
+
+        member self.mouseMoved(fn: P5 -> MouseEvent -> Unit) : Unit =
+            emitJsExpr (self, (fun (e: MouseEvent) -> fn self.p5 e)) "$0.mouseMoved($1)"
+
+        [<Emit("$0.mouseMoved(false)")>]
+        member _.clearMouseMoved() = jsNative
+
+        member self.mouseOver(fn: P5 -> MouseEvent -> Unit) : Unit =
+            emitJsExpr (self, (fun (e: MouseEvent) -> fn self.p5 e)) "$0.mouseOver($1)"
+
+        [<Emit("$0.mouseOver(false)")>]
+        member _.clearMouseOver() = jsNative
+
+        member self.mouseOut(fn: P5 -> MouseEvent -> Unit) : Unit =
+            emitJsExpr (self, (fun (e: MouseEvent) -> fn self.p5 e)) "$0.mouseOut($1)"
+
+        [<Emit("$0.mouseOut(false)")>]
+        member _.clearMouseOut() = jsNative
+
         [<Emit("$0.center()")>]
         member _.center() : Unit = jsNative
 
