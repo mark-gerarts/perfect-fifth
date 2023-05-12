@@ -53,6 +53,18 @@ module DOM =
         [<Emit("$0.class($1)")>]
         member _.setClass(clss: string) : Unit = jsNative
 
+        [<Emit("$0.addClass($1)")>]
+        member _.addClass(clss: string) = jsNative
+
+        [<Emit("$0.removeClass($1)")>]
+        member _.removeClass(clss: string) = jsNative
+
+        [<Emit("$0.hasClass($1)")>]
+        member _.hasClass(clss: string) = jsNative
+
+        [<Emit("$0.toggleClass($1)")>]
+        member _.toggleClass(clss: string) = jsNative
+
         member self.mousePressed(fn: P5 -> MouseEvent -> Unit) : Unit =
             emitJsExpr (self, (fun (e: MouseEvent) -> fn self.p5 e)) "$0.mousePressed($1)"
 

@@ -367,6 +367,14 @@ reference:
       - DOM/P5ElementDragOver
     p5.Element/dragLeave(), p5.Element/clearDragLeave():
       - DOM/P5ElementDragLeave
+    p5.Element/addClass():
+      - DOM/P5ElementAddClass
+    p5.Element/removeClass():
+      - DOM/P5ElementRemoveClass
+    p5.Element/hasClass():
+      - DOM/P5ElementHasClass
+    p5.Element/toggleClass():
+      - DOM/P5ElementToggleClass
     createSlider(), createSliderWithOptions():
       - DOM/CreateSlider0
       - DOM/CreateSlider1
