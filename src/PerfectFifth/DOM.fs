@@ -101,6 +101,36 @@ module DOM =
         [<Emit("$0.mouseOut(false)")>]
         member _.clearMouseOut() = jsNative
 
+        member self.touchMoved(fn: P5 -> TouchEvent -> Unit) : Unit =
+            emitJsExpr (self, (fun (e: TouchEvent) -> fn self.p5 e)) "$0.touchMoved($1)"
+
+        [<Emit("$0.touchMoved(false)")>]
+        member _.clearTouchMoved() = jsNative
+
+        member self.touchStarted(fn: P5 -> TouchEvent -> Unit) : Unit =
+            emitJsExpr (self, (fun (e: TouchEvent) -> fn self.p5 e)) "$0.touchStarted($1)"
+
+        [<Emit("$0.touchStarted(false)")>]
+        member _.clearTouchStarted() = jsNative
+
+        member self.touchEnded(fn: P5 -> TouchEvent -> Unit) : Unit =
+            emitJsExpr (self, (fun (e: TouchEvent) -> fn self.p5 e)) "$0.touchEnded($1)"
+
+        [<Emit("$0.touchEnded(false)")>]
+        member _.clearTouchEnded() = jsNative
+
+        member self.dragOver(fn: P5 -> DragEvent -> Unit) : Unit =
+            emitJsExpr (self, (fun (e: DragEvent) -> fn self.p5 e)) "$0.dragOver($1)"
+
+        [<Emit("$0.dragOver(false)")>]
+        member _.clearDragOver() = jsNative
+
+        member self.dragLeave(fn: P5 -> DragEvent -> Unit) : Unit =
+            emitJsExpr (self, (fun (e: DragEvent) -> fn self.p5 e)) "$0.dragLeave($1)"
+
+        [<Emit("$0.dragLeave(false)")>]
+        member _.clearDragLeave() = jsNative
+
         [<Emit("$0.center()")>]
         member _.center() : Unit = jsNative
 

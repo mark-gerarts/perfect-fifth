@@ -357,6 +357,16 @@ reference:
       - DOM/P5ElementMouseOver
     p5.Element/mouseOut(), p5.Element/clearMouseOut():
       - DOM/P5ElementMouseOut
+    p5.Element/touchMoved(), p5.Element/clearTouchMoved():
+      - DOM/P5ElementTouchMoved
+    p5.Element/touchStarted(), p5.Element/clearTouchStarted():
+      - DOM/P5ElementTouchStarted
+    p5.Element/touchEnded(), p5.Element/clearTouchEnded():
+      - DOM/P5ElementTouchEnded
+    p5.Element/dragOver(), p5.Element/clearDragOver():
+      - DOM/P5ElementDragOver
+    p5.Element/dragLeave(), p5.Element/clearDragLeave():
+      - DOM/P5ElementDragLeave
     createSlider(), createSliderWithOptions():
       - DOM/CreateSlider0
       - DOM/CreateSlider1
