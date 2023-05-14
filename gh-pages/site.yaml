@@ -375,6 +375,14 @@ reference:
       - DOM/P5ElementHasClass
     p5.Element/toggleClass():
       - DOM/P5ElementToggleClass
+    p5.Element/child():
+      - DOM/P5ElementChild
+    p5.Element/center(), p5.Element/centerWithAlign():
+      - DOM/P5ElementCenter
+    p5.Element/html(), p5.Element/getHtml(), p5.Element/setHtml(), p5.Element/appendHtml():
+      - DOM/P5ElementHtml
+    p5.Element/position(), p5.Element/setPosition(), p5.Element/setPositionWithType():
+      - DOM/P5ElementPosition
     createSlider(), createSliderWithOptions():
       - DOM/CreateSlider0
       - DOM/CreateSlider1

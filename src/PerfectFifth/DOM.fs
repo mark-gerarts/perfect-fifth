@@ -18,6 +18,8 @@ module DOM =
 
     type Position = { x: float; y: float }
 
+    type Dimensions = { width: float; y: float }
+
     let private rawPositionType positionType =
         match positionType with
         | Static -> "static"
@@ -64,6 +66,32 @@ module DOM =
 
         [<Emit("$0.toggleClass($1)")>]
         member _.toggleClass(clss: string) = jsNative
+
+        /// Returns obj because the p5js child() can return all kind of
+        /// things...
+        [<Emit("$0.child()")>]
+        member _.child() : obj = jsNative
+
+        member self.getChild = self.child
+
+        member self.childBySelector<'a>(s: Selector<'a>) : obj =
+            match s with
+            | Id i -> emitJsExpr (self, i) "$0.child($1)"
+            | P5El e -> emitJsExpr (self, e) "$0.child($1)"
+            | HTMLEl e -> emitJsExpr (self, e) "$0.child($1)"
+
+        member self.getChildBySelector = self.childBySelector
+
+        [<Emit("$0.html()")>]
+        member _.html() : string = jsNative
+
+        member self.getHtml = self.html
+
+        [<Emit("$0.html($1)")>]
+        member _.setHtml(html: string) : Unit = jsNative
+
+        [<Emit("$0.html($1, true)")>]
+        member _.appendHtml(html: string) : Unit = jsNative
 
         member self.mousePressed(fn: P5 -> MouseEvent -> Unit) : Unit =
             emitJsExpr (self, (fun (e: MouseEvent) -> fn self.p5 e)) "$0.mousePressed($1)"
@@ -149,8 +177,24 @@ module DOM =
         [<Emit("$0.center($1)")>]
         member _.centerWithAlign(align: string) : Unit = jsNative
 
+        [<Emit("$0.size()")>]
+        member _.size() : Dimensions = jsNative
+
+        member self.getSize = self.size
+
+        [<Emit("$0.size($1, $2)")>]
+        member _.setSize (w: float) (h: float) = jsNative
+
+        [<Emit("$0.size($1)")>]
+        member _.setWidth(w: float) = jsNative
+
         [<Emit("$0.style($1, $2)")>]
         member _.style (property: string) (value: string) : Unit = jsNative
+
+        member self.setStyle = self.style
+
+        [<Emit("$0.style($1)")>]
+        member _.getStyle(property: string) : Unit = jsNative
 
         [<Emit("$0.position()")>]
         member _.getPosition: Position = jsNative
