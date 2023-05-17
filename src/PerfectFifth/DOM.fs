@@ -194,7 +194,18 @@ module DOM =
         member self.setStyle = self.style
 
         [<Emit("$0.style($1)")>]
-        member _.getStyle(property: string) : Unit = jsNative
+        member _.getStyle(property: string) : string = jsNative
+
+        [<Emit("$0.attribute($1, $2)")>]
+        member _.attribute (attr: string) (value: string) : Unit = jsNative
+
+        member self.setAttribute = self.attribute
+
+        [<Emit("$0.attribute($1)")>]
+        member _.getAttribute(attr: string) : string = jsNative
+
+        [<Emit("$0.removeAttribute($1)")>]
+        member _.removeAttribute(attr: string) : Unit = jsNative
 
         [<Emit("$0.position()")>]
         member _.getPosition: Position = jsNative
@@ -265,6 +276,15 @@ module DOM =
 
     [<Emit("$0.createSlider($1, $2)")>]
     let createSlider (p5: P5) (min: float) (max: float) : P5Element<float> = jsNative
+
+    [<Emit("$0.createInput()")>]
+    let createInput (p5: P5) : P5Element<string> = jsNative
+
+    [<Emit("$0.createInput($1)")>]
+    let createInputWithValue (p5: P5) (value: string) : P5Element<string> = jsNative
+
+    [<Emit("$0.createInput($1, $2)")>]
+    let createInputWithValueAndType (p5: P5) (value: string) (inputType: string) : P5Element<string> = jsNative
 
     [<Emit("$0.createSlider($1, $2, $3, $4)")>]
     let createSliderWithOptions (p5: P5) (min: float) (max: float) (value: float) (step: float) : P5Element<float> =

@@ -383,6 +383,16 @@ reference:
       - DOM/P5ElementHtml
     p5.Element/position(), p5.Element/setPosition(), p5.Element/setPositionWithType():
       - DOM/P5ElementPosition
+    p5.Element/style(), p5.Element/setStyle(), p5.Element/getStyle():
+      - DOM/P5ElementStyle0
+      - DOM/P5ElementStyle1
+      - DOM/P5ElementStyle2
+    p5.Element/attribute(), p5.Element/setAttribute(), p5.Element/getAttribute():
+      - DOM/P5ElementAttribute
+    p5.Element/removeAttribute():
+      - DOM/P5ElementRemoveAttribute
+    p5.Element/value(), p5.Element/getValue(), p5.Element/setValue():
+      - DOM/P5ElementValue
     createSlider(), createSliderWithOptions():
       - DOM/CreateSlider0
       - DOM/CreateSlider1
