@@ -241,8 +241,7 @@ let runSketch name canvasSelector =
     | "DOM/P5ElementRemove" -> DOM.P5ElementRemove.run node
     | "DOM/P5ElementDrop" -> DOM.P5ElementDrop.run node
     | "DOM/Select" -> DOM.Select.run node
-    | "DOM/SelectAll0" -> DOM.SelectAll0.run node
-    | "DOM/SelectAll1" -> DOM.SelectAll1.run node
+    | "DOM/SelectAll" -> DOM.SelectAll.run node
     | "DOM/RemoveElements" -> DOM.RemoveElements.run node
     | "DOM/Changed0" -> DOM.Changed0.run node
     | "DOM/Changed1" -> DOM.Changed1.run node

@@ -236,8 +236,7 @@
     <Compile Include="DOM\P5ElementRemove.fs" />
     <Compile Include="DOM\P5ElementDrop.fs" />
     <Compile Include="DOM\Select.fs" />
-    <Compile Include="DOM\SelectAll0.fs" />
-    <Compile Include="DOM\SelectAll1.fs" />
+    <Compile Include="DOM\SelectAll.fs" />
     <Compile Include="DOM\RemoveElements.fs" />
     <Compile Include="DOM\Changed0.fs" />
     <Compile Include="DOM\Changed1.fs" />
@@ -669,6 +668,6 @@
     <ProjectReference Include="..\PerfectFifth\PerfectFifth.fsproj" />
   </ItemGroup>
   <ItemGroup Condition="'$(ContinuousIntegrationBuild)'=='true'">
-    <PackageReference Include="PerfectFifth"/>
+    <PackageReference Include="PerfectFifth" />
   </ItemGroup>
 </Project>

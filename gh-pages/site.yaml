@@ -393,6 +393,20 @@ reference:
       - DOM/P5ElementRemoveAttribute
     p5.Element/value(), p5.Element/getValue(), p5.Element/setValue():
       - DOM/P5ElementValue
+    p5.Element/show():
+      - DOM/P5ElementShow
+    p5.Element/hide():
+      - DOM/P5ElementHide
+    p5.Element/size(), p5.Element/setSize(), p5.Element/setWidth():
+      - DOM/P5ElementSize
+    p5.Element/drop(), p5.Element/dropWithCalback():
+      - DOM/P5ElementDrop
+    select(), selectIn():
+      - DOM/Select
+    selectAll(), selectAllIn():
+      - DOM/SelectAll
+    removeElements():
+      - DOM/RemoveElements
     createSlider(), createSliderWithOptions():
       - DOM/CreateSlider0
       - DOM/CreateSlider1

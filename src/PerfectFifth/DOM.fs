@@ -171,6 +171,12 @@ module DOM =
         [<Emit("$0.dragLeave(false)")>]
         member _.clearDragLeave() = jsNative
 
+        [<Emit("$0.drop($1)")>]
+        member _.drop(callback: File -> Unit) : Unit = jsNative
+
+        [<Emit("$0.drop($1, $2)")>]
+        member _.dropWithCallback (callback: File -> Unit) (fxn: Unit -> Unit) : Unit = jsNative
+
         [<Emit("$0.center()")>]
         member _.center() : Unit = jsNative
 
@@ -258,6 +264,9 @@ module DOM =
         [<Emit("$0.remove()")>]
         member _.remove() : Unit = jsNative
 
+        [<Emit("$0.show()")>]
+        member _.show() : Unit = jsNative
+
         [<Emit("$0.hide()")>]
         member _.hide() : Unit = jsNative
 
@@ -267,6 +276,32 @@ module DOM =
 
         [<Emit("$0.loop()")>]
         member _.loop() : Unit = jsNative
+
+    [<Emit("$0.select($1)")>]
+    let select (p5: P5) (selector: string) : P5Element<'U> option = jsNative
+
+    let selectIn (p5: P5) (selector: string) (container: Selector<'U>) : P5Element<'U> option =
+        let jsExpr = "$0.select($1, $2)"
+
+        match container with
+        | Id id -> emitJsExpr (p5, selector, id) jsExpr
+        | P5El el -> emitJsExpr (p5, selector, el) jsExpr
+        | HTMLEl el -> emitJsExpr (p5, selector, el) jsExpr
+
+
+    [<Emit("$0.selectAll($1)")>]
+    let selectAll (p5: P5) (selector: string) : P5Element<'U> array = jsNative
+
+    let selectAllIn (p5: P5) (selector: string) (container: Selector<'U>) : P5Element<'U> array =
+        let jsExpr = "$0.selectAll($1, $2)"
+
+        match container with
+        | Id id -> emitJsExpr (p5, selector, id) jsExpr
+        | P5El el -> emitJsExpr (p5, selector, el) jsExpr
+        | HTMLEl el -> emitJsExpr (p5, selector, el) jsExpr
+
+    [<Emit("$0.removeElements()")>]
+    let removeElements (p5: P5) : Unit = jsNative
 
     [<Emit("$0.createDiv($1)")>]
     let createDiv (p5: P5) (innerHTML: string) : P5Element<Unit> = jsNative
@@ -279,6 +314,22 @@ module DOM =
 
     [<Emit("$0.createInput()")>]
     let createInput (p5: P5) : P5Element<string> = jsNative
+
+    [<Emit("$0.createImg($1, $2)")>]
+    let createImg (p5: P5) (src: string) (alt: string) : P5Element<Unit> = jsNative
+
+    [<Emit("$0.createImg($1, $2, $3)")>]
+    let createImgWithCors (p5: P5) (src: string) (alt: string) (cors: string) : P5Element<Unit> = jsNative
+
+    [<Emit("$0.createImg($1, $2, $3, $4)")>]
+    let createImgWithCallback
+        (p5: P5)
+        (src: string)
+        (alt: string)
+        (cors: string)
+        (successCallback: P5Element<Unit> -> Unit)
+        : P5Element<Unit> =
+        jsNative
 
     [<Emit("$0.createInput($1)")>]
     let createInputWithValue (p5: P5) (value: string) : P5Element<string> = jsNative
