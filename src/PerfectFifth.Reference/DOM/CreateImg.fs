@@ -1,13 +1,12 @@
 module P5Reference.DOM.CreateImg
 
 open P5.Core
-open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.DOM
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+    let img =
+        createImg p5 "https://p5js.org/assets/img/asterisk-01.png" "the p5 magenta asterisk"
+
+    img.setPosition 0 -10
 
 let run node = display node draw

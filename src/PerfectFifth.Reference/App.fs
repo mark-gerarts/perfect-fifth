@@ -255,8 +255,7 @@ let runSketch name canvasSelector =
     | "DOM/CreateSlider1" -> DOM.CreateSlider1.run node
     | "DOM/CreateButton" -> DOM.CreateButton.run node
     | "DOM/CreateCheckbox" -> DOM.CreateCheckbox.run node
-    | "DOM/CreateSelect0" -> DOM.CreateSelect0.run node
-    | "DOM/CreateSelect1" -> DOM.CreateSelect1.run node
+    | "DOM/CreateSelect" -> DOM.CreateSelect.run node
     | "DOM/CreateRadio0" -> DOM.CreateRadio0.run node
     | "DOM/CreateRadio1" -> DOM.CreateRadio1.run node
     | "DOM/CreateColorPicker0" -> DOM.CreateColorPicker0.run node

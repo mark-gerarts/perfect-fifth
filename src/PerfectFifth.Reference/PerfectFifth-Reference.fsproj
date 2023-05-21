@@ -250,8 +250,7 @@
     <Compile Include="DOM\CreateSlider1.fs" />
     <Compile Include="DOM\CreateButton.fs" />
     <Compile Include="DOM\CreateCheckbox.fs" />
-    <Compile Include="DOM\CreateSelect0.fs" />
-    <Compile Include="DOM\CreateSelect1.fs" />
+    <Compile Include="DOM\CreateSelect.fs" />
     <Compile Include="DOM\CreateRadio0.fs" />
     <Compile Include="DOM\CreateRadio1.fs" />
     <Compile Include="DOM\CreateColorPicker0.fs" />

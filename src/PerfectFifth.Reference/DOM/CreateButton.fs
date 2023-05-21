@@ -2,12 +2,20 @@ module P5Reference.DOM.CreateButton
 
 open P5.Core
 open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.Rendering
+open P5.DOM
+open P5.Math
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let changeBG p5 _ =
+    randomInRange p5 0 255 |> Grayscale |> background p5
 
-let run node = display node draw
+let setup p5 =
+    createCanvas p5 100 100
+    background p5 (Grayscale 0)
+    let button = createButton p5 "click me"
+    button.setPosition 0 0
+    button.mousePressed (changeBG)
+
+let draw p5 _ = ()
+
+let run node = animate node setup draw

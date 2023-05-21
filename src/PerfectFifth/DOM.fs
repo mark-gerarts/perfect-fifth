@@ -251,9 +251,14 @@ module DOM =
         [<Emit("$0.parent($1)")>]
         member _.setParent(parent: P5Element<obj>) : Unit = jsNative
 
-        /// TODO: what event is fired here?
         [<Emit("$0.changed($1)")>]
-        member _.changed(f: obj -> Unit) : Unit = jsNative
+        member _.changed(f: Event -> Unit) : Unit = jsNative
+
+        [<Emit("$0.input($1)")>]
+        member _.input(f: Event -> Unit) : Unit = jsNative
+
+        [<Emit("$0.clearInput()")>]
+        member _.clearInput() : Unit = jsNative
 
         [<Emit("$0.changed(false)")>]
         member _.clearChanged() : Unit = jsNative
@@ -269,6 +274,16 @@ module DOM =
 
         [<Emit("$0.hide()")>]
         member _.hide() : Unit = jsNative
+
+    type P5Select() =
+        inherit P5Element<string>()
+
+        [<Emit("$0.option($1)")>]
+        member _.option(value: string) : Unit = jsNative
+
+
+        [<Emit("$0.selected($1)")>]
+        member _.selected(value: string) : Unit = jsNative
 
     type P5MediaElement() =
         inherit P5Element<Unit>()
@@ -309,8 +324,11 @@ module DOM =
     [<Emit("$0.createP($1)")>]
     let createP (p5: P5) (innerHTML: string) : P5Element<Unit> = jsNative
 
-    [<Emit("$0.createSlider($1, $2)")>]
-    let createSlider (p5: P5) (min: float) (max: float) : P5Element<float> = jsNative
+    [<Emit("$0.createSpan($1)")>]
+    let createSpan (p5: P5) (innerHTML: string) : P5Element<Unit> = jsNative
+
+    [<Emit("$0.createSelect()")>]
+    let createSelect (p5: P5) : P5Select = jsNative
 
     [<Emit("$0.createInput()")>]
     let createInput (p5: P5) : P5Element<string> = jsNative
@@ -331,19 +349,30 @@ module DOM =
         : P5Element<Unit> =
         jsNative
 
+    [<Emit("$0.createA($1, $2)")>]
+    let createA (p5: P5) (href: string) (html: string) : P5Element<Unit> = jsNative
+
+    [<Emit("$0.createA($1, $2, $3)")>]
+    let createAWithTarget (p5: P5) (href: string) (html: string) (target: string) : P5Element<Unit> = jsNative
+
     [<Emit("$0.createInput($1)")>]
     let createInputWithValue (p5: P5) (value: string) : P5Element<string> = jsNative
 
     [<Emit("$0.createInput($1, $2)")>]
     let createInputWithValueAndType (p5: P5) (value: string) (inputType: string) : P5Element<string> = jsNative
 
+    [<Emit("$0.createSlider($1, $2)")>]
+    let createSlider (p5: P5) (min: float) (max: float) : P5Element<float> = jsNative
+
     [<Emit("$0.createSlider($1, $2, $3, $4)")>]
     let createSliderWithOptions (p5: P5) (min: float) (max: float) (value: float) (step: float) : P5Element<float> =
         jsNative
 
-    /// TODO: value
     [<Emit("$0.createButton($1)")>]
     let createButton (p5: P5) (label: string) : P5Element<string> = jsNative
+
+    [<Emit("$0.createButton($1, $2)")>]
+    let createButtonWithValue (p5: P5) (label: string) (value: string) : P5Element<string> = jsNative
 
     [<Emit("$0.createCheckbox($1)")>]
     let createCheckboxWithLabel (p5: P5) (label: string) : P5Element<bool> = jsNative

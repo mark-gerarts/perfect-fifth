@@ -1,4 +1,4 @@
-module P5Reference.DOM.CreateSelect0
+module P5Reference.DOM.CreateSelect
 
 open P5.Core
 open P5.Color

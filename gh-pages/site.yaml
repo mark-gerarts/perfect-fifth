@@ -407,9 +407,24 @@ reference:
       - DOM/SelectAll
     removeElements():
       - DOM/RemoveElements
+    changed(), p5.Element/changed(), p5.Element/clearChanged():
+      - DOM/Changed0
+      - DOM/Changed1
+    input(), p5.Element/input(), p5.Element/clearInput():
+      - DOM/Input
+    createDiv():
+      - DOM/CreateDiv
+    createP():
+      - DOM/CreateP
+    createImg(), createImgWithCors(), createImgWithCallback():
+      - DOM/CreateImg
+    createA(), createAWithTarget():
+      - DOM/CreateA
     createSlider(), createSliderWithOptions():
       - DOM/CreateSlider0
       - DOM/CreateSlider1
+    createButton(), createButtonWithValue():
+      - DOM/CreateButton
   Rendering:
     p5.Graphics/reset():
       - Rendering/P5GraphicsReset
