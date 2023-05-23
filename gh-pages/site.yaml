@@ -425,6 +425,17 @@ reference:
       - DOM/CreateSlider1
     createButton(), createButtonWithValue():
       - DOM/CreateButton
+    createCheckbox(), createCheckboxWithLabel(), createCheckboxWithLabelAndValue():
+      - DOM/CreateCheckbox
+    createSelect(), createMultipleSelect(), createSelectFromExisting():
+      - DOM/Changed0
+      - DOM/Select
+    createRadio(), createRadioWithName(), createRadioFromContainer(), createRadioFromContainerWithName():
+      - DOM/CreateRadio0
+      - DOM/CreateRadio1
+    createColorPicker(), createColorPickerWithValue():
+      - DOM/CreateColorPicker0
+      - DOM/CreateColorPicker1
   Rendering:
     p5.Graphics/reset():
       - Rendering/P5GraphicsReset

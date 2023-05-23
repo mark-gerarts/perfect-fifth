@@ -2,12 +2,21 @@ module P5Reference.DOM.CreateSelect
 
 open P5.Core
 open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.Typography
+open P5.DOM
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+    setTextAlign
+        p5
+        { horizontal = HorizontalAlign.Center
+          vertical = Center }
+
+    background p5 (Grayscale 200)
+    let sel = createSelect p5
+    sel.setPosition 10 10
+    sel.option "oil"
+    sel.option "milk"
+    sel.option "bread"
+    sel.disable "milk"
 
 let run node = display node draw

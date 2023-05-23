@@ -3,8 +3,9 @@ namespace P5
 module DOM =
 
     open Fable.Core
-    open P5.Core
     open Browser.Types
+    open P5.Core
+    open P5.Color
 
     open Fable.Core.JsInterop
 
@@ -275,15 +276,38 @@ module DOM =
         [<Emit("$0.hide()")>]
         member _.hide() : Unit = jsNative
 
-    type P5Select() =
+    type P5SelectAble() =
         inherit P5Element<string>()
 
         [<Emit("$0.option($1)")>]
         member _.option(value: string) : Unit = jsNative
 
 
+        [<Emit("$0.option($1, $2)")>]
+        member _.optionWithLabel (value: string) (label: string) : Unit = jsNative
+
+        [<Emit("$0.disable($1)")>]
+        member _.disable(value: string) : Unit = jsNative
+
+
         [<Emit("$0.selected($1)")>]
         member _.selected(value: string) : Unit = jsNative
+
+    type P5Select() =
+        inherit P5SelectAble()
+
+    type P5Radio() =
+        inherit P5SelectAble()
+
+    type P5ColorPicker() =
+        inherit P5Element<string>()
+
+        [<Emit("$0.color()")>]
+        member private _._color() : P5Color = jsNative
+
+        member self.color() : Color = self._color () |> P5Color
+
+        member self.getColor = self.color
 
     type P5MediaElement() =
         inherit P5Element<Unit>()
@@ -329,6 +353,32 @@ module DOM =
 
     [<Emit("$0.createSelect()")>]
     let createSelect (p5: P5) : P5Select = jsNative
+
+    [<Emit("$0.createSelect(true)")>]
+    let createMultipleSelect (p5: P5) : P5Select = jsNative
+
+    [<Emit("$0createSelect($1)")>]
+    let createSelectFromExisting (p5: P5) (existing: Element) : P5Select = jsNative
+
+    [<Emit("$0.createRadio()")>]
+    let createRadio (p5: P5) : P5Radio = jsNative
+
+    [<Emit("$0.createRadio($1)")>]
+    let createRadioWithName (p5: P5) (name: string) : P5Radio = jsNative
+
+    [<Emit("$0.createRadio($1)")>]
+    let createRadioFromContainer (p5: P5) (container: Element) : P5Radio = jsNative
+
+    [<Emit("$0.createRadio($1, $2)")>]
+    let createRadioFromContainerWithName (p5: P5) (container: Element) (name: string) : P5Radio = jsNative
+
+    [<Emit("$0.createColorPicker()")>]
+    let createColorPicker (p5: P5) : P5ColorPicker = jsNative
+
+    let createColorPickerWithValue (p5: P5) (color: Color) : P5ColorPicker =
+        let c = ensureP5Color p5 color
+
+        emitJsExpr (p5, c) "$0.createColorPicker($1)"
 
     [<Emit("$0.createInput()")>]
     let createInput (p5: P5) : P5Element<string> = jsNative
