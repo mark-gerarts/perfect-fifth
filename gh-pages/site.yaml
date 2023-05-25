@@ -436,6 +436,12 @@ reference:
     createColorPicker(), createColorPickerWithValue():
       - DOM/CreateColorPicker0
       - DOM/CreateColorPicker1
+    createInput(), createInputWithValue(), createInputWithValueAndType():
+      - DOM/CreateInput
+    createFileInput(), createFileInputMultiple():
+      - DOM/CreateFileInput
+    createVideo(), createVideoFromArray(), createVideoWithCallback(), createVideoFromArrayWithCallback():
+      - DOM/CreateVideo
   Rendering:
     p5.Graphics/reset():
       - Rendering/P5GraphicsReset

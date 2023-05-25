@@ -316,6 +316,22 @@ module DOM =
         [<Emit("$0.loop()")>]
         member _.loop() : Unit = jsNative
 
+        [<Emit("$0.volume()")>]
+        member _.volume() : float = jsNative
+
+        member self.getVolume = self.volume
+
+        [<Emit("$0.volume($1)")>]
+        member _.setVolume(value: float) : Unit = jsNative
+
+
+    type P5File() =
+        [<Emit("$0.type")>]
+        member _.fileType: string = jsNative
+
+        [<Emit("$0.data")>]
+        member _.data: obj = jsNative
+
     [<Emit("$0.select($1)")>]
     let select (p5: P5) (selector: string) : P5Element<'U> option = jsNative
 
@@ -383,8 +399,20 @@ module DOM =
     [<Emit("$0.createInput()")>]
     let createInput (p5: P5) : P5Element<string> = jsNative
 
+    [<Emit("$0.createInput($1)")>]
+    let createInputWithValue (p5: P5) (value: string) : P5Element<string> = jsNative
+
+    [<Emit("$0.createInput($1, $2)")>]
+    let createInputWithValueAndType (p5: P5) (value: string) (inputType: string) : P5Element<string> = jsNative
+
+    [<Emit("$0.createFileInput($1)")>]
+    let createFileInput (p5: P5) (callback: P5File -> Unit) : P5Element<File> = jsNative
+
+    [<Emit("$0.createFileInput($1, true)")>]
+    let createFileInputMultiple (p5: P5) (callback: P5File -> Unit) : P5Element<File> = jsNative
+
     [<Emit("$0.createImg($1, $2)")>]
-    let createImg (p5: P5) (src: string) (alt: string) : P5Element<Unit> = jsNative
+    let createImg (p5: P5) (src: string) (alt: string) : P5MediaElement = jsNative
 
     [<Emit("$0.createImg($1, $2, $3)")>]
     let createImgWithCors (p5: P5) (src: string) (alt: string) (cors: string) : P5Element<Unit> = jsNative
@@ -405,12 +433,6 @@ module DOM =
     [<Emit("$0.createA($1, $2, $3)")>]
     let createAWithTarget (p5: P5) (href: string) (html: string) (target: string) : P5Element<Unit> = jsNative
 
-    [<Emit("$0.createInput($1)")>]
-    let createInputWithValue (p5: P5) (value: string) : P5Element<string> = jsNative
-
-    [<Emit("$0.createInput($1, $2)")>]
-    let createInputWithValueAndType (p5: P5) (value: string) (inputType: string) : P5Element<string> = jsNative
-
     [<Emit("$0.createSlider($1, $2)")>]
     let createSlider (p5: P5) (min: float) (max: float) : P5Element<float> = jsNative
 
@@ -430,6 +452,19 @@ module DOM =
     [<Emit("$0.createCheckbox($1, $2)")>]
     let createCheckboxWithLabelAndValue (p5: P5) (label: string) (value: bool) : P5Element<bool> = jsNative
 
-    /// TODO: with callback
     [<Emit("$0.createVideo($1)")>]
     let createVideo (p5: P5) (src: string) : P5MediaElement = jsNative
+
+    [<Emit("$0.createVideo($1)")>]
+    let createVideoFromArray (p5: P5) (src: string array) : P5MediaElement = jsNative
+
+    [<Emit("$0.createVideo($1, $2)")>]
+    let createVideoWithCallback (p5: P5) (src: string) (onCanPlayThrough: Unit -> Unit) : P5MediaElement = jsNative
+
+    [<Emit("$0.createVideo($1, $2)")>]
+    let createVideoFromArrayWithCallback
+        (p5: P5)
+        (src: string array)
+        (onCanPlayThrough: Unit -> Unit)
+        : P5MediaElement =
+        jsNative
