@@ -442,6 +442,12 @@ reference:
       - DOM/CreateFileInput
     createVideo(), createVideoFromArray(), createVideoWithCallback(), createVideoFromArrayWithCallback():
       - DOM/CreateVideo
+    createAudio(), createAudioFromArray(), createAudioWithCallback(), createAudioFromArrayWithCallback():
+      - DOM/CreateAudio
+    createCapture(), createCaptureWithCallback():
+      - DOM/CreateCapture0
+    createElement(), createElementWithContent():
+      - DOM/CreateElement
   Rendering:
     p5.Graphics/reset():
       - Rendering/P5GraphicsReset

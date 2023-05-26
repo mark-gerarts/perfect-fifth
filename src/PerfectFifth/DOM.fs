@@ -39,6 +39,12 @@ module DOM =
         [<Emit("$0._pInst")>]
         member private _.p5 = jsNative
 
+        [<Emit("$0.width")>]
+        member _.width: float = jsNative
+
+        [<Emit("$0.height")>]
+        member _.height: float = jsNative
+
         [<Emit("$0.elt")>]
         member _.elt: HTMLElement = jsNative
 
@@ -324,6 +330,12 @@ module DOM =
         [<Emit("$0.volume($1)")>]
         member _.setVolume(value: float) : Unit = jsNative
 
+        [<Emit("$0.autoplay()")>]
+        member _.autoplay() : Unit = jsNative
+
+        [<Emit("$0.autoplay($1)")>]
+        member _.setAutoplay(value: bool) : Unit = jsNative
+
 
     type P5File() =
         [<Emit("$0.type")>]
@@ -468,3 +480,33 @@ module DOM =
         (onCanPlayThrough: Unit -> Unit)
         : P5MediaElement =
         jsNative
+
+    [<Emit("$0.createVideo($1)")>]
+    let createAudio (p5: P5) (src: string) : P5MediaElement = jsNative
+
+    [<Emit("$0.createAudio($1)")>]
+    let createAudioFromArray (p5: P5) (src: string array) : P5MediaElement = jsNative
+
+    [<Emit("$0.createAudio($1, $2)")>]
+    let createAudioWithCallback (p5: P5) (src: string) (onCanPlayThrough: Unit -> Unit) : P5MediaElement = jsNative
+
+    [<Emit("$0.createAudio($1, $2)")>]
+    let createAudioFromArrayWithCallback
+        (p5: P5)
+        (src: string array)
+        (onCanPlayThrough: Unit -> Unit)
+        : P5MediaElement =
+        jsNative
+
+    /// I am unable to test these...
+    [<Emit("$0.createCapture($1)")>]
+    let createCapture (p5: P5) (constraints: obj) : P5MediaElement = jsNative
+
+    [<Emit("$0.createCapture($1, $2)")>]
+    let createCaptureWithCallback (p5: P5) (constraints: obj) (onLoad: obj -> Unit) : P5MediaElement = jsNative
+
+    [<Emit("$0.createElement($1)")>]
+    let createElement (p5: P5) (tag: string) : P5Element<Unit> = jsNative
+
+    [<Emit("$0.createElement($1, $2)")>]
+    let createElementWithContent (p5: P5) (tag: string) (content: string) : P5Element<Unit> = jsNative

@@ -1,13 +1,21 @@
 module P5Reference.DOM.CreateCapture0
 
 open P5.Core
-open P5.Color
 open P5.Environment
-open P5.Shape
+open P5.Rendering
+open P5.DOM
+open P5.Image
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let setup p5 =
+    createCanvas p5 100 100
+    let capture = createCapture p5 "video"
+    capture.hide ()
+    capture
 
-let run node = display node draw
+let draw p5 (capture: P5MediaElement) =
+    let width = width p5 |> float
+
+    imageWithSize p5 capture 0 0 width (width * capture.height / capture.width)
+    filter p5 Invert
+
+let run node = simulate node setup noUpdate draw
