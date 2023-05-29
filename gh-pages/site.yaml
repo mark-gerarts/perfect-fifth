@@ -448,6 +448,14 @@ reference:
       - DOM/CreateCapture0
     createElement(), createElementWithContent():
       - DOM/CreateElement
+    p5.MediaElement/src:
+      - DOM/P5MediaElementSrc
+    p5.MediaElement/play():
+      - DOM/P5MediaElementPlay
+    p5.MediaElement/stop():
+      - DOM/P5MediaElementStop
+    p5.MediaElement/pause():
+      - DOM/P5MediaElementPause
   Rendering:
     p5.Graphics/reset():
       - Rendering/P5GraphicsReset

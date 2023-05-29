@@ -319,6 +319,18 @@ module DOM =
         inherit P5Element<Unit>()
         interface IImage
 
+        [<Emit("$0.src")>]
+        member _.src: string = jsNative
+
+        [<Emit("$0.play()")>]
+        member _.play() : Unit = jsNative
+
+        [<Emit("$0.stop()")>]
+        member _.stop() : Unit = jsNative
+
+        [<Emit("$0.pause()")>]
+        member _.pause() : Unit = jsNative
+
         [<Emit("$0.loop()")>]
         member _.loop() : Unit = jsNative
 

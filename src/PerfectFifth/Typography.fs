@@ -37,6 +37,10 @@ module Typography =
         { horizontal = Left
           vertical = Baseline }
 
+    let centerTextAlign: TextAlign =
+        { horizontal = HorizontalAlign.Center
+          vertical = Center }
+
     let setTextAlign (p5: P5) (align: TextAlign) : Unit =
         let p5' = unbox<obj> p5
 
