@@ -456,6 +456,18 @@ reference:
       - DOM/P5MediaElementStop
     p5.MediaElement/pause():
       - DOM/P5MediaElementPause
+    p5.MediaElement/loop():
+      - DOM/P5MediaElementLoop
+    p5.MediaElement/noLoop():
+      - DOM/P5MediaElementNoLoop
+    p5.MediaElement/autoplay(), p5.MediaElement/setAutoplay():
+      - DOM/P5MediaElementAutoPlay0
+      - DOM/P5MediaElementAutoPlay1
+    p5.MediaElement/volume(), p5.MediaElement/setVolume(), p5.MediaElement/getVolume():
+      - DOM/P5MediaElementVolume0
+      - DOM/P5MediaElementVolume1
+    p5.MediaElement/speed(), p5.MediaElement/setSpeed(), p5.MediaElement/getSpeed():
+      - DOM/P5MediaElementSpeed
   Rendering:
     p5.Graphics/reset():
       - Rendering/P5GraphicsReset

@@ -334,10 +334,29 @@ module DOM =
         [<Emit("$0.loop()")>]
         member _.loop() : Unit = jsNative
 
+        [<Emit("$0.noLoop()")>]
+        member _.noLoop() : Unit = jsNative
+
         [<Emit("$0.volume()")>]
         member _.volume() : float = jsNative
 
         member self.getVolume = self.volume
+
+        [<Emit("$0.speed()")>]
+        member _.speed() : float = jsNative
+
+        member self.getSpeed = self.speed
+
+        [<Emit("$0.speed($1)")>]
+        member _.setSpeed(speed: float) : Unit = jsNative
+
+        [<Emit("$0.time()")>]
+        member _.time() : float = jsNative
+
+        member self.getTime = self.time
+
+        [<Emit("$0.time($1)")>]
+        member _.setTime(time: float) : Unit = jsNative
 
         [<Emit("$0.volume($1)")>]
         member _.setVolume(value: float) : Unit = jsNative
