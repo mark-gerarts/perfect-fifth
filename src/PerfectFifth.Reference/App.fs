@@ -279,6 +279,7 @@ let runSketch name canvasSelector =
     | "DOM/P5MediaElementVolume0" -> DOM.P5MediaElementVolume0.run node
     | "DOM/P5MediaElementVolume1" -> DOM.P5MediaElementVolume1.run node
     | "DOM/P5MediaElementSpeed" -> DOM.P5MediaElementSpeed.run node
+    | "DOM/P5MediaElementTime" -> DOM.P5MediaElementTime.run node
     | "DOM/P5MediaElementDuration" -> DOM.P5MediaElementDuration.run node
     | "DOM/P5MediaElementOnEnded" -> DOM.P5MediaElementOnEnded.run node
     | "DOM/P5MediaElementShowControls" -> DOM.P5MediaElementShowControls.run node

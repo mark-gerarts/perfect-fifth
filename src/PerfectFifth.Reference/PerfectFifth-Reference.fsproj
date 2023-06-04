@@ -274,6 +274,7 @@
     <Compile Include="DOM\P5MediaElementVolume0.fs" />
     <Compile Include="DOM\P5MediaElementVolume1.fs" />
     <Compile Include="DOM\P5MediaElementSpeed.fs" />
+    <Compile Include="DOM\P5MediaElementTime.fs" />
     <Compile Include="DOM\P5MediaElementDuration.fs" />
     <Compile Include="DOM\P5MediaElementOnEnded.fs" />
     <Compile Include="DOM\P5MediaElementShowControls.fs" />

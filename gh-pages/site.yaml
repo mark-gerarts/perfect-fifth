@@ -468,6 +468,8 @@ reference:
       - DOM/P5MediaElementVolume1
     p5.MediaElement/speed(), p5.MediaElement/setSpeed(), p5.MediaElement/getSpeed():
       - DOM/P5MediaElementSpeed
+    p5.MediaElement/time(), p5.MediaElement/getTime(), p5.MediaElement/setTime():
+      - DOM/P5MediaElementTime
   Rendering:
     p5.Graphics/reset():
       - Rendering/P5GraphicsReset
