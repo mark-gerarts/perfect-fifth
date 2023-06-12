@@ -1,13 +1,14 @@
 module P5Reference.DOM.P5MediaElementOnEnded
 
 open P5.Core
-open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.DOM
+
+let sayDone (elt: P5MediaElement) =
+    console.log (sprintf "Done playing %s" elt.src)
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+    let audioEl = createAudio p5 "assets/beat.mp3"
+    audioEl.showControls ()
+    audioEl.onEnded (sayDone)
 
 let run node = display node draw

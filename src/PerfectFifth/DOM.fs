@@ -355,6 +355,17 @@ module DOM =
 
         member self.getTime = self.time
 
+        [<Emit("$0.duration()")>]
+        member _.duration() : float = jsNative
+
+        [<Emit("$0.onended($1)")>]
+        member _.onEnded(callback: P5MediaElement -> Unit) : Unit = jsNative
+
+        [<Emit("$0.showControls()")>]
+        member _.showControls() : Unit = jsNative
+
+        member self.getDuration = self.duration
+
         [<Emit("$0.time($1)")>]
         member _.setTime(time: float) : Unit = jsNative
 

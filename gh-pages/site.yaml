@@ -470,6 +470,10 @@ reference:
       - DOM/P5MediaElementSpeed
     p5.MediaElement/time(), p5.MediaElement/getTime(), p5.MediaElement/setTime():
       - DOM/P5MediaElementTime
+    p5.MediaElement/duration(), p5.MediaElement/getDuration():
+      - DOM/P5MediaElementDuration
+    p5.MediaElement/onended():
+      - DOM/P5MediaElementOnEnded
   Rendering:
     p5.Graphics/reset():
       - Rendering/P5GraphicsReset
