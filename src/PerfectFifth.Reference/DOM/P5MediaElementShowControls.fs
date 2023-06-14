@@ -2,12 +2,24 @@ module P5Reference.DOM.P5MediaElementShowControls
 
 open P5.Core
 open P5.Color
+open P5.Typography
+open P5.DOM
 open P5.Environment
-open P5.Shape
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let setup p5 =
+    let ele = createAudio p5 "assets/lucky_dragons.mp3"
+    background p5 (Grayscale 200)
+    setTextAlign p5 centerTextAlign
+    textBounded p5 "Click to Show Controls!" 10 25 70 80
+    ele
 
-let run node = display node draw
+let draw _ _ = ()
+
+let onMousePressed p5 _ (ele: P5MediaElement) =
+    ele.showControls ()
+    background p5 (Grayscale 200)
+    text p5 "Controls Shown" (width p5 / 2 |> float) (height p5 / 2 |> float)
+    ele
+
+let run node =
+    play node setup noUpdate draw [ OnMousePressed(Update onMousePressed) ]

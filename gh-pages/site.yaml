@@ -474,6 +474,22 @@ reference:
       - DOM/P5MediaElementDuration
     p5.MediaElement/onended():
       - DOM/P5MediaElementOnEnded
+    p5.MediaElement/showControls():
+      - DOM/P5MediaElementShowControls
+    p5.MediaElement/hideControls():
+      - DOM/P5MediaElementHideControls
+    p5.MediaElement/addCue():
+      - DOM/P5MediaElementAddCue
+    p5.MediaElement/removeCue():
+      - DOM/P5MediaElementRemoveCue
+    p5.MediaElement/clearCues():
+      - DOM/P5MediaElementClearCues
+    p5.File/file: ~
+    p5.File/type: ~
+    p5.File/subtype: ~
+    p5.File/name: ~
+    p5.File/size: ~
+    p5.File/data: ~
   Rendering:
     p5.Graphics/reset():
       - Rendering/P5GraphicsReset

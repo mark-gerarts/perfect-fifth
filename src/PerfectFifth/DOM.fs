@@ -364,6 +364,18 @@ module DOM =
         [<Emit("$0.showControls()")>]
         member _.showControls() : Unit = jsNative
 
+        [<Emit("$0.hideControls()")>]
+        member _.hideControls() : Unit = jsNative
+
+        [<Emit("$0.addCue($1, $2)")>]
+        member _.addCue (time: float) (callback: Unit -> Unit) : string = jsNative
+
+        [<Emit("$0.removeCue($1)")>]
+        member _.removeCue(id: string) : Unit = jsNative
+
+        [<Emit("$0.clearCues()")>]
+        member _.clearCues() : Unit = jsNative
+
         member self.getDuration = self.duration
 
         [<Emit("$0.time($1)")>]
@@ -380,11 +392,23 @@ module DOM =
 
 
     type P5File() =
+        [<Emit("$0.file")>]
+        member _.file: File = jsNative
+
         [<Emit("$0.type")>]
         member _.fileType: string = jsNative
 
+        [<Emit("$0.subtype")>]
+        member _.fileSubtype: string = jsNative
+
         [<Emit("$0.data")>]
         member _.data: obj = jsNative
+
+        [<Emit("$0.name")>]
+        member _.name: string = jsNative
+
+        [<Emit("$0.size")>]
+        member _.size: float = jsNative
 
     [<Emit("$0.select($1)")>]
     let select (p5: P5) (selector: string) : P5Element<'U> option = jsNative
