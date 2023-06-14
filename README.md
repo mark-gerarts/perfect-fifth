@@ -6,9 +6,10 @@ Perfect Fifth is a Processing-like creative coding environment for F#. It is a
 thin wrapper around [p5js](https://p5js.org), with some extra functional sugar
 on top.
 
-⚠️ This is a work in progress. Some p5js functions are not implemented yet. To
-check the current progress, take a look at the [reference
-page](https://mark-gerarts.github.io/perfect-fifth/reference.html).
+⚠️ All of the core p5.js library functions have been implemented, except those
+under the [Data](https://p5js.org/reference/#group-Data) and
+[IO](https://p5js.org/reference/#group-IO) namespaces. This is not due to a
+technical limitation, but because of a lack of time/need. PRs are welcome!
 
 ## Installation
 
@@ -33,7 +34,9 @@ That's it! Take a look at the [usage](#usage) for the next steps.
 
 A part of the examples on the p5js site are ported to Perfect Fifth. You can
 find the sketches and their source code on the [project
-site](https://mark-gerarts.github.io/perfect-fifth/examples.html).
+site](https://mark-gerarts.github.io/perfect-fifth/examples.html). The
+[reference](https://mark-gerarts.github.io/perfect-fifth/reference.html)
+contains function-specific examples.
 
 ## Usage
 
@@ -403,6 +406,7 @@ A basic test suite exists that simply checks every reference check to see if an
 error is thrown. To use it, make sure the example site is running at port 8000:
 
 ```bash
+$ pushd gh-pages && python -m venv venv && . venv/bin/active && pip install -r requirements.txt && popd
 $ ./scripts/build-and-serve-site
 ```
 
