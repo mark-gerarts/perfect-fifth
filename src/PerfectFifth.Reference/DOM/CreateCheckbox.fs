@@ -1,13 +1,15 @@
 module P5Reference.DOM.CreateCheckbox
 
 open P5.Core
-open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.DOM
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+    let checkbox = createCheckboxWithLabelAndValue p5 "label" false
+
+    let myCheckedEvent _ =
+        let msg = if checkbox.isChecked () then "Checking!" else "Unchecking!"
+        console.log msg
+
+    checkbox.changed myCheckedEvent
 
 let run node = display node draw

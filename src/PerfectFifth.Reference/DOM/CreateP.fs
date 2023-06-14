@@ -1,13 +1,11 @@
 module P5Reference.DOM.CreateP
 
 open P5.Core
-open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.DOM
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+    let p = createP p5 "this is some text"
+    p.style "font-size" "16px"
+    p.setPosition 10 0
 
 let run node = display node draw

@@ -2,12 +2,19 @@ module P5Reference.DOM.P5ElementStyle2
 
 open P5.Core
 open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.DOM
+open P5.Events
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let setup p5 =
+    background p5 (Grayscale 200)
+    let myDiv = createDiv p5 "I like gray."
+    myDiv.setPosition 0 0
+    myDiv.setStyle "z-index" "10"
+    myDiv
 
-let run node = display node draw
+let draw p5 (myDiv: P5Element<Unit>) =
+    let fontSize = min (mouseX p5) 90.0
+    myDiv.setStyle "font-size" (sprintf "%ipx" (int fontSize))
+    console.log (sprintf "%0f px" fontSize)
+
+let run node = simulate node setup noUpdate draw

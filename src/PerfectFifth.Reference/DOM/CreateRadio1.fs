@@ -3,11 +3,28 @@ module P5Reference.DOM.CreateRadio1
 open P5.Core
 open P5.Color
 open P5.Environment
-open P5.Shape
+open P5.DOM
+open P5.Typography
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let setup p5 =
+    let radio = createRadio p5
+    radio.optionWithLabel "1" "apple"
+    radio.optionWithLabel "2" "bread"
+    radio.optionWithLabel "3" "juice"
+    radio.style "width" "30px"
+    radio.selected "2"
 
-let run node = display node draw
+    setTextAlign
+        p5
+        { horizontal = HorizontalAlign.Center
+          vertical = Center }
+
+    radio
+
+let draw p5 (radio: P5Radio) =
+    background p5 (Grayscale 200)
+
+    let value = radio.getValue ()
+    text p5 (sprintf "item cost is $%s" value) (width p5 / 2 |> float) (height p5 / 2 |> float)
+
+let run node = simulate node setup noUpdate draw

@@ -3,6 +3,7 @@ namespace P5
 module Color =
 
     open Fable.Core
+    open Fable.Core.JsInterop
     open P5.Core
     open P5.Util
 
@@ -137,8 +138,14 @@ module Color =
         : Unit =
         colorModeMaxAlpha_ p5 (rawColorMode colorMode) max1 max2 max3 alpha
 
-    [<Emit("$0.lerpColor($1, $2, $3)")>]
-    let lerpColor (p5: P5) (color1: P5Color) (color2: P5Color) (amount: float) = jsNative
+    let private _lerpColor (p5: P5) (color1: Color) (color2: Color) (amount: float) : P5Color =
+        let c1 = ensureP5Color p5 color1
+        let c2 = ensureP5Color p5 color2
+
+        emitJsExpr (p5, c1, c2, amount) "$0.lerpColor($1, $2, $3)"
+
+    let lerpColor (p5: P5) (color1: Color) (color2: Color) (amount: float) : Color =
+        _lerpColor p5 color1 color2 amount |> P5Color
 
     let lightness (p5: P5) (color: Color) : float = emitColorFunction p5 "lightness" color
 

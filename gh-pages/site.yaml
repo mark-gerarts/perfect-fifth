@@ -332,11 +332,164 @@ reference:
     redraw():
       - Structure/Redraw0
       - Structure/Redraw1
-  # TODO: implement DOM functions last, since we want to focus on drawing.
   DOM:
+    p5.Element/elt:
+      - DOM/P5ElementElt
+    p5.Element/parent(), p5.Element/getParent(), p5.Element/getParentBySelector():
+      - DOM/P5ElementParent
+    p5.Element/id(), p5.Element/getId(), p5.Element/setId():
+      - DOM/P5ElementId
+    p5.Element/class(), p5.Element/getClass(), p5.Element/setClass():
+      - DOM/P5ElementClass
+    p5.Element/mousePressed(), p5.Element/clearMousePressed():
+      - DOM/P5ElementMousePressed
+    p5.Element/doubleClicked(), p5.Element/clearDoubleClicked():
+      - DOM/P5ElementDoubleClicked
+    p5.Element/mouseWheel(), p5.Element/clearMouseWheel():
+      - DOM/P5ElementMouseWheel
+    p5.Element/mouseReleased(), p5.Element/clearMouseReleased():
+      - DOM/P5ElementMouseReleased
+    p5.Element/mouseClicked(), p5.Element/clearMouseClicked():
+      - DOM/P5ElementMouseClicked
+    p5.Element/mouseMoved(), p5.Element/clearMouseMoved():
+      - DOM/P5ElementMouseMoved
+    p5.Element/mouseOver(), p5.Element/clearMouseOver():
+      - DOM/P5ElementMouseOver
+    p5.Element/mouseOut(), p5.Element/clearMouseOut():
+      - DOM/P5ElementMouseOut
+    p5.Element/touchMoved(), p5.Element/clearTouchMoved():
+      - DOM/P5ElementTouchMoved
+    p5.Element/touchStarted(), p5.Element/clearTouchStarted():
+      - DOM/P5ElementTouchStarted
+    p5.Element/touchEnded(), p5.Element/clearTouchEnded():
+      - DOM/P5ElementTouchEnded
+    p5.Element/dragOver(), p5.Element/clearDragOver():
+      - DOM/P5ElementDragOver
+    p5.Element/dragLeave(), p5.Element/clearDragLeave():
+      - DOM/P5ElementDragLeave
+    p5.Element/addClass():
+      - DOM/P5ElementAddClass
+    p5.Element/removeClass():
+      - DOM/P5ElementRemoveClass
+    p5.Element/hasClass():
+      - DOM/P5ElementHasClass
+    p5.Element/toggleClass():
+      - DOM/P5ElementToggleClass
+    p5.Element/child():
+      - DOM/P5ElementChild
+    p5.Element/center(), p5.Element/centerWithAlign():
+      - DOM/P5ElementCenter
+    p5.Element/html(), p5.Element/getHtml(), p5.Element/setHtml(), p5.Element/appendHtml():
+      - DOM/P5ElementHtml
+    p5.Element/position(), p5.Element/setPosition(), p5.Element/setPositionWithType():
+      - DOM/P5ElementPosition
+    p5.Element/style(), p5.Element/setStyle(), p5.Element/getStyle():
+      - DOM/P5ElementStyle0
+      - DOM/P5ElementStyle1
+      - DOM/P5ElementStyle2
+    p5.Element/attribute(), p5.Element/setAttribute(), p5.Element/getAttribute():
+      - DOM/P5ElementAttribute
+    p5.Element/removeAttribute():
+      - DOM/P5ElementRemoveAttribute
+    p5.Element/value(), p5.Element/getValue(), p5.Element/setValue():
+      - DOM/P5ElementValue
+    p5.Element/show():
+      - DOM/P5ElementShow
+    p5.Element/hide():
+      - DOM/P5ElementHide
+    p5.Element/size(), p5.Element/setSize(), p5.Element/setWidth():
+      - DOM/P5ElementSize
+    p5.Element/drop(), p5.Element/dropWithCalback():
+      - DOM/P5ElementDrop
+    select(), selectIn():
+      - DOM/Select
+    selectAll(), selectAllIn():
+      - DOM/SelectAll
+    removeElements():
+      - DOM/RemoveElements
+    changed(), p5.Element/changed(), p5.Element/clearChanged():
+      - DOM/Changed0
+      - DOM/Changed1
+    input(), p5.Element/input(), p5.Element/clearInput():
+      - DOM/Input
+    createDiv():
+      - DOM/CreateDiv
+    createP():
+      - DOM/CreateP
+    createImg(), createImgWithCors(), createImgWithCallback():
+      - DOM/CreateImg
+    createA(), createAWithTarget():
+      - DOM/CreateA
     createSlider(), createSliderWithOptions():
       - DOM/CreateSlider0
       - DOM/CreateSlider1
+    createButton(), createButtonWithValue():
+      - DOM/CreateButton
+    createCheckbox(), createCheckboxWithLabel(), createCheckboxWithLabelAndValue():
+      - DOM/CreateCheckbox
+    createSelect(), createMultipleSelect(), createSelectFromExisting():
+      - DOM/Changed0
+      - DOM/Select
+    createRadio(), createRadioWithName(), createRadioFromContainer(), createRadioFromContainerWithName():
+      - DOM/CreateRadio0
+      - DOM/CreateRadio1
+    createColorPicker(), createColorPickerWithValue():
+      - DOM/CreateColorPicker0
+      - DOM/CreateColorPicker1
+    createInput(), createInputWithValue(), createInputWithValueAndType():
+      - DOM/CreateInput
+    createFileInput(), createFileInputMultiple():
+      - DOM/CreateFileInput
+    createVideo(), createVideoFromArray(), createVideoWithCallback(), createVideoFromArrayWithCallback():
+      - DOM/CreateVideo
+    createAudio(), createAudioFromArray(), createAudioWithCallback(), createAudioFromArrayWithCallback():
+      - DOM/CreateAudio
+    createCapture(), createCaptureWithCallback():
+      - DOM/CreateCapture0
+    createElement(), createElementWithContent():
+      - DOM/CreateElement
+    p5.MediaElement/src:
+      - DOM/P5MediaElementSrc
+    p5.MediaElement/play():
+      - DOM/P5MediaElementPlay
+    p5.MediaElement/stop():
+      - DOM/P5MediaElementStop
+    p5.MediaElement/pause():
+      - DOM/P5MediaElementPause
+    p5.MediaElement/loop():
+      - DOM/P5MediaElementLoop
+    p5.MediaElement/noLoop():
+      - DOM/P5MediaElementNoLoop
+    p5.MediaElement/autoplay(), p5.MediaElement/setAutoplay():
+      - DOM/P5MediaElementAutoPlay0
+      - DOM/P5MediaElementAutoPlay1
+    p5.MediaElement/volume(), p5.MediaElement/setVolume(), p5.MediaElement/getVolume():
+      - DOM/P5MediaElementVolume0
+      - DOM/P5MediaElementVolume1
+    p5.MediaElement/speed(), p5.MediaElement/setSpeed(), p5.MediaElement/getSpeed():
+      - DOM/P5MediaElementSpeed
+    p5.MediaElement/time(), p5.MediaElement/getTime(), p5.MediaElement/setTime():
+      - DOM/P5MediaElementTime
+    p5.MediaElement/duration(), p5.MediaElement/getDuration():
+      - DOM/P5MediaElementDuration
+    p5.MediaElement/onended():
+      - DOM/P5MediaElementOnEnded
+    p5.MediaElement/showControls():
+      - DOM/P5MediaElementShowControls
+    p5.MediaElement/hideControls():
+      - DOM/P5MediaElementHideControls
+    p5.MediaElement/addCue():
+      - DOM/P5MediaElementAddCue
+    p5.MediaElement/removeCue():
+      - DOM/P5MediaElementRemoveCue
+    p5.MediaElement/clearCues():
+      - DOM/P5MediaElementClearCues
+    p5.File/file: ~
+    p5.File/type: ~
+    p5.File/subtype: ~
+    p5.File/name: ~
+    p5.File/size: ~
+    p5.File/data: ~
   Rendering:
     p5.Graphics/reset():
       - Rendering/P5GraphicsReset
@@ -755,7 +908,7 @@ reference:
       - Math/NoiseSeed
     randomSeed():
       - Math/RandomSeed
-    random(), randomBetween(), randomMax(), randomChoice():
+    random(), randomBetween(), randomInRange(), randomMax(), randomChoice():
       - Math/Random0
       - Math/Random1
       - Math/Random2

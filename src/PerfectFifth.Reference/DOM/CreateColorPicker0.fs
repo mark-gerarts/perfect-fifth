@@ -2,12 +2,16 @@ module P5Reference.DOM.CreateColorPicker0
 
 open P5.Core
 open P5.Color
+open P5.DOM
+open P5.Rendering
 open P5.Environment
-open P5.Shape
 
-let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+let setup p5 =
+    createCanvas p5 100 100
+    let colorPicker = createColorPickerWithValue p5 (Name "#ed225d")
+    colorPicker.setPosition 0 (height p5 + 5 |> float)
+    colorPicker
 
-let run node = display node draw
+let draw p5 (colorPicker: P5ColorPicker) = background p5 (colorPicker.getColor ())
+
+let run node = simulate node setup noUpdate draw

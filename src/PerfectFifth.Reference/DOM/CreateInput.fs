@@ -2,12 +2,16 @@ module P5Reference.DOM.CreateInput
 
 open P5.Core
 open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.DOM
+open P5.Rendering
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+    createCanvas p5 100 100
+    background p5 (Name "grey")
+    let inp = createInput p5
+    inp.setPosition 0 0
+    inp.setSize 100 10
+
+    inp.input (fun _ -> console.log ("You are typing " + (inp.getValue ())))
 
 let run node = display node draw

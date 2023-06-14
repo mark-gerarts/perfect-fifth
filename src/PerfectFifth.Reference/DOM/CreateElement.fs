@@ -1,13 +1,11 @@
 module P5Reference.DOM.CreateElement
 
 open P5.Core
-open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.DOM
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+    let h5 = createElementWithContent p5 "h5" "im an h5 p5.element!"
+    h5.setStyle "color" "#00a1d3"
+    h5.setPosition 0 0
 
 let run node = display node draw

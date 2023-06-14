@@ -1,13 +1,12 @@
 module P5Reference.DOM.P5ElementStyle0
 
 open P5.Core
-open P5.Color
-open P5.Environment
-open P5.Shape
+open P5.DOM
 
 let draw p5 =
-    strokeWeight p5 4
-    stroke p5 (Grayscale 51)
-    square p5 20 20 60
+    let myDiv = createDiv p5 "I like pandas."
+    myDiv.setStyle "font-size" "18px"
+    myDiv.setStyle "color" "#ff0000"
+    myDiv.setPosition 0 0
 
 let run node = display node draw

@@ -241,8 +241,7 @@ let runSketch name canvasSelector =
     | "DOM/P5ElementRemove" -> DOM.P5ElementRemove.run node
     | "DOM/P5ElementDrop" -> DOM.P5ElementDrop.run node
     | "DOM/Select" -> DOM.Select.run node
-    | "DOM/SelectAll0" -> DOM.SelectAll0.run node
-    | "DOM/SelectAll1" -> DOM.SelectAll1.run node
+    | "DOM/SelectAll" -> DOM.SelectAll.run node
     | "DOM/RemoveElements" -> DOM.RemoveElements.run node
     | "DOM/Changed0" -> DOM.Changed0.run node
     | "DOM/Changed1" -> DOM.Changed1.run node
@@ -256,8 +255,7 @@ let runSketch name canvasSelector =
     | "DOM/CreateSlider1" -> DOM.CreateSlider1.run node
     | "DOM/CreateButton" -> DOM.CreateButton.run node
     | "DOM/CreateCheckbox" -> DOM.CreateCheckbox.run node
-    | "DOM/CreateSelect0" -> DOM.CreateSelect0.run node
-    | "DOM/CreateSelect1" -> DOM.CreateSelect1.run node
+    | "DOM/CreateSelect" -> DOM.CreateSelect.run node
     | "DOM/CreateRadio0" -> DOM.CreateRadio0.run node
     | "DOM/CreateRadio1" -> DOM.CreateRadio1.run node
     | "DOM/CreateColorPicker0" -> DOM.CreateColorPicker0.run node
@@ -281,6 +279,7 @@ let runSketch name canvasSelector =
     | "DOM/P5MediaElementVolume0" -> DOM.P5MediaElementVolume0.run node
     | "DOM/P5MediaElementVolume1" -> DOM.P5MediaElementVolume1.run node
     | "DOM/P5MediaElementSpeed" -> DOM.P5MediaElementSpeed.run node
+    | "DOM/P5MediaElementTime" -> DOM.P5MediaElementTime.run node
     | "DOM/P5MediaElementDuration" -> DOM.P5MediaElementDuration.run node
     | "DOM/P5MediaElementOnEnded" -> DOM.P5MediaElementOnEnded.run node
     | "DOM/P5MediaElementShowControls" -> DOM.P5MediaElementShowControls.run node

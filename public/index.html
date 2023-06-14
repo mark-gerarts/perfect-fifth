@@ -10,6 +10,7 @@
 </head>
 
 <body>
+  <div id="myContainer"></div>
   <div class="canvas-wrapper"></div>
   <p id="message" style="display:none;">
     This shows a specific reference sketch based on the URL. Try for example <a
@@ -18,8 +19,6 @@
 
   <script src="bundle.js"></script>
   <script>
-    PerfectFifth.runExample('Simulate/Flocking');
-
     const onHashChange = () => {
       const hash = window.location.hash;
       const message = document.querySelector('#message');
