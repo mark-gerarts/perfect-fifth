@@ -16,11 +16,19 @@ technical limitation, but because of a lack of time/need. PRs are welcome!
 If you have not done so yet, set up a Fable project. More info can be found on
 the [Fable site](https://fable.io/docs/2-steps/your-first-fable-project.html).
 
-Add the NuGet package:
+Add the NuGet package (in `src/`):
 
 ```bash
 dotnet add package PerfectFifth --prerelease
 ```
+
+⚠️ The Fable starter template is not 7.0-ready yet. When starting from this template, 
+do the following as well: 
+
+- set `<TargetFramework>net7.0</TargetFramework>` in your `App.fsproj`
+- Target 7+ in `global.json` (e.g. `"version": "7.0.107"`).
+- Target 7+ in `.config/dotnet-tools.json` (e.g. `"version": "4.0.0-theta-007"`)
+- Run `dotnet tool restore` and `dotnet restore src`, applying any version mismatch warnings.
 
 Make sure p5js is installed as a dependency:
 
