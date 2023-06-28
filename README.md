@@ -26,8 +26,8 @@ dotnet add package PerfectFifth --prerelease
 do the following as well: 
 
 - set `<TargetFramework>net7.0</TargetFramework>` in your `App.fsproj`
-- Target 7+ in `global.json` (e.g. `"version": "7.0.107"`).
-- Target 7+ in `.config/dotnet-tools.json` (e.g. `"version": "4.0.0-theta-007"`)
+- Target 7+ in `global.json` (e.g. `"version": "7.0.108"`).
+- Target 7+ in `.config/dotnet-tools.json` (e.g. `"version": "4.0.0"`)
 - Run `dotnet tool restore` and `dotnet restore src`, applying any version mismatch warnings.
 
 Make sure p5js is installed as a dependency:
