@@ -11,6 +11,8 @@ under the [Data](https://p5js.org/reference/#group-Data) and
 [IO](https://p5js.org/reference/#group-IO) namespaces. This is not due to a
 technical limitation, but because of a lack of time/need. PRs are welcome!
 
+For a project using this library, see [Nature of Code in F#](https://github.com/mark-gerarts/nature-of-code-fsharp/). 
+
 ## Installation
 
 If you have not done so yet, set up a Fable project. More info can be found on
