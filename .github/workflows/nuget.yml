@@ -26,7 +26,7 @@ jobs:
           node-version: 18
       - name: Local nuget source
         run: |
-          mkdir -p result 
+          mkdir -p result
           dotnet nuget add source \
             --name local \
             "./$RESULT_DIR"
@@ -44,7 +44,7 @@ jobs:
       - name: Check that examples are building
         run: npm run build:prod
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: packages
           path: ${{ env.RESULT_DIR }}
@@ -53,8 +53,8 @@ jobs:
     needs: [ build_and_test ]
     environment: nuget
     steps:
-      - name: Download artifacts  
-        uses: actions/download-artifact@v3
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
         with:
           name: packages
           path: ${{ env.RESULT_DIR }}
@@ -73,8 +73,8 @@ jobs:
     environment: nuget
     if: github.base_ref == '' # this would be set only on pull_request builds
     steps:
-      - name: Download artifacts  
-        uses: actions/download-artifact@v3
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
         with:
           name: packages
           path: ${{ env.RESULT_DIR }}
@@ -83,8 +83,8 @@ jobs:
           dotnet nuget push "result/*.nupkg" \
             --source "nuget.org" \
             --skip-duplicate \
-            --api-key ${NUGET_TOKEN} 
+            --api-key ${NUGET_TOKEN}
         env:
           NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
-            
-        
+
+

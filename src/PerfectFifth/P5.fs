@@ -14,7 +14,7 @@ module Core =
 
     /// The methods on this class are for internal use only. You pass an
     /// instance to all functions, but never call a method on it.
-    [<ImportAll("p5")>]
+    [<ImportDefault("p5")>]
     type P5(sketch: Func<obj, Unit>, ?node: Browser.Types.Element) =
         interface IImage
 
