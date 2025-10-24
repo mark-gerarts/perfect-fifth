@@ -11,7 +11,7 @@ under the [Data](https://p5js.org/reference/#group-Data) and
 [IO](https://p5js.org/reference/#group-IO) namespaces. This is not due to a
 technical limitation, but because of a lack of time/need. PRs are welcome!
 
-For a project using this library, see [Nature of Code in F#](https://github.com/mark-gerarts/nature-of-code-fsharp/). 
+For a project using this library, see [Nature of Code in F#](https://github.com/mark-gerarts/nature-of-code-fsharp/).
 
 ## Installation
 
@@ -24,8 +24,8 @@ Add the NuGet package (in `src/`):
 dotnet add package PerfectFifth --prerelease
 ```
 
-⚠️ The Fable starter template is not 7.0-ready yet. When starting from this template, 
-do the following as well: 
+⚠️ The Fable starter template is not 7.0-ready yet. When starting from this template,
+do the following as well:
 
 - set `<TargetFramework>net7.0</TargetFramework>` in your `App.fsproj`
 - Target 7+ in `global.json` (e.g. `"version": "7.0.108"`).
@@ -416,11 +416,13 @@ A basic test suite exists that simply checks every reference check to see if an
 error is thrown. To use it, make sure the example site is running at port 8000:
 
 ```bash
-$ pushd gh-pages && python -m venv venv && . venv/bin/active && pip install -r requirements.txt && popd
+$ pushd gh-pages && python3 -m venv venv && . venv/bin/active && pip install -r requirements.txt && popd
+$ npm ci
+$ npx playwright install
 $ ./scripts/build-and-serve-site
 ```
 
-Then run:
+Then, in a different tab, run:
 
 ```bash
 $ npm run test:e2e

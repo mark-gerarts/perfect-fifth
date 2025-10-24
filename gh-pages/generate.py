@@ -2,7 +2,8 @@ import shutil as sh
 import os
 import yaml
 import re
-from distutils.dir_util import copy_tree
+import shutil
+
 
 # TODO: move this to FSX.
 # https://learn.microsoft.com/en-us/dotnet/fsharp/tools/fsharp-interactive/
@@ -20,7 +21,9 @@ os.mkdir(f"{basedir}/output/assets")
 sh.copyfile(f"{basedir}/index.html", f"{basedir}/output/index.html")
 sh.copyfile(f"{basedir}/examples.html", f"{basedir}/output/examples.html")
 sh.copyfile(f"{basedir}/reference.html", f"{basedir}/output/reference.html")
-copy_tree(f"{basedir}/../public/assets", f"{basedir}/output/assets")
+shutil.copytree(
+    f"{basedir}/../public/assets", f"{basedir}/output/assets", dirs_exist_ok=True
+)
 
 
 def example_to_filename(section, entry_name):
